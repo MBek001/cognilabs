@@ -1,8 +1,5 @@
-import type { NextConfig } from "next";
+const withNextintl = require('next-intl/plugin')
 
-const nextConfig: NextConfig = {
-  /* config options here */
-  reactCompiler: true,
-};
-
-export default nextConfig;
+module.exports = withNextintl({
+  
+})
