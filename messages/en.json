@@ -1,5 +1,9 @@
 {
-    "Home" : {
-        "title": "Hello Cognilabs"
+    "Navbar" : {
+        "home": "Home",
+        "careers": "Careers",
+        "services":  "Services",
+        "portfolio" : "Portfolio",
+        "contact" : "Contact Us"
     }
 }

@@ -1,5 +1,9 @@
 {
-    "Home" : {
-        "title": "salom Cognilabs"
-    }
+  "Navbar": {
+    "home": "Bosh sahifa",
+    "careers": "Karyera",
+    "services": "Xizmatlar",
+    "portfolio": "Portfolio",
+    "contact": "Bog'lanish"
+  }
 }

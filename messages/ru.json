@@ -1,5 +1,9 @@
 {
-    "Home" : {
-        "title": "privet Cognilabs"
-    }
+  "Navbar": {
+    "home": "Главная",
+    "careers": "Карьера",
+    "services": "Услуги",
+    "portfolio": "Портфолио",
+    "contact": "Связаться с нами"
+  }
 }
