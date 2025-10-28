@@ -15,5 +15,9 @@
         "happyclients": "Happy Clients",
         "hoursspent": "Hours Spent",
         "members":"Members"
+    },
+    "Projects" :{
+        "ourprojects": "Our Projects",
+        "text" : "Our projects deliver innovative digital solutions that empower businesses."
     }
 }
