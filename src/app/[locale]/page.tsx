@@ -1,5 +1,6 @@
 "use client"
 import { useLocale, useTranslations } from 'next-intl'
+import Header from '~/components/Header'
 
 export default function page() {
 
@@ -7,6 +8,7 @@ export default function page() {
   console.log(locale)
   return (
     <div>
+      <Header/>
     </div>
   )
 }

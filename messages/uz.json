@@ -5,5 +5,15 @@
     "services": "Xizmatlar",
     "portfolio": "Portfolio",
     "contact": "Bog'lanish"
-  }
+  },
+  "Header": {
+  "headword1": "Biz Raqamli",
+  "headword2": "Innovatsiyalar Yaratamiz!",
+  "slogan": "Biz ilg‘or fikrli insonlar bilan hamkorlikda ilg‘or dasturiy yechimlar ishlab chiqamiz.",
+  "contact": "Hozir bog‘lanish",
+  "successproject": "Muvaffaqiyatli loyihalar",
+  "happyclients": "Baxtli mijozlar",
+  "hoursspent": "Sarflangan soatlar",
+  "members": "A'zolar"
+}
 }

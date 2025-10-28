@@ -5,5 +5,15 @@
         "services":  "Services",
         "portfolio" : "Portfolio",
         "contact" : "Contact Us"
+    } ,
+    "Header" : {
+        "headword1": "We Build",
+        "headword2": "Digital Innovations!",
+        "slogan": "We collaborate with Visionary Minds to Engineer Cutting-Edge Software Solutions.",
+        "contact" : "Contact Now",
+        "successproject" : "Succesfull Projects",
+        "happyclients": "Happy Clients",
+        "hoursspent": "Hours Spent",
+        "members":"Members"
     }
 }
