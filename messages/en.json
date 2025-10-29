@@ -18,6 +18,11 @@
     },
     "Projects" :{
         "ourprojects": "Our Projects",
-        "text" : "Our projects deliver innovative digital solutions that empower businesses."
+        "text" : "Our projects deliver innovative digital solutions that empower businesses.",
+        "erixConsultingtext": "Client Interactions System With AI Integration.",
+        "friendSpacetext":"Social Media Where People can Connect, Call, Chat!",
+        "momentLogistics":"Multi-Language Website With Posting And AI Integration.",
+        "visitProject":"Visit Project",
+        "viewMore":"View More"
     }
 }
