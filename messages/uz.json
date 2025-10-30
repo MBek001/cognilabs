@@ -45,7 +45,12 @@
 }, "TrustCases": {
   "solutions": "Siz bizning kompaniyamizga ishonchli va innovatsion raqamli yechimlar uchun ishonishingiz mumkin",
   "text": "Biz AQSh va Toshkentdagi yetakchi kompaniyalar bilan muvaffaqiyatli hamkorlik qilganmiz, bu bizning tajribamiz va mukammallikka sodiqligimizni ko‘rsatadi."
+},
+  "ClientsOpinion": {
+  "maintext": "Mijozlarimizning Cognilabs xizmati haqidagi fikrlari",
+  "text": "Mijozlarimiz bizni yuqori sifatli, innovatsion yechimlar va haqiqiy biznes natijalarini olib keluvchi ajoyib xizmat uchun maqtashadi."
 }
+
 
 
 }
