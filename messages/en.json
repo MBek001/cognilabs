@@ -27,7 +27,7 @@
     },
     "Services": {
         "service" : "Services We Have",
-        "text":"We offer a range of services including website and mobile app development, AI integration, custom software, and digital solutions to boost business efficiency.",
+        "":"We offer a range of services including website and mobile app development, AI integration, custom software, and digital solutions to boost business efficiency.",
         "ai":"Ai Integration To The Software",
         "ai-text":"We integrate AI into software to automate processes and enhance decision-making.",
         "tg-bot":"Telegram Bot Development",
@@ -39,6 +39,7 @@
         "mobile-dev":"Mobile Application Development",
         "mobile-dev-text":"We create intuitive mobile apps that enhance user engagement and drive business growth.",
         "crm":"CRM, APO Systems Custom Software",
-        "crm-text":"We develop custom CRM and ERP systems tailored to optimize business processes and improve efficiency."
+        "crm-text":"We develop custom CRM and ERP systems tailored to optimize business processes and improve efficiency.",
+        "more-services": "More Services"
     }
 }

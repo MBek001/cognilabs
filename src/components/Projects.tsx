@@ -27,9 +27,9 @@ export default function Projects() {
   ];
 
   return (
-    <div >
+    <div className='bg-black'>
       {/* Title Section */}
-      <div className="flex mx-auto items-center mt-40 mb-20 gap-8 justify-center flex-col">
+      <div className="flex mx-auto items-center  pt-40 mb-20 gap-8 justify-center flex-col">
         <h2 className="text-7xl font-semibold">
           {(() => {
             const words = t("ourprojects").split(" ");
@@ -77,8 +77,9 @@ export default function Projects() {
                 <p className="text-2xl text-[#FFFFFFB2]">{project.text}</p>
                 <button className="flex hover:cursor-pointer text-2xl text-[#0066FF] items-center">
                   {t("visitProject")}{" "}
-                  <span className="flex items-center justify-center text-2xl mb-2 ml-2">
-                    →
+                  <span className="flex items-center justify-center text-2xl ml-2">
+                                  <Image src={'/arrow.png'} width={28} height={28} alt="arrow"/>
+                    
                   </span>
                 </button>
               </div>
@@ -95,7 +96,7 @@ export default function Projects() {
           </React.Fragment>
         ))}
       </div>
-      <button className='flex mx-auto items-center p-2 px-6 text-xl rounded-2xl bg-blue-800'>
+      <button className='flex mx-auto  items-center p-4 px-8 text-xl rounded-2xl bg-blue-800'>
         {t("viewMore")}
       </button>
     </div>

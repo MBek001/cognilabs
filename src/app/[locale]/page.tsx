@@ -2,7 +2,7 @@
 import { useLocale, useTranslations } from 'next-intl'
 import Header from '~/components/Header'
 import Projects from '~/components/Projects'
-import Services from '~/components/services'
+import Services from '~/components/Services'
 
 export default function page() {
 
