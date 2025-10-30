@@ -132,7 +132,7 @@ export default function Services() {
                 href="#"
                 className="text-blue-600 font-medium text-[16px] flex items-center gap-2 hover:underline"
               >
-                Use Service
+                {t("use-service")}
                 <span className="text-xl">→</span>
               </a>
             </motion.div>
@@ -149,7 +149,7 @@ export default function Services() {
         transition={{ duration: 1, delay: 0.5 }}
         viewport={{ once: true }}
       >
-        More Services
+        {t("more-services")}
         <span className="text-xl">→</span>
       </motion.a>
     </section>
