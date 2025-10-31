@@ -49,6 +49,7 @@
     },
     "ClientsOpinion" : {
         "maintext" : "What Our Clients Opinion About Cognilabs Service",
-        "text": "Our clients praise us for delivering high-quality, innovative  solutions and exceptional service that drives real business results."
+        "text": "Our clients praise us for delivering high-quality, innovative  solutions and exceptional service that drives real business results.",
+        "viewindetail":"View in detail"
     }
 }

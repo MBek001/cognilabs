@@ -63,7 +63,7 @@ export default function Projects() {
               {/* Image */}
               <div>
                 <Image
-                  className="rounded-4xl transition-all duration-300 group-hover:shadow-[0_0_60px_rgba(0,102,255,1)]"
+                  className="rounded-4xl transition-all duration-300 hover:shadow-[0_0_60px_rgba(0,102,255,1)]"
                   src={project.image}
                   width={399}
                   height={472}

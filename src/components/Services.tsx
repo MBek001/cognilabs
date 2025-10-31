@@ -98,26 +98,26 @@ export default function Services() {
           >
             {/* Grid dividers */}
             {(i + 1) % 3 !== 0 && (
-              <div className="hidden lg:block absolute right-0 top-0 h-full w-[2px] bg-gray-600"></div>
+              <div className="hidden lg:block absolute right-0 top-0 h-full w-0.5 bg-gray-600"></div>
             )}
             {i < 3 && (
-              <div className="hidden lg:block absolute bottom-0 left-0 w-full h-[2px] bg-gray-600"></div>
+              <div className="hidden lg:block absolute bottom-0 left-0 w-full h-0.5 bg-gray-600"></div>
             )}
             {(i + 1) % 2 !== 0 && i < services.length - 1 && (
-              <div className="hidden sm:block lg:hidden absolute right-0 top-0 h-full w-[2px] bg-gray-600"></div>
+              <div className="hidden sm:block lg:hidden absolute right-0 top-0 h-full w-0.5 bg-gray-600"></div>
             )}
             {i < services.length - 1 && (
-              <div className="sm:hidden absolute bottom-0 left-0 w-full h-[2px] bg-gray-600"></div>
+              <div className="sm:hidden absolute bottom-0 left-0 w-full h-0.5 bg-gray-600"></div>
             )}
             {i < 4 && (
-              <div className="hidden sm:block lg:hidden absolute bottom-0 left-0 w-full h-[2px] bg-gray-600"></div>
+              <div className="hidden sm:block lg:hidden absolute bottom-0 left-0 w-full h-0.5 bg-gray-600"></div>
             )}
 
             {/* Animated Card */}
             <motion.div
               whileHover={{ scale: 1.05, y: -5 }}
               transition={{ type: "spring", stiffness: 200, damping: 15 }}
-              className="bg-white text-black rounded-2xl p-8 m-4 flex flex-col justify-between hover:shadow-[0_0_25px_#2563eb] transition-all duration-300 h-[320px]"
+              className="bg-white text-black rounded-2xl p-8 m-4 flex flex-col justify-between hover:shadow-[0_0_25px_#2563eb] transition-all duration-300 h-80"
             >
               <div>
                 <img
