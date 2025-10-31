@@ -2,6 +2,7 @@
 import { useLocale, useTranslations } from 'next-intl'
 import ClientsOpinion from '~/components/ClientsOpinion'
 import Header from '~/components/Header'
+import Locations from '~/components/Locations'
 import Projects from '~/components/Projects'
 import Services from '~/components/Services'
 import TrustCases from '~/components/TrustCases'
@@ -17,6 +18,7 @@ export default function page() {
       <Services/>
       <TrustCases/>
       <ClientsOpinion/>
+      <Locations/>
     </div>
   )
 }
