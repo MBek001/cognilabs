@@ -53,7 +53,43 @@
 },
   "Locations": {
   "headword": "Ofislarimiz joylashuvi"
-  }
+  },
+  
+  "ContactForm": {
+    "title": "Xizmatlarimizga qiziqyapsizmi? Formani to‘ldiring va yechim toping!",
+    "call": "Yoki bizga qo‘ng‘iroq qiling: 513-384-8324",
+    "whatHappens": "Keyin nima bo‘ladi?",
+    "step1": "Qo‘ng‘iroq vaqtini belgilaymiz",
+    "step2": "Tahlil va maslahat uchrashuvini o‘tkazamiz",
+    "step3": "Taklif tayyorlaymiz",
+    "name": "Ism*",
+    "phone": "Telefon raqami*",
+    "email": "Email*",
+    "message": "Xabar (ixtiyoriy)",
+    "company": "Kompaniya*",
+    "budget": "Byudjetingizni kiriting*",
+    "checkbox": "Ushbu katakchani belgilash orqali siz Cognilabs xodimlaridan SMS va qo‘ng‘iroqlarni yuqorida ko‘rsatilgan raqam bo‘yicha olishga rozilik bildirasiz",
+    "button": "Yuborish"
+  },
+  "FAQ": {
+    "title": "Tez-tez so'raladigan savollar",
+  "quest1": "Biz kimmiz va kompaniyamizning maqsadi nima?",
+  "answer1": "Biz Cognilabs — bizneslar uchun zamonaviy raqamli yechimlar ishlab chiqadigan xalqaro IT kompaniyamiz. Maqsadimiz startaplar va yirik korxonalarga sifatli MVP yaratish, sun’iy intellekt integratsiyasi va avtomatlashtirish tizimlari orqali g‘oyalarni haqiqiy mahsulotga aylantirishda yordam berishdir. Biz texnologiyani soddalashtirish orqali o‘sishni ta’minlaymiz — mijozlarimizga aqlli dasturiy ta’minot, avtomatlashtirish va ma’lumotlarga asoslangan vositalar bilan samarali kengayishga yordam beramiz. Cognilabs’da biz ta’sirli innovatsiyalarga ishonamiz — amaliy, kengaytiriladigan va kelajak uchun yaratilgan mahsulotlar ishlab chiqamiz.",
+  
+  "quest2": "Qaysi ilova bizneslar orasida eng ko‘p qo‘llaniladi?",
+  "answer2": "Bugungi kunda bizneslar orasida eng ko‘p ishlatiladigan ilovalardan biri bu Slack — jamoalar o‘rtasida muloqot va hamkorlikni osonlashtiradigan platforma. U masofaviy va gibrid jamoalar uchun ayniqsa qulay bo‘lib, kundalik muloqot va loyihalarni boshqarishni soddalashtiradi. Ko‘plab kompaniyalar Slack bilan bir qatorda Google Workspace’dan ham samarali ishlash, hujjat almashish va uchrashuvlar o‘tkazish uchun foydalanadilar.",
+  
+  "quest3": "Ilovalar xavfsizligini qanday ta’minlaysiz?",
+  "answer3": "Biz ilovalar xavfsizligini ko‘p bosqichli himoya yondashuvi orqali ta’minlaymiz. Barcha ma’lumotlar uzatishda ham, saqlashda ham shifrlanadi va xavfsiz autentifikatsiya usullari — OAuth hamda JWT tokenlar qo‘llaniladi. Jamoamiz muntazam ravishda zaifliklarni tekshirish, kodni tahlil qilish va xavfsizlik sinovlarini o‘tkazadi. Bundan tashqari, biz OWASP kabi soha xavfsizlik standartlariga amal qilamiz, shuning uchun har bir dastur xavfsiz, barqaror va ishonchli bo‘ladi.",
+  
+  "quest4": "Texnologiya sanoat uchun haqiqatan ham zarurmi?",
+  "answer4": "Ha, texnologiya zamonaviy sanoat uchun juda muhim. U samaradorlikni, aniqlikni va kengaytirish imkonini oshiradi, kompaniyalarga kamroq resurs bilan ko‘proq mahsulot ishlab chiqarish imkonini beradi. Avtomatlashtirish, ma’lumotlar tahlili va raqamli aloqa vositalari orqali texnologiya bizneslarga yanada oqilona qarorlar qabul qilish va raqobatda ustun turish imkonini beradi. Texnologiyasiz aksariyat sanoatlar mijozlar ehtiyojini va bozor talabini qondira olmaydi.",
+  
+  "quest5": "Qaysi texnologiyalardan foydalanasiz?",
+  "answer5": "Biz ishonchli va kengaytiriladigan yechimlar yaratish uchun zamonaviy texnologiyalarning keng to‘plamidan foydalanamiz. Asosiy stack’imiz backend uchun Python (Django, FastAPI), frontend uchun Angular yoki React’dan iborat. Ma’lumotlar bazasida PostgreSQL, MySQL va MongoDB’dan foydalanamiz, deploy uchun esa Docker’dan foydalanamiz. Avtomatlashtirish va AI integratsiyasi uchun OpenAI API’lari, n8n va mashina o‘rganish framework’larini qo‘llaymiz. Bu kombinatsiya bizga har bir mijoz ehtiyojiga mos, tezkor, xavfsiz va aqlli tizimlar yaratish imkonini beradi."
+}
+
+
 
 
 

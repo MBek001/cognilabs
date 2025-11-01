@@ -10,15 +10,14 @@ export default function Navbar() {
   const router = useRouter();
 
   const changeLocale = (newLocale: string) => {
-    // Eski locale'ni pathdan olib tashlaymiz
     const segments = pathname.split("/");
-    segments[1] = newLocale; // 1-chi index — locale joyi
+    segments[1] = newLocale;
     const newPath = segments.join("/");
     router.push(newPath);
   };
 
   return (
-    <nav className="w-full font-poppins bg-gradient-to-r from-black via-black to-[#001a3a] py-6">
+    <nav className="fixed top-0 left-0 w-full z-50 font-poppins bg-gradient-to-r from-black via-black to-[#001a3a] py-6 shadow-lg backdrop-blur-sm">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6">
         {/* Left side - logo */}
         <div className="flex items-center space-x-16">

@@ -54,5 +54,37 @@
     },
     "Locations": {
         "headword": "Locations of our offices"
-    }
+    },
+    
+  "ContactForm": {
+    "title": "Interested In Our Services? Fill The Form And Find Solutions!",
+    "call": "Or Give us a call: 513-384-8324",
+    "whatHappens": "What Happens Next?",
+    "step1": "Schedule a call",
+    "step2": "We do a discovery and consultation meeting",
+    "step3": "We prepare a proposal",
+    "name": "Name*",
+    "phone": "Phone Number*",
+    "email": "Email*",
+    "message": "Message (Optional)",
+    "company": "Company*",
+    "budget": "Indicate Your Budget*",
+    "checkbox": "By checking this box, you agree to receive text messages (SMS) and calls from Cognilabs staff according to call scheduling at the phone number provided above",
+    "button": "Send It"
+  },
+  "FAQ": {
+    "title": "Frequently asked questions",
+    "quest1": "Who are we and what is our company purpose?",
+    "answer1": "We are Cognilabs, an international IT company that designs and develops modern digital solutions for businesses.Our purpose is to help startups and enterprises turn their ideas into working products by providing high-quality MVP development, AI integrations, and automation systems.We aim to simplify technology for growth, enabling clients to scale efficiently through intelligent software, automation, and data-driven tools.At Cognilabs, we believe in innovation with impact — creating products that are practical, scalable, and built for the future.",
+    "quest2": "Which app is mostly used among businesses?",
+    "answer2": "One of the most widely used apps among businesses today is Slack, a communication and collaboration platform that helps teams stay connected, share files, and integrate with other tools. It’s especially popular for remote and hybrid teams because it streamlines daily communication and project management. Many companies also use Google Workspace alongside Slack for productivity, document sharing, and meetings.",
+    "quest3": "How do you ensure app security?",
+    "answer3": "We ensure app security through a multi-layered protection approach. All data is encrypted both in transit and at rest, and we use secure authentication methods such as OAuth and JWT tokens. Our team conducts regular vulnerability scans, code reviews, and penetration tests to identify and fix potential risks early. Additionally, we follow industry security standards like OWASP guidelines to make sure every application we build is safe, stable, and trustworthy.",
+    "quest4" :"Does technology really necessary for a industry?",
+    "answer4": "Yes, technology is absolutely necessary for any modern industry. It increases efficiency, accuracy, and scalability, allowing companies to produce more in less time with fewer resources. Through automation, data analytics, and digital communication tools, technology helps businesses make smarter decisions and stay competitive. Without it, most industries would struggle to meet customer expectations and global market demands.",
+    "quest5" :"What technologies do you use?",
+    "answer5":  "We use a wide range of modern technologies to deliver reliable and scalable solutions. Our core stack includes Python (Django, FastAPI) for backend development and Angular or React for frontend interfaces. We use PostgreSQL, MySQL, and MongoDB for database management, and Docker for containerized deployment. For automation and AI integration, we rely on OpenAI APIs, n8n, and machine learning frameworks. This combination allows us to build fast, secure, and intelligent systems tailored to each client’s needs."
+  }
+ 
+
 }

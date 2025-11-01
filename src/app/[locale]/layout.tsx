@@ -5,6 +5,7 @@ import {Poppins} from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl';
 import { routing } from "~/i18n/routing";
 import Navbar from "~/components/Navbar";
+import { ToastContainer } from "react-toastify";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -39,6 +40,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider locale={locale}>
             <Navbar/>
                             {children}
+                            <ToastContainer/>
         </NextIntlClientProvider>
       </body>
     </html>

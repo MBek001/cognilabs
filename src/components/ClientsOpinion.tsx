@@ -63,7 +63,7 @@ export default function ClientsOpinion() {
   }
 
   return (
-    <div ref={sectionRef} className='mt-40'>
+    <div ref={sectionRef} className='container mx-auto mt-40'>
       {/* HEADER */}
       <motion.div
         initial={{ opacity: 0, y: 80 }}
@@ -97,19 +97,19 @@ export default function ClientsOpinion() {
           {getVisibleCards().map((client, idx) => (
             <div
               key={idx}
-              className='bg-[#1a1a1a] rounded-3xl w-[499px] h-[702px] flex flex-col shadow-xl hover:scale-[1.02] transition-transform duration-300'
+              className='bg-[#1a1a1a] rounded-3xl w-[350px] h-[500px] flex flex-col shadow-xl hover:scale-[1.02] transition-transform duration-300'
             >
-              <div className='p-8 pb-6'>
-                <div className='flex items-center gap-4 mb-6'>
+              <div className='p-6 pb-4'>
+                <div className='flex items-center gap-4 mb-4'>
                   <Image
-                    width={187}
+                    width={140}
                     height={187}
                     src={client.img}
                     alt={client.name}
                     className='rounded-full object-cover'
                   />
                   <div className='flex-1'>
-                    <h4 className='text-white font-medium text-lg mb-1'>{client.name}</h4>
+                    <h4 className='text-white font-medium text mb-1'>{client.name}</h4>
                     {client.position && (
                       <p className='text-gray-400 text-sm mb-3'>{client.position}</p>
                     )}
@@ -123,11 +123,11 @@ export default function ClientsOpinion() {
                 </div>
               </div>
 
-              <div className='bg-white rounded-b-3xl p-8 pb-16 flex-1 flex flex-col'>
-                <p className='text-gray-800 text-xl leading-relaxed mb-6 flex-1'>
+              <div className='bg-white rounded-b-3xl p-5 pb-14 flex-1 flex flex-col'>
+                <p className='text-gray-800 text-sm  leading-relaxed mb-12 flex-1'>
                   {client.comment}
                 </p>
-                <button className='text-blue-500 font-medium text-left hover:underline'>
+                <button className='text-blue-500  font-medium text-left hover:underline'>
                   {t("viewindetail")}
                 </button>
               </div>
@@ -141,13 +141,13 @@ export default function ClientsOpinion() {
             onClick={prevSlide}
             className='w-18 h-18 rounded-full bg-white flex items-center justify-center hover:bg-gray-100 transition-colors'
           >
-            <ChevronLeft className='w-12 h-12 text-blue-500' />
+            <ChevronLeft className='w-6 h-6 text-blue-500' />
           </button>
           <button
             onClick={nextSlide}
             className='w-18 h-18 rounded-full bg-white flex items-center justify-center hover:bg-gray-100 transition-colors'
           >
-            <ChevronRight className='w-12 h-12 text-blue-500' />
+            <ChevronRight className='w-6 h-6 text-blue-500' />
           </button>
         </div>
       </motion.div>

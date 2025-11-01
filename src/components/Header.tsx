@@ -6,7 +6,7 @@ export default function Header() {
   const t = useTranslations("Header");
 
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen text-center overflow-hidden bg-[#0b0b0d]">
+    <div className="relative flex flex-col items-center justify-center pt-24 min-h-screen text-center overflow-hidden bg-black">
       {/* === Animated glowing lights === */}
       <motion.div
         className="absolute left-[-150px] bottom-[100px] w-[500px] h-[500px] bg-white rounded-full blur-[200px] opacity-70"
