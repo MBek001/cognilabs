@@ -95,7 +95,7 @@ export default function Header() {
 
         {/* Chiziq */}
         <motion.div
-          className="h-[1px] bg-white mx-2"
+          className="h-px bg-white mx-2"
           initial={{ width: 0 }}
           animate={{ width: "1300px" }}
           transition={{ duration: 2, ease: "easeInOut", delay: 0.5 }}

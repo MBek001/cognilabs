@@ -29,8 +29,8 @@ export default function Faq() {
         <Image
           className="mt-4"
           src="/nextbottom.png"
-          width={126}
-          height={100}
+          width={80}
+          height={70}
           alt="bottom next"
         />
       </div>
