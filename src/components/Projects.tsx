@@ -56,7 +56,7 @@ export default function Projects() {
         {projects.map((project, index) => (
           <React.Fragment key={index}>
             <div
-              className={`flex items-center px-28 gap-10 py-12 rounded-4xl group hover:bg-[#2E2F30] transition-all duration-300 ${
+              className={`flex cursor-pointer items-center px-28 gap-10 py-12 rounded-4xl group hover:bg-[#2E2F30] transition-all duration-300 ${
                 project.reverse ? "flex-row-reverse" : ""
               }`}
             >

@@ -22,7 +22,7 @@ export default function Header() {
       {/* === Text content === */}
       <div className="z-10 mt-14 px-4">
         <motion.h1
-          className="text-4xl sm:text-8xl font-semibold text-white mb-6"
+          className="text-4xl sm:text-7xl mt-20 font-bold text-white mb-6"
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
@@ -46,7 +46,7 @@ export default function Header() {
         </motion.h1>
 
         <motion.div
-          className="text-gray-300 text-2xl max-w-2xl mx-auto mb-10"
+          className="text-gray-300 text-2xl max-w-[550px] mx-auto mb-10"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1 }}
@@ -55,7 +55,7 @@ export default function Header() {
         </motion.div>
 
         <motion.button
-          className="bg-blue-600 mt-12 hover:bg-blue-700 text-white font-medium py-4 px-9 rounded-full transition shadow-lg hover:shadow-blue-500/50"
+          className="bg-blue-700 mt-12 hover:bg-blue-700 font-bold text-2xl text-white  py-4 px-9 rounded-full transition shadow-lg hover:shadow-blue-500/50"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.97 }}
           initial={{ opacity: 0, scale: 0.9 }}
@@ -87,11 +87,11 @@ export default function Header() {
         transition={{ delay: 2.2, duration: 0.8 }}
       >
         {/* Chap nuqta */}
-        <motion.div
+        {/* <motion.div
           className="w-2 h-2 bg-white rounded-full translate-y-[0.5px]"
           animate={{ scale: [1, 1.4, 1] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        />
+        /> */}
 
         {/* Chiziq */}
         <motion.div
@@ -102,11 +102,11 @@ export default function Header() {
         />
 
         {/* O'ng nuqta */}
-        <motion.div
+        {/* <motion.div
           className="w-2 h-2 bg-white rounded-full translate-y-[0.5px]"
           animate={{ scale: [1, 1.4, 1] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        />
+        /> */}
       </motion.div>
     </div>
   );
