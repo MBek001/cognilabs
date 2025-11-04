@@ -127,30 +127,31 @@
   },
 
 
-  "Footer": {
-    "services": {
-      "title": "Xizmatlar",
-      "items": [
-        "Sun'iy intellektni dasturga integratsiya qilish",
-        "Telegram bot yaratish",
-        "Veb-sayt yaratish",
-        "Veb-ilova yaratish",
-        "Mobil ilova yaratish",
-        "CRM, APO tizimlari maxsus dasturiy ta'minot",
-        "Chat-botlar, har qanday platforma uchun botlar"
-      ]
-    },
-    "expertise": {
-      "title": "Tajriba",
-      "items": [
-        "Tizimlarni integratsiya qilish va modernizatsiya",
-        "ERP/CRM joriy etish",
-        "IT qo'llab-quvvatlash va texnik xizmat",
-        "Veb-dizayn va ishlab chiqish",
-        "API dizayni va integratsiya"
-      ]
-    }
+ "Footer": {
+  "services": {
+    "title": "Xizmatlar",
+    "item1": "AI (sun’iy intellekt) ni dasturga integratsiya qilish",
+    "item2": "Telegram botlarni ishlab chiqish",
+    "item3": "Veb-sayt yaratish",
+    "item4": "Veb-ilovalar ishlab chiqish",
+    "item5": "Mobil ilovalar ishlab chiqish",
+    "item6": "CRM va APO tizimlariga mo‘ljallangan maxsus dasturlar",
+    "item7": "Chat-botlar — istalgan platforma uchun"
+  },
+  "expertise": {
+    "title": "Mutaxassisliklar",
+    "item1": "Tizim integratsiyasi va modernizatsiya",
+    "item2": "ERP/CRM tizimlarini joriy etish",
+    "item3": "IT texnik xizmat va qo‘llab-quvvatlash",
+    "item4": "Veb-dizayn va rivojlantirish",
+    "item5": "API dizayni va integratsiya"
+  },
+  "contacts": {
+    "title": "Aloqa",
+     "offices": "Ofislar"
   }
+}
+
 
 
 

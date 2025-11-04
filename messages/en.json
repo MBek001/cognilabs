@@ -123,29 +123,30 @@
   "text-5_3": "The impact of 5G extends far beyond faster internet on smartphones.\nHealthcare: Remote surgeries and telemedicine become more reliable due to high-speed, low-latency connections.\nAutomotive: Self-driving cars can communicate with each other and traffic systems instantly to avoid collisions.\nManufacturing: Factories can deploy IoT sensors and robotic systems for predictive maintenance and process optimization.\nEntertainment: 5G enables seamless 8K video streaming, cloud gaming, and immersive AR/VR experiences."
   } ,
   "Footer": {
-    "services": {
-        "title": "Services",
-        "items": [
-            "AI Integration To The Software",
-        "Telegram Bot Development",
-        "Website Development",
-        "Web Application Development",
-        "Mobile App Development",
-        "CRM, APO Systems Custom Software", 
-        "Chat-bots, Bots for any platform"
-        ]
-    } 
+  "services": {
+    "title": "Services",
+    "item1": "AI Integration To The Software",
+    "item2": "Telegram Bot Development",
+    "item3": "Website Development",
+    "item4": "Web Application Development",
+    "item5": "Mobile App Development",
+    "item6": "CRM, APO Systems Custom Software",
+    "item7": "Chat-bots, Bots for any platform"
   },
   "expertise": {
-      "title": "Expertise",
-      "items": [
-        "System integration and modernization",
-        "ERP/CRM implementation",
-        "IT support and maintenance",
-        "Web design and development",
-        "API design and integration"
-      ]
-    }
+    "title": "Expertise",
+    "item1": "System integration and modernization",
+    "item2": "ERP/CRM implementation",
+    "item3": "IT support and maintenance",
+    "item4": "Web design and development",
+    "item5": "API design and integration"
+  },
+  "contacts": {
+    "title": "Contacts",
+    "offices":"Offices"
+  }
+}
+
  
 
 }

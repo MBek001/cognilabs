@@ -1,10 +1,16 @@
 import { useTranslations } from 'next-intl'
 import React from 'react'
-import { Phone, Globe, MapPin, Facebook, Send, Instagram } from 'lucide-react'
+import { Phone, Globe, MapPin, Facebook, Send, Instagram, Mail } from 'lucide-react'
 import Image from 'next/image';
 
 export default function Footer() {
   const t = useTranslations("Footer");
+
+  const servicesTitle = t("services.title");
+  // const servicesItems = t("services.items");
+
+  const expertiseTitle = t("expertise.title")
+  // const expertiseItems = t("expertise.items")
 
   return (
     <footer className='bg-[#001533] text-white py-16 mt-20'>
@@ -12,51 +18,51 @@ export default function Footer() {
         <div className='grid grid-cols-1 md:grid-cols-3 gap-12 mb-16'>
           {/* Services Section */}
           <div>
-            <h4 className='text-xl font-semibold mb-6'>Services</h4>
-            <ul className='space-y-6  text-gray-400'>
-              <li>AI Integration To The Software</li>
-              <li>Telegram Bot Development</li>
-              <li>Website Development</li>
-              <li>Web Application Development</li>
-              <li>Mobile App Development</li>
-              <li>CRM, APO Systems Custom Software</li>
-              <li>Chat-bots, Bots for any platform</li>
+            <h4 className='text-xl font-semibold mb-6'>{servicesTitle}</h4>
+            <ul className='space-y-6  text-gray-200'>
+              <li>{t("services.item1")}</li>
+              <li>{t("services.item2")}</li>
+              <li>{t("services.item3")}</li>
+              <li>{t("services.item4")}</li>
+              <li>{t("services.item5")}</li>
+              <li>{t("services.item6")}</li>
+              <li>{t("services.item7")}</li>
             </ul>
           </div>
 
           {/* Expertise Section */}
           <div>
-            <h4 className='text-xl font-semibold mb-6'>Expertise</h4>
-            <ul className='space-y-6 text-gray-400'>
-              <li>System integration and modernization</li>
-              <li>ERP/CRM implementation</li>
-              <li>IT support and maintenance</li>
-              <li>Web design and development</li>
-              <li>API design and integration</li>
+            <h4 className='text-xl font-semibold mb-6'>{expertiseTitle}</h4>
+            <ul className='space-y-6 text-gray-200'>
+              <li>{t("expertise.item1")}</li>
+              <li>{t("expertise.item2")}</li>
+              <li>{t("expertise.item3")}</li>
+              <li>{t("expertise.item4")}</li>
+              <li>{t("expertise.item5")}</li>
             </ul>
           </div>
 
           {/* Contacts Section */}
           <div>
-            <h4 className='text-xl font-semibold mb-6'>Contacts</h4>
-            <div className='space-y-4 text-gray-400 mb-8'>
+            <h4 className='text-xl font-semibold mb-6'>{t("contacts.title")}</h4>
+            <div className='space-y-4 text-gray-200 mb-8'>
               <div className='flex items-center gap-3'>
-                <Phone size={18} />
+                <Phone className='fill-white' size={18} />
                 <span>513-808-88-13</span>
               </div>
               <div className='flex items-center gap-3'>
-                <MapPin size={18} />
+                <Mail className='' size={18} />
                 <span>USA / Uzbekistan</span>
               </div>
               <div className='flex items-center gap-3'>
-                <Globe size={18} />
+                <Globe className='fill' size={18} />
                 <span>www.cognilabs.or</span>
               </div>
             </div>
 
-            <h4 className='text-xl font-semibold mb-4'>Offices</h4>
-            <div className='flex items-center gap-3 text-gray-300 mb-8'>
-              <MapPin size={18} />
+            <h4 className='text-xl font-semibold mb-4'>{t("contacts.offices")}</h4>
+            <div className='flex items-center gap-3 text-gray-200 mb-8'>
+              <MapPin  size={18} />
               <span>USA / Uzbekistan</span>
             </div>
 
