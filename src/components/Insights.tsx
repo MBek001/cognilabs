@@ -1,6 +1,7 @@
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import Link from 'next/link'
 
 export default function Insights() {
     const t = useTranslations("Insights")
@@ -9,35 +10,42 @@ export default function Insights() {
     const topics = [
         { 
             id: 1, 
+            link: 'ai-revolution',
             title: "AI Revolution in Business Apps",
             date: "06.09.25", 
             text: "Artificial Intelligence is transforming how businesses operate through automation and data-driven insights..."
         },
         { 
             id: 2, 
+            link: "rise-nocode",
             title: "Rise of No-Code Platforms",
             date: "06.09.25", 
             text: "No-code and low-code platforms are enabling non-developers to build apps without programming. This trend is speeding..."
         },
         {
             id: 3, 
+            link: "cybersecurity-gets-smarter",
             title: "Cybersecurity Gets Smarter",
             date: "06.09.25", 
             text: "Advanced AI-driven security systems are helping detect and block threats in real time. Businesses are investing..."
         },
         {
             id: 4, 
+            link:"era-of-quantum",
             title: "The Era of Quantum Computing",
             date: "06.09.25", 
             text: "Quantum computing is emerging as one of the most revolutionary technologies of the 21st century.s..."
         },
         {
             id: 5, 
+            link: "power-of-5g",
             title: "The Power of 5G Connectivity",
             date: "06.09.25", 
             text: "5G technology marks a significant leap forward in mobile and wireless communication. Compared to previous generations, 5G offers..."
         }
     ]
+
+    const locale = useLocale()
 
     const nextSlide = () => {
         setCurrentIndex((prev) => (prev + 1) % topics.length)
@@ -83,6 +91,7 @@ export default function Insights() {
                 {/* Cards Container */}
                 <div className="flex gap-14 px-16">
                     {getVisibleCards().map((topic, index) => (
+                        <Link href={`/${locale}/insights/${topic.link}`} key={index}>
                         <div
                             key={`${topic.id}-${index}`}
                             className="flex-1 bg-[#2A2A2A] cursor-pointer group hover:bg-[#19417c] rounded-3xl overflow-hidden transition-all duration-500 ease-in-out hover:scale-105 flex flex-col"
@@ -113,6 +122,7 @@ export default function Insights() {
                                 </button>
                             </div>
                         </div>
+                        </Link>
                     ))}
                 </div>
             </div>

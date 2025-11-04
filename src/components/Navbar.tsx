@@ -1,6 +1,7 @@
 "use client";
 import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
 export default function Navbar() {
@@ -17,17 +18,18 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 font-poppins bg-gradient-to-r from-black via-black to-[#001a3a] py-6 shadow-lg backdrop-blur-sm">
+    <nav className="fixed top-0 left-0 w-full z-50 font-poppins bg-linear-to-r from-black via-black to-[#001a3a] py-6 shadow-lg backdrop-blur-sm">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6">
         {/* Left side - logo */}
         <div className="flex items-center space-x-16">
+          <Link href={'/'}>
           <Image
             src="/logomini.png"
             alt="Cognilabs"
             width={130}
             height={40}
             className="cursor-pointer"
-          />
+          /></Link>
 
           {/* Nav links */}
           <ul className="flex items-center space-x-16 text-white text-lg font-medium">
@@ -81,7 +83,7 @@ export default function Navbar() {
               alt="telegram"
               width={35}
               height={35}
-              className="bg-[#0066FF] p-1 rounded-full cursor-pointer"
+              className="bg-[#0066FF] p-2 rounded-full cursor-pointer"
             />
             <Image
               src="/ig.png"

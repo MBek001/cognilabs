@@ -18,7 +18,7 @@ export default function page() {
   return (
     <div>
       <Header/>
-      <Projects/>
+      {/* <Projects/>
       <Services/>
       <TrustCases/>
       <ClientsOpinion/>
@@ -26,7 +26,7 @@ export default function page() {
       <RequestForm/>
       <Faq/>
       <Insights/> 
-      <Footer/>
+      <Footer/> */}
     </div>
   )
 }
