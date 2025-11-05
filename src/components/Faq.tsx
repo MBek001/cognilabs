@@ -35,11 +35,11 @@ export default function Faq() {
         />
       </div>
 
-      <div className="flex flex-col gap-4 max-w-4xl mx-auto">
+      <div className="flex flex-col gap-4 max-w-3xl md:max-w-4xl mx-auto">
         {faqs.map((item, index) => (
           <div
             key={index}
-            className="bg-[#1E1E1E] rounded-xl px-6 py-4 cursor-pointer transition-all duration-300 hover:bg-[#2A2A2A]"
+            className="bg-[#1E1E1E] rounded-xl px-4 md:px-6 py-4 cursor-pointer transition-all duration-300 hover:bg-[#2A2A2A]"
             onClick={() => toggle(index)}
           >
             <div className="flex justify-between items-center">

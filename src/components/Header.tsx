@@ -9,20 +9,20 @@ export default function Header() {
     <div className="relative flex flex-col items-center justify-center pt-24 min-h-screen text-center overflow-hidden bg-black">
       {/* === Animated glowing lights === */}
       <motion.div
-        className="absolute left-[-150px] bottom-[100px] w-[500px] h-[500px] bg-white rounded-full blur-[200px] opacity-70"
+        className="absolute left-[-150px] bottom-[100px] w-[400px] h-[400px] sm:w-[500px] sm:h-[500px] bg-white rounded-full blur-[150px] sm:blur-[200px] opacity-70"
         animate={{ opacity: [0.4, 0.8, 0.4] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute right-[-150px] top-[50px] w-[550px] h-[550px] bg-blue-600 rounded-full blur-[200px] opacity-80"
+        className="absolute right-[-120px] top-20 w-[400px] h-[400px] sm:w-[550px] sm:h-[550px] bg-blue-600 rounded-full blur-[150px] sm:blur-[200px] opacity-80"
         animate={{ opacity: [0.4, 0.9, 0.4] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
       />
 
       {/* === Text content === */}
-      <div className="z-10 mt-14 px-4">
+      <div className="z-10 mt-14 px-4 sm:px-6">
         <motion.h1
-          className="text-4xl sm:text-7xl mt-20 font-bold text-white mb-6"
+          className="text-4xl sm:text-7xl mt-10 sm:mt-20 font-bold text-white mb-6 leading-tight"
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
@@ -36,7 +36,7 @@ export default function Header() {
           </motion.div>
 
           <motion.div
-            className="text-blue-500 mt-2"
+            className="text-blue-500 mt-1 sm:mt-2"
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
@@ -46,7 +46,7 @@ export default function Header() {
         </motion.h1>
 
         <motion.div
-          className="text-gray-300 text-2xl max-w-[550px] mx-auto mb-10"
+          className="text-gray-300 text-lg sm:text-2xl max-w-[320px] sm:max-w-[550px] mx-auto mb-8 sm:mb-10"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1 }}
@@ -55,7 +55,7 @@ export default function Header() {
         </motion.div>
 
         <motion.button
-          className="bg-blue-700 mt-12 hover:bg-blue-700 font-bold text-2xl text-white  py-4 px-9 rounded-full transition shadow-lg hover:shadow-blue-500/50"
+          className="bg-blue-700 mt-6 sm:mt-12 hover:bg-blue-700 font-bold text-lg sm:text-2xl text-white py-3 sm:py-4 px-7 sm:px-9 rounded-full transition shadow-lg hover:shadow-blue-500/50"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.97 }}
           initial={{ opacity: 0, scale: 0.9 }}
@@ -68,7 +68,7 @@ export default function Header() {
 
       {/* === Stats Section === */}
       <motion.div
-        className="z-10 flex flex-wrap justify-center gap-40 mt-32 text-white"
+        className="z-10 grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-10 sm:gap-40 mt-20 sm:mt-32 text-white"
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, delay: 1.6 }}
@@ -79,34 +79,19 @@ export default function Header() {
         <Stat number="14+" label={t("members")} />
       </motion.div>
 
-      {/* === Animated Line with Smaller Dots === */}
+      {/* === Animated Line === */}
       <motion.div
-        className="relative flex items-center justify-center mt-28"
+        className="relative hidden sm:flex items-center justify-center mt-28"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2.2, duration: 0.8 }}
       >
-        {/* Chap nuqta */}
-        {/* <motion.div
-          className="w-2 h-2 bg-white rounded-full translate-y-[0.5px]"
-          animate={{ scale: [1, 1.4, 1] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        /> */}
-
-        {/* Chiziq */}
         <motion.div
           className="h-px bg-white mx-2"
           initial={{ width: 0 }}
           animate={{ width: "1300px" }}
           transition={{ duration: 2, ease: "easeInOut", delay: 0.5 }}
         />
-
-        {/* O'ng nuqta */}
-        {/* <motion.div
-          className="w-2 h-2 bg-white rounded-full translate-y-[0.5px]"
-          animate={{ scale: [1, 1.4, 1] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        /> */}
       </motion.div>
     </div>
   );
@@ -116,12 +101,14 @@ export default function Header() {
 function Stat({ number, label }: { number: string; label: string }) {
   return (
     <motion.div
-      className="text-center"
+      className="text-center w-[130px] sm:w-auto"
       whileHover={{ scale: 1.1 }}
       transition={{ type: "spring", stiffness: 300 }}
     >
-      <p className="text-6xl font-bold">{number}</p>
-      <p className="text-[#FFFFFFB2] text-3xl mt-2">{label}</p>
+      <p className="text-4xl sm:text-6xl font-bold">{number}</p>
+      <p className="text-[#FFFFFFB2] text-lg sm:text-3xl mt-1 sm:mt-2 leading-snug">
+        {label}
+      </p>
     </motion.div>
   );
 }

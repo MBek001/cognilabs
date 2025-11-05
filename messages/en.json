@@ -45,7 +45,8 @@
     },
     "TrustCases": {
         "solutions": "You Can Trust Our Company For Reliable And Innovative Digital Solutions",
-        "text" : "We have successfully worked with top companies in both the US and Tashkent, showcasing our expertise and commitment to excellence."
+        "text" : "We have successfully worked with top companies in both the US and Tashkent, showcasing our expertise and commitment to excellence.",
+        "viewMore":"View More"
     },
     "ClientsOpinion" : {
         "maintext" : "What Our Clients Opinion About Cognilabs Service",
