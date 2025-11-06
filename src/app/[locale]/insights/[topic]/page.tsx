@@ -20,11 +20,11 @@ export default function Page() {
   const text3 = t(`${topic}.text3`);
 
   return (
-    <div>
+    <div >
 
-      <div className="mt-30 container mx-auto px-4">
+      <div className="pt-30  px-4 bg-black">
       {/* Sarlavha */}
-      <h2 className="text-4xl  max-w-[1160px] font-bold p-6 bg-[#2A2A2A] py-10 rounded-3xl mx-auto">
+      <h2 className="text-4xl  max-w-[1160px] text-white font-bold p-6 bg-[#2A2A2A] py-10 rounded-3xl mx-auto">
         {topic1}
       </h2>
 

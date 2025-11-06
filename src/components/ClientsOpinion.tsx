@@ -60,15 +60,15 @@ export default function ClientsOpinion() {
   };
 
   return (
-    <div ref={sectionRef} className="bg-black py-40">
+    <div ref={sectionRef} className="bg-black py-20 md:py-40">
       {/* Title Section */}
       <motion.div
         initial={{ opacity: 0, y: 80 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="flex flex-col gap-7 mb-20 justify-center items-center"
+        className="flex flex-col gap-7 mb-20 justify-center items-center px-4"
       >
-        <h3 className="text-7xl font-semibold text-center text-white max-w-[1000px]">
+        <h3 className="text-3xl md:text-4xl font-semibold text-center text-white md:max-w-[700px]">
           {t("maintext").split(" ").map((word, index) => {
             if (index === 2 || index === 3) {
               return (
@@ -80,17 +80,17 @@ export default function ClientsOpinion() {
             return <span key={index}>{word} </span>;
           })}
         </h3>
-        <p className="text-2xl max-w-[700px] text-[#FFFFFFB2] text-center">
+        <p className="text-lg md:text-xl max-w-[700px] text-[#FFFFFFB2] text-center">
           {t("text")}
         </p>
       </motion.div>
 
-      {/* Cards Section */}
+      {/* Cards Section - Desktop (3 cards) */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={isInView ? { opacity: 1, scale: 1 } : {}}
         transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
-        className="flex flex-wrap gap-10 justify-center items-stretch px-8 mb-16"
+        className="hidden md:flex flex-wrap gap-10 justify-center items-stretch px-8 mb-16"
       >
         {getVisibleCards().map((client, idx) => (
           <div
@@ -142,23 +142,75 @@ export default function ClientsOpinion() {
         ))}
       </motion.div>
 
+      {/* Cards Section - Mobile (1 card) */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={isInView ? { opacity: 1, scale: 1 } : {}}
+        transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
+        className="flex md:hidden justify-center items-stretch px-4 mb-12"
+      >
+        <div className="bg-[#1a1a1a] rounded-3xl w-full max-w-[350px] min-h-[500px] flex flex-col shadow-xl">
+          <div className="p-6 pb-4">
+            <div className="flex items-center gap-4 mb-4">
+              <Image
+                width={120}
+                height={120}
+                src={clientOpinions[currentIndex].img}
+                alt={clientOpinions[currentIndex].name}
+                className="rounded-full object-cover"
+              />
+              <div className="flex-1">
+                <h4 className="text-white font-medium text mb-1">
+                  {clientOpinions[currentIndex].name}
+                </h4>
+                {clientOpinions[currentIndex].position && (
+                  <p className="text-gray-400 text-sm mb-2">
+                    {clientOpinions[currentIndex].position}
+                  </p>
+                )}
+                <div className="flex gap-1">
+                  <span className="text-white font-medium mr-2">
+                    {clientOpinions[currentIndex].stars}.0
+                  </span>
+                  {[...Array(clientOpinions[currentIndex].stars)].map(
+                    (_, i) => (
+                      <Star
+                        key={i}
+                        className="w-5 h-5 fill-yellow-400 text-yellow-400"
+                      />
+                    )
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-b-3xl p-5 flex-1 flex flex-col">
+            <p className="text-gray-800 text-sm leading-relaxed mb-8 flex-1">
+              {clientOpinions[currentIndex].comment}
+            </p>
+            <button className="text-blue-500 font-medium text-left hover:underline">
+              {t("viewindetail")}
+            </button>
+          </div>
+        </div>
+      </motion.div>
+
       {/* Navigation Buttons */}
       <div className="flex justify-center gap-4">
         <button
           onClick={prevSlide}
-          className="w-16 h-16 rounded-full bg-white flex items-center justify-center hover:bg-gray-100 transition-colors"
+          className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-white flex items-center justify-center hover:bg-gray-100 transition-colors"
         >
-          <ChevronLeft className="w-6 h-6 text-blue-500" />
+          <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-blue-500" />
         </button>
         <button
           onClick={nextSlide}
-          className="w-16 h-16 rounded-full bg-white flex items-center justify-center hover:bg-gray-100 transition-colors"
+          className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-white flex items-center justify-center hover:bg-gray-100 transition-colors"
         >
-          <ChevronRight className="w-6 h-6 text-blue-500" />
+          <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-blue-500" />
         </button>
       </div>
-
-   
     </div>
   );
 }

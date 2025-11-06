@@ -5,6 +5,15 @@ import { motion } from "framer-motion";
 export default function Header() {
   const t = useTranslations("Header");
 
+  const handleScroll = (id:any) => {
+    const section = document.getElementById(id);
+    // console.log(id);
+    
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="relative flex flex-col items-center justify-center pt-24 min-h-screen text-center overflow-hidden bg-black">
       {/* === Animated glowing lights === */}
@@ -55,7 +64,8 @@ export default function Header() {
         </motion.div>
 
         <motion.button
-          className="bg-blue-700 mt-6 sm:mt-12 hover:bg-blue-700 font-bold text-lg sm:text-2xl text-white py-3 sm:py-4 px-7 sm:px-9 rounded-full transition shadow-lg hover:shadow-blue-500/50"
+        onClick={() => handleScroll('contact')}
+          className="bg-blue-700 mt-6 sm:mt-12 cursor-pointer hover:bg-blue-700 font-bold text-lg sm:text-2xl text-white py-3 sm:py-4 px-7 sm:px-9 rounded-full transition shadow-lg hover:shadow-blue-500/50"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.97 }}
           initial={{ opacity: 0, scale: 0.9 }}

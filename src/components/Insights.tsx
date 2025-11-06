@@ -67,9 +67,9 @@ export default function Insights() {
   };
 
   return (
-    <div className="py-16 px-4">
+    <div className="py-16 px-4 bg-black">
       {/* Title */}
-      <h2 className="text-3xl sm:text-4xl md:text-5xl text-[#0066FF] font-bold text-center mb-12 sm:mb-16">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl text-[#0066FF] font-bold text-center b-12 sm:mb-16">
         {t("title")}
       </h2>
 
@@ -92,60 +92,62 @@ export default function Insights() {
         </button>
 
         {/* Cards Container */}
-        <div
-          className="
-            flex gap-6 sm:gap-10 md:gap-14 
-            px-2 sm:px-8 md:px-16 
-            overflow-x-auto md:overflow-x-hidden 
-            snap-x snap-mandatory 
-            scrollbar-hide
-          "
-        >
-          {getVisibleCards().map((topic, index) => (
-            <Link
-              href={`/${locale}/insights/${topic.link}`}
-              key={index}
-              className="
-                min-w-[85%] sm:min-w-[45%] md:min-w-0 
-                snap-center 
-              "
-            >
-              <div
-                className="
-                  bg-[#2A2A2A] cursor-pointer group hover:bg-[#19417c] 
-                  rounded-3xl overflow-hidden transition-all duration-500 
-                  hover:scale-[1.03] flex flex-col
-                "
-              >
-                {/* Card Header */}
-                <div className="bg-white group-hover:scale-95 transition-all duration-500 ease-in-out pt-16 pb-12 p-6 flex flex-col justify-center m-5 rounded-3xl">
-                  <h3 className="text-2xl font-bold text-black mb-2">
-                    Cognilabs
-                  </h3>
-                  <p className="text-lg italic pt-6 text-black font-semibold">
-                    {topic.title}
-                  </p>
-                </div>
-
-                {/* Card Body */}
-                <div className="p-6 sm:p-8 flex flex-col grow">
-                  <p className="text-[#0066FF] p-2 bg-[#5a94ec57] rounded-2xl inline-block text-sm mb-4 w-fit">
-                    {topic.date}
-                  </p>
-                  <h4 className="text-white text-lg sm:text-xl font-semibold mb-3">
-                    {topic.title}
-                  </h4>
-                  <p className="text-gray-300 text-sm leading-relaxed grow">
-                    {topic.text}
-                  </p>
-                  <button className="text-[#0066FF] text-sm pt-6 sm:pt-8 font-medium hover:underline text-left hover:translate-x-2 transition-all">
-                    See more...
-                  </button>
-                </div>
-              </div>
-            </Link>
-          ))}
+       <div
+  className="
+    flex gap-6 sm:gap-10 md:gap-14 
+    px-2 sm:px-8 md:px-16 
+    overflow-x-auto md:overflow-x-hidden 
+    snap-x snap-mandatory 
+    scrollbar-hide
+  "
+>
+  {getVisibleCards().map((topic, index) => (
+    <Link
+      href={`/${locale}/insights/${topic.link}`}
+      key={index}
+      className="
+        min-w-[85%] sm:min-w-[45%] md:min-w-0 
+        snap-center 
+        md:flex-1
+      "
+    >
+      <div
+        className="
+          bg-[#2A2A2A] cursor-pointer group hover:bg-[#19417c] 
+          rounded-3xl overflow-hidden transition-all duration-500 
+          hover:scale-[1.03] flex flex-col
+          h-full
+        "
+      >
+        {/* Card Header */}
+        <div className="bg-white group-hover:scale-95 transition-all duration-500 ease-in-out pt-16 pb-12 p-6 flex flex-col justify-center m-5 rounded-3xl shrink-0">
+          <h3 className="text-2xl font-bold text-black mb-2">
+            Cognilabs
+          </h3>
+          <p className="text-lg italic pt-6 text-black font-semibold">
+            {topic.title}
+          </p>
         </div>
+
+        {/* Card Body */}
+        <div className="p-6 sm:p-8 flex flex-col grow">
+          <p className="text-[#0066FF] p-2 bg-[#5a94ec57] rounded-2xl inline-block text-sm mb-4 w-fit">
+            {topic.date}
+          </p>
+          <h4 className="text-white text-lg md:mt-6 sm:text-xl font-semibold mb-3">
+            {topic.title}
+          </h4>
+          <p className="text-gray-300 text-sm leading-relaxed grow">
+            {topic.text}
+          </p>
+          <button className="text-[#0066FF] text-sm pt-6 sm:pt-8 font-medium hover:underline text-left hover:translate-x-2 transition-all mt-auto">
+            See more...
+          </button>
+        </div>
+      </div>
+    </Link>
+  ))}
+</div>
       </div>
     </div>
   );

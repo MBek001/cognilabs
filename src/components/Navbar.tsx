@@ -108,7 +108,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-black/90 backdrop-blur-md absolute top-20 left-0 w-full text-white flex flex-col items-center space-y-6 py-8 transition-all duration-300">
+        <div className="md:hidden bg-black/90 backdrop-blur-md absolute top-15 left-0 w-full text-white flex flex-col items-center space-y-6 py-8 transition-all duration-300">
           <li className="cursor-pointer hover:text-blue-500 transition">
             {t("home")}
           </li>

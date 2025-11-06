@@ -21,9 +21,9 @@ export default function Faq() {
   ];
 
   return (
-    <div className="container mx-auto pt-20 pb-32">
+    <div className=" bg-black pt-20 pb-32">
       <div className="flex flex-col justify-center items-center mb-12">
-        <h2 className="text-center text-5xl md:text-6xl font-bold text-white">
+        <h2 className="text-center text-4xl md:text-6xl font-bold text-white">
           {t("title")}
         </h2>
         <Image
@@ -39,7 +39,7 @@ export default function Faq() {
         {faqs.map((item, index) => (
           <div
             key={index}
-            className="bg-[#1E1E1E] rounded-xl px-4 md:px-6 py-4 cursor-pointer transition-all duration-300 hover:bg-[#2A2A2A]"
+            className="bg-[#1E1E1E] rounded-xl px-4 md:px-6 mx-2 py-4 cursor-pointer transition-all duration-300 hover:bg-[#2A2A2A]"
             onClick={() => toggle(index)}
           >
             <div className="flex justify-between items-center">

@@ -103,7 +103,7 @@ export default function Projects() {
                 width={400}
                 height={400}
                 alt="Frame 0"
-                className="sm:w-[600px] sm:h-[550px] w-[300px] h-auto"
+                className="sm:w-[600px] sm:h-20 w-[300px] h-auto"
               />
             )}
             {index === 1 && (
@@ -112,7 +112,7 @@ export default function Projects() {
                 width={400}
                 height={400}
                 alt="Frame 1"
-                className="sm:w-[600px] sm:h-[550px] w-[300px] h-auto"
+                className="sm:w-[600px] sm:h-20 w-[300px] h-auto"
               />
             )}
           </React.Fragment>
@@ -120,7 +120,7 @@ export default function Projects() {
       </div>
 
       {/* === View More Button === */}
-      <button className="flex mx-auto  sm:mb-24 items-center p-3 sm:p-4 px-6 sm:px-8 text-lg sm:text-xl rounded-2xl bg-blue-800 hover:bg-blue-700 transition">
+      <button className="flex mx-auto   items-center p-3 sm:p-4 px-6 sm:px-8 text-lg sm:text-xl rounded-2xl bg-blue-800 hover:bg-blue-700 transition">
         {t("viewMore")}
       </button>
     </div>

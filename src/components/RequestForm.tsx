@@ -44,7 +44,7 @@ export default function RequestForm() {
   };
 
   return (
-    <div className="bg-[#001A3A] py-20 text-white font-poppins">
+    <div id="contact" className="bg-[#001A3A] py-20 text-white font-poppins">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 px-6 md:px-10">
         {/* LEFT SECTION */}
         <div className="flex flex-col justify-between space-y-10">
@@ -80,14 +80,14 @@ export default function RequestForm() {
             </ul>
           </div>
 
-          {/* Rating */}
-          <div className="w-[270px] h-[60px] flex items-center bg-white text-black rounded-bl-3xl rounded-tr-3xl">
+          {/* Rating - Desktop only */}
+          <div className="hidden md:flex w-[270px] h-[60px] items-center bg-white text-black rounded-bl-3xl rounded-tr-3xl">
             <Image
               src="/cognilabs.png"
               width={60}
               height={60}
               alt="cognilabs"
-              className="rounded-bl-3xl p-[2px] rounded-tr-3xl"
+              className="rounded-bl-3xl 0.5 rounded-tr-3xl"
             />
             <div className="flex flex-col">
               <div className="flex items-center gap-2">
@@ -95,7 +95,7 @@ export default function RequestForm() {
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className="fill-yellow-400 text-yellow-400 w-5 h-5 mx-[1px]"
+                    className="fill-yellow-400 text-yellow-400 w-5 h-5 mx-px"
                   />
                 ))}
               </div>
@@ -131,7 +131,7 @@ export default function RequestForm() {
 
                 {field === "message" ? (
                   <textarea
-                  required
+                    required
                     rows={2}
                     className="border-b text-black border-gray-300 outline-none resize-none"
                     value={formData[field]}
@@ -140,14 +140,15 @@ export default function RequestForm() {
                     }
                   />
                 ) : field === "company" || field === "budget" ? (
-                  <select required
+                  <select
+                    required
                     className="border-b text-black border-gray-300 outline-none py-2"
                     value={formData[field]}
                     onChange={(e) =>
                       setFormData({ ...formData, [field]: e.target.value })
                     }
                   >
-                    <option  value="">Select</option>
+                    <option value="">Select</option>
                     {field === "company" ? (
                       <>
                         <option>Company A</option>
@@ -161,7 +162,8 @@ export default function RequestForm() {
                     )}
                   </select>
                 ) : (
-                  <input required
+                  <input
+                    required
                     type="text"
                     className="border-b text-black border-gray-300 outline-none"
                     value={formData[field]}
@@ -196,6 +198,35 @@ export default function RequestForm() {
               </div>
             </button>
           </form>
+
+          {/* Rating - Mobile only (after form) */}
+          <div className="flex md:hidden w-[270px] h-[60px] items-center bg-white text-black rounded-bl-3xl rounded-tr-3xl mt-8 mx-auto">
+            <Image
+              src="/cognilabs.png"
+              width={60}
+              height={60}
+              alt="cognilabs"
+              className="rounded-bl-3xl p-0.5 rounded-tr-3xl"
+            />
+            <div className="flex flex-col">
+              <div className="flex items-center gap-2">
+                <span className="ml-2 font-medium text-lg">5.0</span>
+                {[...Array(5)].map((_, i) => (
+                  <Star
+                    key={i}
+                    className="fill-yellow-400 text-yellow-400 w-5 h-5 mx-px"
+                  />
+                ))}
+              </div>
+              <div>
+                <span className="ml-2 text-sm">
+                  based on{" "}
+                  <span className="text-blue-600 font-medium">Clutch</span>{" "}
+                  reviews
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

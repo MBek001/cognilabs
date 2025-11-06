@@ -50,7 +50,7 @@ export default function Services() {
       <div className="flex flex-col justify-center items-center mx-auto">
         {/* Animated Title */}
         <motion.h2
-          className="text-7xl font-semibold mb-4 text-center"
+          className="md:text-7xl text-4xl font-semibold mb-4 text-center"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
