@@ -15,10 +15,10 @@ const poppins = Poppins({
 
 
 export const metadata: Metadata = {
-  title: "Next.js App Router with next-intl",
+  title: "Cognilabs Sofware Solutions",
   description: "",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/cognilabs.png",
   },
 };
 
