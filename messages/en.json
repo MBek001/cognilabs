@@ -1,19 +1,19 @@
 {
     "Navbar" : {
-        "home": "Home",
+        "home": "About us",
         "careers": "Careers",
         "services":  "Services",
         "portfolio" : "Portfolio",
         "contact" : "Contact Us"
     } ,
     "Header" : {
-        "headword1": "We Build",
-        "headword2": "Digital Innovations!",
+        "headword1": "AI and Software",
+        "headword2": "Development company!",
         "slogan": "We collaborate with Visionary Minds to Engineer Cutting-Edge Software Solutions.",
         "contact" : "Contact Now",
         "successproject" : "Succesfull Projects",
-        "happyclients": "Happy Clients",
-        "hoursspent": "Hours Spent",
+        "happyclients": "Average client rating",
+        "hoursspent": "Weeks to launch your software",
         "members":"Members"
     },
     "Projects" :{
@@ -28,7 +28,7 @@
     "Services": {
         "service" : "Services We Have",
         "text":"We offer a range of services including website and mobile app development, AI integration, custom software, and digital solutions to boost business efficiency.",
-        "ai":"Ai Integration To The Software",
+        "ai":"AI Integration To The Software",
         "ai-text":"We integrate AI into software to automate processes and enhance decision-making.",
         "tg-bot":"Telegram Bot Development",
         "tg-bot-text":"We develop custom Telegram bots that automate tasks and enhance business communication.",
@@ -149,7 +149,16 @@
     "title": "Contacts",
     "offices":"Offices"
   }
-}
+},
+  "About" :{
+    "title": "We build Digital Innovations",
+    "about":"About Cognilabs",
+    "text1": "Cognilabs is an innovative IT company founded in 2022 with the mission of helping businesses grow through smart technology. Since its beginning, the company has focused on building intelligent digital solutions that combine creativity and efficiency. Cognilabs specializes in software development, AI integration, and automation systems designed to make business processes faster and more effective.",
+    "text2":"Its team of talented developers, designers, and engineers work together to create custom websites, chatbots, and applications that truly meet client needs. The company values long-term partnerships and ensures smooth communication throughout every project. Over the years, Cognilabs has grown into a trusted tech partner for startups and established companies alike, always striving to deliver innovation that drives real results.",
+    "ourgoal":"Our Goal",
+    "text3": "Our goal is to redefine the future of technology by creating intelligent solutions that drive progress and efficiency. We combine innovation, precision, and strategic thinking to help businesses transform their operations and unlock new possibilities.",
+    "text4": "Every product we develop reflects our commitment to excellence, sustainability, and forward-thinking design. By bridging human creativity with advanced technology, we aim to shape a smarter, more connected world where ideas turn into meaningful impact. "
+  }
 
  
 

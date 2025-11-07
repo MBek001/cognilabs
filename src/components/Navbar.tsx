@@ -24,29 +24,43 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 w-full z-50 font-poppins bg-linear-to-r from-black via-black to-[#001a3a] py-4 shadow-lg backdrop-blur-sm">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6">
         {/* Left side - logo */}
-        <div className="flex items-center space-x-6">
-          <Link href="/">
-            <Image
-              src="/logomini.png"
-              alt="Cognilabs"
-              width={130}
-              height={40}
-              className="cursor-pointer"
-            />
-          </Link>
-        </div>
+        <div className="relative flex items-center justify-center">
+  {/* Bending Text */}
+  <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+    <p className="text-[10px] font-medium text-blue-400 whitespace-nowrap animate-pulse"
+       style={{
+         transform: 'rotate(-3deg) translateX(-50%)',
+         letterSpacing: '1px',
+       }}>
+      We are hiring
+    </p>
+  </div>
+
+  {/* Logo */}
+  <Link href="/">
+    <Image
+      src="/logomini.png"
+      alt="Cognilabs"
+      width={130}
+      height={40}
+      className="cursor-pointer"
+    />
+  </Link>
+</div>
 
         {/* Desktop Nav */}
         <ul className="hidden md:flex items-center space-x-12 text-white text-lg font-medium">
+          <Link href={`/${locale}/about-us`}>
           <li className="cursor-pointer hover:text-blue-500 transition">
             {t("home")}
           </li>
+          </Link>
           <li className="cursor-pointer hover:text-blue-500 transition">
             {t("careers")}
           </li>
-          <li className="cursor-pointer hover:text-blue-500 transition">
+          <Link href={`/${locale}/services`} className="cursor-pointer hover:text-blue-500 transition">
             {t("services")}
-          </li>
+          </Link>
           <li className="cursor-pointer hover:text-blue-500 transition">
             {t("portfolio")}
           </li>
@@ -69,7 +83,10 @@ export default function Navbar() {
         {/* Right side - contact and socials (desktop) */}
         <div className="hidden md:flex flex-col items-center space-x-6">
           <div className="text-[#0066FF] font-semibold text-lg">
-            513-384-8324
+            {locale === 'en' 
+    ? '(513) 808-88-13' 
+    : '+998 (87) 337-75-77'
+  }
           </div>
 
           <div className="flex items-center space-x-3">
@@ -136,8 +153,11 @@ export default function Navbar() {
           </select>
 
           <div className="text-[#0066FF] font-semibold text-lg">
-            513-384-8324
-          </div>
+   {locale === 'en' 
+    ? '(513) 808-88-13' 
+    : '+998 (87) 337-75-77'
+  }
+</div>
 
           <div className="flex items-center space-x-3">
             <Image

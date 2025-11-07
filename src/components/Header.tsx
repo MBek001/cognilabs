@@ -78,15 +78,15 @@ export default function Header() {
 
       {/* === Stats Section === */}
       <motion.div
-        className="z-10 grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-10 sm:gap-40 mt-20 sm:mt-32 text-white"
+        className="z-10  grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-10 sm:gap-40 mt-20 sm:mt-32 text-white"
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, delay: 1.6 }}
       >
-        <Stat number="100+" label={t("successproject")} />
-        <Stat number="50+" label={t("happyclients")} />
-        <Stat number="10250+" label={t("hoursspent")} />
-        <Stat number="14+" label={t("members")} />
+        <Stat  number="100+" label={t("successproject")} />
+        <Stat number="5/5" label={t("happyclients")} />
+        <Stat number="4-10" label={t("hoursspent")} />
+        <Stat number="20+" label={t("members")} />
       </motion.div>
 
       {/* === Animated Line === */}
@@ -115,8 +115,8 @@ function Stat({ number, label }: { number: string; label: string }) {
       whileHover={{ scale: 1.1 }}
       transition={{ type: "spring", stiffness: 300 }}
     >
-      <p className="text-4xl sm:text-6xl font-bold">{number}</p>
-      <p className="text-[#FFFFFFB2] text-lg sm:text-3xl mt-1 sm:mt-2 leading-snug">
+      <p className="text-3xl sm:text-4xl font-bold">{number}</p>
+      <p className="text-[#FFFFFFB2] sm:w-[300px] text-lg sm:text-3xl mt-1 sm:mt-2 leading-snug">
         {label}
       </p>
     </motion.div>

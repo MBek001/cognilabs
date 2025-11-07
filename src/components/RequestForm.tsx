@@ -10,7 +10,6 @@ interface FormData {
   phone: string;
   email: string;
   message: string;
-  company: string;
   budget: string;
 }
 
@@ -22,7 +21,6 @@ export default function RequestForm() {
     phone: "",
     email: "",
     message: "",
-    company: "",
     budget: "",
   });
 
@@ -38,7 +36,6 @@ export default function RequestForm() {
       phone: "",
       email: "",
       message: "",
-      company: "",
       budget: "",
     });
   };
@@ -59,7 +56,21 @@ export default function RequestForm() {
                 height={80}
                 alt="arrow"
                 className="ml-2 mt-8"
+                style={{
+                  animation: "fadeInOut 2s ease-in-out infinite",
+                }}
               />
+              <style jsx>{`
+                @keyframes fadeInOut {
+                  0%,
+                  100% {
+                    opacity: 0.3;
+                  }
+                  50% {
+                    opacity: 1;
+                  }
+                }
+              `}</style>
             </div>
             <p className="mt-4 text-lg text-gray-300">
               {t("call").split(":")[0]}:
@@ -87,7 +98,7 @@ export default function RequestForm() {
               width={60}
               height={60}
               alt="cognilabs"
-              className="rounded-bl-3xl 0.5 rounded-tr-3xl"
+              className="rounded-bl-3xl p-0.5 rounded-tr-3xl"
             />
             <div className="flex flex-col">
               <div className="flex items-center gap-2">
@@ -117,14 +128,7 @@ export default function RequestForm() {
             className="bg-white text-gray-500 rounded-3xl shadow-lg p-10 space-y-6"
           >
             {(
-              [
-                "name",
-                "phone",
-                "email",
-                "message",
-                "company",
-                "budget",
-              ] as (keyof FormData)[]
+              ["name", "phone", "email", "message", "budget"] as (keyof FormData)[]
             ).map((field) => (
               <div className="flex flex-col" key={field}>
                 <label className="font-medium">{t(field)}</label>
@@ -139,36 +143,19 @@ export default function RequestForm() {
                       setFormData({ ...formData, [field]: e.target.value })
                     }
                   />
-                ) : field === "company" || field === "budget" ? (
-                  <select
-                    required
-                    className="border-b text-black border-gray-300 outline-none py-2"
-                    value={formData[field]}
-                    onChange={(e) =>
-                      setFormData({ ...formData, [field]: e.target.value })
-                    }
-                  >
-                    <option value="">Select</option>
-                    {field === "company" ? (
-                      <>
-                        <option>Company A</option>
-                        <option>Company B</option>
-                      </>
-                    ) : (
-                      <>
-                        <option>$3000 - $7000</option>
-                        <option>$7000+</option>
-                      </>
-                    )}
-                  </select>
                 ) : (
                   <input
                     required
-                    type="text"
+                    type={field === "email" ? "email" : "text"}
                     className="border-b text-black border-gray-300 outline-none"
                     value={formData[field]}
                     onChange={(e) =>
                       setFormData({ ...formData, [field]: e.target.value })
+                    }
+                    placeholder={
+                      field === "budget"
+                        ? "Masalan: $5000 - $10000"
+                        : undefined
                     }
                   />
                 )}
@@ -176,7 +163,7 @@ export default function RequestForm() {
             ))}
 
             <div className="flex items-start space-x-2 text-sm text-gray-700">
-              <input type="checkbox" className="mt-1" />
+              <input type="checkbox" className="mt-1" required />
               <p>{t("checkbox")}</p>
             </div>
 
@@ -186,10 +173,10 @@ export default function RequestForm() {
               className="w-[280px] flex justify-center mx-auto bg-[#0949A7] text-white font-semibold py-3 rounded-full hover:bg-[#0b5ed7] transition disabled:opacity-60"
             >
               <div className="flex justify-center items-center gap-2">
-                {loading ? "Sending..." : t("button")}
+                {loading ? "Yuborilmoqda..." : t("button")}
                 {!loading && (
                   <Image
-                    src={"/sendicon.png"}
+                    src="/sendicon.png"
                     width={18}
                     height={18}
                     alt="send"
@@ -199,7 +186,7 @@ export default function RequestForm() {
             </button>
           </form>
 
-          {/* Rating - Mobile only (after form) */}
+          {/* Rating - Mobile only */}
           <div className="flex md:hidden w-[270px] h-[60px] items-center bg-white text-black rounded-bl-3xl rounded-tr-3xl mt-8 mx-auto">
             <Image
               src="/cognilabs.png"

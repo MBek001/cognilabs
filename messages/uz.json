@@ -1,20 +1,20 @@
 {
   "Navbar": {
-    "home": "Bosh sahifa",
+    "home": "Biz haqimizda",
     "careers": "Karyera",
     "services": "Xizmatlar",
     "portfolio": "Portfolio",
     "contact": "Bog'lanish"
   },
   "Header": {
-  "headword1": "Biz Raqamli",
-  "headword2": "Innovatsiyalar Yaratamiz!",
+   "headword1": "AI and Software",
+    "headword2": "Development company!",
   "slogan": "Biz ilg‘or fikrli insonlar bilan hamkorlikda ilg‘or dasturiy yechimlar ishlab chiqamiz.",
   "contact": "Hozir bog‘lanish",
   "successproject": "Muvaffaqiyatli loyihalar",
-  "happyclients": "Baxtli mijozlar",
-  "hoursspent": "Sarflangan soatlar",
-  "members": "A'zolar"
+  "happyclients": "Mijozlarning o'rtacha reytingi",
+  "hoursspent": "haftada loyihangizni ishlab chiqamiz",
+  "members": "Jamoa a'zolari"
 },
 "Projects": {
     "ourprojects": "Bizning loyihalar",
@@ -155,8 +155,14 @@
   "contacts": {
     "title": "Aloqa",
      "offices": "Ofislar"
-  }
-}
+  } 
+},
+  "About": {
+      "title": "Biz Raqamli Innovatsiyalarni Quramiz",
+      "about": "Cognilabs haqida",
+      "text1": "Cognilabs — 2022-yilda tashkil etilgan innovatsion IT kompaniyasi boʻlib, biznesni aqlli texnologiyalar orqali rivojlantirish missiyasiga ega. Kompaniya boshidan beri ijodkorlik va samaradorlikni birlashtirgan aqlli raqamli yechimlarni yaratishga eʼtibor qaratib kelmoqda. Cognilabs dasturiy taʼminot ishlab chiqish, sunʼiy intellektni integratsiyalash va biznes jarayonlarini tezroq va samaraliroq qilish uchun moʻljallangan avtomatlashtirish tizimlariga ixtisoslashgan.",
+      "text2": "Uning iqtidorli dasturchilar, dizaynerlar va muhandislar jamoasi mijozlar ehtiyojlariga toʻliq mos keladigan maxsus veb-saytlar, chatbotlar va ilovalarni yaratish uchun birgalikda ishlaydi. Kompaniya uzoq muddatli hamkorlikni qadrlaydi va har bir loyihada silliq muloqotni taʼminlaydi. Yillar davomida Cognilabs startaplar va taniqli kompaniyalar uchun ishonchli texnologik hamkor sifatida oʻsib bordi, har doim haqiqiy natijalarga erishadigan innovatsiyalarni yetkazib berishga intiladi."
+    }
 
 
 

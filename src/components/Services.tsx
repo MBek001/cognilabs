@@ -117,7 +117,7 @@ export default function Services() {
             <motion.div
               whileHover={{ scale: 1.05, y: -5 }}
               transition={{ type: "spring", stiffness: 200, damping: 15 }}
-              className="bg-white text-black rounded-2xl p-8 m-4 flex flex-col justify-between hover:shadow-[0_0_25px_#2563eb] transition-all duration-300 h-80"
+              className="bg-white text-black rounded-2xl  p-8 m-4 flex flex-col justify-between hover:shadow-[0_0_25px_#2563eb] transition-smooth  h-80"
             >
               <div>
                 <img
