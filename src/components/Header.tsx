@@ -89,19 +89,23 @@ export default function Header() {
       </motion.div>
 
       {/* === Animated Line === */}
-      <motion.div
-        className="relative hidden sm:flex items-center justify-center mt-28"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2.2, duration: 0.8 }}
-      >
-        <motion.div
-          className="h-px bg-white mx-2"
-          initial={{ width: 0 }}
-          animate={{ width: "1300px" }}
-          transition={{ duration: 2, ease: "easeInOut", delay: 0.5 }}
-        />
-      </motion.div>
+     <motion.div className="relative hidden sm:flex items-center mb-10 justify-center mt-20" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.2, duration: 0.8 }} >
+  {/* Left line */}
+  <motion.div 
+    className="h-px bg-gradient-to-l from-white to-transparent"
+    initial={{ width: 0 }} 
+    animate={{ width: "650px" }} 
+    transition={{ duration: 2, ease: "easeInOut", delay: 0.1 }}
+  />
+  
+  {/* Right line */}
+  <motion.div 
+    className="h-px bg-gradient-to-r from-white to-transparent"
+    initial={{ width: 0 }} 
+    animate={{ width: "650px" }} 
+    transition={{ duration: 2, ease: "easeInOut", delay: 0.1 }}
+  />
+</motion.div>
     </div>
   );
 }
