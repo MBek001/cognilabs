@@ -26,23 +26,31 @@
     "viewMore": "Ko'proq"   
 },
 "Services": {
-    "service": "Bizning xizmatlarimiz",
-    "text": "Biz veb va mobil ilovalar ishlab chiqish, sun’iy intellektni integratsiya qilish, individual dasturiy yechimlar va biznes samaradorligini oshiruvchi raqamli texnologiyalarni taklif qilamiz.",
-    "ai": "Sun’iy intellektni dasturiy ta’minotga integratsiya qilish",
-    "ai-text": "Biz sun’iy intellektni dasturiy ta’minotga integratsiya qilib, jarayonlarni avtomatlashtiramiz va qaror qabul qilishni yaxshilaymiz.",
-    "tg-bot": "Telegram botlar yaratish",
-    "tg-bot-text": "Biz biznes jarayonlarini avtomatlashtiruvchi va muloqotni yaxshilovchi individual Telegram botlar yaratamiz.",
-    "web-dev": "Veb-saytlar ishlab chiqish",
-    "web-dev-text": "Biz sizning onlayn ishtirokingizni kuchaytiradigan zamonaviy va samarali veb-saytlar yaratamiz.",
-    "web-app-dev": "Veb-ilovalar ishlab chiqish",
-    "web-app-dev-text": "Biz ish jarayonlarini soddalashtiruvchi va foydalanuvchi tajribasini yaxshilovchi kuchli veb-ilovalar ishlab chiqamiz.",
-    "mobile-dev": "Mobil ilovalar ishlab chiqish",
-    "mobile-dev-text": "Biz foydalanuvchilar faolligini oshiruvchi va biznes o‘sishiga hissa qo‘shuvchi qulay mobil ilovalar yaratamiz.",
-    "crm": "CRM, ERP tizimlar va individual dasturiy yechimlar",
-    "crm-text": "Biz biznes jarayonlarini optimallashtiruvchi va samaradorlikni oshiruvchi individual CRM va ERP tizimlar yaratamiz.",
-    "use-service": "Xizmatdan foydalanish",
-    "more-services" : "Ko'proq Xizmatlar"
-}, "TrustCases": {
+  "service": "Bizda mavjud xizmatlar",
+  "text": "Biz veb va mobil ilovalar ishlab chiqish, sun’iy intellektni integratsiya qilish, maxsus dasturiy ta’minot hamda biznes samaradorligini oshirish uchun raqamli yechimlarni taklif etamiz.",
+  "ai": "Sun’iy Intellekt Integratsiyasi",
+  "ai-text": "Biz qaror qabul qilish jarayonlarini avtomatlashtirish uchun dasturlarga sun’iy intellektni integratsiya qilamiz.",
+  "ai-text2": "Biz qaror qabul qilish jarayonlarini avtomatlashtirish uchun dasturlarga sun’iy intellektni integratsiya qilamiz. Bizning yechimlarimiz bizneslarga yanada samarali ishlash, qo‘lda bajariladigan ishlarni kamaytirish va ma’lumotlarga asoslangan natijalarga erishishga yordam beradi.",
+  "tg-bot": "Telegram Bot Dasturlash",
+  "tg-bot-text": "Biz biznes jarayonlarini avtomatlashtiruvchi va aloqa samaradorligini oshiruvchi maxsus Telegram botlar yaratamiz.",
+  "tg-bot-text2": "Biz biznes jarayonlarini avtomatlashtiruvchi va aloqa samaradorligini oshiruvchi maxsus Telegram botlar yaratamiz. Botlarimiz ish jarayonlarini soddalashtiradi, mijozlar bilan aloqani yaxshilaydi va kompaniyangiz ehtiyojlariga mos tez, ishonchli yordamni ta’minlaydi.",
+  "web-dev": "Vebsayt Dasturlash",
+  "web-dev-text": "Biz sizning onlayn ishtirokingizni oshiruvchi samarali va zamonaviy vebsaytlar ishlab chiqamiz.",
+  "web-dev-text2": "Biz sizning onlayn ishtirokingizni oshiruvchi samarali va zamonaviy vebsaytlar ishlab chiqamiz. Har bir dizayn yuqori ishlash tezligi, foydalanuvchi tajribasi va brend imidjini hisobga olgan holda optimallashtiriladi. Biz korporativ saytlardan tortib e-commerce platformalarigacha bo‘lgan yechimlarni taqdim etamiz.",
+  "web-app-dev": "Veb Ilovalar Dasturlash",
+  "web-app-dev-text": "Biz ish jarayonlarini soddalashtiruvchi va foydalanuvchi tajribasini yaxshilovchi kuchli veb ilovalar ishlab chiqamiz.",
+  "web-app-dev-text2": "Biz ish jarayonlarini soddalashtiruvchi va foydalanuvchi tajribasini yaxshilovchi kuchli veb ilovalar ishlab chiqamiz. Bizning yechimlarimiz zamonaviy dizayn, ishonchli funksionallik va kengaytiriluvchanlikni birlashtirgan holda sizning biznes maqsadlaringizga mos ravishda tayyorlanadi.",
+  "mobile-dev": "Mobil Ilovalar Dasturlash",
+  "mobile-dev-text": "Biz foydalanuvchi jalbini oshiruvchi va biznes o‘sishini qo‘llab-quvvatlovchi qulay mobil ilovalar yaratamiz.",
+  "mobile-dev-text2": "Biz foydalanuvchi jalbini oshiruvchi va biznes o‘sishini qo‘llab-quvvatlovchi qulay mobil ilovalar yaratamiz. Ishlash tezligi, qulaylik va innovatsiyaga urg‘u berib, biz barcha qurilmalarda silliq tajriba yaratamiz — sizning brendingizni istalgan joyda mijozlarga yaqinlashtiramiz.",
+  "crm": "CRM, ERP Tizimlar va Maxsus Dasturlar",
+  "crm-text": "Biz biznes jarayonlarini optimallashtiruvchi va samaradorlikni oshiruvchi maxsus CRM va ERP tizimlar ishlab chiqamiz.",
+  "crm-text2": "Biz biznes jarayonlarini optimallashtiruvchi va samaradorlikni oshiruvchi maxsus CRM va ERP tizimlar ishlab chiqamiz. Bizning yechimlarimiz ma’lumotlarni markazlashtiradi, ish jarayonlarini avtomatlashtiradi va tezkor, samarali qarorlar qabul qilish uchun tahliliy ma’lumotlarni taqdim etadi.",
+  "more-services": "Boshqa xizmatlar",
+  "use-service": "Xizmatdan foydalanish",
+  "to-offer": "Biz veb-sayt va mobil ilova ishlab chiqish, sun'iy intellekt integratsiyasi, maxsus dasturiy ta'minot va biznes samaradorligini oshirish uchun raqamli yechimlar kabi bir qator xizmatlarni taklif qilamiz."
+}, 
+"TrustCases": {
   "solutions": "Siz bizning kompaniyamizga ishonchli va innovatsion raqamli yechimlar uchun ishonishingiz mumkin",
   "text": "Biz AQSh va Toshkentdagi yetakchi kompaniyalar bilan muvaffaqiyatli hamkorlik qilganmiz, bu bizning tajribamiz va mukammallikka sodiqligimizni ko‘rsatadi.",
   "viewMore": "Batafsil ko'rish"
@@ -158,11 +166,14 @@
   } 
 },
   "About": {
-      "title": "Biz Raqamli Innovatsiyalarni Quramiz",
-      "about": "Cognilabs haqida",
-      "text1": "Cognilabs — 2022-yilda tashkil etilgan innovatsion IT kompaniyasi boʻlib, biznesni aqlli texnologiyalar orqali rivojlantirish missiyasiga ega. Kompaniya boshidan beri ijodkorlik va samaradorlikni birlashtirgan aqlli raqamli yechimlarni yaratishga eʼtibor qaratib kelmoqda. Cognilabs dasturiy taʼminot ishlab chiqish, sunʼiy intellektni integratsiyalash va biznes jarayonlarini tezroq va samaraliroq qilish uchun moʻljallangan avtomatlashtirish tizimlariga ixtisoslashgan.",
-      "text2": "Uning iqtidorli dasturchilar, dizaynerlar va muhandislar jamoasi mijozlar ehtiyojlariga toʻliq mos keladigan maxsus veb-saytlar, chatbotlar va ilovalarni yaratish uchun birgalikda ishlaydi. Kompaniya uzoq muddatli hamkorlikni qadrlaydi va har bir loyihada silliq muloqotni taʼminlaydi. Yillar davomida Cognilabs startaplar va taniqli kompaniyalar uchun ishonchli texnologik hamkor sifatida oʻsib bordi, har doim haqiqiy natijalarga erishadigan innovatsiyalarni yetkazib berishga intiladi."
-    }
+  "title": "Biz raqamli innovatsiyalarni yaratamiz",
+  "about": "Cognilabs haqida",
+  "text1": "Cognilabs — 2022-yilda tashkil etilgan innovatsion IT kompaniya bo‘lib, bizneslarni aqlli texnologiyalar orqali rivojlantirish missiyasiga ega. Tashkil etilganidan beri kompaniya ijodkorlik va samaradorlikni birlashtirgan aqlli raqamli yechimlarni yaratishga e’tibor qaratib kelmoqda. Cognilabs dasturiy ta’minot ishlab chiqish, sun’iy intellekt integratsiyasi va biznes jarayonlarini tezlashtirishga mo‘ljallangan avtomatlashtirish tizimlarida ixtisoslashgan.",
+  "text2": "Uning iqtidorli dasturchilar, dizaynerlar va muhandislardan iborat jamoasi mijozlar ehtiyojlariga to‘liq mos keladigan maxsus veb-saytlar, chatbotlar va ilovalarni yaratish uchun birgalikda ishlaydi. Kompaniya uzoq muddatli hamkorlikni qadrlaydi va har bir loyihada silliq muloqotni ta’minlaydi. Yillar davomida Cognilabs startaplar va taniqli kompaniyalar uchun ishonchli texnologik hamkor sifatida o‘sib bordi va har doim haqiqiy natijalarga erishadigan innovatsiyalarni yetkazib berishga intiladi.",
+  "ourgoal": "Bizning maqsadimiz",
+  "text3": "Maqsadimiz — texnologiya kelajagini qayta shakllantirish orqali rivojlanish va samaradorlikni ta’minlaydigan aqlli yechimlarni yaratishdir. Biz innovatsiya, aniqlik va strategik fikrlashni birlashtirib, bizneslarni o‘z faoliyatini o‘zgartirish va yangi imkoniyatlarni ochishda yordam beramiz.",
+  "text4": "Biz ishlab chiqadigan har bir mahsulot mukammallik, barqarorlik va kelajakka yo‘naltirilgan dizayn bo‘yicha majburiyatimizni aks ettiradi. Inson ijodkorligi va ilg‘or texnologiyani bog‘lab, g‘oyalar haqiqiy ta’sirga aylanadigan yanada aqlli va bog‘langan dunyoni shakllantirishga intilamiz."
+}
 
 
 

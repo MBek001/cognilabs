@@ -13,6 +13,15 @@ export default function Navbar() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleScroll = (id:any) => {
+    const section = document.getElementById(id);
+    // console.log(id);
+    
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const changeLocale = (newLocale: string) => {
     const segments = pathname.split("/");
     segments[1] = newLocale;
@@ -64,9 +73,9 @@ export default function Navbar() {
           <li className="cursor-pointer hover:text-blue-500 transition">
             {t("portfolio")}
           </li>
-          <li className="cursor-pointer hover:text-blue-500 transition">
+          <button     onClick={() => handleScroll('contact')} className="cursor-pointer hover:text-blue-500 transition">
             {t("contact")}
-          </li>
+          </button>
           <li>
             <select
               value={locale}
@@ -138,9 +147,9 @@ export default function Navbar() {
           <li className="cursor-pointer hover:text-blue-500 transition">
             {t("portfolio")}
           </li>
-          <li className="cursor-pointer hover:text-blue-500 transition">
+          <button     onClick={() => handleScroll('contact')} className="cursor-pointer hover:text-blue-500 transition">
             {t("contact")}
-          </li>
+          </button>
 
           <select
             value={locale}

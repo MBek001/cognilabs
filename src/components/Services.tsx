@@ -1,10 +1,13 @@
 "use client";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { Code, Bot, Globe, Layout, Smartphone, Database } from "lucide-react";
+import Link from "next/link";
 
 export default function Services() {
   const t = useTranslations("Services");
+
+  const locale = useLocale();
 
   const services = [
     {
@@ -44,6 +47,15 @@ export default function Services() {
       desc: t("crm-text"),
     },
   ];
+
+  const handleScroll = (id:any) => {
+    const section = document.getElementById(id);
+    // console.log(id);
+    
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section className="w-full bg-black text-white py-20 px-4 overflow-hidden">
@@ -128,30 +140,36 @@ export default function Services() {
                 <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
                 <p className="text-gray-600 mb-6 text-sm">{item.desc}</p>
               </div>
-              <a
-                href="#"
+              <button
+                onClick={() => handleScroll('contact')}
                 className="text-blue-600 font-medium text-[16px] flex items-center gap-2 hover:underline"
               >
                 {t("use-service")}
                 <span className="text-xl">→</span>
-              </a>
+              </button>
             </motion.div>
           </motion.div>
         ))}
       </motion.div>
 
       {/* Footer link animation */}
-      <motion.a
-        href="#"
-        className="text-blue-600 font-medium justify-center pt-10 text-[22px] flex items-center gap-2 hover:underline"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.5 }}
-        viewport={{ once: true }}
-      >
-        {t("more-services")}
-        <span className="text-xl">→</span>
-      </motion.a>
+      
+     <motion.div
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  transition={{ duration: 1, delay: 0.5 }}
+  viewport={{ once: true }}
+  className="flex justify-center pt-10"
+>
+  <Link
+    href={`/${locale}/services`}
+    className="text-blue-600 font-medium text-[22px] flex items-center gap-2 hover:underline transition-all"
+  >
+    {t("more-services")}
+    <span className="text-xl ml-1">→</span>
+  </Link>
+</motion.div>
+     
     </section>
   );
 }

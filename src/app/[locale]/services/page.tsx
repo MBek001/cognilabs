@@ -10,157 +10,138 @@ export default function ServicesPage() {
   const t = useTranslations('Services');
 
   const services = [
-    { title: t('ai'), desc: t('ai-text') },
-    { title: t('tg-bot'), desc: t('tg-bot-text') },
-    { title: t('web-dev'), desc: t('web-dev-text') },
-    { title: t('web-app-dev'), desc: t('web-app-dev-text') },
-    { title: t('mobile-dev'), desc: t('mobile-dev-text') },
-    { title: t('crm'), desc: t('crm-text') },
+    { title: t('ai'), desc: t('ai-text2') },
+    { title: t('tg-bot'), desc: t('tg-bot-text2') },
+    { title: t('web-dev'), desc: t('web-dev-text2') },
+    { title: t('web-app-dev'), desc: t('web-app-dev-text2') },
+    { title: t('mobile-dev'), desc: t('mobile-dev-text2') },
+    { title: t('crm'), desc: t('crm-text2') },
   ];
 
-  const handleScroll = (id:any) => {
-    const section = document.getElementById(id);
-    // console.log(id);
-    
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  // Scroll bilan chiziq va nuqta harakatlanishi uchun
-  const timelineRef = useRef<HTMLDivElement>(null);
-  const [progress, setProgress] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const lineRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!timelineRef.current) return;
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
 
-      const timeline = timelineRef.current;
-      const rect = timeline.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
+      sectionRefs.current.forEach((ref, index) => {
+        if (!ref) return;
+        const rect = ref.getBoundingClientRect();
+        const top = rect.top + window.scrollY;
+        const bottom = top + rect.height;
 
-      // Timeline ko‘rinishga kirganda boshlanadi
-      if (rect.top <= 0 && rect.bottom >= windowHeight * 0.3) {
-        const scrolled = window.scrollY - (timeline.offsetTop - windowHeight * 0.3);
-        const total = timeline.offsetHeight - windowHeight * 0.7;
-        const percentage = Math.min(Math.max(scrolled / total, 0), 1);
-        setProgress(percentage);
-      }
+        if (scrollPosition >= top && scrollPosition < bottom) {
+          setActiveIndex(index);
+        }
+      });
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Dastlabki holat
-
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white pt-20 md:pt-24 lg:pt-32">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Title */}
-        <div className="max-w-5xl mx-auto text-center mb-20 md:mb-24 lg:mb-32">
-          <div className="inline-block bg-gray-900/60 backdrop-blur-md rounded-3xl px-10 py-8 md:px-16 md:py-10 border border-gray-800 shadow-2xl">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-300 to-blue-600">
-              {t('service')}
-            </h2>
-          </div>
+    <div className="pt-40 sm:pt-52 bg-black text-white">
+      <div className="px-4 sm:px-6 lg:px-8">
+        {/* Title Section */}
+        <div className="relative flex justify-center items-center container mx-auto text-center py-16 px-6 sm:px-10 md:px-20 max-w-5xl rounded-[40px] border border-transparent mb-24 overflow-hidden group">
+          {/* Border Animation */}
+          <div className="absolute inset-0 rounded-[40px] p-[2px] bg-gradient-to-r from-blue-600 via-purple-400 to-blue-600 animate-borderRotate"></div>
+
+          {/* Inner background */}
+          <div className="absolute inset-[2px] bg-black rounded-[38px]" />
+
+          <h2 className="relative text-3xl sm:text-4xl md:text-5xl font-bold z-10 leading-tight">
+            <span className="text-blue-500">{t('service').split(' ')[0]} </span>
+            <span className="text-white">{t('service').split(' ').slice(1).join(' ')}</span>
+          </h2>
         </div>
 
-        {/* Services Timeline */}
-        <div ref={timelineRef} className="relative max-w-7xl mx-auto">
-          {/* Animated Vertical Line */}
+        {/* Timeline Section */}
+        <div className="relative max-w-6xl mx-auto">
+          {/* Base line (hidden on mobile) */}
+          <div className="hidden md:block absolute  -translate-x-1/2 w-[2px] bg-gray-700 h-full" />
+          {/* Active progress line (hidden on mobile) */}
           <div
-            className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 w-1 bg-gradient-to-b from-transparent via-gray-600 to-transparent opacity-60 hidden md:block"
+            ref={lineRef}
+            className="hidden md:block absolute left -translate-x-1/2 w-[2px] bg-white transition-all duration-500"
             style={{
-              height: '100%',
-              background: `linear-gradient(to bottom, transparent 0%, #374151 30%, #374151 70%, transparent 100%)`,
+              height: `${((activeIndex + 1) / services.length) * 100}%`,
             }}
-          >
-            {/* Progress Line */}
+          />
+
+          {services.map((service, index) => (
             <div
-              className="absolute top-0 left-0 w-full bg-gradient-to-b from-blue-500 to-cyan-400 transition-all duration-300"
-              style={{
-                height: `${progress * 100}%`,
+              key={index}
+              ref={(el) => {
+                sectionRefs.current[index] = el;
               }}
-            />
-          </div>
-
-          {services.map((service, index) => {
-            const isEven = index % 2 === 0;
-
-            return (
+              className="relative flex flex-col md:flex-row items-start md:items-center mb-20 md:mb-32"
+            >
+              {/* Circle (hidden on mobile) */}
               <div
-                key={index}
-                className={`relative gap-20 flex items-center mb-24 md:mb-32 lg:mb-40 ${
-                  isEven ? 'md:flex-row' : 'md:flex-row-reverse'
+                className={`hidden md:block absolute -translate-x-1/2 w-8 h-8 rounded-full border-4 border-black transition-all duration-300 ${
+                  activeIndex >= index ? 'bg-white' : 'bg-gray-700'
                 }`}
-              >
-                {/* Timeline Dot (Scroll bilan harakatlanadi) */}
-                <div
-                  className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 w-5 h-5 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-full border-4 border-black shadow-lg z-20 transition-all duration-300"
-                  style={{
-                    top: `${progress * 100}%`,
-                    transform: `translate(-50%, -50%)`,
-                  }}
-                />
+              />
 
-                {/* Service Card */}
-                <div
-                  className={`w-full md:w-1/2 ${
-                    isEven
-                      ? 'pr-16 md:pr-0 md:pl-32 lg:pl-40'
-                      : 'pl-16 md:pl-0 md:pr-32 lg:pr-40'
-                  }`}
+              {/* Content */}
+              <div className="md:pl-20 mt-10 md:mt-0">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+                  {service.title}
+                </h3>
+                <p className="text-gray-400 hover:text-white text-sm sm:text-base md:text-lg leading-relaxed mb-6 max-w-3xl">
+                  {service.desc}
+                </p>
+                <button
+                  onClick={() =>
+                    document
+                      .getElementById('contact')
+                      ?.scrollIntoView({ behavior: 'smooth' })
+                  }
+                  className="inline-flex items-center gap-2 text-blue-500 hover:text-blue-300 font-semibold text-sm md:text-base transition-all"
                 >
-                  <div className="group bg-gray-900/40 backdrop-blur-sm rounded-3xl p-8 md:p-12 lg:p-16 border border-gray-800 hover:border-cyan-500/60 transition-all duration-500 shadow-xl hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1">
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-cyan-300">
-                      {service.title}
-                    </h3>
-                    <p className="text-gray-300 text-base md:text-lg lg:text-xl leading-relaxed mb-6">
-                      {service.desc}
-                    </p>
-                    <button
-                       onClick={() => handleScroll('contact')}
-                      className="inline-flex items-center gap-3 text-cyan-400 hover:text-blue-300 font-semibold text-sm md:text-base group-hover:gap-5 transition-all duration-300"
-                    >
-                      {t('use-service')}
-                      <ArrowRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-2 transition-transform" />
-                    </button>
-                  </div>
-                </div>
-
-                {/* Empty space for alignment */}
-                <div className="hidden md:block md:w-1/2" />
+                  {t('use-service')}
+                  <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                </button>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
-      <div>
-        <RequestForm/>
+
+      {/* Service Summary */}
+    
+
+      {/* Request form */}
+      <div id="contact" className="pt-16 sm:pt-24">
+        <RequestForm />
       </div>
-      <div>
-        <section className="bg-black text-white py-24 md:py-32 lg:py-40">
-      <div className=" px-6 sm:px-8 lg:px-16">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-4xl font-bold leading-tight">
-            <span className="block text-white opacity-90">
-              We Offer A Range Of Services Including
-            </span>
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600  to-blue-400">
-              Website And Mobile App Development, AI Integration,
-            </span>
-            <span className="block text-white opacity-90 mt-2">
-              Custom Software, And Digital Solutions To Boost Business Efficiency.
-            </span>
+            <section className="bg-black text-white py-20 md:py-32">
+        <div className="px-6 sm:px-10 lg:px-16 max-w-7xl mx-auto text-center">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold leading-tight">
+        {(() => {
+  const words = t('to-offer').split(' ');
+  const blueIndices = [3, 4, 5, 7, 9, 10];
+  const lastFourStart = words.length - 4;
+  
+  return words.map((word, index) => {
+    const isBlue = blueIndices.includes(index) || index >= lastFourStart;
+    return (
+      <span key={index} className={isBlue ? 'text-blue-500' : ''}>
+        {word}{index < words.length - 1 ? ' ' : ''}
+      </span>
+    );
+  });
+})()}
           </h1>
         </div>
-      </div>
-    </section>
-      </div>
-      <div>
-        <Footer/>
-      </div>
+      </section>
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
