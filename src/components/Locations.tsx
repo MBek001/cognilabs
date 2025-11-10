@@ -23,7 +23,7 @@ export default function Locations() {
   ];
 
   return (
-    <div className="container mx-auto mt-16 mb-16 px-4">
+    <div className="container mx-auto mt-16 mb-16 px-4 bg-black">
       {/* Title */}
       <h3 className="text-center text-3xl sm:text-5xl md:text-7xl font-semibold leading-tight">
         {(() => {
