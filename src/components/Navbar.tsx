@@ -13,12 +13,11 @@ export default function Navbar() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleScroll = (id:any) => {
+  const handleScroll = (id: any) => {
     const section = document.getElementById(id);
-    // console.log(id);
-    
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+      section.scrollIntoView({ behavior: "smooth" });
+      setIsOpen(false); // ✅ scrolldan keyin menyuni yopish
     }
   };
 
@@ -32,50 +31,60 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 font-poppins bg-linear-to-r from-black via-black to-[#001a3a] py-4 shadow-lg backdrop-blur-sm">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6">
-        {/* Left side - logo */}
+        {/* Logo */}
         <div className="relative flex items-center justify-center">
-  {/* Bending Text */}
-  <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-    <p className="text-[10px] font-medium text-blue-400 whitespace-nowrap animate-pulse"
-       style={{
-         transform: 'rotate(-3deg) translateX(-50%)',
-         letterSpacing: '1px',
-       }}>
-      We are hiring
-    </p>
-  </div>
+          <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+            <p
+              className="text-[10px] font-medium text-blue-400 whitespace-nowrap animate-pulse"
+              style={{
+                transform: "rotate(-3deg) translateX(-50%)",
+                letterSpacing: "1px",
+              }}
+            >
+              We are hiring
+            </p>
+          </div>
 
-  {/* Logo */}
-  <Link href="/">
-    <Image
-      src="/logomini.png"
-      alt="Cognilabs"
-      width={130}
-      height={40}
-      className="cursor-pointer"
-    />
-  </Link>
-</div>
+          <Link href="/">
+            <Image
+              src="/logomini.png"
+              alt="Cognilabs"
+              width={130}
+              height={40}
+              className="cursor-pointer"
+            />
+          </Link>
+        </div>
 
         {/* Desktop Nav */}
         <ul className="hidden md:flex items-center space-x-12 text-white text-lg font-medium">
           <Link href={`/${locale}/about-us`}>
-          <li className="cursor-pointer hover:text-blue-500 transition">
-            {t("home")}
-          </li>
+            <li className="cursor-pointer hover:text-blue-500 transition">
+              {t("home")}
+            </li>
           </Link>
-          <li className="cursor-pointer hover:text-blue-500 transition">
-            {t("careers")}
-          </li>
-          <Link href={`/${locale}/services`} className="cursor-pointer hover:text-blue-500 transition">
-            {t("services")}
+          <Link href={`/${locale}/careers`}>
+            <li className="cursor-pointer hover:text-blue-500 transition">
+              {t("careers")}
+            </li>
           </Link>
-          <li className="cursor-pointer hover:text-blue-500 transition">
-            {t("portfolio")}
-          </li>
-          <button     onClick={() => handleScroll('contact')} className="cursor-pointer hover:text-blue-500 transition">
+          <Link href={`/${locale}/services`}>
+            <li className="cursor-pointer hover:text-blue-500 transition">
+              {t("services")}
+            </li>
+          </Link>
+          <Link href={`/${locale}/portfolio`}>
+            <li className="cursor-pointer hover:text-blue-500 transition">
+              {t("portfolio")}
+            </li>
+          </Link>
+          <button
+            onClick={() => handleScroll("contact")}
+            className="cursor-pointer hover:text-blue-500 transition"
+          >
             {t("contact")}
           </button>
+
           <li>
             <select
               value={locale}
@@ -89,37 +98,43 @@ export default function Navbar() {
           </li>
         </ul>
 
-        {/* Right side - contact and socials (desktop) */}
+        {/* Contact + socials (desktop) */}
         <div className="hidden md:flex flex-col items-center space-x-6">
           <div className="text-[#0066FF] font-semibold text-lg">
-            {locale === 'en' 
-    ? '(513) 808-88-13' 
-    : '+998 (87) 337-75-77'
-  }
+            {locale === "en" ? "(513) 808-88-13" : "+998 (87) 337-75-77"}
           </div>
 
           <div className="flex items-center space-x-3">
-            <Image
-              src="/facebook.png"
-              alt="facebook"
-              width={35}
-              height={35}
-              className="bg-[#0066FF] p-1 rounded-full cursor-pointer"
-            />
-            <Image
-              src="/tg.png"
-              alt="telegram"
-              width={35}
-              height={35}
-              className="bg-[#0066FF] p-2 rounded-full cursor-pointer"
-            />
-            <Image
-              src="/ig.png"
-              alt="instagram"
-              width={35}
-              height={35}
-              className="bg-[#0066FF] p-1 rounded-full cursor-pointer"
-            />
+            <Link
+              href="https://www.facebook.com/profile.php?id=61577158531453"
+              target="_blank"
+            >
+              <Image
+                src="/facebook.png"
+                alt="facebook"
+                width={35}
+                height={35}
+                className="bg-[#0066FF] p-1 rounded-full cursor-pointer"
+              />
+            </Link>
+            <Link href="https://t.me/cognilabs_software" target="_blank">
+              <Image
+                src="/tg.png"
+                alt="telegram"
+                width={35}
+                height={35}
+                className="bg-[#0066FF] p-2 rounded-full cursor-pointer"
+              />
+            </Link>
+            <Link href="https://www.instagram.com/cognilabs/" target="_blank">
+              <Image
+                src="/ig.png"
+                alt="instagram"
+                width={35}
+                height={35}
+                className="bg-[#0066FF] p-1 rounded-full cursor-pointer"
+              />
+            </Link>
           </div>
         </div>
 
@@ -132,22 +147,37 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* ✅ Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-black/90 backdrop-blur-md absolute top-15 left-0 w-full text-white flex flex-col items-center space-y-6 py-8 transition-all duration-300">
-          <li className="cursor-pointer hover:text-blue-500 transition">
-            {t("home")}
-          </li>
-          <li className="cursor-pointer hover:text-blue-500 transition">
-            {t("careers")}
-          </li>
-          <li className="cursor-pointer hover:text-blue-500 transition">
-            {t("services")}
-          </li>
-          <li className="cursor-pointer hover:text-blue-500 transition">
-            {t("portfolio")}
-          </li>
-          <button     onClick={() => handleScroll('contact')} className="cursor-pointer hover:text-blue-500 transition">
+          <Link href={`/${locale}/about-us`} onClick={() => setIsOpen(false)}>
+            <p className="cursor-pointer hover:text-blue-500 transition">
+              {t("home")}
+            </p>
+          </Link>
+
+          <Link href={`/${locale}/careers`} onClick={() => setIsOpen(false)}>
+            <p className="cursor-pointer hover:text-blue-500 transition">
+              {t("careers")}
+            </p>
+          </Link>
+
+          <Link href={`/${locale}/services`} onClick={() => setIsOpen(false)}>
+            <p className="cursor-pointer hover:text-blue-500 transition">
+              {t("services")}
+            </p>
+          </Link>
+
+          <Link href={`/${locale}/portfolio`} onClick={() => setIsOpen(false)}>
+            <p className="cursor-pointer hover:text-blue-500 transition">
+              {t("portfolio")}
+            </p>
+          </Link>
+
+          <button
+            onClick={() => handleScroll("contact")}
+            className="cursor-pointer hover:text-blue-500 transition"
+          >
             {t("contact")}
           </button>
 
@@ -162,34 +192,40 @@ export default function Navbar() {
           </select>
 
           <div className="text-[#0066FF] font-semibold text-lg">
-   {locale === 'en' 
-    ? '(513) 808-88-13' 
-    : '+998 (87) 337-75-77'
-  }
-</div>
+            {locale === "en" ? "(513) 808-88-13" : "+998 (87) 337-75-77"}
+          </div>
 
           <div className="flex items-center space-x-3">
-            <Image
-              src="/facebook.png"
-              alt="facebook"
-              width={35}
-              height={35}
-              className="bg-[#0066FF] p-1 rounded-full cursor-pointer"
-            />
-            <Image
-              src="/tg.png"
-              alt="telegram"
-              width={35}
-              height={35}
-              className="bg-[#0066FF] p-2 rounded-full cursor-pointer"
-            />
-            <Image
-              src="/ig.png"
-              alt="instagram"
-              width={35}
-              height={35}
-              className="bg-[#0066FF] p-1 rounded-full cursor-pointer"
-            />
+            <Link
+              href="https://www.facebook.com/profile.php?id=61577158531453"
+              target="_blank"
+            >
+              <Image
+                src="/facebook.png"
+                alt="facebook"
+                width={35}
+                height={35}
+                className="bg-[#0066FF] p-1 rounded-full cursor-pointer"
+              />
+            </Link>
+            <Link href="https://t.me/cognilabs_software" target="_blank">
+              <Image
+                src="/tg.png"
+                alt="telegram"
+                width={35}
+                height={35}
+                className="bg-[#0066FF] p-2 rounded-full cursor-pointer"
+              />
+            </Link>
+            <Link href="https://www.instagram.com/cognilabs/" target="_blank">
+              <Image
+                src="/ig.png"
+                alt="instagram"
+                width={35}
+                height={35}
+                className="bg-[#0066FF] p-1 rounded-full cursor-pointer"
+              />
+            </Link>
           </div>
         </div>
       )}

@@ -92,11 +92,13 @@ export default function Insights() {
         </button>
 
         {/* Cards Container */}
-       <div
+      {/* Cards Container */}
+<div
   className="
     flex gap-6 sm:gap-10 md:gap-14 
     px-2 sm:px-8 md:px-16 
-    overflow-x-auto md:overflow-x-hidden 
+    py-2 sm:py-4 md:py-6
+    overflow-x-auto md:overflow-x-hidden md:overflow-y-visible
     snap-x snap-mandatory 
     scrollbar-hide
   "
@@ -113,17 +115,21 @@ export default function Insights() {
     >
       <div
         className="
-          bg-[#2A2A2A] cursor-pointer group hover:bg-[#19417c] 
-          rounded-3xl overflow-hidden transition-all duration-500 
-          hover:scale-[1.03] flex flex-col
-          h-full
+          bg-[#2A2A2A] cursor-pointer group 
+          rounded-3xl overflow-hidden transition-all duration-300 
+          hover:-translate-y-1 hover:shadow-2xl hover:ring-1 hover:ring-[#246BFF]/40
+          flex flex-col h-full
         "
       >
         {/* Card Header */}
-        <div className="bg-white group-hover:scale-95 transition-all duration-500 ease-in-out pt-16 pb-12 p-6 flex flex-col justify-center m-5 rounded-3xl shrink-0">
-          <h3 className="text-2xl font-bold text-black mb-2">
-            Cognilabs
-          </h3>
+        <div
+          className="
+            bg-white transition-transform duration-300 ease-out
+            pt-16 pb-12 p-6 flex flex-col justify-center m-5 rounded-3xl shrink-0
+            group-hover:translate-y-0.5
+          "
+        >
+          <h3 className="text-2xl font-bold text-black mb-2">Cognilabs</h3>
           <p className="text-lg italic pt-6 text-black font-semibold">
             {topic.title}
           </p>
@@ -148,6 +154,7 @@ export default function Insights() {
     </Link>
   ))}
 </div>
+
       </div>
     </div>
   );

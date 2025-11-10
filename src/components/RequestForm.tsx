@@ -2,6 +2,7 @@
 import { Star } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useState, FormEvent } from "react";
 import { sendMessageToAdmin } from "~/Contact/bot";
 
@@ -113,7 +114,7 @@ export default function RequestForm() {
               <div>
                 <span className="ml-2 text-sm">
                   based on{" "}
-                  <span className="text-blue-600 font-medium">Clutch</span>{" "}
+                  <Link href={'https://clutch.co/'} className="text-blue-600 font-medium">Clutch</Link>{" "}
                   reviews
                 </span>
               </div>

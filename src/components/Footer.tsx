@@ -87,22 +87,28 @@ export default function Footer() {
             <div className="flex flex-col sm:flex-row items-center gap-6 md:gap-8 w-full md:w-auto">
               {/* Social Icons */}
               <div className="flex items-center gap-4 md:gap-6">
-                <a 
-                  href="#" 
+                <a
+                  href="https://www.facebook.com/profile.php?id=61577158531453"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-gray-300 hover:text-white transition-colors"
                   aria-label="Facebook"
                 >
                   <Facebook size={20} />
                 </a>
-                <a 
-                  href="#" 
+                <a
+                  href="https://t.me/cognilabs_software"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-gray-300 hover:text-white transition-colors"
                   aria-label="Telegram"
                 >
                   <Send size={20} />
                 </a>
-                <a 
-                  href="#" 
+                <a
+                  href="https://www.instagram.com/cognilabs/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-gray-300 hover:text-white transition-colors"
                   aria-label="Instagram"
                 >
@@ -112,14 +118,14 @@ export default function Footer() {
 
               {/* Legal Links */}
               <div className="flex flex-col sm:flex-row items-center gap-3 md:gap-6 text-xs md:text-sm">
-                <a 
-                  href="#" 
+                <a
+                  href="#"
                   className="text-gray-400 hover:text-white transition-colors whitespace-nowrap"
                 >
                   Terms and conditions
                 </a>
-                <a 
-                  href="#" 
+                <a
+                  href="#"
                   className="text-gray-400 hover:text-white transition-colors whitespace-nowrap"
                 >
                   Privacy Policy
