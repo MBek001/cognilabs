@@ -142,16 +142,16 @@ export default function Projects() {
                 transform: `scale(${baseScale * emphasizeScale}) translateY(${emphasizeTranslateY}px)`,
                 willChange: "transform, opacity",
                 transition:
-                  "transform 320ms cubic-bezier(0.2,0.6,0.2,1), opacity 260ms ease-out, box-shadow 300ms ease",
+                  "transform 320ms cubic-bezier(0.2,0.6,0.2,1), opacity 260ms ease-out,  300ms ease",
                 zIndex: isActive ? 10 : 0,
                 boxShadow: isActive
-                  ? "0 0 64px rgba(36,107,255,0.35), 0 0 16px rgba(36,107,255,0.25)"
+                  ? ""
                   : "none",
               }}
             >
               <div className="flex justify-center w-full sm:w-auto flex-shrink-0">
                 <Image
-                  className={`rounded-3xl sm:rounded-4xl transition-shadow duration-300 ${
+                  className={`rounded-3xl sm:rounded-4xl  duration-300 ${
                     isActive
                       ? "shadow-[0_0_60px_rgba(36,107,255,0.35)]"
                       : "group-hover:shadow-[0_0_40px_rgba(0,102,255,0.25)]"

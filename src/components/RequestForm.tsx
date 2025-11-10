@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState, FormEvent } from "react";
 import { sendMessageToAdmin } from "~/Contact/bot";
+import { motion } from "framer-motion";
 
 interface FormData {
   name: string;
@@ -51,28 +52,30 @@ export default function RequestForm() {
               <h4 className="text-3xl md:text-4xl font-semibold leading-snug max-w-md">
                 {t("title")}
               </h4>
-              <Image
-                src="/formnext.png"
-                width={80}
-                height={80}
-                alt="arrow"
-                className="ml-2 mt-8"
-                style={{
-                  animation: "fadeInOut 2s ease-in-out infinite",
-                }}
-              />
-              <style jsx>{`
-                @keyframes fadeInOut {
-                  0%,
-                  100% {
-                    opacity: 0.3;
-                  }
-                  50% {
-                    opacity: 1;
-                  }
-                }
-              `}</style>
+
+              {/* 🔥 Animated left-right + glow arrow */}
+             <motion.div
+  className="ml-2 mt-8"
+  animate={{
+    x: [-12, 8, -12],opacity: [0.5, 1, 0.5, 1, 0.5] // bir oz uzoqroqqa va qaytib keladi
+  }}
+  transition={{
+    duration: 2.4,
+    repeat: Infinity,
+    ease: "easeInOut",
+    times: [0, 0.5, 1], // har bir nuqtada qancha vaqt turishi
+  }}
+>
+  <Image
+    src="/formnext.png"
+    width={80}
+    height={80}
+    alt="arrow"
+    className="mx-auto drop-shadow-md"
+  />
+</motion.div>
             </div>
+
             <p className="mt-4 text-lg text-gray-300">
               {t("call").split(":")[0]}:
               <span className="font-semibold">{t("call").split(":")[1]}</span>
@@ -114,7 +117,9 @@ export default function RequestForm() {
               <div>
                 <span className="ml-2 text-sm">
                   based on{" "}
-                  <Link href={'https://clutch.co/'} className="text-blue-600 font-medium">Clutch</Link>{" "}
+                  <Link href={"https://clutch.co/"} className="text-blue-600 font-medium">
+                    Clutch
+                  </Link>{" "}
                   reviews
                 </span>
               </div>
@@ -176,12 +181,7 @@ export default function RequestForm() {
               <div className="flex justify-center items-center gap-2">
                 {loading ? "Yuborilmoqda..." : t("button")}
                 {!loading && (
-                  <Image
-                    src="/sendicon.png"
-                    width={18}
-                    height={18}
-                    alt="send"
-                  />
+                  <Image src="/sendicon.png" width={18} height={18} alt="send" />
                 )}
               </div>
             </button>
@@ -208,9 +208,7 @@ export default function RequestForm() {
               </div>
               <div>
                 <span className="ml-2 text-sm">
-                  based on{" "}
-                  <span className="text-blue-600 font-medium">Clutch</span>{" "}
-                  reviews
+                  based on <span className="text-blue-600 font-medium">Clutch</span> reviews
                 </span>
               </div>
             </div>
