@@ -19,7 +19,7 @@ export default function Header() {
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="pointer-events-none absolute right-[-120px] top-20 w-[360px] h-[360px] sm:w-[500px] sm:h-[500px] rounded-full blur-[140px] sm:blur-[190px] opacity-70"
+        className="pointer-events-none absolute right-[-120px] top-20 w-[360px] h-[360px] sm:w-[500px] sm:h-[500px] bg-blue-600 rounded-full blur-[140px] sm:blur-[190px] opacity-70"
         animate={{ opacity: [0.35, 0.7, 0.35] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       />
