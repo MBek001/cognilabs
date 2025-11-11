@@ -117,7 +117,7 @@ export default function RequestForm() {
               <div>
                 <span className="ml-2 text-sm">
                   based on{" "}
-                  <Link href={"https://clutch.co/"} className="text-blue-600 font-medium">
+                  <Link href={"https://clutch.co/"} target="_blank" className="text-blue-600 font-medium">
                     Clutch
                   </Link>{" "}
                   reviews

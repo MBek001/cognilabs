@@ -23,7 +23,7 @@ export default function Locations() {
   ];
 
   return (
-    <div className="container mx-auto mt-16 mb-16 px-4 bg-black">
+    <div className="pt-16 pb-16 px-4 bg-black text-white">
       {/* Title */}
       <h3 className="text-center text-3xl sm:text-5xl md:text-7xl font-semibold leading-tight">
         {(() => {
@@ -50,7 +50,7 @@ export default function Locations() {
               alt={loc.name}
               width={500}
               height={746}
-              className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
+              className="w-full h-auto object-cover transition-transform duration-500 "
             />
 
             {/* Dark overlay */}
