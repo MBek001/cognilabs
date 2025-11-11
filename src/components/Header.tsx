@@ -60,21 +60,25 @@ export default function Header() {
         </motion.div>
 
         <motion.button
-          onClick={() => handleScroll("contact")}
-          className="
-            bg-blue-700 mt-6 sm:mt-10 cursor-pointer font-bold 
-            text-base sm:text-xl text-white py-3 sm:py-3.5 px-7 sm:px-8 
-            rounded-full transition 
-            shadow-lg sm:shadow-none hover:shadow-blue-500/30 sm:hover:shadow-none
-          "
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.98 }}
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.9, ease: "easeOut" }}
-        >
-          {t("contact")}
-        </motion.button>
+  onClick={() => handleScroll("contact")}
+  className="
+    relative overflow-hidden font-bold text-white py-4 sm:py-5 px-8 sm:px-10
+    rounded-full bg-linear-to-r hover:scale-105 cursor-pointer from-blue-600 via-blue-700 to-blue-800
+    shadow-lg shadow-blue-700/40 hover:shadow-blue-500/60
+    transition-all duration-300
+    before:absolute before:inset-0 before:bg-white before:opacity-0 before:rounded-full before:transition-opacity before:duration-300
+    hover:before:opacity-10
+    focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2
+  "
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.97 }}
+  initial={{ opacity: 0, scale: 0.96 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 0.7, delay: 0.9, ease: "easeOut" }}
+>
+  {t("contact")}
+</motion.button>
+
       </div>
 
       {/* === Stats Section (smaller + smooth; no shadow) === */}
