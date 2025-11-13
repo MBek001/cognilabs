@@ -47,7 +47,7 @@ export async function sendMessageToAdmin(formData: FormData): Promise<void> {
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
-        throw new Error(`Telegram xatosi: ${errorData.description || response.status}`);
+        throw new Error(`Telegram xatosi: ${errorData.description || response.  status}`);
       }
     } catch (error) {
       console.error(`Chat ID ${chatId} ga yuborishda xatolik:`, error);

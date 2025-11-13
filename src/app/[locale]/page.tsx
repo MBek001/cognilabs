@@ -1,5 +1,5 @@
 "use client"
-import { useLocale, useTranslations } from 'next-intl'
+import { useLocale } from 'next-intl'
 import ClientsOpinion from '~/components/ClientsOpinion'
 import Faq from '~/components/Faq'
 import Footer from '~/components/Footer'
@@ -13,6 +13,8 @@ import TrustCases from '~/components/TrustCases'
 
 export default function page() {
 
+
+
   const locale = useLocale()
   console.log(locale)
   return (
@@ -21,12 +23,14 @@ export default function page() {
       <Projects/>
       <Services/>
       <TrustCases/>
+      
       <ClientsOpinion/>
       <Locations/>
       <RequestForm/>
       <Faq/>
       <Insights/> 
-      <Footer/>
+      <Footer/> 
+      
     </div>
   )
 }
