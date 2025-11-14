@@ -173,7 +173,27 @@
   "ourgoal": "Bizning maqsadimiz",
   "text3": "Maqsadimiz — texnologiya kelajagini qayta shakllantirish orqali rivojlanish va samaradorlikni ta’minlaydigan aqlli yechimlarni yaratishdir. Biz innovatsiya, aniqlik va strategik fikrlashni birlashtirib, bizneslarni o‘z faoliyatini o‘zgartirish va yangi imkoniyatlarni ochishda yordam beramiz.",
   "text4": "Biz ishlab chiqadigan har bir mahsulot mukammallik, barqarorlik va kelajakka yo‘naltirilgan dizayn bo‘yicha majburiyatimizni aks ettiradi. Inson ijodkorligi va ilg‘or texnologiyani bog‘lab, g‘oyalar haqiqiy ta’sirga aylanadigan yanada aqlli va bog‘langan dunyoni shakllantirishga intilamiz."
+},
+"Careers": {
+    "open-postion": "Ochiq vakansiyalar",
+    "cognilabs": "Cognilabs",
+    "applytext": "Quyidagi lavozimlardan biriga hoziroq murojaat qiling — biz siz bilan tez orada bog‘lanamiz.",
+    "viewposition": "Ochiq vakansiyalarni ko‘rish",
+    "open": "Ochiq",
+    "positions": "Vakansiyalar",
+    "applyfor": "Murojaat qilish",
+    "fullname": "To‘liq ismingiz",
+    "enterfullname": "To‘liq ismingizni kiriting",
+    "position": "Lavozim",
+    "phonenumber": "Telefon raqami",
+    "uploadcv": "Rezyumeni yuklash",
+    "clickcv": "Rezyumeni yuklash uchun bosing",
+    "pdftext": "PDF, DOC, DOCX, PPTX (Maks. 10MB)",
+    "message": "Xabar (ixtiyoriy)",
+    "tellus": "Nima uchun ushbu lavozimga mos ekaningizni yozing...",
+    "submit": "Arizani yuborish"
 }
+
 
 
 

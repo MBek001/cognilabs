@@ -165,6 +165,26 @@
     "ourgoal":"Our Goal",
     "text3": "Our goal is to redefine the future of technology by creating intelligent solutions that drive progress and efficiency. We combine innovation, precision, and strategic thinking to help businesses transform their operations and unlock new possibilities.",
     "text4": "Every product we develop reflects our commitment to excellence, sustainability, and forward-thinking design. By bridging human creativity with advanced technology, we aim to shape a smarter, more connected world where ideas turn into meaningful impact. "
+  } ,
+
+  "Careers" :{
+    "open-postion": "Open positions at",
+    "cognilabs": "Cognilabs",
+    "applytext": "Apply for the position of your choice today and we'll get back to you as soon as possible.",
+    "viewposition":"View open positions",
+    "open": "Open",
+    "positions":"Positions",
+    "applyfor":"Apply for",
+    "fullname": "Full Name",
+    "enterfullname":"Enter your full name",
+    "position":"Position",
+    "phonenumber": "Phone Number",
+    "uploadcv":"Upload CV",
+    "clickcv":"Click to upload your CV",
+    "pdftext":"PDF, DOC, DOCX, PPTX (Max 10MB)",
+    "message":"Message(Optional)",
+    "tellus":"Tell us why you'd be a great fit...",
+    "submit":"Submit Application"
   }
 
  
