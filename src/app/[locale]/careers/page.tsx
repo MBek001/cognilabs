@@ -139,7 +139,7 @@ export default function CareersPage() {
           className="max-w-lg"
         >
           <h4 className="text-5xl font-bold leading-snug mb-5">
-            {t("open")}{" "}
+            {t("open-position")}{" "}
             <span className="text-blue-600">Cognilabs</span>
           </h4>
           <p className="text-gray-300 mb-20 text-lg">
@@ -153,7 +153,7 @@ export default function CareersPage() {
                   .getElementById("open-positions")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
-              className="px-6 py-3 cursor-pointer border mt-10 border-blue-600 rounded-full font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300"
+              className="px-6 py-3 cursor-pointer border  border-blue-600 rounded-full font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300"
             >
               {t("viewposition")}
             </button>
@@ -233,7 +233,7 @@ export default function CareersPage() {
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.4, ease: "easeInOut" }}
-                      className="px-4 pb-6 pt-4 bg-linear-to-b from-blue-900 via-blue-800 to-black overflow-hidden"
+                      className="px-4 pb-6 pt-4 bg-linear-to-b from-blue-900 via-blue-800 to-blue-900 overflow-hidden"
                     >
                       {/* title ustiga mos headline */}
                       <h3 className="text-xl font-semibold text-white mb-3">
