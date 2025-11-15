@@ -1,12 +1,12 @@
 "use client";
-import { useEffect } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 export default function TrustCases() {
   const t = useTranslations("TrustCases");
-  const controls = useAnimation();
+  const trackRef = useRef<HTMLDivElement>(null);
 
   const trustImages = [
     "/trustcases/ellipse1.png",
@@ -18,26 +18,31 @@ export default function TrustCases() {
     "/trustcases/ellipse4.png",
   ];
 
-  // Animatsiyani ishga tushirish funksiyasi (takroran ishlatamiz)
-  const startScroll = () =>
-    controls.start({
-      x: ["0%", "-50%"],
-      transition: {
-        duration: 20, // tezlik — xohlasangiz o‘zgartiring
-        ease: "linear",
-        repeat: Infinity,
-      },
-    });
-
+  // Hoverda to‘xtatish va davom ettirish
   useEffect(() => {
-    startScroll();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const track = trackRef.current;
+    if (!track) return;
+
+    const handleMouseEnter = () => {
+      track.style.animationPlayState = "paused";
+    };
+    const handleMouseLeave = () => {
+      track.style.animationPlayState = "running";
+    };
+
+    track.addEventListener("mouseenter", handleMouseEnter);
+    track.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      track.removeEventListener("mouseenter", handleMouseEnter);
+      track.removeEventListener("mouseleave", handleMouseLeave);
+    };
   }, []);
 
   return (
     <div className="bg-[#001F4C] py-12 md:py-16 px-4 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        {/* Title + Text */}
+        {/* Title + Text (o‘zgarmadi) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-12 md:mb-16">
           <motion.div
             className="text-white"
@@ -75,20 +80,22 @@ export default function TrustCases() {
           </motion.div>
         </div>
 
-        {/* 🔄 Uzluksiz o‘ngdan chapga siljiydigan logotiplar */}
+        {/* 🔥 Yangi silliq marquee */}
         <div className="relative w-full overflow-hidden">
-          {/* Track: 2x takror (200%) */}
-          <motion.div
-            className="flex items-center justify-start gap-10 w-[200%]"
-            animate={controls}
-            onMouseEnter={() => controls.stop()}
-            onMouseLeave={startScroll}
+          <div
+            ref={trackRef}
+            className="flex gap-10 animate-marquee" // CSS animatsiya
+            style={{
+              // Inline style orqali running/paused boshqaramiz
+              animation: "marquee 15s linear infinite", // 20s — tezlikni o‘zgartirishingiz mumkin
+              animationPlayState: "running",
+            }}
           >
+            {/* 2 marta takrorlaymiz — seamless loop uchun */}
             {[...trustImages, ...trustImages].map((image, index) => (
-              <motion.div
+              <div
                 key={index}
-                whileHover={{ scale: 1.08, rotate: 3 }}
-                className="w-[110px] sm:w-[130px] md:w-[140px] lg:w-[151px] aspect-square rounded-full flex items-center justify-center overflow-hidden mx-auto flex-shrink-0"
+                className="w-[110px] sm:w-[130px] md:w-[140px] lg:w-[151px] aspect-square rounded-full flex items-center justify-center overflow-hidden shrink-0 transition-transform duration-300 hover:scale-110 hover:rotate-3"
               >
                 <Image
                   src={image}
@@ -97,11 +104,28 @@ export default function TrustCases() {
                   height={151}
                   className="w-full h-full object-contain"
                 />
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
+
+      {/* CSS @keyframes — global yoki page.module.css ichida bo‘lsa ham ishlaydi */}
+      <style jsx global>{`
+        @keyframes marquee {
+          0% {
+            transform: translateX(0%);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        .animate-marquee {
+          display: flex;
+          width: max-content; /* juda muhim! */
+        }
+      `}</style>
     </div>
   );
 }

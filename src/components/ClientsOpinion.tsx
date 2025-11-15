@@ -1,13 +1,14 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useState, useRef, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import Image from "next/image";
+import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
+import "swiper/css";
 
 export default function ClientsOpinion() {
   const t = useTranslations("ClientsOpinion");
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   const clientOpinions = [
     {
@@ -39,173 +40,129 @@ export default function ClientsOpinion() {
     },
   ];
 
-  // Auto-slide har 3 soniyada
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % clientOpinions.length);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [clientOpinions.length]);
-
-  const nextSlide = () =>
-    setCurrentIndex((prev) => (prev + 1) % clientOpinions.length);
-  const prevSlide = () =>
-    setCurrentIndex(
-      (prev) => (prev - 1 + clientOpinions.length) % clientOpinions.length
-    );
-
-  const getVisibleCards = () => {
-    const cards = [];
-    for (let i = 0; i < 3; i++) {
-      const index = (currentIndex + i) % clientOpinions.length;
-      cards.push({ ...clientOpinions[index], displayIndex: i });
-    }
-    return cards;
-  };
-
   return (
-    <div className="bg-black py-20 md:py-40">
-      {/* Title Section */}
+    <div className="bg-black py-20 md:py-40 overflow-hidden">
+      {/* Title */}
       <div className="flex flex-col gap-7 mb-20 justify-center items-center px-4">
-        <h3 className="text-3xl md:text-4xl font-semibold text-center text-white md:max-w-[700px]">
-          {t("maintext").split(" ").map((word, index) => {
-            if (index === 2 || index === 3) {
-              return (
-                <span key={index} className="text-blue-500">
-                  {word}{" "}
-                </span>
-              );
-            }
-            return <span key={index}>{word} </span>;
-          })}
+        <h3 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-center text-white max-w-4xl">
+          {t("maintext").split(" ").map((word, index) =>
+            index === 2 || index === 3 ? (
+              <span key={index} className="text-blue-500">
+                {word}{" "}
+              </span>
+            ) : (
+              <span key={index}>{word} </span>
+            )
+          )}
         </h3>
-        <p className="text-lg md:text-xl max-w-[700px] text-[#FFFFFFB2] text-center">
+        <p className="text-lg md:text-xl max-w-3xl text-[#FFFFFFB2] text-center">
           {t("text")}
         </p>
       </div>
 
-      {/* Desktop: 3 Cards */}
-      <div className="hidden md:block">
-        <div className="flex gap-10 justify-center items-stretch px-8 mb-16 transition-transform duration-700 ease-in-out">
-          {getVisibleCards().map((client) => (
-            <div
-              key={`${client.id}-${currentIndex}`}
-              className="bg-[#1a1a1a] rounded-3xl w-[350px] h-[500px] flex flex-col shadow-xl transition-all duration-700 ease-in-out"
-            >
-              <div className="p-6 pb-4">
-                <div className="flex items-center gap-4 mb-4">
-                  <Image
-                    width={120}
-                    height={120}
-                    src={client.img}
-                    alt={client.name}
-                    className="rounded-full object-cover"
-                  />
-                  <div className="flex-1">
-                    <h4 className="text-white font-medium text mb-1">
-                      {client.name}
-                    </h4>
-                    {client.position && (
-                      <p className="text-gray-400 text-sm mb-2">
-                        {client.position}
+      {/* Carousel */}
+      <div className="relative max-w-7xl mx-auto px-8 py-12">
+        <Swiper
+          modules={[Autoplay, Navigation]}
+          spaceBetween={40}
+          slidesPerView={3}
+          centeredSlides={true}
+          loop={true}
+          autoplay={{
+            delay: 4500,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          speed={900}
+          navigation={{
+            prevEl: ".prev-btn",
+            nextEl: ".next-btn",
+          }}
+          breakpoints={{
+            320: { slidesPerView: 1, spaceBetween: 20 },
+            768: { slidesPerView: 3, spaceBetween: 30 },
+            1024: { slidesPerView: 3, spaceBetween: 40 },
+          }}
+        >
+          {[...clientOpinions, ...clientOpinions].map((client, idx) => (
+            <SwiperSlide key={`${client.id}-${idx}`}>
+              {({ isActive }) => (
+                <div
+                  className={`relative transition-all duration-700 ease-out ${
+                    isActive ? "z-20 shadow-2xl" : "scale-90 opacity-60 z-10"
+                  }`}
+                >
+                  <div className="rounded-3xl overflow-hidden h-[510px] flex flex-col shadow-2xl border border-white/5 bg-[#1a1a1a]">
+                    {/* Header */}
+                    <div className="p-8 pb-4 bg-[#1a1a1a]">
+                      <div className="flex items-center gap-5">
+                        <div className="relative">
+                          <Image
+                            width={130}
+                            height={130}
+                            src={client.img}
+                            alt={client.name}
+                            className="rounded-full  border-5 border-white/10"
+                          />
+                          {isActive && (
+                            <div className="absolute inset-0 rounded-full ring-2 ring-blue-500 ring-offset-4 ring-offset-black animate-pulse" />
+                          )}
+                        </div>
+
+                        <div>
+                          <h4 className="text-white font-semibold text-lg">
+                            {client.name}
+                          </h4>
+                          {client.position && (
+                            <p className="text-gray-400 text-sm mt-1">
+                              {client.position}
+                            </p>
+                          )}
+                          <div className="flex items-center gap-2 mt-3">
+                            <span className="text-white font-bold">
+                              {client.stars}.0
+                            </span>
+                            {[...Array(5)].map((_, i) => (
+                              <Star
+                                key={i}
+                                className={`w-5 h-5 ${
+                                  i < client.stars
+                                    ? "fill-yellow-400 text-yellow-400"
+                                    : "text-gray-600"
+                                }`}
+                              />
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Body */}
+                    <div className="bg-white px-8 pt-6 pb-8 rounded-b-3xl flex flex-col items-start flex-1 overflow-y-auto">
+                      <p className="text-gray-800 pb-3 text-base leading-relaxed">
+                        {client.comment}
                       </p>
-                    )}
-                    <div className="flex gap-1">
-                      <span className="text-white font-medium mr-2">
-                        {client.stars}.0
-                      </span>
-                      {[...Array(client.stars)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className="w-5 h-5 fill-yellow-400 text-yellow-400"
-                        />
-                      ))}
+                      <button className="mt-auto text-blue-600 font-semibold hover:underline">
+                        {t("viewindetail")} →
+                      </button>
                     </div>
                   </div>
                 </div>
-              </div>
-
-              <div className="bg-white rounded-b-3xl p-5 flex-1 flex flex-col">
-                <p className="text-gray-800 text-sm leading-relaxed mb-8 flex-1">
-                  {client.comment}
-                </p>
-                <button className="text-blue-500 font-medium text-left hover:underline">
-                  {t("viewindetail")}
-                </button>
-              </div>
-            </div>
+              )}
+            </SwiperSlide>
           ))}
+        </Swiper>
+
+        {/* Buttons — bottom centered */}
+        <div className="flex gap-6 justify-center mt-16">
+          <button className="cursor-pointer prev-btn w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all group">
+            <ChevronLeft className="w-8 h-8 text-white group-hover:scale-110 transition-transform" />
+          </button>
+
+          <button className="cursor-pointer next-btn w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all group">
+            <ChevronRight className="w-8 h-8 text-white group-hover:scale-110 transition-transform" />
+          </button>
         </div>
-      </div>
-
-      {/* Mobile: 1 Card */}
-      <div className="md:hidden">
-        <div className="px-4 mb-12 flex justify-center">
-          <div className="bg-[#1a1a1a] rounded-3xl w-full max-w-[350px] h-[520px] flex flex-col shadow-xl transition-all duration-500">
-            <div className="p-6 pb-4">
-              <div className="flex items-center gap-4 mb-4">
-                <Image
-                  width={120}
-                  height={120}
-                  src={clientOpinions[currentIndex].img}
-                  alt={clientOpinions[currentIndex].name}
-                  className="rounded-full object-cover"
-                />
-                <div className="flex-1">
-                  <h4 className="text-white font-medium text mb-1">
-                    {clientOpinions[currentIndex].name}
-                  </h4>
-                  {clientOpinions[currentIndex].position && (
-                    <p className="text-gray-400 text-sm mb-2">
-                      {clientOpinions[currentIndex].position}
-                    </p>
-                  )}
-                  <div className="flex gap-1">
-                    <span className="text-white font-medium mr-2">
-                      {clientOpinions[currentIndex].stars}.0
-                    </span>
-                    {[...Array(clientOpinions[currentIndex].stars)].map(
-                      (_, i) => (
-                        <Star
-                          key={i}
-                          className="w-5 h-5 fill-yellow-400 text-yellow-400"
-                        />
-                      )
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-b-3xl p-5 flex-1 flex flex-col">
-              <p className="text-gray-800 text-sm leading-relaxed mb-8 flex-1">
-                {clientOpinions[currentIndex].comment}
-              </p>
-              <button className="text-blue-500 font-medium text-left hover:underline">
-                {t("viewindetail")}
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Navigation Buttons */}
-      <div className="flex justify-center gap-4">
-        <button
-          onClick={prevSlide}
-          className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-white flex items-center justify-center hover:bg-gray-100 transition-colors shadow-md"
-          aria-label="Previous testimonial"
-        >
-          <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-blue-500" />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-white flex items-center justify-center hover:bg-gray-100 transition-colors shadow-md"
-          aria-label="Next testimonial"
-        >
-          <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-blue-500" />
-        </button>
       </div>
     </div>
   );

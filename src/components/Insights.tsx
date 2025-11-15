@@ -1,13 +1,15 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
-import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
+import "swiper/css";
 
 export default function Insights() {
   const t = useTranslations("Insights");
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const locale = useLocale();
 
   const topics = [
     {
@@ -36,7 +38,7 @@ export default function Insights() {
       link: "era-of-quantum",
       title: "The Era of Quantum Computing",
       date: "06.09.25",
-      text: "Quantum computing is emerging as one of the most revolutionary technologies of the 21st century...",
+      text: "Quantum computing is emerging as one of the most revolutionary technologies of the 21st century,unlike...",
     },
     {
       id: 5,
@@ -47,114 +49,135 @@ export default function Insights() {
     },
   ];
 
-  const locale = useLocale();
-
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % topics.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + topics.length) % topics.length);
-  };
-
-  const getVisibleCards = () => {
-    const cards = [];
-    for (let i = 0; i < 3; i++) {
-      const index = (currentIndex + i) % topics.length;
-      cards.push(topics[index]);
-    }
-    return cards;
-  };
-
   return (
     <div className="py-16 px-4 bg-black">
-      {/* Title */}
-      <h2 className="text-3xl sm:text-4xl md:text-5xl text-[#0066FF] font-bold text-center b-12 sm:mb-16">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl text-[#0066FF] font-bold text-center mb-12 sm:mb-16">
         {t("title")}
       </h2>
 
-      <div className="relative max-w-7xl mx-auto">
-        {/* Navigation Buttons (hidden on mobile) */}
-        <button
-          onClick={prevSlide}
-          className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-[#D9D9D9] hover:bg-gray-600 text-black rounded-full p-3 transition-all duration-300 ease-in-out hover:scale-110"
-          aria-label="Previous"
+      <div className="relative max-w-7xl mx-auto px-8 py-12">
+        <Swiper
+          modules={[Autoplay, Navigation]}
+          spaceBetween={40}
+          slidesPerView={3}
+          centeredSlides={true}
+          loop={true}
+          autoplay={{
+            delay: 4500,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          speed={900}
+          navigation={{
+            prevEl: ".prev-btn-insights",
+            nextEl: ".next-btn-insights",
+          }}
+          breakpoints={{
+            320: { slidesPerView: 1, spaceBetween: 20 },
+            768: { slidesPerView: 3, spaceBetween: 30 },
+            1024: { slidesPerView: 3, spaceBetween: 40 },
+          }}
         >
-          <ChevronLeft className="w-10 h-10" />
+          {[...topics, ...topics].map((topic, idx) => (
+            <SwiperSlide key={`${topic.id}-${idx}`}>
+              {({ isActive }) => (
+                <Link href={`/${locale}/insights/${topic.link}`}>
+                  <div
+                    className={`relative transition-all duration-700 ease-out ${
+                      isActive
+                        ? " z-20 shadow-2xl"
+                        : "scale-90 opacity-60 z-10"
+                    }`}
+                  >
+                    <div
+                      className="
+                        bg-[#2A2A2A]
+                        cursor-pointer
+                        group
+                        rounded-3xl 
+                        overflow-hidden
+                        flex 
+                        flex-col 
+                        h-[530px]
+
+                        transition-all 
+                        duration-500 
+                        ease-in-out
+
+                        hover:-translate-y-2
+                        hover:shadow-2xl
+                        hover:ring-2
+                        hover:ring-[#246BFF]/50
+                      "
+                    >
+                      {/* HEADER */}
+                      <div
+                        className="
+                          bg-white 
+                          pt-16 pb-12 p-6 
+                          flex flex-col 
+                          justify-center 
+                          m-5 rounded-3xl shrink-0
+
+                          transition-all 
+                          duration-500 
+                          ease-in-out
+                          group-hover:translate-y-1
+                        "
+                      >
+                        <h3 className="text-2xl font-bold text-black ">
+                          Cognilabs
+                        </h3>
+                        <p className="text-lg italic pt-2 text-black font-semibold">
+                          {topic.title}
+                        </p>
+                      </div>
+
+                      {/* BODY */}
+                      <div className="p-6 sm:p-8 flex flex-col flex-1 overflow-y-auto">
+                        <p className="text-[#0066FF] p-2 bg-[#5a94ec57] rounded-2xl inline-block text-sm mb-4 w-fit">
+                          {topic.date}
+                        </p>
+                        <h4 className="text-white text-lg md:mt-6 sm:text-xl font-semibold mb-3">
+                          {topic.title}
+                        </h4>
+                        <p className="text-gray-300 text-sm leading-relaxed">
+                          {topic.text}
+                        </p>
+
+                        <button
+                          className="
+                            text-[#0066FF] 
+                            text-sm 
+                            pt-6 sm:pt-8 
+                            font-medium 
+                            text-left
+                            
+                            transition-all 
+                            duration-500 
+                            ease-in-out
+                            hover:underline
+                            hover:translate-x-2
+                          "
+                        >
+                          See more...
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              )}
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        {/* ARROWS */}
+        <button className="prev-btn-insights absolute left-0 top-1/2 -translate-y-1/2 z-30 w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all group">
+          <ChevronLeft className="w-8 h-8 text-white group-hover:scale-110 transition-transform" />
         </button>
-
-        <button
-          onClick={nextSlide}
-          className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-[#D9D9D9] hover:bg-gray-600 text-black rounded-full p-3 transition-all duration-300 ease-in-out hover:scale-110"
-          aria-label="Next"
-        >
-          <ChevronRight className="w-10 h-10" />
+        <button className="next-btn-insights absolute right-0 top-1/2 -translate-y-1/2 z-30 w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all group">
+          <ChevronRight className="w-8 h-8 text-white group-hover:scale-110 transition-transform" />
         </button>
-
-        {/* Cards Container */}
-      {/* Cards Container */}
-<div
-  className="
-    flex gap-6 sm:gap-10 md:gap-14 
-    px-2 sm:px-8 md:px-16 
-    py-2 sm:py-4 md:py-6
-    overflow-x-auto md:overflow-x-hidden md:overflow-y-visible
-    snap-x snap-mandatory 
-    scrollbar-hide
-  "
->
-  {getVisibleCards().map((topic, index) => (
-    <Link
-      href={`/${locale}/insights/${topic.link}`}
-      key={index}
-      className="
-        min-w-[85%] sm:min-w-[45%] md:min-w-0 
-        snap-center 
-        md:flex-1
-      "
-    >
-      <div
-        className="
-          bg-[#2A2A2A] cursor-pointer group 
-          rounded-3xl overflow-hidden transition-all duration-300 
-          hover:-translate-y-1 hover:shadow-2xl hover:ring-1 hover:ring-[#246BFF]/40
-          flex flex-col h-full
-        "
-      >
-        {/* Card Header */}
-        <div
-          className="
-            bg-white transition-transform duration-300 ease-out
-            pt-16 pb-12 p-6 flex flex-col justify-center m-5 rounded-3xl shrink-0
-            group-hover:translate-y-0.5
-          "
-        >
-          <h3 className="text-2xl font-bold text-black mb-2">Cognilabs</h3>
-          <p className="text-lg italic pt-6 text-black font-semibold">
-            {topic.title}
-          </p>
-        </div>
-
-        {/* Card Body */}
-        <div className="p-6 sm:p-8 flex flex-col grow">
-          <p className="text-[#0066FF] p-2 bg-[#5a94ec57] rounded-2xl inline-block text-sm mb-4 w-fit">
-            {topic.date}
-          </p>
-          <h4 className="text-white text-lg md:mt-6 sm:text-xl font-semibold mb-3">
-            {topic.title}
-          </h4>
-          <p className="text-gray-300 text-sm leading-relaxed grow">
-            {topic.text}
-          </p>
-          <button className="text-[#0066FF] text-sm pt-6 sm:pt-8 font-medium hover:underline text-left hover:translate-x-2 transition-all mt-auto">
-            See more...
-          </button>
-        </div>
-      </div>
-    </Link>
-  ))}
-</div>
-
       </div>
     </div>
   );
