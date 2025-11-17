@@ -29,19 +29,19 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 font-poppins bg-linear-to-r from-black via-black to-[#001a3a] py-4 shadow-lg backdrop-blur-sm">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6">
+    <nav className="fixed top-0 left-0 w-full z-50 font-poppins bg-linear-to-r from-black via-black to-[#001a3a] pt-8 pb-2  shadow-lg backdrop-blur-sm">
+      <div className="container mx-auto flex items-center justify-around px-6">
         {/* Logo */}
         <div className="relative flex items-center justify-center">
-          <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+          <div className="absolute -top-6 left-42 -translate-x-1/2">
             <p
-              className="text-[10px] font-medium text-blue-400 whitespace-nowrap animate-pulse"
+              className="text-[8px] font-semibold text-white p-1 px-2 bg-blue-700 rounded-3xl whitespace-nowrap"
               style={{
-                transform: "rotate(-3deg) translateX(-50%)",
-                letterSpacing: "1px",
+                transform: "translateX(-50%)",
+                letterSpacing: "",
               }}
             >
-              We are hiring
+              <Link href="/careers">We're hiring</Link>
             </p>
           </div>
 
@@ -57,7 +57,7 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Nav */}
-        <ul className="hidden md:flex items-center space-x-12 text-white text-lg font-medium">
+        <ul className="hidden md:flex items-center space-x-15 text-white text-lg font-medium">
           <Link href={`/${locale}/about-us`}>
             <li className="cursor-pointer hover:text-blue-500 transition">
               {t("home")}
@@ -140,7 +140,7 @@ export default function Navbar() {
 
         {/* Mobile Hamburger */}
         <button
-          className="md:hidden text-white"
+          className="md:hidden ml-40 text-white"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={32} /> : <Menu size={32} />}

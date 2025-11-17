@@ -16,11 +16,11 @@ export default function Header() {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center pt-24 min-h-screen text-center overflow-hidden bg-black">
+    <div className="relative flex flex-col items-center pb-50 justify-center pt-34 min-h-screen text-center overflow-hidden bg-black">
 
       {/* === Animated glowing lights === */}
       <motion.div
-        className="pointer-events-none absolute left-[-150px] bottom-[100px] w-[360px] h-[360px] sm:w-[460px] sm:h-[460px] bg-white rounded-full blur-[140px] sm:blur-[180px] opacity-60"
+        className="pointer-events-none absolute  left-[-120px] bottom-[300px] w-[360px] h-[360px] sm:w-[460px] sm:h-[360px] bg-white rounded-full blur-[140px] sm:blur-[180px] opacity-60"
         animate={{ opacity: [0.35, 0.6, 0.35] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       />
@@ -131,13 +131,12 @@ export default function Header() {
         <motion.button
           onClick={() => handleScroll("contact")}
           className="
-            relative overflow-hidden font-bold text-white py-4 sm:py-5 px-8 sm:px-10
+            relative overflow-hidden font-bold text-white py-2 sm:py-3 px-4
             rounded-full bg-linear-to-r hover:scale-105 cursor-pointer from-blue-600 via-blue-700 to-blue-800
-            shadow-lg shadow-blue-700/40 hover:shadow-blue-500/60
+            shadow-lg shadow-blue-700/40 
             transition-all duration-300
-            before:absolute before:inset-0 before:bg-white before:opacity-0 before:rounded-full before:transition-opacity before:duration-300
-            hover:before:opacity-10
-            focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2
+            before:absolute before:inset-0  before:opacity-0 before:rounded-full before:transition-opacity before:duration-300
+            focus:outline-none 
           "
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.97 }}

@@ -15,7 +15,7 @@ export default function Insights() {
     {
       id: 1,
       link: "ai-revolution",
-      title: "AI Revolution in Business Apps",
+      title: "AI Revolution in Business Apps and something more",
       date: "06.09.25",
       text: "Artificial Intelligence is transforming how businesses operate through automation and data-driven insights...",
     },
@@ -79,16 +79,15 @@ export default function Insights() {
           }}
         >
           {[...topics, ...topics].map((topic, idx) => (
-            <SwiperSlide key={`${topic.id}-${idx}`}>
+            <SwiperSlide key={`${topic.id}-${idx}`} className="!overflow-visible">
               {({ isActive }) => (
                 <Link href={`/${locale}/insights/${topic.link}`}>
                   <div
-                    className={`relative transition-all duration-700 ease-out ${
-                      isActive
-                        ? " z-20 shadow-2xl"
-                        : "scale-90 opacity-60 z-10"
-                    }`}
-                  >
+  className={`relative overflow-visible  transition-all duration-700 ease-out ${
+    isActive ? "z-20 shadow-2xl scale-96" : "scale-90 opacity-60 z-10"
+  }`}
+>
+
                     <div
                       className="
                         bg-[#2A2A2A]
@@ -134,11 +133,12 @@ export default function Insights() {
                       </div>
 
                       {/* BODY */}
-                      <div className="p-6 sm:p-8 flex flex-col flex-1 overflow-y-auto">
+                      <div className="p-6 sm:p-8 flex flex-col flex-1 overflow-hidden">
+
                         <p className="text-[#0066FF] p-2 bg-[#5a94ec57] rounded-2xl inline-block text-sm mb-4 w-fit">
                           {topic.date}
                         </p>
-                        <h4 className="text-white text-lg md:mt-6 sm:text-xl font-semibold mb-3">
+                        <h4 className="text-white text-lg md:mt-6 sm:text-lg font-semibold mb-3">
                           {topic.title}
                         </h4>
                         <p className="text-gray-300 text-sm leading-relaxed">

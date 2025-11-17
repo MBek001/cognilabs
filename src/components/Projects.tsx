@@ -117,7 +117,7 @@ export default function Projects() {
   );
 
   return (
-    <div ref={containerRef} className="bg-black text-white px-4 sm:px-0 relative py-20">
+    <div ref={containerRef} className="bg-black text-white px-4 sm:px-0 relative pb-20">
       {/* Title Section */}
       <div
         className="flex flex-col items-center mb-16 gap-6 text-center"
