@@ -21,34 +21,40 @@ function escapeMarkdown(text: string) {
 
 async function sendCareerFormToAdmin(data: CareerFormData) {
   const BOT_TOKEN = process.env.NEXT_PUBLIC_COGNILABS_CAREERS_BOTID;
-  const CHAT_ID = process.env.NEXT_PUBLIC_ADMIN_ID1;
+  const CHAT_ID1 = process.env.NEXT_PUBLIC_ADMIN_ID1;
+  const CHAT_ID2 = process.env.NEXT_PUBLIC_ADMIN_ID2;
 
-  if (!BOT_TOKEN || !CHAT_ID) throw new Error("Telegram configuration not found");
+  if (!BOT_TOKEN || !CHAT_ID1 || !CHAT_ID2) throw new Error("Telegram configuration not found");
 
   const text = `
 🟦 Yangi career so'rov:
 👤 Ism: ${escapeMarkdown(data.fullName)}
-🎂 Yosh: ${escapeMarkdown(data.age.toString())}
+🔟 Yosh: ${escapeMarkdown(data.age.toString())}
 💼 Lavozim: ${escapeMarkdown(data.position)}
 📞 Telefon: ${escapeMarkdown(data.phone)}
-💬 Xabar: ${escapeMarkdown(data.message)}
+💬 Xabar: ${escapeMarkdown(data.message)} 
 `.trim();
 
-  await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ chat_id: CHAT_ID, text, parse_mode: "MarkdownV2" }),
-  });
+  const chatIds = [CHAT_ID1, CHAT_ID2];
 
-  if (data.file) {
-    const formData = new FormData();
-    formData.append("chat_id", CHAT_ID);
-    formData.append("document", data.file);
-    formData.append("caption", `CV: ${data.fullName} (${data.position})`);
+  for (const chatId of chatIds) {
+    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ chat_id: chatId, text, parse_mode: "MarkdownV2" }),
+    });
 
-    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendDocument`, { method: "POST", body: formData });
+    if (data.file) {
+      const formData = new FormData();
+      formData.append("chat_id", chatId);
+      formData.append("document", data.file);
+      formData.append("caption", `CV: ${data.fullName} (${data.position})`);
+
+      await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendDocument`, { method: "POST", body: formData });
+    }
   }
 }
+
 
 export default function JoinTeamForm() {
   const [formData, setFormData] = useState<CareerFormData>({

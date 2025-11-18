@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState, FormEvent } from "react";
-import { sendMessageToAdmin } from "~/Contact/bot";
+import { sendLeadToChannel } from "~/Contact/bot";
 import { motion } from "framer-motion";
 
 interface FormData {
@@ -31,7 +31,7 @@ export default function RequestForm() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    await sendMessageToAdmin(formData);
+    await sendLeadToChannel(formData);
     setLoading(false);
     setFormData({
       name: "",
