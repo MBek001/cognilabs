@@ -63,7 +63,7 @@ export async function sendCareerFormToAdmin(data: CareerFormData) {
         method: "POST",
         body: formData,
       }
-    );
+    ); 
 
     if (!fileResponse.ok) {
       throw new Error("File send failed");

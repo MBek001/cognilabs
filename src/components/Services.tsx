@@ -1,7 +1,7 @@
 "use client";
 import { useLocale, useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import { Code, Bot, Globe, Layout, Smartphone, Database } from "lucide-react";
+import { Code, Bot, Globe, Layout, Smartphone, Database, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 export default function Services() {
@@ -142,10 +142,12 @@ export default function Services() {
               </div>
               <button
                 onClick={() => handleScroll('contact')}
-                className="text-blue-600 font-medium text-[16px] flex items-center gap-2 hover:underline"
+                className="cursor-pointer group text-blue-600 font-medium text-[16px] flex items-center gap-2 "
               >
                 {t("use-service")}
-                <span className="text-xl">→</span>
+                <span className="text-xl">
+                  <ArrowRight className="transition-transform group-hover:translate-x-1" />
+                </span>
               </button>
             </motion.div>
           </motion.div>

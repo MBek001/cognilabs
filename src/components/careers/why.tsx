@@ -1,58 +1,73 @@
-import React from 'react'
+"use client"; // <-- Add this at the very top
+import { useTranslations } from 'next-intl';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 export default function WhyUs() {
+  const t = useTranslations("Careers");
+
   const reasons = [
-    {
-      title: "Innovative Projects",
-      text: "Work on cutting-edge technologies and meaningful projects that challenge you to grow and innovate. Your contributions will directly impact the future of industries and businesses worldwide."
-    },
-    {
-      title: "Collaborative Culture",
-      text: "We believe in teamwork, transparency, and knowledge-sharing. Collaborate with diverse, talented colleagues who are as passionate about problem-solving as you are. Together, we push boundaries and achieve great things."
-    },
-    {
-      title: "Work-Life Balance",
-      text: "At Cognilabs, we provide opportunities for continuous learning and career advancement. Whether it's through mentorship, professional development programs, or exposure to new technologies, we invest in your personal and professional growth."
-    },
-    {
-      title: "Competitive Compensation & Benefits",
-      text: "We offer competitive salaries, performance-based incentives, and a comprehensive benefits package. We value your hard work and ensure you're rewarded for your contributions."
-    }
-  ]
+    { title: t("reas1"), text: t("reas1text") },
+    { title: t("reas2"), text: t("reas2text") },
+    { title: t("reas3"), text: t("reas3text") },
+    { title: t("reas4"), text: t("reas4text") }
+  ];
+
+  const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.3 } },
+  };
+
+  const reasonVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 20 } },
+  };
+
+  const numberVariants = {
+    hidden: { scale: 0 },
+    visible: { scale: 1, transition: { type: "spring" as const, stiffness: 200, damping: 15 } },
+    hover: { scale: 1.2, color: "#2563EB", transition: { duration: 0.3 } }
+  };
 
   return (
     <div className="bg-black pt-20 pb-20">
       <div className="container mx-auto px-4">
-
-        {/* TITLE SECTION */}
-        <div className="flex justify-center items-center flex-col mb-16 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="flex justify-center items-center flex-col mb-16 text-center"
+        >
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white">
-            Why <span className="text-blue-600">Join</span> Us?
+            {t("why")}
           </h2>
-
           <p className="max-w-[850px] text-base sm:text-lg lg:text-xl pt-6 sm:pt-8 font-inter text-gray-300 leading-[26px] sm:leading-[30px] lg:leading-[32px]">
-            We're always looking for talented individuals to join our growing team at Cognilabs. 
-            Explore our open positions and take the next step in your career with a company that 
-            values innovation, growth, and collaboration.
+            {t("reason")}
           </p>
-        </div>
+        </motion.div>
 
-        {/* REASONS LIST */}
-        <div className="max-w-5xl mx-auto space-y-10 sm:space-y-12">
-
+        <motion.div
+          className="max-w-5xl mx-auto space-y-10 sm:space-y-12"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
           {reasons.map((reason, index) => (
-            <div 
-              key={index} 
+            <motion.div
+              key={index}
               className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start"
+              variants={reasonVariants as any}
             >
-              {/* NUMBER */}
-              <div className="flex-shrink-0">
+              <motion.div
+                className="flex-shrink-0"
+                variants={numberVariants}
+                whileHover="hover"
+              >
                 <span className="text-3xl sm:text-4xl font-bold text-blue-600">
                   {index + 1}.
                 </span>
-              </div>
+              </motion.div>
 
-              {/* TEXT */}
               <div className="flex-1">
                 <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">
                   {reason.title}
@@ -61,12 +76,10 @@ export default function WhyUs() {
                   {reason.text}
                 </p>
               </div>
-
-            </div>
+            </motion.div>
           ))}
-
-        </div>
+        </motion.div>
       </div>
     </div>
-  )
+  );
 }

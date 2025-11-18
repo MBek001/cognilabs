@@ -98,8 +98,8 @@ export default function ClientsOpinion() {
                       <div className="flex items-center gap-5">
                         <div className="relative">
                           <Image
-                            width={130}
-                            height={130}
+                            width={140}
+                            height={140}
                             src={client.img}
                             alt={client.name}
                             className="rounded-full  border-5 border-white/10"

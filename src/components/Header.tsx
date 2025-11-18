@@ -20,7 +20,7 @@ export default function Header() {
 
       {/* === Animated glowing lights === */}
       <motion.div
-        className="pointer-events-none absolute  left-[-120px] bottom-[300px] w-[360px] h-[360px] sm:w-[460px] sm:h-[360px] bg-white rounded-full blur-[140px] sm:blur-[180px] opacity-60"
+        className="pointer-events-none absolute left-[-120px] bottom-[300px] w-[360px] h-[360px] sm:w-[460px] sm:h-[360px] bg-white rounded-full blur-[140px] sm:blur-[180px] opacity-60"
         animate={{ opacity: [0.35, 0.6, 0.35] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       />
@@ -29,32 +29,6 @@ export default function Header() {
         animate={{ opacity: [0.35, 0.7, 0.35] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       />
-
-      {/* === Video Icon (faqat uz bo'lganda + faqat header ichida) === */}
-      {locale === "uz" && (
-        <motion.button
-  onClick={() => setIsVideoOpen(true)}
-  className="
-  cursor-pointer
-    absolute 
-    top-28 right-5           /* mobile */
-    sm:top-36 sm:right-10    /* tablet */
-    lg:top-138 lg:right-190    /* desktop (old pos) */
-    z-50 bg-blue-600 hover:bg-blue-700 
-    text-white p-3 rounded-full shadow-lg
-    shadow-blue-600/50 hover:shadow-blue-500/70
-    transition-all duration-300 group
-  "
-  initial={{ opacity: 0, scale: 0.8 }}
-  animate={{ opacity: 1, scale: 1 }}
-  transition={{ delay: 1.3, duration: 0.5 }}
-  whileHover={{ scale: 1.1 }}
-  whileTap={{ scale: 0.95 }}
->
-  <Play className="w-5 h-5 group-hover:scale-110 transition-transform" fill="white" />
-</motion.button>
-
-      )}
 
       {/* === Video Modal === */}
       <AnimatePresence>
@@ -128,24 +102,58 @@ export default function Header() {
           {t("slogan")}
         </motion.div>
 
-        <motion.button
-          onClick={() => handleScroll("contact")}
-          className="
-            relative overflow-hidden font-bold text-white py-2 sm:py-3 px-4
-            rounded-full bg-linear-to-r hover:scale-105 cursor-pointer from-blue-600 via-blue-700 to-blue-800
-            shadow-lg shadow-blue-700/40 
-            transition-all duration-300
-            before:absolute before:inset-0  before:opacity-0 before:rounded-full before:transition-opacity before:duration-300
-            focus:outline-none 
-          "
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.97 }}
+        {/* === Contact + Play Button Row === */}
+        <motion.div
+          className="z-10 flex items-center gap-4 justify-center mt-6"
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.9, ease: "easeOut" }}
         >
-          {t("contact")}
-        </motion.button>
+          {/* Contact Button */}
+          <motion.button
+            onClick={() => handleScroll("contact")}
+            className="
+              relative overflow-hidden font-bold text-white py-2 sm:py-3 px-4
+              rounded-full bg-linear-to-r cursor-pointer from-blue-600 via-blue-700 to-blue-800
+              shadow-lg shadow-blue-700/40 
+              transition-all duration-300
+            "
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            {t("contact")}
+          </motion.button>
+
+          {/* Play Button — only in uz */}
+          {locale === "uz" && (
+  <motion.button
+    onClick={() => setIsVideoOpen(true)}
+    className="
+      relative cursor-pointer
+      bg-blue-600 hover:bg-blue-700 text-white
+      p-3 rounded-full 
+      transition-all duration-300
+      flex items-center justify-center
+    "
+    whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.95 }}
+  >
+    {/* PULSING HALO */}
+    <span className="
+      absolute inset-0
+      rounded-full
+      bg-blue-300/40
+      animate-pulse-scale
+      pointer-events-none
+    "></span>
+
+    <Play className="w-4 h-4" fill="white" />
+  </motion.button>
+)}
+
+
+
+        </motion.div>
       </div>
 
       {/* === Stats Section === */}
@@ -184,41 +192,34 @@ export default function Header() {
   );
 }
 
-/* === Stats Subcomponent === */
+/* === Stats Component === */
 function Stat({ number, label }: { number: string; label: string }) {
   const [value, setValue] = useState(0);
 
-  // Formatni aniqlash
-  const isPlus = number.endsWith("+");         // 100+
-  const isSlash = number.includes("/");        // 5/5 yoki 4/10
-  const isRange = number.includes("-");        // 4-10 (animatsiya bo‘lmaydi)
+  const isPlus = number.endsWith("+");
+  const isSlash = number.includes("/");
+  const isRange = number.includes("-");
 
-  // Target raqamni ajratib olish
   let target = 0;
   let suffix = "";
 
   if (isPlus) {
     target = parseInt(number.replace("+", ""));
     suffix = "+";
-  } 
-  else if (isSlash) {
+  } else if (isSlash) {
     const [left, right] = number.split("/");
-    target = parseInt(left);   // faqat chap tomoni animate
+    target = parseInt(left);
     suffix = "/" + right;
-  }
-  else if (!isRange) {
+  } else if (!isRange) {
     target = parseInt(number);
   }
 
-  // RANGE bo‘lsa animatsiya bo‘lmaydi
   const animatedNumber = isRange ? number : value + suffix;
 
-  // Animate
   useEffect(() => {
-    if (isRange) return; // range animatsiya bo‘lmaydi
+    if (isRange) return;
 
-    let start = 0;
-    const duration = 3000; 
+    const duration = 3000;
     const startTime = performance.now();
 
     const animate = (now: number) => {
@@ -241,9 +242,7 @@ function Stat({ number, label }: { number: string; label: string }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.6 }}
     >
-      <p className="text-2xl sm:text-3xl font-bold">
-        {animatedNumber}
-      </p>
+      <p className="text-2xl sm:text-3xl font-bold">{animatedNumber}</p>
 
       <p className="text-[#FFFFFFB2] text-sm sm:text-xl mt-1 sm:mt-2 leading-snug">
         {label}
@@ -251,5 +250,3 @@ function Stat({ number, label }: { number: string; label: string }) {
     </motion.div>
   );
 }
-
-

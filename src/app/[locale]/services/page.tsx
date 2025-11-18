@@ -122,7 +122,7 @@ export default function ServicesPage() {
       </div>
             <section className="bg-black text-white py-20 md:py-32">
         <div className="px-6 sm:px-10 lg:px-16 max-w-7xl mx-auto text-center">
-          <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-4xl font-bold leading-tight">
         {(() => {
   const words = t('to-offer').split(' ');
   const blueIndices = [3, 4, 5, 7, 9, 10];

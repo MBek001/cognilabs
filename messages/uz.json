@@ -4,7 +4,8 @@
     "careers": "Karyera",
     "services": "Xizmatlar",
     "portfolio": "Portfolio",
-    "contact": "Bog'lanish"
+    "contact": "Bog'lanish",
+    "hiring":"Biz ishga olamiz! "
   },
   "Header": {
    "headword1": "AI and Software",
@@ -175,24 +176,41 @@
   "text4": "Biz ishlab chiqadigan har bir mahsulot mukammallik, barqarorlik va kelajakka yo‘naltirilgan dizayn bo‘yicha majburiyatimizni aks ettiradi. Inson ijodkorligi va ilg‘or texnologiyani bog‘lab, g‘oyalar haqiqiy ta’sirga aylanadigan yanada aqlli va bog‘langan dunyoni shakllantirishga intilamiz."
 },
 "Careers": {
-    "open-position": "Ochiq vakansiyalar",
-    "cognilabs": "Cognilabs",
-    "applytext": "Quyidagi lavozimlardan biriga hoziroq murojaat qiling — biz siz bilan tez orada bog‘lanamiz.",
-    "viewposition": "Ochiq vakansiyalarni ko‘rish",
-    "open": "Ochiq",
-    "positions": "Vakansiyalar",
-    "applyfor": "Murojaat qilish",
-    "fullname": "To‘liq ismingiz",
-    "enterfullname": "To‘liq ismingizni kiriting",
-    "position": "Lavozim",
-    "phonenumber": "Telefon raqami",
-    "uploadcv": "Rezyumeni yuklash",
-    "clickcv": "Rezyumeni yuklash uchun bosing",
-    "pdftext": "PDF, DOC, DOCX, PPTX (Maks. 10MB)",
-    "message": "Xabar (ixtiyoriy)",
-    "tellus": "Nima uchun ushbu lavozimga mos ekaningizni yozing...",
-    "submit": "Arizani yuborish"
+  "unlock": "Cognilabs’da o‘z salohiyatingizni oching",
+  "text": "Mutaxassislik, ijodkorlik va uzluksiz rivojlanishni qadrlaydigan tez rivojlanayotgan texnologik kompaniyaning bir qismiga aylaning.",
+  "vacan": "Bo‘sh ish o‘rinlari",
+  "ava": "mavjud",
+  "avatext": "Biz doimo jamoamizga qo‘shiladigan iqtidorli mutaxassislarni izlaymiz. Innovatsiya, rivojlanish va hamkorlikni qadrlaydigan kompaniyada karyerangizni yangi bosqichga olib chiqing.",
+  "programmer": "Dasturchi",
+  "programmertext": "Agar siz dasturlashga qiziqsangiz va real o‘zgarish qilishni istasangiz, rezume va portfiyolingizni yuboring — siz haqingizda eshitishni istaymiz.",
+  "ai": "AI Tadqiqotchi",
+  "aitext": "Agar siz sun’iy intellekt tadqiqotlariga qiziqsangiz, rezume va portfiyolingizni yuboring — siz haqingizda eshitishni istaymiz.",
+  "designer": "Dizayner",
+  "designertext": "Agar siz dizaynga ishtiyoqmand bo‘lsangiz va o‘z hissangizni qo‘shmoqchi bo‘lsangiz, rezume va portfiyolingizni yuboring.",
+  "marketer": "Marketolog",
+  "marketertext": "Agar siz marketingga qiziqsangiz va farq qilmoqchi bo‘lsangiz, rezume va portfiyolingizni yuboring.",
+  "why": "Nega Bizga Qo‘shilasiz?",
+  "reason": "Biz doimo jamoamizga qo‘shiladigan iqtidorli mutaxassislarni izlaymiz. Innovatsiya, rivojlanish va hamkorlikni qadrlaydigan kompaniyada o‘z o‘rningizni toping.",
+  "reas1": "Innovatsion Loyihalar",
+  "reas1text": "Eng so‘nggi texnologiyalar bilan ishlang va sizni o‘sishga undaydigan loyihalarda ishtirok eting. Sizning hissangiz global sanoatlarning kelajagiga ta’sir qiladi.",
+  "reas2": "Hamkorlik Muhiti",
+  "reas2text": "Biz jamoaviy ish, ochiqlik va bilim almashishni qadrlaymiz. Iqtidorli hamkasblar bilan birga ishlang va birgalikda ulkan natijalarga erishing.",
+  "reas3": "Ish va Hayot Balansi",
+  "reas3text": "Cognilabs’da siz uchun muntazam o‘qish, malaka oshirish va karyera rivojlanish imkoniyatlari yaratiladi. Biz sizning professional va shaxsiy o‘sishingizga sarmoya kiritamiz.",
+  "reas4": "Raqobatbardosh Maosh va Imtiyozlar",
+  "reas4text": "Biz raqobatbardosh maoshlar, mukofotlar va keng qamrovli imtiyozlar paketini taklif etamiz. Sizning mehnatingiz munosib rag‘batlantiriladi.",
+  "join": "Jamoamizga Qo‘shiling",
+  "now": "HOZIR!",
+  "fullname": "To‘liq Ism*",
+  "phonenumber": "Telefon Raqam*",
+  "whyus": "Nega bizni tanladingiz? (Majburiy emas)",
+  "position": "Lavozim*",
+  "age": "Yosh*",
+  "uploadres": "Rezyume/Portfolioni yuklang (Majburiy emas)",
+  "check": "Bu katakni belgilash orqali siz Cognilabs HR bo‘limidan qo‘ng‘iroqlar va SMS xabarlari olishga rozilik bildirasiz",
+  "send": "Yuborish"
 }
+
 
 
 

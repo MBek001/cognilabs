@@ -41,7 +41,7 @@ export default function Navbar() {
                 letterSpacing: "",
               }}
             >
-              <Link href="/careers">We're hiring</Link>
+              <Link href="/careers">{t("hiring")}</Link>
             </p>
           </div>
 
