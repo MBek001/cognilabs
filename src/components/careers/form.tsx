@@ -53,7 +53,7 @@ async function sendCareerFormToAdmin(data: CareerFormData) {
 export default function JoinTeamForm() {
   const [formData, setFormData] = useState<CareerFormData>({
     fullName: '',
-    age: 0,
+    age: 18, // default to 18 instead of 0 to avoid falsy value issues
     position: '',
     phone: '',
     message: '',
@@ -71,7 +71,7 @@ export default function JoinTeamForm() {
   };
 
   const handleSubmit = async () => {
-    if (!formData.fullName || !formData.phone || !formData.position || !formData.age || !agree) {
+    if (!formData.fullName || !formData.phone || !formData.position || formData.age <= 0 || !agree) {
       errorToast();
       return;
     }
@@ -79,9 +79,10 @@ export default function JoinTeamForm() {
     setIsSubmitting(true);
 
     try {
-      await sendCareerFormToAdmin(formData);
+      // Explicitly include age to satisfy TypeScript
+      await sendCareerFormToAdmin({ ...formData, age: formData.age });
       successToast();
-      setFormData({ fullName: '', age: 0, position: '', phone: '', message: '', file: null });
+      setFormData({ fullName: '', age: 18, position: '', phone: '', message: '', file: null });
       setAgree(false);
     } catch {
       errorToast();
@@ -119,8 +120,7 @@ export default function JoinTeamForm() {
         {/* FORM */}
         <motion.div className="bg-gray-100 rounded-[30px] sm:rounded-[40px] p-6 sm:p-10 shadow-2xl" variants={itemVariants}>
           <motion.div className="space-y-6" initial="hidden" animate="visible" variants={containerVariants}>
-            
-            {/* FULL NAME */}
+
             <motion.input
               type="text"
               placeholder={t("fullname")}
@@ -130,7 +130,6 @@ export default function JoinTeamForm() {
               variants={itemVariants}
             />
 
-            {/* PHONE */}
             <motion.input
               type="tel"
               placeholder={t("phonenumber")}
@@ -140,7 +139,6 @@ export default function JoinTeamForm() {
               variants={itemVariants}
             />
 
-            {/* MESSAGE */}
             <motion.textarea
               placeholder={t("whyus")}
               value={formData.message}
@@ -150,7 +148,6 @@ export default function JoinTeamForm() {
               variants={itemVariants}
             />
 
-            {/* POSITION */}
             <motion.div className="relative" variants={itemVariants}>
               <select
                 value={formData.position}
@@ -163,7 +160,6 @@ export default function JoinTeamForm() {
               <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500" size={22} />
             </motion.div>
 
-            {/* AGE */}
             <motion.input
               type="number"
               placeholder={t("age")}
@@ -173,7 +169,6 @@ export default function JoinTeamForm() {
               variants={itemVariants}
             />
 
-            {/* FILE UPLOAD */}
             <motion.label
               className="w-full bg-transparent border-b-2 border-gray-400 py-3 px-1 sm:px-2 text-gray-600 flex items-center justify-between cursor-pointer hover:border-blue-600 transition text-sm sm:text-base"
               variants={itemVariants}
@@ -183,7 +178,6 @@ export default function JoinTeamForm() {
               <input type="file" onChange={handleFileChange} className="hidden" accept=".pdf,.doc,.docx" />
             </motion.label>
 
-            {/* CHECKBOX */}
             <motion.div className="flex items-start gap-3 pt-4" variants={itemVariants}>
               <input
                 type="checkbox"
@@ -195,7 +189,6 @@ export default function JoinTeamForm() {
               <label htmlFor="agree" className="text-gray-600 text-sm sm:text-base leading-relaxed cursor-pointer">{t("check")}</label>
             </motion.div>
 
-            {/* BUTTON */}
             <motion.button
               onClick={handleSubmit}
               disabled={isSubmitting}
