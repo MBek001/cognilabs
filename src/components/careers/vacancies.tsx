@@ -102,37 +102,32 @@ export default function Vacancies() {
         >
           {vacancies.map((vac, index) => (
             <motion.div
-              key={vac.id}
-              onClick={() => scrollToForm("form")}
-              className="
-                group
-                rounded-3xl 
-                overflow-hidden 
-                bg-gradient-to-b 
-                from-[#0066FF] 
-                to-[#0041A8] 
-                shadow-lg 
-                transition-all 
-                duration-300 
-                cursor-pointer 
-                flex 
-                flex-col
-                relative
-              "
-              initial={{ opacity: 0, y: 50, rotateX: -15 }}
-              animate={{ opacity: 1, y: 0, rotateX: 0 }}
-              transition={{ 
-                duration: 0.6, 
-                delay: 0.6 + index * 0.15,
-                ease: "easeOut"
-              }}
-              whileHover={{ 
-                scale: 1.02,
-                y: -8,
-                boxShadow: "0 25px 50px -12px rgba(0, 102, 255, 0.5)"
-              }}
-              whileTap={{ scale: 0.98 }}
-            >
+  key={vac.id}
+  onClick={() => scrollToForm("form")}
+  className="
+    group
+    rounded-3xl 
+    overflow-hidden 
+    bg-gradient-to-b 
+    from-[#0066FF] 
+    to-[#0041A8] 
+    shadow-lg 
+    transition-all 
+    duration-300 
+    cursor-pointer 
+    flex 
+    flex-col
+    relative
+  "
+  initial={{ opacity: 0, y: 50, rotateX: -15 }}
+  animate={{ opacity: 1, y: 0, rotateX: 0 }}
+  transition={{ 
+    duration: 0.6, 
+    delay: 0.6 + index * 0.15,
+    ease: "easeOut"
+  }}
+>
+
               {/* ANIMATED BORDER GLOW */}
               <motion.div
                 className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 pointer-events-none"

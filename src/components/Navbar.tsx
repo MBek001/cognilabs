@@ -119,10 +119,10 @@ export default function Navbar() {
             </Link>
             <Link href="https://t.me/cognilabs_software" target="_blank">
               <Image
-                src="/tg1.png"
+                src="/tg.svg"
                 alt="telegram"
-                width={40}
-                height={40}
+                width={37}
+                height={37}
                 className="bg-[#0066FF] p-2 rounded-full cursor-pointer"
               />
             </Link>

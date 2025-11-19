@@ -38,9 +38,19 @@ export default function WhyUs() {
           transition={{ duration: 0.8 }}
           className="flex justify-center items-center flex-col mb-16 text-center"
         >
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white">
-            {t("why")}
-          </h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white">
+  {t("why")
+    .split(" ")
+    .map((word, index) => (
+      <span
+        key={index}
+        className={index === 1 ? "text-blue-800" : ""}
+      >
+        {word}{" "}
+      </span>
+    ))}
+</h2>
+
           <p className="max-w-[850px] text-base sm:text-lg lg:text-xl pt-6 sm:pt-8 font-inter text-gray-300 leading-[26px] sm:leading-[30px] lg:leading-[32px]">
             {t("reason")}
           </p>

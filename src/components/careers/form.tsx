@@ -119,8 +119,8 @@ export default function JoinTeamForm() {
 
         {/* LEFT TITLE */}
         <motion.div className="text-center lg:text-left" variants={itemVariants}>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-2">{t("join")}</h1>
-          <h2 className="text-5xl sm:text-6xl md:text-7xl font-bold text-blue-600">{t("now")}</h2>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-2">{t("join")}</h1>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-blue-600">{t("now")}</h2>
         </motion.div>
 
         {/* FORM */}

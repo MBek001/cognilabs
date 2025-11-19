@@ -27,27 +27,33 @@ export default function Part1() {
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl font-bold"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            whileHover={{ scale: 1.02 }}
-          >
-            {t("unlock").split("").map((char, index) => (
-              <motion.span
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ 
-                  duration: 0.5, 
-                  delay: 0.3 + index * 0.03,
-                  ease: "easeOut" 
-                }}
-              >
-                {char}
-              </motion.span>
-            ))}
-          </motion.h2>
+  className="text-3xl sm:text-4xl md:text-5xl font-bold"
+  initial={{ opacity: 0, y: -20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, delay: 0.2 }}
+  whileHover={{ scale: 1.02 }}
+>
+  {t("unlock")
+    .split(" ")
+    .map((word, wordIndex) => (
+      <motion.span
+        key={wordIndex}
+        className={
+          wordIndex === 1 || wordIndex === 2 ? "text-blue-800" : ""
+        }
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.5,
+          delay: 0.3 + wordIndex * 0.15,
+          ease: "easeOut"
+        }}
+      >
+        {word}{" "}
+      </motion.span>
+    ))}
+</motion.h2>
+
           <motion.p
             className="text-base sm:text-lg md:text-xl pt-4 max-w-[530px] mx-auto lg:mx-0"
             initial={{ opacity: 0, y: 20 }}
