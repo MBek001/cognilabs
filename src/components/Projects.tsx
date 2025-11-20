@@ -1,235 +1,122 @@
-"use client";
-import { useTranslations } from "next-intl";
-import Image from "next/image";
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
-
-const clamp01 = (x: number) => Math.max(0, Math.min(1, x));
-const lerp = (start: number, end: number, t: number) => start + (end - start) * t;
-
-interface Project {
-  name: string;
-  image: string;
-  text: string;
-  reverse?: boolean;
-}
+import { ArrowRight } from 'lucide-react'
+import React from 'react'
 
 export default function Projects() {
-  const t = useTranslations("Projects");
-  const containerRef = useRef<HTMLDivElement>(null);
-  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
-  const rafRef = useRef<number | null>(null);
-
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [smoothScrollProgress, setSmoothScrollProgress] = useState(0);
-  const [hovered, setHovered] = useState<number | null>(null);
-  const [selected, setSelected] = useState<number | null>(null);
-
-  const projects: Project[] = useMemo(() => [
-    { name: "ErixConsulting", image: "/erixConsulting.png", text: t("erixConsultingtext") },
-    { name: "FriendSpace", image: "/friendspace.png", text: t("friendSpacetext"), reverse: true },
-    { name: "Moment Logistics", image: "/momentLogistics.png", text: t("momentLogistics") },
-  ], [t]);
-
-  // Track scroll progress
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!containerRef.current) return;
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-      rafRef.current = requestAnimationFrame(() => {
-        const container = containerRef.current!;
-        const scrollTop = window.scrollY || window.pageYOffset;
-        const containerTop = container.offsetTop;
-        const containerHeight = container.offsetHeight;
-        const windowHeight = window.innerHeight;
-        const scrollable = containerHeight - windowHeight;
-        const progress = scrollable > 0 ? clamp01((scrollTop - containerTop) / scrollable) : 0;
-        setScrollProgress(progress);
-      });
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll);
-    handleScroll();
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    };
-  }, []);
-
-  // Smooth interpolation
-  useEffect(() => {
-    let anim: number;
-    const smooth = 0.12;
-    const animate = () => {
-      setSmoothScrollProgress(prev => {
-        const diff = scrollProgress - prev;
-        if (Math.abs(diff) < 0.001) return scrollProgress;
-        return prev + diff * smooth;
-      });
-      anim = requestAnimationFrame(animate);
-    };
-    anim = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(anim);
-  }, [scrollProgress]);
-
-  const scrollActiveIndex = useMemo(() => {
-    const mids = projects.map((_, i) => i * 0.3 + 0.15);
-    let best = 0;
-    let bestDist = Infinity;
-    mids.forEach((m, i) => {
-      const d = Math.abs(smoothScrollProgress - m);
-      if (d < bestDist) { bestDist = d; best = i; }
-    });
-    return best;
-  }, [smoothScrollProgress, projects.length]);
-
-  const activeIndex = hovered ?? selected ?? scrollActiveIndex;
-
-  const setCardRef = useCallback((i: number) => (el: HTMLDivElement | null) => {
-    cardsRef.current[i] = el;
-  }, []);
+  const projects = [
+    {
+      id:1,
+      title: "Bazabarbershop",
+      logo: "/projects/baza.png",
+      link: "https://www.bazabarbershop.com",
+      text: "Fantastic service! They built us a clean, modern website that fits our barbershop perfectly. Easy to work with and delivered exactly what we needed."
+    },
+    {
+      id:2,
+      title: "Billur",
+      logo: "/projects/billur.png",
+      link: "https://billur-market.com",
+      text: "Great service! They created a clean, professional website that showcases our cleaning products perfectly. Easy communication and excellent results."
+    }
+  ]
 
   return (
-    <div ref={containerRef} className="bg-black text-white px-4 sm:px-0 relative pb-20">
-      {/* Title */}
-      <div
-        className="flex flex-col items-center mb-16 gap-6 text-center"
-        style={{
-          opacity: Math.max(1 - smoothScrollProgress * 2, 0),
-          transform: `translateY(${smoothScrollProgress * -80}px)`,
-          willChange: "transform, opacity",
-        }}
-      >
-        <h2 className="text-4xl sm:text-6xl font-semibold leading-tight">
-          {t("ourprojects").split(" ").map((word, idx) => (
-            <span key={idx} className={idx === 1 ? "text-blue-500" : ""}>{word} </span>
-          ))}
+    <div className='bg-black min-h-screen p-4 sm:p-8 md:p-16'>
+      <div className="flex flex-col items-center mb-8 sm:mb-12 md:mb-16 gap-4 sm:gap-6 text-center px-4">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight">
+          <span>Our </span>
+          <span className="text-blue-500">Projects</span>
         </h2>
-        <p className="text-lg sm:text-2xl max-w-[600px] text-[#FFFFFFB2]">{t("text")}</p>
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl max-w-[600px] text-[#FFFFFFB2]">
+          Our projects deliver innovative digital solutions 
+that empower businesses.
+        </p>
       </div>
 
-      {/* Project Cards */}
-      <div className="flex flex-col justify-center items-center gap-8 sm:gap-12">
-        {projects.map((project, index) => (
-          <ProjectCard
-            key={index}
-            project={project}
-            isActive={index === activeIndex}
-            smoothScrollProgress={smoothScrollProgress}
-            index={index}
-            setHovered={setHovered}
-            setSelected={setSelected}
-            cardsRef={cardsRef}
-            setCardRef={setCardRef}
-          />
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-8 max-w-6xl mx-auto pt-16 sm:pt-20 md:pt-24'>
+        {projects.map((item, index) => (
+          <div 
+            key={item.id} 
+            className='bg-zinc-900 border border-transparent hover:border-blue-500 hover:shadow-2xl hover:shadow-blue-500/20 rounded-3xl p-6 sm:p-8 pt-20 sm:pt-24 flex flex-col items-center text-center relative transition-all duration-500 ease-out hover:-translate-y-2 group'
+            style={{
+              animation: `fadeInUp 0.6s ease-out ${index * 0.2}s backwards`
+            }}
+          >
+            <style>{`
+              @keyframes fadeInUp {
+                from {
+                  opacity: 0;
+                  transform: translateY(30px);
+                }
+                to {
+                  opacity: 1;
+                  transform: translateY(0);
+                }
+              }
+            `}</style>
+            
+            {/* Logo Circle - Responsive sizing */}
+            <div className='w-32 h-32 sm:w-36 sm:h-36 md:w-44 md:h-44 bg-white rounded-full flex items-center justify-center absolute -top-16 sm:-top-18 md:-top-20 left-1/2 transform -translate-x-1/2 transition-all duration-500 ease-out hover:scale-105 hover:shadow-xl shadow-lg'>
+              <img 
+                src={item.logo} 
+                alt={item.title} 
+                className='w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36 hover:scale-105 object-contain transition-transform duration-700 ease-out'
+              />
+            </div>
+            
+            {/* Title */}
+            <h3 className='text-white text-xl sm:text-2xl font-bold mb-3 sm:mb-4 transition-colors duration-300 group-hover:text-blue-400'>
+              {item.title}
+            </h3>
+            
+            {/* Description */}
+            <p className='text-gray-300 max-w-md text-sm sm:text-base leading-relaxed mb-6 sm:mb-8 flex-1 transition-colors duration-300 group-hover:text-gray-100'>
+              {item.text}
+            </p>
+            
+            {/* Footer - Stack on mobile, side-by-side on desktop */}
+            <div className='flex flex-col sm:flex-row items-center justify-between w-full gap-4 sm:gap-0'>
+              {/* Rating */}
+              <div className='flex items-center gap-2 transition-transform pt-10 duration-300 group-hover:scale-105'>
+                <span className='text-white font-semibold'>5.0</span>
+                <div className='flex text-yellow-400'>
+                  {'⭐⭐⭐⭐⭐'.split('').map((star, i) => (
+                    <span 
+                      key={i}
+                      className='inline-block transition-all duration-300 hover:scale-125 text-sm sm:text-base'
+                      style={{
+                        transitionDelay: `${i * 50}ms`
+                      }}
+                    >{star}</span>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Link */}
+              <a 
+                href={item.link} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className='text-blue-400 pt-10 hover:text-blue-300 transition-all duration-300 flex items-center gap-2 hover:gap-3 group/link text-sm sm:text-base'
+              >
+                <span className='transition-all duration-300'>Visit the project</span>
+                <span className='transition-transform duration-300 group-hover/link:translate-x-1'>
+                  <ArrowRight className='w-4 h-4 sm:w-5 sm:h-5'/>
+                </span>
+              </a>
+            </div>
+          </div>
         ))}
       </div>
 
-      {/* View More */}
-      <button
-        className="flex mx-auto items-center p-4 px-6 text-xl sm:text-2xl rounded-2xl bg-blue-800 hover:bg-blue-700 transition-all duration-300 mt-16 sm:mt-20"
-        style={{
-          opacity: smoothScrollProgress > 0.85 ? (smoothScrollProgress - 0.85) / 0.15 : 0,
-          transform: `translateY(${Math.max((1 - (smoothScrollProgress - 0.85) / 0.15) * 32, 0)}px)`,
-          willChange: "transform, opacity",
-        }}
-      >
-        {t("viewMore")}
-      </button>
-    </div>
-  );
-}
-
-// Reusable Project Card
-interface ProjectCardProps {
-  project: Project;
-  isActive: boolean;
-  smoothScrollProgress: number;
-  index: number;
-  setHovered: React.Dispatch<React.SetStateAction<number | null>>;
-  setSelected: React.Dispatch<React.SetStateAction<number | null>>;
-  cardsRef: React.MutableRefObject<(HTMLDivElement | null)[]>;
-  setCardRef: (i: number) => (el: HTMLDivElement | null) => void;
-}
-
-function ProjectCard({
-  project,
-  isActive,
-  smoothScrollProgress,
-  index,
-  setHovered,
-  setSelected,
-  cardsRef,
-  setCardRef,
-}: ProjectCardProps) {
-  const t = useTranslations("Projects");
-  const projectStart = index * 0.3;
-  const projectEnd = projectStart + 0.25;
-  const projectProgress = clamp01((smoothScrollProgress - projectStart) / 0.25);
-
-  const isPassed = smoothScrollProgress > projectEnd;
-  const isUpcoming = smoothScrollProgress < projectStart;
-
-  // Base animations
-  const baseOpacity = isUpcoming ? 0 : isPassed ? 0.5 : lerp(0.6, 1, projectProgress);
-  const baseScale = isUpcoming ? 0.92 : isPassed ? 0.96 : lerp(0.92, 1, projectProgress);
-  const baseTranslateY = isUpcoming ? 60 : isPassed ? -20 : lerp(60, 0, projectProgress);
-
-  const finalScale = isActive ? baseScale * 1.03 : baseScale * 0.98;
-  const finalOpacity = isActive ? 1 : Math.min(baseOpacity, 0.6);
-  const finalTranslateY = isActive ? baseTranslateY - 8 : baseTranslateY;
-
-  return (
-    <div
-      ref={setCardRef(index)}
-      onMouseEnter={() => setHovered(index)}
-      onMouseLeave={() => setHovered(null)}
-      onClick={() => {
-        setSelected(index);
-        cardsRef.current[index]?.scrollIntoView({ behavior: "smooth", block: "center" });
-      }}
-      className={`relative flex flex-col sm:flex-row gap-6 sm:gap-10 items-center sm:px-8 px-4 py-6 rounded-2xl group cursor-pointer ${
-        project.reverse ? "sm:flex-row-reverse" : ""
-      } ${isActive ? "bg-[#22252A] ring-1 ring-[#246BFF]/40" : "hover:bg-[#2E2F30]/50"}`}
-      style={{
-        opacity: finalOpacity,
-        transform: `scale(${finalScale}) translateY(${finalTranslateY}px)`,
-        transition: "transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 350ms ease-out, background-color 300ms ease, box-shadow 400ms ease",
-        willChange: "transform, opacity",
-        zIndex: isActive ? 10 : 0,
-        boxShadow: isActive ? "0 20px 40px rgba(36,107,255,0.2)" : "none",
-      }}
-    >
-      <div className="flex justify-center w-full sm:w-auto flex-shrink-0">
-        <Image
-          className={`rounded-2xl sm:rounded-3xl transition-shadow duration-300 ${
-            isActive ? "shadow-[0_0_40px_rgba(36,107,255,0.35)]" : "group-hover:shadow-[0_0_30px_rgba(0,102,255,0.25)]"
-          }`}
-          src={project.image}
-          width={300}
-          height={380}
-          alt={project.name}
-          sizes="(max-width: 640px) 85vw, 300px"
-        />
-      </div>
-
-      <div className="flex flex-col gap-3 sm:gap-6 max-w-[420px] text-center sm:text-left">
-        <h3 className="text-2xl sm:text-4xl font-semibold">{project.name}</h3>
-        <p className="text-base sm:text-lg text-[#FFFFFFB2] leading-relaxed">{project.text}</p>
-        <button
-          className="flex justify-center sm:justify-start text-lg sm:text-xl text-[#66A3FF] hover:text-[#7fb2ff] items-center group/btn focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#246BFF] focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-lg"
-          onClick={(e) => {
-            e.stopPropagation();
-            setSelected(index);
-            cardsRef.current[index]?.scrollIntoView({ behavior: "smooth", block: "center" });
-          }}
+      {/* View More Button */}
+      <div className='flex justify-center pt-12 sm:pt-16 md:pt-20'>
+        <a 
+          href="/portfolio" 
+          className='text-lg sm:text-xl md:text-2xl font-semibold px-6 sm:px-8 py-3 rounded-2xl bg-blue-800 hover:bg-blue-700 transition-colors duration-300'
         >
-          {t("visitProject")}
-          <span className="flex items-center justify-center text-lg sm:text-xl ml-2 transition-transform duration-300 group-hover/btn:translate-x-2">
-            <Image src="/arrow.png" width={20} height={20} alt="arrow" />
-          </span>
-        </button>
+          View more
+        </a>
       </div>
     </div>
-  );
+  )
 }
