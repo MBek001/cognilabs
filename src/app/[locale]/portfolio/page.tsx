@@ -203,7 +203,7 @@ export default function Page() {
                     target="_blank"
                     className="bg-blue-600 flex gap-2 hover:bg-blue-700 text-white px-6 py-3 rounded-xl text-sm font-semibold transition whitespace-nowrap"
                   >
-                    {t("visitpr")} <ArrowRight className="w-[20px] h-[20px]"/>
+                    {t("visitpr")} <ArrowRight className="w-5 h-5"/>
                   </Link>
                 </div>
               </motion.div>

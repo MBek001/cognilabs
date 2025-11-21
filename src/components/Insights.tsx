@@ -79,7 +79,7 @@ export default function Insights() {
           }}
         >
           {[...topics, ...topics].map((topic, idx) => (
-            <SwiperSlide key={`${topic.id}-${idx}`} className="!overflow-visible">
+            <SwiperSlide key={`${topic.id}-${idx}`} className="overflow-visible!">
               {({ isActive }) => (
                 <Link href={`/${locale}/insights/${topic.link}`}>
                   <div
@@ -172,10 +172,10 @@ export default function Insights() {
         </Swiper>
 
         {/* ARROWS */}
-        <button className="prev-btn-insights absolute left-0 top-1/2 -translate-y-1/2 z-30 w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all group">
+        <button className="prev-btn-insights cursor-pointer absolute left-0 top-1/2 -translate-y-1/2 z-30 w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all group">
           <ChevronLeft className="w-8 h-8 text-white group-hover:scale-110 transition-transform" />
         </button>
-        <button className="next-btn-insights absolute right-0 top-1/2 -translate-y-1/2 z-30 w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all group">
+        <button className="next-btn-insights cursor-pointer absolute right-0 top-1/2 -translate-y-1/2 z-30 w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all group">
           <ChevronRight className="w-8 h-8 text-white group-hover:scale-110 transition-transform" />
         </button>
       </div>

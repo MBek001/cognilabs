@@ -59,7 +59,7 @@ export default function Vacancies() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <motion.span 
-              className="bg-gradient-to-r from-blue-400 to-blue-900 bg-clip-text text-transparent"
+              className="bg-linear-to-r from-blue-400 to-blue-900 bg-clip-text text-transparent"
               animate={{ 
                 backgroundPosition: ["0%", "100%", "0%"]
               }}
@@ -108,7 +108,7 @@ export default function Vacancies() {
     group
     rounded-3xl 
     overflow-hidden 
-    bg-gradient-to-b 
+    bg-linear-to-b 
     from-[#0066FF] 
     to-[#0041A8] 
     shadow-lg 
@@ -188,7 +188,7 @@ export default function Vacancies() {
               {/* CONTENT */}
               <motion.div 
                 className="
-                  bg-gradient-to-b 
+                  bg-linear-to-b 
                   from-[#0066FF] 
                   to-[#0041A8] 
                   p-6 sm:p-8 

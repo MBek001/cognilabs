@@ -34,7 +34,7 @@ export default function Header() {
       <AnimatePresence>
         {isVideoOpen && (
           <motion.div
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4"
+            className="fixed inset-0 z-100 flex items-center justify-center bg-black/90 p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -176,13 +176,13 @@ export default function Header() {
         transition={{ delay: 1.7, duration: 0.6, ease: "easeOut" }}
       >
         <motion.div
-          className="h-px bg-gradient-to-l from-white to-transparent"
+          className="h-px bg-linear-to-l from-white to-transparent"
           initial={{ width: 0 }}
           animate={{ width: "40vw" }}
           transition={{ duration: 1.6, ease: "easeInOut", delay: 0.1 }}
         />
         <motion.div
-          className="h-px bg-gradient-to-r from-white to-transparent"
+          className="h-px bg-linear-to-r from-white to-transparent"
           initial={{ width: 0 }}
           animate={{ width: "40vw" }}
           transition={{ duration: 1.6, ease: "easeInOut", delay: 0.1 }}
@@ -235,7 +235,7 @@ function Stat({ number, label }: { number: string; label: string }) {
 
   return (
     <motion.div
-      className="text-center w-[96px] sm:w-[160px] select-none"
+      className="text-center w-24 sm:w-40 select-none"
       whileHover={{ scale: 1.04 }}
       transition={{ type: "tween", duration: 0.25, ease: "easeOut" }}
       initial={{ opacity: 0, y: 18 }}
