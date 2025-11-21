@@ -13,25 +13,25 @@ export default function Vacancies() {
     {
       id: "programmer",
       title: t("programmer"),
-      image: "/career/programmer.jpg",
+      image: "/career/programmer12.png",
       text: t("programmertext")
     },
     {
       id: "ai-researcher",
       title: t("ai"),
-      image: "/career/ai.jpg",
+      image: "/career/ai12.png",
       text: t("aitext")
     },
     {
       id: "designer",
       title: t("designer"),
-      image: "/career/designer.jpg",
+      image: "/career/designer1.png",
       text: t("designertext")
     },
     {
       id: "marketer",
       title: t("marketer"),
-      image: "/career/marketer.jpg",
+      image: "/career/marketer12.png",
       text: t("marketertext")
     }
   ];

@@ -106,26 +106,69 @@ export default function TrustCases() {
                 />
               </div>
             ))}
+
+            
           </div>
         </div>
+        {/* 🔥 SECOND ROW — MOVES TO THE RIGHT */}
+<div className="relative w-full overflow-hidden mt-10">
+  <div
+    className="flex gap-10 animate-marquee-right"
+    style={{
+      animation: "marqueeRight 18s linear infinite",
+      animationPlayState: "running",
+    }}
+  >
+    {[...trustImages, ...trustImages].map((image, index) => (
+      <div
+        key={index}
+        className="w-[110px] sm:w-[130px] md:w-[140px] lg:w-[151px] aspect-square rounded-full flex items-center justify-center overflow-hidden shrink-0 transition-transform duration-300 hover:scale-110 hover:-rotate-3"
+      >
+        <Image
+          src={image}
+          alt={`Company-r-${index + 1}`}
+          width={151}
+          height={151}
+          className="w-full h-full object-contain"
+        />
+      </div>
+    ))}
+  </div>
+</div>
+
       </div>
 
       {/* CSS @keyframes — global yoki page.module.css ichida bo‘lsa ham ishlaydi */}
       <style jsx global>{`
-        @keyframes marquee {
-          0% {
-            transform: translateX(0%);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
 
-        .animate-marquee {
-          display: flex;
-          width: max-content; /* juda muhim! */
-        }
-      `}</style>
+  @keyframes marqueeRight {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+  .animate-marquee {
+    display: flex;
+    width: max-content;
+  }
+
+  .animate-marquee-right {
+    display: flex;
+    width: max-content;
+  }
+`}</style>
+
     </div>
   );
 }

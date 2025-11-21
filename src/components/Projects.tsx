@@ -1,21 +1,23 @@
 import { ArrowRight } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import React from 'react'
 
 export default function Projects() {
+  const t =useTranslations("Projects");
   const projects = [
     {
       id:1,
       title: "Bazabarbershop",
       logo: "/projects/baza.png",
       link: "https://www.bazabarbershop.com",
-      text: "Fantastic service! They built us a clean, modern website that fits our barbershop perfectly. Easy to work with and delivered exactly what we needed."
+      text: t("bazatext")
     },
     {
       id:2,
       title: "Billur",
       logo: "/projects/billur.png",
       link: "https://billur-market.com",
-      text: "Great service! They created a clean, professional website that showcases our cleaning products perfectly. Easy communication and excellent results."
+      text: t("billurtext")
     }
   ]
 
@@ -23,12 +25,18 @@ export default function Projects() {
     <div className='bg-black min-h-screen p-4 sm:p-8 md:p-16'>
       <div className="flex flex-col items-center mb-8 sm:mb-12 md:mb-16 gap-4 sm:gap-6 text-center px-4">
         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight">
-          <span>Our </span>
-          <span className="text-blue-500">Projects</span>
-        </h2>
+  {t("ourprojects").split(" ").map((word, index) => (
+    <span
+      key={index}
+      className={index === 1 ? "text-blue-500" : ""}
+    >
+      {word}{" "}
+    </span>
+  ))}
+</h2>
+
         <p className="text-base sm:text-lg md:text-xl lg:text-2xl max-w-[600px] text-[#FFFFFFB2]">
-          Our projects deliver innovative digital solutions 
-that empower businesses.
+          {t("text")}
         </p>
       </div>
 
@@ -98,7 +106,7 @@ that empower businesses.
                 rel="noopener noreferrer" 
                 className='text-blue-400 pt-10 hover:text-blue-300 transition-all duration-300 flex items-center gap-2 hover:gap-3 group/link text-sm sm:text-base'
               >
-                <span className='transition-all duration-300'>Visit the project</span>
+                <span className='transition-all duration-300'>{t("visitProject")}</span>
                 <span className='transition-transform duration-300 group-hover/link:translate-x-1'>
                   <ArrowRight className='w-4 h-4 sm:w-5 sm:h-5'/>
                 </span>
@@ -114,9 +122,10 @@ that empower businesses.
           href="/portfolio" 
           className='text-lg sm:text-xl md:text-2xl font-semibold px-6 sm:px-8 py-3 rounded-2xl bg-blue-800 hover:bg-blue-700 transition-colors duration-300'
         >
-          View more
+          {t("viewMore")}
         </a>
       </div>
     </div>
   )
 }
+

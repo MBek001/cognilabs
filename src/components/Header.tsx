@@ -16,7 +16,7 @@ export default function Header() {
   };
 
   return (
-    <div className="relative flex flex-col items-center pb-50 justify-center pt-34 min-h-screen text-center overflow-hidden bg-black">
+    <div className="relative flex flex-col items-center pb-30 justify-center pt-34 min-h-screen text-center overflow-hidden bg-black">
 
       {/* === Animated glowing lights === */}
       <motion.div

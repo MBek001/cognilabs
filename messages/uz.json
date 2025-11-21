@@ -9,7 +9,7 @@
   },
   "Header": {
    "headword1": "AI va Dasturiy ta'minot",
-"headword2": "Rivojlantirish kompaniyasi!",
+"headword2": "Yaratadigan kompaniya!",
   "slogan": "Biz ilg‘or fikrli insonlar bilan hamkorlikda ilg‘or dasturiy yechimlar ishlab chiqamiz.",
   "contact": "Hozir bog‘lanish",
   "successproject": "Muvaffaqiyatli loyihalar",
@@ -18,14 +18,14 @@
   "members": "Jamoa a'zolari"
 },
 "Projects": {
-    "ourprojects": "Bizning loyihalar",
+    "ourprojects": "Bizning Loyihalar",
     "text": "Bizning loyihalar bizneslarni rivojlantiruvchi innovatsion raqamli yechimlarni taqdim etadi.",
-    "erixConsultingtext": "Mijozlar bilan o‘zaro aloqa tizimi, sun’iy intellekt integratsiyasi bilan.",
-    "friendSpacetext": "Odamlar bog‘lanib, qo‘ng‘iroq qilib, suhbatlasha oladigan ijtimoiy tarmoq!",
-    "momentLogistics": "Ko‘p tilli veb-sayt, post joylash va sun’iy intellekt integratsiyasi bilan.",
-    "visitProject": "Loyihani ko‘rish",
-    "viewMore": "Ko'proq"   
-},
+    "bazatext": "“Ajoyib xizmat! Ular barbershopimiz uchun zamonaviy va qulay veb-sayt yaratib berishdi. Ishlash juda oson va bizga kerak bo‘lgan narsaning o‘zini yetkazishdi.”",
+    "billurtext": "“Zo‘r xizmat! Ular tozalash mahsulotlarimizni mukammal ko‘rsatib beradigan toza va professional veb-sayt yaratishdi. Muloqot oson, natija esa a’lo darajada.”",
+    "visitProject": "Loyihaga O‘tish",
+    "viewMore": "Ko‘proq Ko‘rish"
+}
+,
 "Services": {
   "service": "Bizda mavjud xizmatlar",
   "text": "Biz veb va mobil ilovalar ishlab chiqish, sun’iy intellektni integratsiya qilish, maxsus dasturiy ta’minot hamda biznes samaradorligini oshirish uchun raqamli yechimlarni taklif etamiz.",
@@ -209,7 +209,44 @@
   "uploadres": "Rezyume/Portfolioni yuklang (Majburiy emas)",
   "check": "Bu katakni belgilash orqali siz Cognilabs HR bo‘limidan qo‘ng‘iroqlar va SMS xabarlari olishga rozilik bildirasiz",
   "send": "Yuborish"
+},
+"Porfolio": {
+  "text": "Mijozlarimiz biz bilan ishlashdan mamnun — silliq hamkorlik, sifatli natijalar va ishonchli qo‘llab-quvvatlashni yuqori baholashmoqda.",
+
+  "billurtype": "Tozalash",
+  "billurtext": "Billur — kuchli va xavfsiz tozalash mahsulotlari uchun ishonchli brend. Billur bilan toza va sog‘lom muhitni saqlash endi yanada oson.",
+  "billurpr": "Tozalash Mahsulotlari",
+  "billurmssg": "“Ajoyib xizmat! Bizning tozalash mahsulotlarimizni mukammal ko‘rsatadigan toza va professional sayt yaratishdi. Muloqot oson, natija esa juda a’lo bo‘ldi.”",
+
+  "bazatype": "Sartaroshlik",
+  "bazatext": "Bazabarbershop — professional soch olish va parvarishlash uchun eng yaxshi joy. Bazabarbershop bilan tarovatli ko‘rinish endi yanada oson.",
+  "bazapr": "Toza Sartaroshlik Xizmati",
+  "bazamssg": "“Bizning barbershop jamoamiz Cognilabs’dan juda mamnun! Band qilish jarayoni osonlashdi, mijozlar kamroq kutadi va eng band kunlarimiz ham tartibli o‘tadi.”",
+
+  "djafariytype": "Kiyim-kechak",
+  "djafariytext": "Djafariy — sifatli kiyimlar va zamonaviy uslublar uchun ishonchli brend. Djafariy bilan garderobingizni yangilash endi oson.",
+  "djafariypr": "Zamonaviy Kiyimlar",
+  "djafariymssg": "“Cognilabs kiyim do‘konimizni boshqarishni ancha osonlashtirdi! Mahsulot yangilanishlaridan tortib mijozlar xabarnomalarigacha — hammasi tez va tartibli.”",
+
+  "oloutype": "Hudilar",
+  "oloutext": "OLOU — sifat, qulaylik va dizaynga asoslangan minimalist hoodie brendi. OLOU bilan sodda va chiroyli kiyinish endi oson.",
+  "oloupr": "Zamonaviy Hudilar",
+  "oloumssg": "“Hudi brendi sifatida tezlik va uslub muhim. Cognilabs bizga energiyamizga mos — tez, toza va ishonchli tizim berdi. Biz juda mamnunmiz va hamkorlikni davom ettirishni xohlaymiz.”",
+
+  "saaftype": "Agro",
+  "saaftext": "Saaf Green Agro — ekologik toza va barqaror agro mahsulotlarining ishonchli yetkazib beruvchisi. Sog‘lom oziq tanlash endi oson.",
+  "saafpr": "Agro va Tabiat",
+  "saafmssg": "“Ushbu xizmat bizga juda yoqdi! Agro biznesimizni yanada tartibli va samarali qilishga yordam berdi. Aynan bizga kerak bo‘lgan narsa.”",
+
+  "extratype": "AI",
+  "extratext": "ExtraGpt — tezkor javoblar, g‘oyalar va yechimlar topishga yordam beruvchi aqlli platforma. Kerakli ma’lumotni topish endi oson.",
+  "extrapr": "Kelajak Texnologiyasi",
+  "extramssg": "“Biz tabiiy muloqot qiladigan, savollarga javob beradigan va biznes jarayonlarini avtomatlashtiradigan ilg‘or AI yordamchini yaratdik.”",
+
+  "visitpr": "Loyihaga o‘tish",
+  "bottomtext": "Xizmatimiz sifati, tezligi va ishonchliligi bilan ajralib turadi. Biz sizga hamma narsani soddalashtirib, haqiqiy taassurot qoldiradigan natijalarni yetkazishga e’tibor qaratamiz."
 }
+
 
 
 

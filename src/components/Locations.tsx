@@ -2,7 +2,6 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { MapPin, Phone } from "lucide-react";
-import { motion } from "framer-motion";
 
 export default function Locations() {
   const t = useTranslations("Locations");
@@ -50,26 +49,38 @@ export default function Locations() {
               alt={loc.name}
               width={500}
               height={746}
-              className="w-full h-auto object-cover transition-transform duration-500 "
+              className="w-full h-auto object-cover transition-transform duration-500"
             />
 
-            {/* Dark overlay */}
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-colors duration-500"></div>
+            {/* Dark overlay - always visible on mobile, hover on desktop */}
+            <div
+              className="
+                absolute inset-0 
+                bg-black/60 
+                md:bg-black/0 md:group-hover:bg-black/60 
+                transition-colors duration-500
+              "
+            />
 
-            {/* Info content (only on hover) */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileHover={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className="absolute inset-0 flex flex-col items-center justify-center text-white text-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            {/* Info content - always visible on mobile, hover on desktop */}
+            <div
+              className="
+                absolute inset-0 flex flex-col items-center justify-center text-white text-center p-4 sm:p-6
+                opacity-100 translate-y-0
+                md:opacity-0 md:translate-y-8
+                md:group-hover:opacity-100 md:group-hover:translate-y-0
+                transition-all duration-500 ease-out
+              "
             >
-              <MapPin className="w-8 h-8 mb-3 text-blue-400" />
-              <p className="text-xl font-semibold mb-2">{loc.name}</p>
-              <div className="flex items-center gap-2 text-lg">
-                <Phone className="w-5 h-5 text-blue-400" />
+              <MapPin className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 mb-2 sm:mb-3 text-blue-400" />
+              <p className="text-sm sm:text-base md:text-xl font-semibold mb-1 sm:mb-2">
+                {loc.name}
+              </p>
+              <div className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm md:text-lg">
+                <Phone className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-blue-400" />
                 <span>{loc.phone}</span>
               </div>
-            </motion.div>
+            </div>
           </div>
         ))}
       </div>

@@ -5,6 +5,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Footer from "~/components/Footer";
+import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function Page() {
   const [hovered, setHovered] = useState<number | null>(null);
@@ -27,79 +29,79 @@ export default function Page() {
 
   // Force show bottom card on mobile OR when hovered on desktop
   const shouldShowBottomCard = (id: number) => isMobile || hovered === id;
-
+  const t = useTranslations("Porfolio")
   const projects = [
     // ... your projects array stays exactly the same
     {
       id: 1,
       title: "Billur",
       logo: "/projectslogo/billur.png",
-      desc: "Billur is the trusted brand for powerful and safe cleaning products. Billur makes maintaining a fresh and healthy environment easier than ever.",
-      prtype: "Cleaning",
+      desc: t("billurtext"),
+      prtype: t("billurtype"),
       typeicon: "/projectslogo/icons/cleaning.png",
       showenimg: "/projectslogo/shows/cleaning.png",
-      bout: "Cleaning Products",
-      mssg: "“Great service! They created a clean, professional website that showcases our cleaning products perfectly. Easy communication and excellent results.”",
+      bout: t("billurpr"),
+      mssg: t("billurmssg"),
       link: "https://billur-market.com",
     },
     {
       id: 2,
       title: "Bazabarbershop",
       logo: "/projectslogo/baza.png",
-      desc: "Bazabarbershop is your go-to place for professional cuts and grooming. Billur Barbershop makes looking fresh and polished easier than ever.",
-      prtype: "Hairstyle",
+      desc: t("bazatext"),
+      prtype: t("bazatype"),
       typeicon: "/projectslogo/icons/hairstyle.png",
       showenimg: "/projectslogo/shows/hairstyle.png",
-      bout: "Clean Hairstyle",
-      mssg: "“Great service! They created a clean, professional website that showcases our cleaning products perfectly. Easy communication and excellent results.”",
+      bout: t("bazapr"),
+      mssg: t("bazamssg"),
       link: "https://www.bazabarbershop.com",
     },
     {
       id: 3,
       title: "Djafariy",
       logo: "/projectslogo/djafariy1.png",
-      desc: "Djafariy is the trusted brand for quality clothing and contemporary looks. Djafariy makes upgrading your wardrobe easier than ever",
-      prtype: "Clothing",
+      desc: t("djafariytext"),
+      prtype: t("djafariytype"),
       typeicon: "/projectslogo/icons/clothing.png",
       showenimg: "/projectslogo/shows/clothing.png",
-      bout: "Stylish Clothes",
-      mssg: "“Great service! They created a clean, professional website that showcases our cleaning products perfectly. Easy communication and excellent results.”",
+      bout: t("djafariypr"),
+      mssg: t("djafariymssg"),
       link: "https://djafariy.org",
     },
     {
       id: 4,
       title: "OLOU",
       logo: "/projectslogo/olou3.png",
-      desc: "OLOU is a minimalist hoodie brand focused on quality, comfort, and design. OLOU makes dressing with simplicity easier than ever.",
-      prtype: "Hoodies",
+      desc: t("oloutext"),
+      prtype: t("oloutype"),
       typeicon: "/projectslogo/icons/hoodies.png",
       showenimg: "/projectslogo/shows/hoodies.png",
-      bout: "Stylish Clothes",
-      mssg: "“We’re so happy with this service! It helped our hoodie business run smoother and serve customers faster. Truly a game-changer for us”",
+      bout: t("oloupr"),
+      mssg: t("oloumssg"),
       link: "https://olou.uz",
     },
     {
       id: 5,
       title: "Saaf Green Agro",
       logo: "/projectslogo/saaf.png",
-      desc: "Saaf Green Agro is the reliable provider of eco-friendly and sustainable agro products. Saaf Green Agro makes choosing healthy food easier than ever.",
-      prtype: "Agro",
+      desc: t("saaftext"),
+      prtype: t("saaftype"),
       typeicon: "/projectslogo/icons/agro.png",
       showenimg: "/projectslogo/shows/agro.png",
-      bout: "Agro and Nature",
-      mssg: "“We’re really happy with this service! It helped our agro business stay organized and work more efficiently. It’s exactly what we needed”",
+      bout: t("saafpr"),
+      mssg: t("saafmssg"),
       link: "https://saafagro.com",
     },
     {
       id: 6,
       title: "ExtraGpt",
       logo: "/projectslogo/extragpt1.png",
-      desc: "ExtraGpt is the intelligent platform designed to help you get answers, ideas, and solutions instantly. ExtraGpt makes finding the information you need easier than ever.",
-      prtype: "AI",
+      desc: t("extratext"),
+      prtype: t("extratype"),
       typeicon: "/projectslogo/icons/ai.png",
       showenimg: "/projectslogo/shows/robot.png",
-      bout: "Future Technology",
-      mssg: "“We built an advanced AI assistant that communicates naturally, answers questions, and supports businesses through smart automation”",
+      bout: t("extrapr"),
+      mssg: t("extramssg"),
       link: "https://www.extra-gpt.com",
     },
   ];
@@ -109,10 +111,20 @@ export default function Page() {
       <div className="container mx-auto px-4">
         <div className="flex justify-center items-center mb-12">
           <h2 className="text-center font-bold max-w-[900px] text-3xl md:text-4xl leading-snug text-white">
-            Our customers are thrilled to work with us, praising{" "}
-            <span className="text-[#0066FF]">smooth collaboration, quality results,</span>{" "}
-            and reliable support
-          </h2>
+  {t("text")
+    .split(" ")
+    .map((word, index) => (
+      <span
+        key={index}
+        className={
+          index >= 10 && index <= 13 ? "text-[#0066FF]" : ""
+        }
+      >
+        {word}{" "}
+      </span>
+    ))}
+</h2>
+
         </div>
 
         {/* PROJECTS GRID */}
@@ -125,7 +137,7 @@ export default function Page() {
               className="group flex flex-col"
             >
               {/* MAIN CARD */}
-              <motion.div className="bg-[#111] relative rounded-3xl overflow-hidden border border-gray-800 hover:border-blue-500 transition-all duration-300 cursor-pointer">
+              <motion.div className="bg-[#111] group relative rounded-3xl  border border-gray-800 hover:border-blue-500 transition-all duration-300 cursor-pointer">
                 <div className="p-6 lg:pr-32">
                   <div className="flex items-center mb-6 gap-2 bg-[#003D99] w-fit px-4 py-1 rounded-lg">
                     <Image src={item.typeicon} width={16} height={16} alt="" />
@@ -149,19 +161,19 @@ export default function Page() {
                 </div>
 
                 {/* HOVER IMAGE - Hidden on mobile */}
-                <motion.img
-                  src={item.showenimg}
-                  width={item.id >= 5 ? 420 : 300}
-                  height={item.id >= 5 ? 420 : 330}
-                  alt=""
-                  className={`absolute hidden lg:block top-1/2 ${
-                    item.id >= 5 ? "left-56" : "left-64"
-                  } -translate-y-1/2 object-contain pointer-events-none`}
-                  animate={{
-                    scale: hovered === item.id ? 1.15 : 1,
-                  }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
-                />
+                {/* MOBILE VERSION IMAGE */}
+<motion.img
+  src={item.showenimg}
+  alt=""
+  className={`absolute lg:top-35 lg:w-60 group-hover:scale-115 transform transition-all duration-300 ease-in-out lg:left-4/5 top-20 left-4/5 -translate-x-1/2 -translate-y-1/2 
+              w-32 sm:w-44 h-auto object-contain pointer-events-none
+              ${item.id === 5 || item.id === 6 ? "w-48 sm:w-64 lg:w-80" : ""}`}
+  initial={{ opacity: 0, scale: 0.9 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 0.4 }}
+/>
+
+
               </motion.div>
 
               {/* BOTTOM CARD - Always visible on mobile/tablet */}
@@ -180,7 +192,7 @@ export default function Page() {
                     <Image className="rounded-full" src={item.logo} width={50} height={50} alt="" />
                     <div>
                       <h4 className="text-white font-bold text-lg">{item.bout}</h4>
-                      <p className="text-gray-400 text-xs sm:text-sm mt-1 max-w-md leading-relaxed">
+                      <p className="text-gray-400 text-xs sm:text-xs mt-1 max-w-md leading-relaxed">
                         {item.mssg}
                       </p>
                     </div>
@@ -189,9 +201,9 @@ export default function Page() {
                   <Link
                     href={item.link}
                     target="_blank"
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl text-sm font-semibold transition whitespace-nowrap"
+                    className="bg-blue-600 flex gap-2 hover:bg-blue-700 text-white px-6 py-3 rounded-xl text-sm font-semibold transition whitespace-nowrap"
                   >
-                    Visit Project →
+                    {t("visitpr")} <ArrowRight className="w-[20px] h-[20px]"/>
                   </Link>
                 </div>
               </motion.div>
@@ -202,7 +214,7 @@ export default function Page() {
         {/* Final Text */}
         <div className="mx-auto text-center pt-20 max-w-[900px] px-4 pb-20">
           <p className="text-lg md:text-2xl text-gray-300 leading-relaxed">
-            Our service stands out for its quality, speed, and reliability. We focus on making everything simple for you while delivering results that feel genuinely impressive.
+            {t("bottomtext")}
           </p>
         </div>
       </div>

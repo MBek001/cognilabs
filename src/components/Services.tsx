@@ -168,7 +168,7 @@ export default function Services() {
     className="text-blue-600 font-medium text-[22px] flex items-center gap-2 hover:underline transition-all"
   >
     {t("more-services")}
-    <span className="text-xl ml-1">→</span>
+    <span className="text-xl ml-1"><ArrowRight/></span>
   </Link>
 </motion.div>
      

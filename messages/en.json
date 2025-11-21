@@ -20,11 +20,10 @@
     "Projects" :{
         "ourprojects": "Our Projects",
         "text" : "Our projects deliver innovative digital solutions that empower businesses.",
-        "erixConsultingtext": "Client Interactions System With AI Integration.",
-        "friendSpacetext":"Social Media Where People can Connect, Call, Chat!",
-        "momentLogistics":"Multi-Language Website With Posting And AI Integration.",
+        "bazatext": "“Fantastic service! They built us an, modern website that fits our barbershop perfectly. Easy to work with and delivered exactly what we needed.”",
+        "billurtext": "“Great service! They created a clean, professional website that showcases our cleaning products perfectly. Easy communication and excellent results.”",
         "visitProject":"Visit Project",
-        "viewMore":"View More"
+        "viewMore":"View More" 
     },
     "Services": {
         "service" : "Services We Have",
@@ -202,6 +201,38 @@
       "uploadres":"Upload Resume/Porfolio (Optional)",
       "check":"By checking this box, you agree to receive text messages (SMS) and calls from Cognilabs HR staff",
       "send":"Send It"
+  } ,
+  "Porfolio": {
+    "text" :"Our customers are thrilled to work with us, praising our smooth collaboration, quality results, and reliable support",
+     "billurtype": "Cleaning",
+     "billurtext": "Billur is the trusted brand for powerful and safe cleaning products. Billur makes maintaining a fresh and healthy environment easier than ever.",
+     "billurpr": "Cleaning Products",
+     "billurmssg": "“Great service! They created a clean, professional website that showcases our cleaning products perfectly. Easy communication and excellent results.”",
+     "bazatype":"Hairstyle",
+     "bazatext": "Bazabarbershop is your go-to place for professional cuts and grooming. Billur Barbershop makes looking fresh and polished easier than ever.",
+     "bazapr": "Clean Hairstyle",
+     "bazamssg":"“Our barbershop team is genuinely happy with Cognilabs! Booking became easier, customers wait less, and even our busiest days feel organized.”",
+      "djafariytype": "Clothing",
+  "djafariytext": "Djafariy is the trusted brand for quality clothing and contemporary looks. Djafariy makes upgrading your wardrobe easier than ever",
+  "djafariypr": "Stylish Clothes",
+  "djafariymssg": "“Cognilabs made managing our clothing store so much easier! From product updates to customer messages—everything feels fast and organized now.”",
+
+  "oloutype": "Hoodies",
+  "oloutext": "OLOU is a minimalist hoodie brand focused on quality, comfort, and design. OLOU makes dressing with simplicity easier than ever.",
+  "oloupr": "Stylish Clothes",
+  "oloumssg": "“As a hoodie brand, speed and style matter. Cognilabs gave us a system that matches our energy—fast, clean, and super reliable. We’re fully satisfied and excited to continue working with them.”",
+
+  "saaftype": "Agro",
+  "saaftext": "Saaf Green Agro is the reliable provider of eco-friendly and sustainable agro products. Saaf Green Agro makes choosing healthy food easier than ever.",
+  "saafpr": "Agro and Nature",
+  "saafmssg": "“We’re really happy with this service! It helped our agro business stay organized and work more efficiently. It’s exactly what we needed”",
+
+  "extratype": "AI",
+  "extratext": "ExtraGpt is the intelligent platform designed to help you get answers, ideas, and solutions instantly. ExtraGpt makes finding the information you need easier than ever.",
+  "extrapr": "Future Technology",
+  "extramssg": "“We built an advanced AI assistant that communicates naturally, answers questions, and supports businesses through smart automation”",
+  "visitpr": "Visit the project",
+  "bottomtext": "Our service stands out for its quality, speed, and reliability. We focus on making everything simple for you while delivering results that feel genuinely impressive"
   }
 
  

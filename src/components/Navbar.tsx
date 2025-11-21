@@ -3,7 +3,7 @@ import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
@@ -13,13 +13,38 @@ export default function Navbar() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleScroll = (id: any) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-      setIsOpen(false); // ✅ scrolldan keyin menyuni yopish
+  // Check if we're on the home page
+  const isHomePage = pathname === `/${locale}` || pathname === "/";
+
+  const handleContactClick = () => {
+    setIsOpen(false);
+    
+    if (isHomePage) {
+      // If on home page, just scroll to contact
+      const section = document.getElementById("contact");
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // If on another page, navigate to home with hash
+      router.push(`/${locale}#contact`);
     }
   };
+
+  // Handle scroll to contact after navigation
+  useEffect(() => {
+    if (window.location.hash === "#contact") {
+      // Small delay to ensure page is loaded
+      setTimeout(() => {
+        const section = document.getElementById("contact");
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+        // Clean up the hash from URL
+        window.history.replaceState(null, "", pathname);
+      }, 100);
+    }
+  }, [pathname]);
 
   const changeLocale = (newLocale: string) => {
     const segments = pathname.split("/");
@@ -29,7 +54,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 font-poppins bg-linear-to-r from-black via-black to-[#001a3a] pt-8 pb-2  shadow-lg backdrop-blur-sm">
+    <nav className="fixed top-0 left-0 w-full z-50 font-poppins bg-linear-to-r from-black via-black to-[#001a3a] pt-8 pb-2 shadow-lg backdrop-blur-sm">
       <div className="container mx-auto flex items-center justify-around px-6">
         {/* Logo */}
         <div className="relative flex items-center justify-center">
@@ -38,7 +63,6 @@ export default function Navbar() {
               className="text-[8px] font-semibold text-white p-1 px-2 bg-blue-700 rounded-3xl whitespace-nowrap"
               style={{
                 transform: "translateX(-50%)",
-                letterSpacing: "",
               }}
             >
               <Link href="/careers">{t("hiring")}</Link>
@@ -79,7 +103,7 @@ export default function Navbar() {
             </li>
           </Link>
           <button
-            onClick={() => handleScroll("contact")}
+            onClick={handleContactClick}
             className="cursor-pointer hover:text-blue-500 transition"
           >
             {t("contact")}
@@ -147,7 +171,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* ✅ Mobile Menu */}
+      {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-black/90 backdrop-blur-md absolute top-15 left-0 w-full text-white flex flex-col items-center space-y-6 py-8 transition-all duration-300">
           <Link href={`/${locale}/about-us`} onClick={() => setIsOpen(false)}>
@@ -175,7 +199,7 @@ export default function Navbar() {
           </Link>
 
           <button
-            onClick={() => handleScroll("contact")}
+            onClick={handleContactClick}
             className="cursor-pointer hover:text-blue-500 transition"
           >
             {t("contact")}
