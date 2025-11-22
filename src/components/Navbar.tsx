@@ -1,4 +1,5 @@
 "use client";
+
 import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,11 +17,14 @@ export default function Navbar() {
   // Check if we're on the home page
   const isHomePage = pathname === `/${locale}` || pathname === "/";
 
+  // Function to check if a link is active
+  const isActive = (href: string) => pathname === href;
+
   const handleContactClick = () => {
     setIsOpen(false);
-    
+
     if (isHomePage) {
-      // If on home page, just scroll to contact
+      // If on home page, scroll to contact
       const section = document.getElementById("contact");
       if (section) {
         section.scrollIntoView({ behavior: "smooth" });
@@ -34,13 +38,11 @@ export default function Navbar() {
   // Handle scroll to contact after navigation
   useEffect(() => {
     if (window.location.hash === "#contact") {
-      // Small delay to ensure page is loaded
       setTimeout(() => {
         const section = document.getElementById("contact");
         if (section) {
           section.scrollIntoView({ behavior: "smooth" });
         }
-        // Clean up the hash from URL
         window.history.replaceState(null, "", pathname);
       }, 100);
     }
@@ -57,17 +59,19 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 w-full z-50 font-poppins bg-linear-to-r from-black via-black to-[#001a3a] pt-8 pb-2 shadow-lg backdrop-blur-sm">
       <div className="container mx-auto flex items-center justify-around px-6">
         {/* Logo */}
-        <div className="relative flex items-center justify-center">
-          <div className="absolute -top-6 left-42 -translate-x-1/2">
-            <p
-              className="text-[8px] font-semibold text-white leading-2  p-1 px-2 bg-blue-700 rounded-3xl whitespace-nowrap"
-              style={{
-                transform: "translateX(-50%)",
-              }}
-            >
-              <Link href="/careers">{t("hiring")}</Link>
-            </p>
-          </div>
+
+        <div className="relative flex items-center  justify-center">
+          <div
+  className="absolute -top-[28px] left-42 -translate-x-1/2"
+  style={{
+    animation: "pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite"
+  }}
+>
+  <p className="text-[12px] font-bold tracking-wide text-white p-1 px-2 bg-blue-900 rounded-3xl whitespace-nowrap">
+    <Link href="/careers">{t("hiring")}</Link>
+  </p>
+</div>
+
 
           <Link href="/">
             <Image
@@ -83,28 +87,50 @@ export default function Navbar() {
         {/* Desktop Nav */}
         <ul className="hidden md:flex items-center space-x-15 text-white text-lg font-medium">
           <Link href={`/${locale}/about-us`}>
-            <li className="cursor-pointer hover:text-blue-500 transition">
+            <li
+              className={`cursor-pointer transition ${
+                isActive(`/${locale}/about-us`) ? "text-blue-500 font-bold" : "hover:text-blue-500"
+              }`}
+            >
               {t("home")}
             </li>
           </Link>
+
           <Link href={`/${locale}/careers`}>
-            <li className="cursor-pointer hover:text-blue-500 transition">
+            <li
+              className={`cursor-pointer transition ${
+                isActive(`/${locale}/careers`) ? "text-blue-500 font-bold" : "hover:text-blue-500"
+              }`}
+            >
               {t("careers")}
             </li>
           </Link>
+
           <Link href={`/${locale}/services`}>
-            <li className="cursor-pointer hover:text-blue-500 transition">
+            <li
+              className={`cursor-pointer transition ${
+                isActive(`/${locale}/services`) ? "text-blue-500 font-bold" : "hover:text-blue-500"
+              }`}
+            >
               {t("services")}
             </li>
           </Link>
+
           <Link href={`/${locale}/portfolio`}>
-            <li className="cursor-pointer hover:text-blue-500 transition">
+            <li
+              className={`cursor-pointer transition ${
+                isActive(`/${locale}/portfolio`) ? "text-blue-500 font-bold" : "hover:text-blue-500"
+              }`}
+            >
               {t("portfolio")}
             </li>
           </Link>
+
           <button
             onClick={handleContactClick}
-            className="cursor-pointer hover:text-blue-500 transition"
+            className={`cursor-pointer transition ${
+              isHomePage ? "hover:text-blue-500" : "hover:text-blue-500"
+            }`}
           >
             {t("contact")}
           </button>
@@ -129,10 +155,7 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center space-x-3">
-            <Link
-              href="https://www.facebook.com/profile.php?id=61577158531453"
-              target="_blank"
-            >
+            <Link href="https://www.facebook.com/profile.php?id=61577158531453" target="_blank">
               <Image
                 src="/facebook.png"
                 alt="facebook"
@@ -163,10 +186,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Hamburger */}
-        <button
-          className="md:hidden ml-40 text-white"
-          onClick={() => setIsOpen(!isOpen)}
-        >
+        <button className="md:hidden ml-40 text-white" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X size={32} /> : <Menu size={32} />}
         </button>
       </div>
@@ -175,32 +195,50 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden bg-black/90 backdrop-blur-md absolute top-15 left-0 w-full text-white flex flex-col items-center space-y-6 py-8 transition-all duration-300">
           <Link href={`/${locale}/about-us`} onClick={() => setIsOpen(false)}>
-            <p className="cursor-pointer hover:text-blue-500 transition">
+            <p
+              className={`cursor-pointer transition ${
+                isActive(`/${locale}/about-us`) ? "text-blue-500 font-bold" : "hover:text-blue-500"
+              }`}
+            >
               {t("home")}
             </p>
           </Link>
 
           <Link href={`/${locale}/careers`} onClick={() => setIsOpen(false)}>
-            <p className="cursor-pointer hover:text-blue-500 transition">
+            <p
+              className={`cursor-pointer transition ${
+                isActive(`/${locale}/careers`) ? "text-blue-500 font-bold" : "hover:text-blue-500"
+              }`}
+            >
               {t("careers")}
             </p>
           </Link>
 
           <Link href={`/${locale}/services`} onClick={() => setIsOpen(false)}>
-            <p className="cursor-pointer hover:text-blue-500 transition">
+            <p
+              className={`cursor-pointer transition ${
+                isActive(`/${locale}/services`) ? "text-blue-500 font-bold" : "hover:text-blue-500"
+              }`}
+            >
               {t("services")}
             </p>
           </Link>
 
           <Link href={`/${locale}/portfolio`} onClick={() => setIsOpen(false)}>
-            <p className="cursor-pointer hover:text-blue-500 transition">
+            <p
+              className={`cursor-pointer transition ${
+                isActive(`/${locale}/portfolio`) ? "text-blue-500 font-bold" : "hover:text-blue-500"
+              }`}
+            >
               {t("portfolio")}
             </p>
           </Link>
 
           <button
             onClick={handleContactClick}
-            className="cursor-pointer hover:text-blue-500 transition"
+            className={`cursor-pointer transition ${
+              isHomePage ? "text-blue-500 font-bold" : "hover:text-blue-500"
+            }`}
           >
             {t("contact")}
           </button>
@@ -220,10 +258,7 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center space-x-3">
-            <Link
-              href="https://www.facebook.com/profile.php?id=61577158531453"
-              target="_blank"
-            >
+            <Link href="https://www.facebook.com/profile.php?id=61577158531453" target="_blank">
               <Image
                 src="/facebook.png"
                 alt="facebook"

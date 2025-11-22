@@ -1,21 +1,21 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import {  useTranslations } from 'next-intl';
 import { ArrowRight } from 'lucide-react';
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import RequestForm from '~/components/RequestForm';
 import Footer from '~/components/Footer';
 
 export default function ServicesPage() {
-  const t = useTranslations('Services');
+  const t = useTranslations('Services');  
 
   const services = [
-    { title: t('ai'), desc: t('ai-text2') },
-    { title: t('tg-bot'), desc: t('tg-bot-text2') },
-    { title: t('web-dev'), desc: t('web-dev-text2') },
-    { title: t('web-app-dev'), desc: t('web-app-dev-text2') },
-    { title: t('mobile-dev'), desc: t('mobile-dev-text2') },
-    { title: t('crm'), desc: t('crm-text2') },
+    { title: t('ai'), desc: t('ai-text2') ,id: "ai"},
+    { title: t('tg-bot'), desc: t('tg-bot-text2') ,id: "tg-bot"},
+    { title: t('web-dev'), desc: t('web-dev-text2'), id: "web-dev" ,},
+    { title: t('web-app-dev'), desc: t('web-app-dev-text2'), id: "web-app-dev" },
+    { title: t('mobile-dev'), desc: t('mobile-dev-text2'), id: "mobile-dev" },
+    { title: t('crm'), desc: t('crm-text2'), id: "crm" },
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
@@ -75,6 +75,7 @@ export default function ServicesPage() {
 
           {services.map((service, index) => (
             <div
+              id={`${service.id}`}
               key={index}
               ref={(el) => {
                 sectionRefs.current[index] = el;
