@@ -9,7 +9,7 @@ export default function Locations() {
   const locations = [
     {
       id: 1,
-      image: "/locations/location1.png",
+      image: "/locations/loc1.png",
       name: "USA, Ohio",
       phone: "(513) 808-88-13",
     },
@@ -37,19 +37,23 @@ export default function Locations() {
       </h3>
 
       {/* Locations */}
-      <div className="flex justify-center items-center gap-2 sm:gap-8 mt-12 sm:mt-20 flex-wrap">
+      <div className="flex justify-center items-center gap-2 sm:gap-8 mt-12 sm:mt-20 ">
         {locations.map((loc, i) => (
           <div
             key={i}
-            className="relative group flex-1 min-w-[150px] max-w-[400px] overflow-hidden rounded-3xl shadow-lg"
+            className="relative group flex-1 min-w-[150px] max-w-[400px] overflow-hidden  shadow-lg"
           >
-            {/* Image */}
+            {/* Image with drop-shadow border on hover */}
             <Image
               src={loc.image}
               alt={loc.name}
               width={500}
               height={746}
-              className="w-full h-auto object-cover transition-transform duration-500"
+              className="
+                w-full object-cover 
+                transition-[filter] duration-500
+                group-hover:border-2 group-hover:border-white-500/50
+              "
             />
 
             {/* Dark overlay - always visible on mobile, hover on desktop */}

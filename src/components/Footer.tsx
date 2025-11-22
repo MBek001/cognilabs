@@ -1,10 +1,25 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import React from "react";
 import { Phone, Globe, MapPin, Facebook, Send, Instagram, Mail } from "lucide-react";
 import Image from "next/image";
+import { usePathname, useRouter } from "next/dist/client/components/navigation";
 
 export default function Footer() {
   const t = useTranslations("Footer");
+  const locale = useLocale();
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const scrollToService = (serviceId: string) => {
+    if (pathname === `/${locale}/services`) {
+      // Already on /services page
+      const el = document.getElementById(serviceId);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      // Navigate to /services with hash
+      router.push(`/${locale}/services#${serviceId}`);
+    }
+  };
 
   const servicesTitle = t("services.title");
   const expertiseTitle = t("expertise.title");
@@ -18,13 +33,13 @@ export default function Footer() {
           <div>
             <h4 className="text-lg md:text-xl font-semibold mb-4 md:mb-6">{servicesTitle}</h4>
             <ul className="space-y-3 md:space-y-4 text-gray-200 text-sm md:text-base">
-              <li className="hover:text-white transition-colors cursor-pointer">{t("services.item1")}</li>
-              <li className="hover:text-white transition-colors cursor-pointer">{t("services.item2")}</li>
-              <li className="hover:text-white transition-colors cursor-pointer">{t("services.item3")}</li>
-              <li className="hover:text-white transition-colors cursor-pointer">{t("services.item4")}</li>
-              <li className="hover:text-white transition-colors cursor-pointer">{t("services.item5")}</li>
-              <li className="hover:text-white transition-colors cursor-pointer">{t("services.item6")}</li>
-              <li className="hover:text-white transition-colors cursor-pointer">{t("services.item7")}</li>
+              <li onClick={() => scrollToService("ai")} className="hover:text-white transition-colors cursor-pointer">{t("services.item1")}</li>
+              <li onClick={() => scrollToService("tg-bot")} className="hover:text-white transition-colors cursor-pointer">{t("services.item2")}</li>
+              <li onClick={() => scrollToService("web-dev")} className="hover:text-white transition-colors cursor-pointer">{t("services.item3")}</li>
+              <li onClick={() => scrollToService("web-app-dev")} className="hover:text-white transition-colors cursor-pointer">{t("services.item4")}</li>
+              <li onClick={() => scrollToService("mobile-dev")} className="hover:text-white transition-colors cursor-pointer">{t("services.item5")}</li>
+              <li onClick={() => scrollToService("crm")} className="hover:text-white transition-colors cursor-pointer">{t("services.item6")}</li>
+              <li onClick={() => scrollToService("crm")} className="hover:text-white transition-colors cursor-pointer">{t("services.item7")}</li>
             </ul>
           </div>
 

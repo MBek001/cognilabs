@@ -131,12 +131,12 @@ export default function RequestForm() {
         <div>
           <form
             onSubmit={handleSubmit}
-            className="bg-white text-gray-500 rounded-3xl shadow-lg p-10 space-y-6"
+            className="bg-white text-gray-500 max-w-[510px] hover:scale-101  duration-300 transform transition-transform rounded-[50px] shadow-lg p-10 space-y-8"
           >
             {(
               ["name", "phone", "email", "message", "budget"] as (keyof FormData)[]
             ).map((field) => (
-              <div className="flex flex-col" key={field}>
+              <div className="flex flex-col pt-4" key={field}>
                 <label className="font-medium">{t(field)}</label>
 
                 {field === "message" ? (
@@ -168,18 +168,18 @@ export default function RequestForm() {
               </div>
             ))}
 
-            <div className="flex items-start space-x-2 text-sm text-gray-700">
-              <input type="checkbox" className="mt-1" required />
+            <div className="flex items-start space-x-3 pb-4 text-sm text-gray-700">
+              <input type="checkbox" className="mt-1  " required />
               <p>{t("checkbox")}</p>
             </div>
 
             <button
               type="submit"
               disabled={loading}
-              className="w-[280px] flex justify-center mx-auto bg-[#0949A7] text-white font-semibold py-3 rounded-full hover:bg-[#0b5ed7] transition disabled:opacity-60"
+              className="w-60 flex cursor-pointer justify-center mx-auto bg-[#0949A7] text-white font-semibold py-3 rounded-full hover:bg-[#0b5ed7] transition disabled:opacity-60"
             >
               <div className="flex justify-center items-center gap-2">
-                {loading ? "Yuborilmoqda..." : t("button")}
+                {loading ? "Sending..." : t("button")}
                 {!loading && (
                   <Image src="/sendicon.png" width={18} height={18} alt="send" />
                 )}
