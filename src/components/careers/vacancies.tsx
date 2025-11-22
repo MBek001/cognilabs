@@ -53,7 +53,7 @@ export default function Vacancies() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <motion.h2 
-            className="text-4xl sm:text-5xl md:text-6xl font-extrabold"
+            className="text-4xl sm:text-5xl text-white md:text-6xl font-extrabold"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}

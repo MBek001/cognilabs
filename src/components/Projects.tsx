@@ -28,7 +28,7 @@ export default function Projects() {
   {t("ourprojects").split(" ").map((word, index) => (
     <span
       key={index}
-      className={index === 1 ? "text-blue-500" : ""}
+      className={index === 1 ? "text-blue-500" : "text-white"}
     >
       {word}{" "}
     </span>
@@ -120,7 +120,7 @@ export default function Projects() {
       <div className='flex justify-center pt-12 sm:pt-16 md:pt-20'>
         <a 
           href="/portfolio" 
-          className='text-lg sm:text-xl md:text-2xl font-semibold px-6 sm:px-8 py-3 rounded-2xl bg-blue-800 hover:bg-blue-700 transition-colors duration-300'
+          className='text-lg sm:text-xl text-white leading-relaxed md:text-2xl font-semibold px-6 sm:px-8 py-3 rounded-2xl bg-blue-800 hover:bg-blue-700 transition-colors duration-300'
         >
           {t("viewMore")}
         </a>

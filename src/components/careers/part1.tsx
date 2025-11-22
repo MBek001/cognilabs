@@ -39,7 +39,7 @@ export default function Part1() {
       <motion.span
         key={wordIndex}
         className={
-          wordIndex === 1 || wordIndex === 2 ? "text-blue-800" : ""
+          wordIndex === 1 || wordIndex === 2 ? "text-blue-800" : "text-white"
         }
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -55,7 +55,7 @@ export default function Part1() {
 </motion.h2>
 
           <motion.p
-            className="text-base sm:text-lg md:text-xl pt-4 max-w-[530px] mx-auto lg:mx-0"
+            className="text-base sm:text-lg md:text-xl text-white pt-4 max-w-[530px] mx-auto lg:mx-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}

@@ -133,16 +133,16 @@ export default function Services() {
             >
               <div>
                 <img
-                  className="w-10 h-10 mb-4"
+                  className="w-10 h-10 mb-2"
                   src={item.img}
                   alt={item.title}
                 />
-                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                <h3 className="text-[16px] lg:text-xl font-semibold mb-2">{item.title}</h3>
                 <p className="text-gray-600 mb-6 text-sm">{item.desc}</p>
               </div>
               <button
                 onClick={() => handleScroll('contact')}
-                className="cursor-pointer group text-blue-600 font-medium text-[16px] flex items-center gap-2 "
+                className="cursor-pointer  group text-blue-600 font-medium text-[16px] flex items-center gap-2 "
               >
                 {t("use-service")}
                 <span className="text-xl">

@@ -60,7 +60,7 @@ export default function Navbar() {
         <div className="relative flex items-center justify-center">
           <div className="absolute -top-6 left-42 -translate-x-1/2">
             <p
-              className="text-[8px] font-semibold text-white p-1 px-2 bg-blue-700 rounded-3xl whitespace-nowrap"
+              className="text-[8px] font-semibold text-white leading-2  p-1 px-2 bg-blue-700 rounded-3xl whitespace-nowrap"
               style={{
                 transform: "translateX(-50%)",
               }}
