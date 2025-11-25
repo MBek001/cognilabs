@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   title: "Cognilabs Sofware Solutions",
   description: "",
   icons: {
-    icon: "/cognilabs.png",
+    icon: "/CompressJPEG.Online_img(512x512).jpg",
   },
 };
 

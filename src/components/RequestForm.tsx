@@ -137,13 +137,13 @@ export default function RequestForm() {
               ["name", "phone", "email", "message", "budget"] as (keyof FormData)[]
             ).map((field) => (
               <div className="flex flex-col pt-4" key={field}>
-                <label className="font-medium">{t(field)}</label>
 
                 {field === "message" ? (
                   <textarea
                     required
                     rows={2}
-                    className="border-b text-black border-gray-300 outline-none resize-none"
+                    placeholder={`${t(field)}`}
+                    className="border-b text-black border-gray-300 py-3 outline-none resize-none"
                     value={formData[field]}
                     onChange={(e) =>
                       setFormData({ ...formData, [field]: e.target.value })
@@ -153,15 +153,15 @@ export default function RequestForm() {
                   <input
                     required
                     type={field === "email" ? "email" : "text"}
-                    className="border-b text-black border-gray-300 outline-none"
-                    value={formData[field]}
-                    onChange={(e) =>
-                      setFormData({ ...formData, [field]: e.target.value })
-                    }
                     placeholder={
                       field === "budget"
                         ? "Masalan: $5000 - $10000"
-                        : undefined
+                        : `${t(field)}`
+                    }
+                    className="border-b text-black py-3 border-gray-300 outline-none"
+                    value={formData[field]}
+                    onChange={(e) =>
+                      setFormData({ ...formData, [field]: e.target.value })
                     }
                   />
                 )}

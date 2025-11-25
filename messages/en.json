@@ -20,10 +20,11 @@
     "Projects" :{
         "ourprojects": "Our Projects",
         "text" : "Our projects deliver innovative digital solutions that empower businesses.",
-        "bazatext": "“Fantastic service! They built us an, modern website that fits our barbershop perfectly. Easy to work with and delivered exactly what we needed.”",
-        "billurtext": "“Great service! They created a clean, professional website that showcases our cleaning products perfectly. Easy communication and excellent results.”",
-        "visitProject":"Visit Project",
-        "viewMore":"View More" 
+        "djafariytext":"Djafariy is the trusted brand for quality clothing and contemporary looks. Djafariy makes upgrading your wardrobe easier than ever",
+        "billurtext": "Billur is the trusted brand for powerful and safe cleaning products. Billur makes maintaining a fresh and healthy environment easier than ever.",
+        "bazatext": "Bazabarbershop is your go-to place for professional cuts and grooming. Billur Barbershop makes looking fresh and polished easier than ever.",
+        "visitProject":"Visit the Page",
+        "viewMore":"View More Projects" 
     },
     "Services": {
         "service" : "Services We Have",

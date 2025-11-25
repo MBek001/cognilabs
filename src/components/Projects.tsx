@@ -1,131 +1,268 @@
-import { ArrowRight } from 'lucide-react'
-import { useTranslations } from 'next-intl'
-import React from 'react'
+"use client"
+import React, { use, useEffect, useRef, useState } from 'react';
+import { ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
-export default function Projects() {
-  const t =useTranslations("Projects");
-  const projects = [
-    {
-      id:1,
-      title: "Bazabarbershop",
-      logo: "/projects/baza.png",
-      link: "https://www.bazabarbershop.com",
-      text: t("bazatext")
-    },
-    {
-      id:2,
-      title: "Billur",
-      logo: "/projects/billur.png",
-      link: "https://billur-market.com",
-      text: t("billurtext")
-    }
-  ]
-
-  return (
-    <div className='bg-black min-h-screen p-4 sm:p-8 md:p-16'>
-      <div className="flex flex-col items-center mb-8 sm:mb-12 md:mb-16 gap-4 sm:gap-6 text-center px-4">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight">
-  {t("ourprojects").split(" ").map((word, index) => (
-    <span
-      key={index}
-      className={index === 1 ? "text-blue-500" : "text-white"}
-    >
-      {word}{" "}
-    </span>
-  ))}
-</h2>
-
-        <p className="text-base sm:text-lg md:text-xl lg:text-2xl max-w-[600px] text-[#FFFFFFB2]">
-          {t("text")}
-        </p>
-      </div>
-
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-8 max-w-6xl mx-auto pt-16 sm:pt-20 md:pt-24'>
-        {projects.map((item, index) => (
-          <div 
-            key={item.id} 
-            className='bg-zinc-900 border border-transparent hover:border-blue-500 hover:shadow-2xl hover:shadow-blue-500/20 rounded-3xl p-6 sm:p-8 pt-20 sm:pt-24 flex flex-col items-center text-center relative transition-all duration-500 ease-out hover:-translate-y-2 group'
-            style={{
-              animation: `fadeInUp 0.6s ease-out ${index * 0.2}s backwards`
-            }}
-          >
-            <style>{`
-              @keyframes fadeInUp {
-                from {
-                  opacity: 0;
-                  transform: translateY(30px);
-                }
-                to {
-                  opacity: 1;
-                  transform: translateY(0);
-                }
-              }
-            `}</style>
-            
-            {/* Logo Circle - Responsive sizing */}
-            <div className='w-32 h-32 sm:w-36 sm:h-36 md:w-44 md:h-44 bg-white rounded-full flex items-center justify-center absolute -top-16 sm:-top-18 md:-top-20 left-1/2 transform -translate-x-1/2 transition-all duration-500 ease-out hover:scale-105 hover:shadow-xl shadow-lg'>
-              <img 
-                src={item.logo} 
-                alt={item.title} 
-                className='w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36 hover:scale-105 object-contain transition-transform duration-700 ease-out'
-              />
-            </div>
-            
-            {/* Title */}
-            <h3 className='text-white text-xl sm:text-2xl font-bold mb-3 sm:mb-4 transition-colors duration-300 group-hover:text-blue-400'>
-              {item.title}
-            </h3>
-            
-            {/* Description */}
-            <p className='text-gray-300 max-w-md text-sm sm:text-base leading-relaxed mb-6 sm:mb-8 flex-1 transition-colors duration-300 group-hover:text-gray-100'>
-              {item.text}
-            </p>
-            
-            {/* Footer - Stack on mobile, side-by-side on desktop */}
-            <div className='flex flex-col sm:flex-row items-center justify-between w-full gap-4 sm:gap-0'>
-              {/* Rating */}
-              <div className='flex items-center gap-2 transition-transform pt-10 duration-300 group-hover:scale-105'>
-                <span className='text-white font-semibold'>5.0</span>
-                <div className='flex text-yellow-400'>
-                  {'⭐⭐⭐⭐⭐'.split('').map((star, i) => (
-                    <span 
-                      key={i}
-                      className='inline-block transition-all duration-300 hover:scale-125 text-sm sm:text-base'
-                      style={{
-                        transitionDelay: `${i * 50}ms`
-                      }}
-                    >{star}</span>
-                  ))}
-                </div>
-              </div>
-              
-              {/* Link */}
-              <a 
-                href={item.link} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className='text-blue-400 pt-10 hover:text-blue-300 transition-all duration-300 flex items-center gap-2 hover:gap-3 group/link text-sm sm:text-base'
-              >
-                <span className='transition-all duration-300'>{t("visitProject")}</span>
-                <span className='transition-transform duration-300 group-hover/link:translate-x-1'>
-                  <ArrowRight className='w-4 h-4 sm:w-5 sm:h-5'/>
-                </span>
-              </a>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* View More Button */}
-      <div className='flex justify-center pt-12 sm:pt-16 md:pt-20'>
-        <a 
-          href="/portfolio" 
-          className='text-lg sm:text-xl text-white leading-relaxed md:text-2xl font-semibold px-6 sm:px-8 py-3 rounded-2xl bg-blue-800 hover:bg-blue-700 transition-colors duration-300'
-        >
-          {t("viewMore")}
-        </a>
-      </div>
-    </div>
-  )
+interface Project {
+  id: number;
+  title: string;
+  phone: string;
+  desktop: string;
+  link: string;
+  text: string;
+  position: 'left' | 'right';
 }
 
+export default function Projects() {
+  const [activeProject, setActiveProject] = useState(0);
+  const [lineProgress, setLineProgress] = useState(0);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const t = useTranslations('Projects');
+
+  const projects = [
+    {
+      id: 1,
+      title: "Djafariy",
+      phone: "/mainprojects/phonedjaffariy.png",
+      desktop: "/mainprojects/djafariylaptop.png",
+      link: "https://djafariy.org/",
+      text: t('djafariytext'),
+      position: 'right'
+    },
+    {   
+      id: 2,
+      title: "Billur",
+      phone: "/mainprojects/billurphone.png",
+      desktop: "/mainprojects/billurlaptop.png",
+      link: "https://billur-market.com",
+      text: t('billurtext'),
+      position: 'left'
+    },
+    {
+      id: 3,
+      title: "Bazabarbershop",
+      phone: "/mainprojects/phonebaza.png",
+      desktop: "/mainprojects/desktopbaza.png",
+      link: "https://www.bazabarbershop.com/",
+      text: t('bazatext'),
+      position: 'right'
+    }
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!containerRef.current) return;
+
+      const container = containerRef.current;
+      const scrollTop = window.scrollY;
+      const containerTop = container.offsetTop;
+      const containerHeight = container.scrollHeight;
+
+      projectRefs.current.forEach((ref, index) => {
+        if (ref) {
+          const rect = ref.getBoundingClientRect();
+          const elementCenter = rect.top + rect.height / 2;
+          const windowCenter = window.innerHeight / 2;
+
+          if (Math.abs(elementCenter - windowCenter) < 200) {
+            setActiveProject(index);
+          }
+        }
+      });
+
+      const relativeScroll = scrollTop - containerTop + window.innerHeight / 2;
+      const progress = Math.min(Math.max(relativeScroll / containerHeight, 0), 1);
+      setLineProgress(progress);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <div className='bg-black min-h-screen'>
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="flex flex-col items-center py-12 md:py-16 gap-4 md:gap-6 text-center px-4"
+      >
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight">
+          <span className="text-white">{t('ourprojects').split(" ")[0]}</span>
+          <span className="text-blue-500"> {t('ourprojects').split(" ")[1]}</span>
+        </h2>
+        <p className="text-lg md:text-xl lg:text-2xl max-w-[600px] text-[#FFFFFFB2]">
+          {t('text')}
+        </p>
+      </motion.div>
+
+      <div ref={containerRef} className="relative py-12 md:py-20 px-4 md:px-8">
+        {/* Desktop-only timeline */}
+        <div className="absolute left-1/2 top-0 bottom-0 w-[3px] bg-gray-500 transform -translate-x-1/2 hidden md:block">
+          <motion.div
+            className="absolute top-0 left-0 w-full bg-blue-500"
+            style={{ height: `${lineProgress * 100}%` }}
+            transition={{ duration: 0.3 }}
+          />
+          <motion.div
+            className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+            style={{ top: `${lineProgress * 100}%` }}
+            transition={{ duration: 0.2 }}
+          >
+            <div className="w-5 h-5 bg-blue-500 rounded-full shadow-lg shadow-blue-500/50">
+              <div className="absolute inset-0 bg-blue-500 rounded-full animate-ping opacity-75" />
+            </div>
+          </motion.div>
+        </div>
+
+        <div className="max-w-7xl mx-auto space-y-16 md:space-y-32">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              ref={(el) => { projectRefs.current[index] = el; }}
+              initial={{ opacity: 0, y: 80 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className={`
+                flex flex-col-reverse
+                md:flex-row
+                items-center lg:gap-16
+                ${project.position === 'left' ? 'md:flex-row-reverse' : ''}
+              `}
+            >
+              {/* TEXT CONTENT */}
+              <motion.div 
+                initial={{ opacity: 0, x: project.position === 'left' ? 50 : -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className={`flex-1 w-full ${project.position === 'left' ? 'md:text-right md:pr-16' : 'md:pl-10'}`}
+              >
+                <h3
+                  className={`text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4 ${
+                    project.position === 'left' ? 'text-left md:text-left pl-10' : 'text-left pr-10 md:text-right'
+                  }`}
+                >
+                  {project.title}
+                </h3>
+
+                <motion.div 
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  className={`h-0.5 mb-3 md:mb-4 w-full md:max-w-[540px] bg-white ${
+                    project.position === 'left' ? 'md:ml-auto origin-right' : 'origin-left'
+                  }`} 
+                />
+
+                <p
+                  className={`text-base md:text-lg lg:text-xl text-white/90 mb-4 md:mb-6 ${
+                    project.position === "left" 
+                      ? "text-left md:text-left md:pl-10 md:max-w-[540px]" 
+                      : "text-left md:text-right md:max-w-[540px]"
+                  }`}
+                >
+                  {project.text}
+                </p>
+
+                <motion.a
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
+                  whileHover={{ x: 5 }}
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex items-center gap-2 text-blue-500 hover:text-blue-400 text-base md:text-lg font-semibold transition-colors ${
+                    project.position === 'left' 
+                      ? 'justify-start md:justify-start md:pl-2 md:ml-auto md:max-w-[540px]' 
+                      : 'justify-start md:justify-end md:max-w-[540px]'
+                  }`}
+                >
+                  {t("visitProject")}
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+                </motion.a>
+              </motion.div>
+
+              {/* IMAGES CONTAINER */}
+              <motion.div 
+                initial={{ opacity: 0, x: project.position === 'left' ? -30 : 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+                className="flex-1 w-full relative"
+              >
+                <div className="relative flex items-center justify-center group">
+                  {/* Desktop Image */}
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+                    className="relative w-full max-w-[600px] z-10 transition-transform duration-500 ease-out group-hover:scale-[1.02] md:group-hover:scale-[1.05]"
+                  >
+                    <img
+                      src={project.desktop}
+                      alt={`${project.title} Desktop`}
+                      className="w-full h-auto rounded-lg"
+                    />
+                  </motion.div>
+
+                  {/* Mobile Phone Image */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+                    className={`
+                      absolute bottom-0 z-20 transition-all duration-500 
+                      group-hover:-translate-y-2 md:group-hover:-translate-y-4 
+                      group-hover:scale-[1.02] md:group-hover:scale-[1.03]
+                      ${project.position === "left"
+                        ? "right-60 md:-right-8 lg:-left-18"
+                        : "left-60 md:-left-8 lg:-left-18"
+                      }
+                    `}
+                  >
+                    <img 
+                      src={project.phone} 
+                      alt={`${project.title} Mobile`}
+                      className="w-60 h-40 md:w-100 md:h-80"
+                    />
+                  </motion.div>
+                </div>
+              </motion.div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className='flex justify-center py-12 md:py-20'
+      >
+        <motion.a
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          href="/portfolio"
+          className='text-base md:text-xl text-white font-semibold px-6 py-3 md:px-8 md:py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 transition-colors duration-300 inline-flex items-center gap-2'
+        >
+          {t("viewMore")}
+          <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+        </motion.a>
+      </motion.div>
+    </div>
+  );
+}

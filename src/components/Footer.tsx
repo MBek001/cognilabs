@@ -3,6 +3,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { Phone, Globe, MapPin, Facebook, Send, Instagram, Mail } from "lucide-react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/dist/client/components/navigation";
+import Link from "next/link";
 
 export default function Footer() {
   const t = useTranslations("Footer");
@@ -69,7 +70,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-3 hover:text-white transition-colors">
                 <Globe size={18} className="shrink-0" />
-                <span className="break-all">www.cognilabs.org</span>
+                <Link href="https://www.cognilabs.org" className="break-all">www.cognilabs.org</Link>
               </div>
             </div>
 

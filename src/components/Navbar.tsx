@@ -165,13 +165,16 @@ export default function Navbar() {
               />
             </Link>
             <Link href="https://t.me/cognilabs_software" target="_blank">
-              <Image
-                src="/tg.svg"
-                alt="telegram"
-                width={37}
-                height={37}
-                className="bg-[#0066FF] p-2 rounded-full cursor-pointer"
-              />
+            <div className="w-[37px] h-[37px] bg-[#0066FF] rounded-full flex items-center justify-center">
+  <Image
+    src="/tg.svg"
+    alt="telegram"
+    width={24}
+    height={24}
+    className="cursor-pointer"
+  />
+</div>
+
             </Link>
             <Link href="https://www.instagram.com/cognilabs/" target="_blank">
               <Image

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { ChevronDown, Upload } from 'lucide-react';
+import { ChevronDown, Upload, UploadIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { errorToast, successToast } from '~/Contact/response-toasts';
@@ -115,12 +115,12 @@ export default function JoinTeamForm() {
       animate="visible"
       variants={containerVariants}
     >
-      <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
         {/* LEFT TITLE */}
         <motion.div className="text-center lg:text-left" variants={itemVariants}>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-2">{t("join")}</h1>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-blue-600">{t("now")}</h2>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2">{t("join")}</h1>
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-blue-600">{t("now")}</h2>
         </motion.div>
 
         {/* FORM */}
@@ -195,16 +195,18 @@ export default function JoinTeamForm() {
               <label htmlFor="agree" className="text-gray-600 text-sm sm:text-base leading-relaxed cursor-pointer">{t("check")}</label>
             </motion.div>
 
-            <motion.button
+            <div className='flex justify-center'>
+              <motion.button
               onClick={handleSubmit}
               disabled={isSubmitting}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full bg-black text-white py-3 sm:py-4 px-6 rounded-full text-base sm:text-lg font-semibold hover:bg-gray-900 transition shadow-lg disabled:opacity-50"
+              className="bg-black flex gap-3 cursor-pointer text-white py-3 sm:py-3 px-10 rounded-3xl text-base sm:text-lg font-semibold hover:bg-gray-900 transition shadow-lg disabled:opacity-50"
               variants={itemVariants}
             >
-              {isSubmitting ? "Sending..." : t("send")}
+              {isSubmitting ? "Sending..." : t("send")} <UploadIcon/>
             </motion.button>
+            </div>
 
           </motion.div>
         </motion.div>

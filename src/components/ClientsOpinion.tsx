@@ -15,7 +15,7 @@ export default function ClientsOpinion() {
       id: 1,
       name: "Erkinbay Abdullayev",
       position: "Founder and CEO of Eric's Consulting",
-      img: "/clients/client1.png",
+      img: "/clients/client11.png",
       stars: 5,
       comment:
         "В короткие сроки команда Cognilabs предоставила качественные и профессиональные услуги. Для нас было особенно важно — точность и своевременное выполнение задач, — и они ответственно выполнили эти требования. Я определённо рекомендую их и другим представителям бизнеса!",
@@ -24,7 +24,7 @@ export default function ClientsOpinion() {
       id: 2,
       name: "The Djafariy team",
       position: "",
-      img: "/clients/client2.png",
+      img: "/clients/client12.png",
       stars: 5,
       comment:
         "We are pleased to have worked with the Cognilabs team! The mobile app, online store, and website turned out even better than we expected. The team's attentive and professional approach made us very happy. In the future, we plan to continue working with this team on an ongoing basis.",
@@ -33,7 +33,7 @@ export default function ClientsOpinion() {
       id: 3,
       name: "Best Solar team",
       position: "",
-      img: "/clients/client3.png",
+      img: "/clients/client13.png",
       stars: 5,
       comment:
         "The Cognilabs team provided us with AI-powered sales agents. They respond to customers automatically and quickly provide the necessary information. This has significantly eased our work and allowed us to redirect our time to more important tasks. Many thanks to the Cognilabs team.",
@@ -98,14 +98,14 @@ export default function ClientsOpinion() {
                       <div className="flex items-center gap-5">
                         <div className="relative">
                           <Image
-                            width={140}
-                            height={140}
+                            width={130}
+                            height={130}
                             src={client.img}
                             alt={client.name}
-                            className="rounded-full  border-5 border-white/10"
+                            className="rounded-full   border-5 "
                           />
                           {isActive && (
-                            <div className="absolute inset-0 rounded-full ring-2 ring-blue-500 ring-offset-4 ring-offset-black animate-pulse" />
+                            <div className="absolute inset-0 object-cover object-center rounded-full ring-2 ring-blue-500 ring-offset-4 ring-offset-black animate-pulse" />
                           )}
                         </div>
 

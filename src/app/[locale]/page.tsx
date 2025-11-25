@@ -15,8 +15,8 @@ export default function page() {
 
 
 
-  const locale = useLocale()
-  console.log(locale)
+  // const locale = useLocale()
+  // console.log(locale)
   return (
     <div>
       <Header/>

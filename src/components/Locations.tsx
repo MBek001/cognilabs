@@ -68,13 +68,14 @@ export default function Locations() {
 
             {/* Info content - always visible on mobile, hover on desktop */}
             <div
-              className="
-                absolute inset-0 flex flex-col items-center justify-center text-white text-center p-4 sm:p-6
+              className={`
+                absolute inset-0 flex flex-col  items-center justify-center text-white text-center p-4 sm:p-6
                 opacity-100 translate-y-0
+                ${loc.id === 1 ? "md:mr-16" : "md:ml-16"}
                 md:opacity-0 md:translate-y-8
                 md:group-hover:opacity-100 md:group-hover:translate-y-0
                 transition-all duration-500 ease-out
-              "
+              `}
             >
               <MapPin className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 mb-2 sm:mb-3 text-blue-400" />
               <p className="text-sm sm:text-base md:text-xl font-semibold mb-1 sm:mb-2">

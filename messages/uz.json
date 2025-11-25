@@ -18,13 +18,15 @@
   "members": "Jamoa a'zolari"
 },
 "Projects": {
-    "ourprojects": "Bizning Loyihalar",
-    "text": "Bizning loyihalar bizneslarni rivojlantiruvchi innovatsion raqamli yechimlarni taqdim etadi.",
-    "bazatext": "“Ajoyib xizmat! Ular barbershopimiz uchun zamonaviy va qulay veb-sayt yaratib berishdi. Ishlash juda oson va bizga kerak bo‘lgan narsaning o‘zini yetkazishdi.”",
-    "billurtext": "“Zo‘r xizmat! Ular tozalash mahsulotlarimizni mukammal ko‘rsatib beradigan toza va professional veb-sayt yaratishdi. Muloqot oson, natija esa a’lo darajada.”",
-    "visitProject": "Loyihaga O‘tish",
-    "viewMore": "Ko‘proq Ko‘rish"
+    "ourprojects": "Bizning Loyihalarimiz",
+    "text": "Bizning loyihalarimiz bizneslarni quvvatlaydigan innovatsion raqamli yechimlarni taqdim etadi.",
+    "djafariytext": "Djafariy sifatli kiyim va zamonaviy ko‘rinishlar uchun ishonchli brend. Djafariy garderobingizni yangilashni avvalgidan ham osonlashtiradi.",
+    "billurtext": "Billur kuchli va xavfsiz tozalash mahsulotlari uchun ishonchli brend. Billur sog‘lom va toza muhitni saqlashni osonlashtiradi.",
+    "bazatext": "Bazabarbershop professional soch turmaklari va parvarish uchun sizning manzilingiz. Billur Barbershop sizni doim yangi va silliq ko‘rinishga ega qilishni osonlashtiradi.",
+    "visitProject": "Sahifaga O‘ting",
+    "viewMore": "Boshqa Loyihalarni Ko‘rish"
 }
+
 ,
 "Services": {
   "service": "Bizda mavjud xizmatlar",
