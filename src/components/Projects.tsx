@@ -257,7 +257,7 @@ export default function Projects() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           href="/portfolio"
-          className='text-base md:text-xl text-white font-semibold px-6 py-3 md:px-8 md:py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 transition-colors duration-300 inline-flex items-center gap-2'
+          className='text-base md:text-[16px] text-white font-semibold px-6 py-3 md:px-4 md:py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 transition-colors duration-300 inline-flex items-center gap-2'
         >
           {t("viewMore")}
           <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />

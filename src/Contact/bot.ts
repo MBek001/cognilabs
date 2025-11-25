@@ -1,9 +1,11 @@
+import { form } from "framer-motion/client";
 import { errorToast, successToast } from "./response-toasts";
 
 interface FormData {
   name: string;
   phone: string;
   email: string;
+  telegram: string, 
   message: string;
   budget: string;
 }
@@ -22,6 +24,7 @@ export async function sendLeadToChannel(formData: FormData): Promise<void> {
 👤 Ism: ${formData.name}
 📞 Telefon: ${formData.phone}
 ✉️ Email: ${formData.email}
+📱 Telegram: ${formData.telegram}
 💰 Budjet: ${formData.budget}
 💬 Xabar: ${formData.message}
 `.trim();

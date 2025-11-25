@@ -71,7 +71,7 @@ export default function Locations() {
               className={`
                 absolute inset-0 flex flex-col  items-center justify-center text-white text-center p-4 sm:p-6
                 opacity-100 translate-y-0
-                ${loc.id === 1 ? "md:mr-16" : "md:ml-16"}
+                ${loc.id === 1 ? "mr-6 md:mr-16" : "ml-6 md:ml-16"}
                 md:opacity-0 md:translate-y-8
                 md:group-hover:opacity-100 md:group-hover:translate-y-0
                 transition-all duration-500 ease-out

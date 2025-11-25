@@ -1,6 +1,6 @@
 "use client";
 import { Star } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState, FormEvent } from "react";
@@ -11,17 +11,20 @@ interface FormData {
   name: string;
   phone: string;
   email: string;
+  telegram: string;
   message: string;
   budget: string;
 }
 
 export default function RequestForm() {
   const t = useTranslations("ContactForm");
+  const locale = useLocale();
 
   const [formData, setFormData] = useState<FormData>({
     name: "",
     phone: "",
     email: "",
+    telegram: "",
     message: "",
     budget: "",
   });
@@ -33,10 +36,12 @@ export default function RequestForm() {
     setLoading(true);
     await sendLeadToChannel(formData);
     setLoading(false);
+
     setFormData({
       name: "",
       phone: "",
       email: "",
+      telegram: "",
       message: "",
       budget: "",
     });
@@ -53,27 +58,28 @@ export default function RequestForm() {
                 {t("title")}
               </h4>
 
-              {/* 🔥 Animated left-right + glow arrow */}
-             <motion.div
-  className="ml-2 mt-8"
-  animate={{
-    x: [-12, 8, -12],opacity: [0.5, 1, 0.5, 1, 0.5] // bir oz uzoqroqqa va qaytib keladi
-  }}
-  transition={{
-    duration: 2.4,
-    repeat: Infinity,
-    ease: "easeInOut",
-    times: [0, 0.5, 1], // har bir nuqtada qancha vaqt turishi
-  }}
->
-  <Image
-    src="/formnext.png"
-    width={80}
-    height={80}
-    alt="arrow"
-    className="mx-auto drop-shadow-md"
-  />
-</motion.div>
+              {/* 🔥 Animated left-right arrow */}
+              <motion.div
+                className="ml-2 mt-8"
+                animate={{
+                  x: [-12, 8, -12],
+                  opacity: [0.5, 1, 0.5, 1, 0.5],
+                }}
+                transition={{
+                  duration: 2.4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  times: [0, 0.5, 1],
+                }}
+              >
+                <Image
+                  src="/formnext.png"
+                  width={80}
+                  height={80}
+                  alt="arrow"
+                  className="mx-auto drop-shadow-md"
+                />
+              </motion.div>
             </div>
 
             <p className="mt-4 text-lg text-gray-300">
@@ -95,7 +101,7 @@ export default function RequestForm() {
             </ul>
           </div>
 
-          {/* Rating - Desktop only */}
+          {/* Rating - Desktop */}
           <div className="hidden md:flex w-[270px] h-[60px] items-center bg-white text-black rounded-bl-3xl rounded-tr-3xl">
             <Image
               src="/cognilabs.png"
@@ -131,13 +137,13 @@ export default function RequestForm() {
         <div>
           <form
             onSubmit={handleSubmit}
-            className="bg-white text-gray-500 max-w-[510px] hover:scale-101  duration-300 transform transition-transform rounded-[50px] shadow-lg p-10 space-y-8"
+            className="bg-white text-gray-500 max-w-[510px] hover:scale-101 duration-300 transform transition-transform rounded-[50px] shadow-lg p-10 space-y-8"
           >
+            {/* TEXT FIELDS (EXCEPT EMAIL/TELEGRAM) */}
             {(
-              ["name", "phone", "email", "message", "budget"] as (keyof FormData)[]
+              ["name", "phone", "message", "budget"] as (keyof FormData)[]
             ).map((field) => (
               <div className="flex flex-col pt-4" key={field}>
-
                 {field === "message" ? (
                   <textarea
                     required
@@ -152,7 +158,7 @@ export default function RequestForm() {
                 ) : (
                   <input
                     required
-                    type={field === "email" ? "email" : "text"}
+                    type="text"
                     placeholder={
                       field === "budget"
                         ? "Masalan: $5000 - $10000"
@@ -168,11 +174,40 @@ export default function RequestForm() {
               </div>
             ))}
 
+            {/* CONDITIONAL FIELD — TELEGRAM OR EMAIL */}
+            <div className="flex flex-col pt-4">
+              {locale === "uz" || locale === "ru" ? (
+                <input
+                  required
+                  type="text"
+                  placeholder="@telegram_username"
+                  className="border-b text-black py-3 border-gray-300 outline-none"
+                  value={formData.telegram}
+                  onChange={(e) =>
+                    setFormData({ ...formData, telegram: e.target.value })
+                  }
+                />
+              ) : (
+                <input
+                  required
+                  type="email"
+                  placeholder={t("email")}
+                  className="border-b text-black py-3 border-gray-300 outline-none"
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
+                />
+              )}
+            </div>
+
+            {/* CHECKBOX */}
             <div className="flex items-start space-x-3 pb-4 text-sm text-gray-700">
-              <input type="checkbox" className="mt-1  " required />
+              <input type="checkbox" className="mt-1" required />
               <p>{t("checkbox")}</p>
             </div>
 
+            {/* SUBMIT */}
             <button
               type="submit"
               disabled={loading}
@@ -187,7 +222,7 @@ export default function RequestForm() {
             </button>
           </form>
 
-          {/* Rating - Mobile only */}
+          {/* Rating - Mobile */}
           <div className="flex md:hidden w-[270px] h-[60px] items-center bg-white text-black rounded-bl-3xl rounded-tr-3xl mt-8 mx-auto">
             <Image
               src="/cognilabs.png"

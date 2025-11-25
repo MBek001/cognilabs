@@ -132,7 +132,7 @@ export default function JoinTeamForm() {
               placeholder={t("fullname")}
               value={formData.fullName}
               onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-              className="w-full bg-transparent border-b-2 border-gray-400 py-3 px-1 sm:px-2 text-gray-700 text-base sm:text-lg placeholder-gray-500 focus:border-blue-600 focus:outline-none transition"
+              className="w-full bg-transparent text-sm border-b border-gray-400 py-3 px-1 sm:px-2 text-gray-700  sm:text-lg placeholder-gray-500 focus:border-blue-600 focus:outline-none transition"
               variants={itemVariants}
             />
 
@@ -141,7 +141,7 @@ export default function JoinTeamForm() {
               placeholder={t("phonenumber")}
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              className="w-full bg-transparent border-b-2 border-gray-400 py-3 px-1 sm:px-2 text-gray-700 text-base sm:text-lg placeholder-gray-500 focus:border-blue-600 focus:outline-none transition"
+              className="w-full bg-transparent border-b border-gray-400 py-3 px-1 sm:px-2 text-gray-700 text-base sm:text-lg placeholder-gray-500 focus:border-blue-600 focus:outline-none transition"
               variants={itemVariants}
             />
 
@@ -150,7 +150,7 @@ export default function JoinTeamForm() {
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               rows={3}
-              className="w-full bg-transparent border-b-2 border-gray-400 py-3 px-1 sm:px-2 text-gray-700 text-base sm:text-lg placeholder-gray-500 focus:border-blue-600 focus:outline-none resize-none transition"
+              className="w-full bg-transparent border-b border-gray-400 py-3 px-1 sm:px-2 text-gray-700 text-base sm:text-lg placeholder-gray-500 focus:border-blue-600 focus:outline-none resize-none transition"
               variants={itemVariants}
             />
 
@@ -158,7 +158,7 @@ export default function JoinTeamForm() {
               <select
                 value={formData.position}
                 onChange={(e) => setFormData({ ...formData, position: e.target.value })}
-                className="w-full bg-transparent border-b-2 border-gray-400 py-3 px-1 sm:px-2 text-gray-700 text-base sm:text-lg appearance-none focus:border-blue-600 focus:outline-none transition cursor-pointer"
+                className="w-full bg-transparent border-b border-gray-400 py-3 px-1 sm:px-2 text-gray-500 text-base sm:text-lg appearance-none focus:border-blue-600 focus:outline-none transition cursor-pointer"
               >
                 <option value="" disabled>{t("position")}</option>
                 {positions.map((pos) => <option key={pos} value={pos}>{pos}</option>)}
@@ -171,12 +171,12 @@ export default function JoinTeamForm() {
               placeholder={t("age")}
               value={formData.age || ""}
               onChange={(e) => setFormData({ ...formData, age: Number(e.target.value) })}
-              className="w-full bg-transparent border-b-2 border-gray-400 py-3 px-1 sm:px-2 text-gray-700 text-base sm:text-lg focus:border-blue-600 focus:outline-none transition"
+              className="w-full bg-transparent border-b border-gray-400 py-3 px-1 sm:px-2 text-gray-600 text-base sm:text-lg focus:border-blue-600 focus:outline-none transition"
               variants={itemVariants}
             />
 
             <motion.label
-              className="w-full bg-transparent border-b-2 border-gray-400 py-3 px-1 sm:px-2 text-gray-600 flex items-center justify-between cursor-pointer hover:border-blue-600 transition text-sm sm:text-base"
+              className="w-full bg-transparent border-b border-gray-400 py-3 px-1 sm:px-2 text-gray-600 flex items-center justify-between cursor-pointer hover:border-blue-600 transition text-sm sm:text-base"
               variants={itemVariants}
             >
               <span className="truncate">{formData.file ? formData.file.name : t("uploadres")}</span>
@@ -192,16 +192,16 @@ export default function JoinTeamForm() {
                 onChange={(e) => setAgree(e.target.checked)}
                 className="mt-1 w-5 h-5 accent-blue-600 cursor-pointer"
               />
-              <label htmlFor="agree" className="text-gray-600 text-sm sm:text-base leading-relaxed cursor-pointer">{t("check")}</label>
+              <label htmlFor="agree" className="text-gray-600 text-sm sm:text-sm leading-relaxed cursor-pointer">{t("check")}</label>
             </motion.div>
 
-            <div className='flex justify-center'>
+            <div className='flex  justify-center'>
               <motion.button
               onClick={handleSubmit}
               disabled={isSubmitting}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-black flex gap-3 cursor-pointer text-white py-3 sm:py-3 px-10 rounded-3xl text-base sm:text-lg font-semibold hover:bg-gray-900 transition shadow-lg disabled:opacity-50"
+              className="bg-black flex w-60 justify-center  gap-3 cursor-pointer text-white py-3 sm:py-3 px-10 rounded-3xl text-base sm:text-lg font-semibold hover:bg-gray-900 transition shadow-lg disabled:opacity-50"
               variants={itemVariants}
             >
               {isSubmitting ? "Sending..." : t("send")} <UploadIcon/>
