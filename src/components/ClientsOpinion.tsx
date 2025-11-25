@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
@@ -142,8 +142,8 @@ export default function ClientsOpinion() {
                       <p className="text-gray-800 pb-3 text-base leading-relaxed">
                         {client.comment}
                       </p>
-                      <button className="mt-auto text-blue-600 font-semibold hover:underline">
-                        {t("viewindetail")} →
+                      <button className="mt-auto flex gap-1 justify-center group items-center cursor-pointer  text-blue-600 font-semibold hover:underline">
+                        {t("viewindetail")} <ArrowRight className="group-hover:ml-1 ease-in-out transform transition-all duration-200 "/>
                       </button>
                     </div>
                   </div>
