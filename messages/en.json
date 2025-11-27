@@ -98,6 +98,7 @@
   "title": "Insights & News",
    "ai-revolution": {
   "topic1": "AI Revolution in Business Apps",
+  "text":"Artificial Intelligence is transforming how businesses operate through automation and data-driven insights...",
   "text1": "Artificial Intelligence is transforming how businesses operate through automation and data-driven insights, reshaping every aspect of decision-making, customer engagement, and operational efficiency. Business applications powered by AI are no longer limited to simple task automation — they now enable organizations to analyze massive volumes of data, identify patterns, predict future trends, and deliver personalized experiences to customers at an unprecedented scale.",
   "topic2": "The Rise of Intelligent Business Applications",
   "text2": "Modern business apps are becoming more intelligent and adaptive, integrating AI capabilities such as natural language processing (NLP), computer vision, and predictive analytics. These technologies allow applications to “understand” human behavior, process complex data in real time, and make independent decisions that previously required human expertise. For example, AI-driven customer relationship management (CRM) systems can automatically segment customers, predict their purchasing behaviors, and suggest personalized marketing campaigns, improving both conversion rates and customer satisfaction.",
@@ -105,6 +106,7 @@
   "text3": "In the field of finance, AI-enabled business apps help companies detect fraud, optimize investments, and manage risks more accurately. By continuously learning from transaction patterns, these systems can identify anomalies that would be nearly impossible for humans to detect. Similarly, in accounting and auditing, AI tools can process large volumes of financial data within seconds, ensuring transparency and compliance with fewer errors."},
 
   "rise-nocode": {"topic1": "Rise of No-Code Platforms",
+  "text":"No-code and low-code platforms are enabling non-developers to build apps without programming. This trend is speeding...",
   "text1": "No-code and low-code platforms are enabling non-developers to build apps without programming. This trend is speeding up digital transformation across industries by empowering business users, entrepreneurs, and teams to create customized solutions quickly and cost-effectively. Traditionally, software development required specialized technical skills, long development cycles, and substantial budgets. Now, no-code platforms remove many of those barriers by allowing users to design and deploy applications using visual interfaces, drag-and-drop components, and pre-built templates.",
   "topic2": "Democratizing Innovation",
   "text2": "The rise of these platforms has democratized software creation, putting the power of innovation into the hands of people who understand business problems best — the end users themselves. Instead of relying solely on IT departments, marketing teams can build their own campaign dashboards, HR managers can automate employee onboarding workflows, and entrepreneurs can launch prototypes of new apps without hiring a full development team. This shift has significantly reduced the time from idea to execution, making businesses more agile and adaptable in fast-changing markets.",
@@ -113,6 +115,7 @@
 
   "cybersecurity-gets-smarter":{
     "topic1": "Cybersecurity Gets Smarter",
+    "text":"Advanced AI-driven security systems are helping detect and block threats in real time. Businesses are investing...",
   "text1": "Advanced AI-driven security systems are helping detect and block threats in real time. Businesses are investing heavily in artificial intelligence and machine learning to protect sensitive information, prevent cyberattacks, and ensure data integrity. As cybercriminals adopt more sophisticated tactics, traditional defense methods are no longer sufficient. Intelligent cybersecurity systems can now predict, identify, and neutralize threats before they cause harm — marking a major evolution in how organizations safeguard their digital environments.",
   "topic2": "From Reactive Defense to Proactive Intelligence",
   "text2": "In the past, cybersecurity largely relied on reactive measures — identifying and responding to breaches after they occurred. Today, AI-powered systems analyze network traffic, user behavior, and system activity continuously to identify anomalies that signal potential threats. Machine learning models can learn from previous attacks, detect zero-day vulnerabilities, and adapt in real time. This proactive defense approach dramatically reduces response time and minimizes the risk of large-scale data breaches.",
@@ -120,6 +123,7 @@
   "text3": "One of the most transformative uses of AI in cybersecurity is behavioral analytics. Instead of depending on pre-programmed rules, AI systems learn what “normal” behavior looks like for users and systems. Any deviation — such as unusual login times, access from new locations, or irregular data transfers — triggers an alert or automatic response. This makes it possible to detect insider threats, compromised accounts, and advanced persistent attacks that might otherwise go unnoticed."},
 
   "era-of-quantum": {"topic1": "The Era of Quantum Computing",
+  "text":"Quantum computing is emerging as one of the most revolutionary technologies of the 21st century,unlike...",
   "text1": "Quantum computing is emerging as one of the most revolutionary technologies of the 21st century. Unlike classical computers, which process information in binary (0s and 1s), quantum computers use qubits — units that can exist in multiple states simultaneously thanks to the principle of superposition. This allows them to process massive amounts of data and perform complex calculations at speeds that are unimaginable for today’s computers.",
   "topic2": "How Quantum Computing Works",
   "text2": "Quantum computers leverage two key quantum phenomena: superposition and entanglement. Superposition enables qubits to represent multiple possibilities at once, while entanglement links qubits in a way that the state of one can depend on the state of another, even when separated by distance. Together, these properties enable quantum systems to explore countless solutions simultaneously, providing exponential computational power.",
@@ -128,6 +132,7 @@
 
   "power-of-5g": {
   "topic1": "The Power of 5G Connectivity",
+  "text":"5G technology marks a significant leap forward in mobile and wireless communication. Compared to previous generations, 5G offers...",
   "text1": "5G technology marks a significant leap forward in mobile and wireless communication. Compared to previous generations, 5G offers much higher data transfer speeds, lower latency, and the ability to connect millions of devices simultaneously. This fifth-generation network is the backbone of modern digital innovation — powering everything from smart cities to autonomous vehicles and advanced healthcare systems.",
   "topic2": "Understanding How 5G Works",
   "text2": "5G operates on a broader range of frequencies, including millimeter waves that can carry large amounts of data quickly. These signals are transmitted through a dense network of small cell towers that provide consistent, high-speed coverage. With latency reduced to as low as one millisecond, 5G enables real-time interaction between devices — a critical requirement for technologies like augmented reality (AR), virtual reality (VR), and industrial automation.",

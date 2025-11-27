@@ -10,42 +10,41 @@ import "swiper/css";
 export default function Insights() {
   const t = useTranslations("Insights");
   const locale = useLocale();
-
   const topics = [
     {
       id: 1,
       link: "ai-revolution",
-      title: "AI Revolution in Business Apps and something more",
+      title: t("ai-revolution.topic1"),
       date: "06.09.25",
-      text: "Artificial Intelligence is transforming how businesses operate through automation and data-driven insights...",
+      text: t("ai-revolution.text"),
     },
     {
       id: 2,
       link: "rise-nocode",
-      title: "Rise of No-Code Platforms",
+      title: t("rise-nocode.topic1"),
       date: "06.09.25",
-      text: "No-code and low-code platforms are enabling non-developers to build apps without programming. This trend is speeding...",
+      text: t("rise-nocode.text"),
     },
     {
       id: 3,
       link: "cybersecurity-gets-smarter",
-      title: "Cybersecurity Gets Smarter",
+      title: t("cybersecurity-gets-smarter.topic1"),
       date: "06.09.25",
-      text: "Advanced AI-driven security systems are helping detect and block threats in real time. Businesses are investing...",
+      text: t("cybersecurity-gets-smarter.text"),
     },
     {
       id: 4,
       link: "era-of-quantum",
-      title: "The Era of Quantum Computing",
+      title: t("era-of-quantum.topic1"),
       date: "06.09.25",
-      text: "Quantum computing is emerging as one of the most revolutionary technologies of the 21st century,unlike...",
+      text: t("era-of-quantum.text"),
     },
     {
       id: 5,
       link: "power-of-5g",
-      title: "The Power of 5G Connectivity",
+      title: t("power-of-5g.topic1"),
       date: "06.09.25",
-      text: "5G technology marks a significant leap forward in mobile and wireless communication. Compared to previous generations, 5G offers...",
+      text: t("power-of-5g.text"),
     },
   ];
 

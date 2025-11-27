@@ -104,6 +104,7 @@
     "title": "Tahlillar va Yangiliklar",
    "ai-revolution": {
     "topic1": "Biznes Ilovalarida AI Inqilobi",
+    "text":"Sun’iy intellekt biznes jarayonlarini avtomatlashtirib, ma’lumotlarga asoslangan qarorlarni tezlashtirmoqda...",
     "text1": "Sun'iy intellekt avtomatlashtirish va ma'lumotlar asosidagi tahlillar orqali biznes faoliyatini o'zgartirmoqda, qaror qabul qilish, mijozlar bilan munosabat va operatsion samaradorlikning barcha jabhalarini qayta shakllantirmoqda. AI bilan ishlaydigan biznes ilovalari endi oddiy vazifalarni avtomatlashtirish bilan cheklanmaydi — ular tashkilotlarga ulkan hajmdagi ma'lumotlarni tahlil qilish, naqshlarni aniqlash, kelajak tendensiyalarini bashorat qilish va mijozlarga misli ko'rilmagan miqyosda shaxsiy tajribalarni taqdim etish imkonini beradi.",
     "topic2": "Aqlli Biznes Ilovalari Yuksalishi",
     "text2": "Zamonaviy biznes ilovalari yanada aqlli va moslashuvchan bo'lib bormoqda, tabiiy tilni qayta ishlash (NLP), kompyuter ko'rish va bashoratli tahlillar kabi AI imkoniyatlarini birlashtirmoqda. Ushbu texnologiyalar ilovalarga inson xatti-harakatlarini \"tushunish\", murakkab ma'lumotlarni real vaqtda qayta ishlash va ilgari inson tajribasini talab qilgan mustaqil qarorlar qabul qilish imkonini beradi. Masalan, AI bilan boshqariladigan mijozlar bilan munosabatlar boshqaruvi (CRM) tizimlari mijozlarni avtomatik ravishda segmentlashi, ularning xarid xatti-harakatlarini bashorat qilishi va shaxsiy marketing kampaniyalarini taklif qilishi mumkin, bu konversiya darajasini ham, mijoz qoniqishini ham oshiradi.",
@@ -112,6 +113,7 @@
     
     "rise-nocode":{
     "topic1": "No-Code Platformalar Yuksalishi",
+    "text":"Kod yozmasdan ishlaydigan platformalar odamlarga dastur yaratishni osonlashtirmoqda...",
     "text1": "No-code va low-code platformalar dasturchi bo'lmaganlarga dasturlashsiz ilova yaratish imkonini bermoqda. Ushbu tendensiya biznes foydalanuvchilari, tadbirkorlar va jamoalarni tez va tejamkor tarzda moslashtirilgan yechimlar yaratish orqali sanoatlar bo'ylab raqamli transformatsiyani tezlashtirmoqda. An'anaga ko'ra, dasturiy ta'minot ishlab chiqish maxsus texnik ko'nikmalar, uzoq ishlab chiqish tsikllari va katta byudjetlarni talab qilgan. Endi no-code platformalar vizual interfeyslar, drag-and-drop komponentlari va oldindan tayyor shablonlar yordamida ilovalarni loyihalash va joylashtirish imkonini berib, ushbu to'siqlarni olib tashlamoqda.",
     "topic2": "Innovatsiyani Demokratlashtirish",
     "text2": "Ushbu platformalarning yuksalishi dasturiy ta'minot yaratishni demokratlashtirdi, innovatsiya kuchini biznes muammolarini eng yaxshi tushunadigan odamlar — oxirgi foydalanuvchilarning qo'liga berdi. IT bo'limlariga faqat tayanish o'rniga, marketing jamoalari o'z kampaniya boshqaruv panellarini qurishi, HR menejerlari xodimlarning ishga qabul qilish jarayonlarini avtomatlashtirishi va tadbirkorlar to'liq ishlab chiqish jamoasini yollamasdan yangi ilova prototiplarini ishga tushirishi mumkin. Ushbu o'zgarish g'oyadan amalga oshirishgacha bo'lgan vaqtni sezilarli darajada qisqartirdi, bizneslarni tez o'zgaruvchan bozorlarda yanada chaqqon va moslashuvchan qildi.",
@@ -120,6 +122,7 @@
     
    "cybersecurity-gets-smarter": {
     "topic1": "Kiberxavfsizlik Aqlliroq Bo'lmoqda",
+    "text":"AI asosidagi xavfsizlik tizimlari tahdidlarni darhol aniqlab, bloklamoqda...",
     "text1": "Ilg'or AI bilan boshqariladigan xavfsizlik tizimlari tahdidlarni real vaqtda aniqlash va bloklashga yordam bermoqda. Bizneslar sezgir ma'lumotlarni himoya qilish, kiberhujumlarni oldini olish va ma'lumotlar yaxlitligini ta'minlash uchun sun'iy intellekt va mashinaviy o'rganishga katta sarmoya kiritmoqda. Jinoyatchilar yanada murakkab taktikalar qo'llagan sari, an'anaviy himoya usullari endi yetarli emas. Aqlli kiberxavfsizlik tizimlari endi tahdidlarni zarar yetkazmasdan oldin bashorat qilishi, aniqlashi va zararsizlantirishi mumkin — bu tashkilotlarning raqamli muhitini himoya qilishda katta evolyutsiyani belgilaydi.",
     "topic2": "Reaktiv Himoyadan Proaktiv Aqlga",
     "text2": "O'tmishda kiberxavfsizlik asosan reaktiv choralar — buzilishlar yuz berganidan keyin aniqlash va javob berishga tayangan. Bugun AI bilan ishlaydigan tizimlar tarmoq trafigi, foydalanuvchi xatti-harakati va tizim faoliyatini doimiy ravishda tahlil qilib, potentsial tahdidlarni bildiruvchi anomaliyalarni aniqlaydi. Mashinaviy o'rganish modellari oldingi hujumlardan o'rganishi, zero-day zaifliklarini aniqlashi va real vaqtda moslashishi mumkin. Ushbu proaktiv himoya yondashuvi javob vaqtini keskin qisqartiradi va katta miqyosli ma'lumotlar buzilishi xavfini minimallashtiradi.",
@@ -128,6 +131,7 @@
     
    "era-of-quantum": {
     "topic1": "Kvant Hisoblash Davri",
+    "text":"Kvant hisoblash 21-asrning eng inqilobiy texnologiyalaridan biri sifatida paydo bo‘lmoqda...",
     "text1": "Kvant hisoblash 21-asrning eng inqilobiy texnologiyalaridan biri sifatida paydo bo'lmoqda. Klassik kompyuterlardan farqli o'laroq, ular ma'lumotlarni ikkilik (0 va 1) da qayta ishlasa, kvant kompyuterlari superpozitsiya printsipi tufayli bir vaqtning o'zida bir nechta holatda mavjud bo'lishi mumkin bo'lgan qubitlardan foydalanadi. Bu ulkan hajmdagi ma'lumotlarni qayta ishlash va bugungi kompyuterlar uchun tasavvur qilib bo'lmaydigan tezlikda murakkab hisob-kitoblarni bajarish imkonini beradi.",
     "topic2": "Kvant Hisoblash Qanday Ishlaydi",
     "text2": "Kvant kompyuterlari ikkita asosiy kvant hodisalaridan foydalanadi: superpozitsiya va chalkashlik. Superpozitsiya qubitlarga bir vaqtning o'zida bir nechta imkoniyatlarni ifodalash imkonini beradi, chalkashlik esa qubitlarni bir-biridan masofada bo'lsa ham, birining holati boshqasiga bog'liq bo'lishi uchun bog'laydi. Birgalikda bu xususiyatlar kvant tizimlariga son-sanoqsiz yechimlarni bir vaqtning o'zida o'rganish imkonini berib, eksponentsial hisoblash kuchini ta'minlaydi.",
@@ -136,6 +140,7 @@
     
    "power-of-5g": {
     "topic1": "5G Ulanish Kuchi",
+    "text":"5G yuqori tezlik va past kechikish bilan mobil aloqani yangi bosqichga olib chiqmoqda...",
     "text1": "5G texnologiyasi mobil va simsiz aloqada muhim sakrashni belgilaydi. Oldingi avlodlarga nisbatan 5G ancha yuqori ma'lumot uzatish tezligi, past kechikish va bir vaqtning o'zida millionlab qurilmalarni ulash imkoniyatini taklif etadi. Ushbu beshinchi avlod tarmog'i zamonaviy raqamli innovatsiyalarning asosi bo'lib, aqlli shaharlar, avtonom transport vositalari va ilg'or sog'liqni saqlash tizimlaridan tortib hamma narsani quvvatlaydi.",
     "topic2": "5G Qanday Ishlaydi",
     "text2": "5G kengroq chastota diapazonida ishlaydi, shu jumladan katta hajmdagi ma'lumotlarni tez olib o'tadigan millimetr to'lqinlar. Bu signallar barqaror, yuqori tezlikdagi qamrovni ta'minlaydigan kichik hujayra minoralari zich tarmog'i orqali uzatiladi. Kechikish bir millisekundgacha qisqartirilgani bilan, 5G qurilmalar o'rtasida real vaqtda o'zaro ta'sirni ta'minlaydi — bu kengaytirilgan reallik (AR), virtual reallik (VR) va sanoat avtomatlashtirish kabi texnologiyalar uchun muhim talab.",
