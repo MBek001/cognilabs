@@ -10,11 +10,11 @@
   "Header": {
    "headword1": "AI va Dasturiy ta'minot",
 "headword2": "Yaratuvchi kompaniya!",
-  "slogan": "Biz ilg‘or fikrli insonlar bilan hamkorlikda ilg‘or dasturiy yechimlar ishlab chiqamiz.",
-  "contact": "Hozir bog‘lanish",
+  "slogan": "Biz ilg‘or fikrli insonlar bilan birgalikda mukammal dasturiy yechimlar ishlab chiqamiz.",
+  "contact": "Hoziroq bog‘lanish",
   "successproject": "Muvaffaqiyatli loyihalar",
-  "happyclients": "Mijozlarning o'rtacha reytingi",
-  "hoursspent": "haftada loyihangizni ishlab chiqamiz",
+  "happyclients": "Mijozlarning o'rtacha bahosi",
+  "hoursspent": "haftalarda loyihangizni ishlab chiqamiz",
   "members": "Jamoa a'zolari"
 },
 "Projects": {
@@ -22,7 +22,7 @@
     "text": "Bizning loyihalarimiz bizneslarni quvvatlaydigan innovatsion raqamli yechimlarni taqdim etadi.",
     "djafariytext": "Djafariy sifatli kiyim va zamonaviy ko‘rinishlar uchun ishonchli brend. Djafariy garderobingizni yangilashni avvalgidan ham osonlashtiradi.",
     "billurtext": "Billur kuchli va xavfsiz tozalash mahsulotlari uchun ishonchli brend. Billur sog‘lom va toza muhitni saqlashni osonlashtiradi.",
-    "bazatext": "Bazabarbershop professional soch turmaklari va parvarish uchun sizning manzilingiz. Billur Barbershop sizni doim yangi va silliq ko‘rinishga ega qilishni osonlashtiradi.",
+    "bazatext": "Bazabarbershop professional soch turmaklari va parvarish uchun sizning manzilingiz. Bazabarbershop App sizni doim yangi va zamonaviy ko‘rinishga ega qilishni osonlashtiradi.",
     "visitProject": "Sahifaga O‘ting",
     "viewMore": "Boshqa Loyihalarni Ko‘rish"
 }
@@ -54,8 +54,8 @@
   "to-offer": "Biz veb-sayt va mobil ilova ishlab chiqish, sun'iy intellekt integratsiyasi, maxsus dasturiy ta'minot va biznes samaradorligini oshirish uchun raqamli yechimlar kabi bir qator xizmatlarni taklif qilamiz."
 }, 
 "TrustCases": {
-  "solutions": "Siz bizning kompaniyamizga ishonchli va innovatsion raqamli yechimlar uchun ishonishingiz mumkin",
-  "text": "Biz AQSh va Toshkentdagi yetakchi kompaniyalar bilan muvaffaqiyatli hamkorlik qilganmiz, bu bizning tajribamiz va mukammallikka sodiqligimizni ko‘rsatadi.",
+  "solutions": "Siz bizning kompaniyamizga ishonchli va innovatsion raqamli yechimlar yaratish borasida ishonishingiz mumkin",
+  "text": "Biz AQSh va O'zbekistondagi yetakchi kompaniyalar bilan muvaffaqiyatli hamkorlik qilamiz, bu bizning tajribamiz va mukammallikka sodiqligimizni ko‘rsatadi.",
   "viewMore": "Batafsil ko'rish"
 },
   "ClientsOpinion": {
@@ -174,7 +174,7 @@
   } 
 },
   "About": {
-  "title": "AI va Dasturiy ta'minot Yaratadigan kompaniya!",
+  "title": "AI va Dasturiy ta'minot Yaratuvchi kompaniya!",
   "about": "Cognilabs haqida",
   "text1": "Cognilabs — 2022-yilda tashkil etilgan innovatsion IT kompaniya bo‘lib, bizneslarni aqlli texnologiyalar orqali rivojlantirish missiyasiga ega. Tashkil etilganidan beri kompaniya ijodkorlik va samaradorlikni birlashtirgan aqlli raqamli yechimlarni yaratishga e’tibor qaratib kelmoqda. Cognilabs dasturiy ta’minot ishlab chiqish, sun’iy intellekt integratsiyasi va biznes jarayonlarini tezlashtirishga mo‘ljallangan avtomatlashtirish tizimlarida ixtisoslashgan.",
   "text2": "Uning iqtidorli dasturchilar, dizaynerlar va muhandislardan iborat jamoasi mijozlar ehtiyojlariga to‘liq mos keladigan maxsus veb-saytlar, chatbotlar va ilovalarni yaratish uchun birgalikda ishlaydi. Kompaniya uzoq muddatli hamkorlikni qadrlaydi va har bir loyihada silliq muloqotni ta’minlaydi. Yillar davomida Cognilabs startaplar va taniqli kompaniyalar uchun ishonchli texnologik hamkor sifatida o‘sib bordi va har doim haqiqiy natijalarga erishadigan innovatsiyalarni yetkazib berishga intiladi.",
