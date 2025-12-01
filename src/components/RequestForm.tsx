@@ -147,7 +147,7 @@ export default function RequestForm() {
                 {field === "message" ? (
                   <textarea
                     required
-                    rows={2}
+                    rows={1}
                     placeholder={`${t(field)}`}
                     className="border-b text-black border-gray-300 py-3 outline-none resize-none"
                     value={formData[field]}

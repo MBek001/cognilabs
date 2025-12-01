@@ -9,7 +9,7 @@ export default function page() {
   return (
     <div className=''>
       <Part1/>
-      <Vacancies/>
+      {/* <Vacancies/> */}
       <WhyUs/>
       <CareerForm/>
       <Footer/>

@@ -149,7 +149,7 @@ export default function JoinTeamForm() {
               placeholder={t("whyus")}
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              rows={3}
+              rows={1}
               className="w-full bg-transparent border-b border-gray-400 py-3 px-1 sm:px-2 text-gray-700 text-base sm:text-lg placeholder-gray-500 focus:border-blue-600 focus:outline-none resize-none transition"
               variants={itemVariants}
             />
