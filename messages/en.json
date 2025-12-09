@@ -5,7 +5,8 @@
         "services":  "Services",
         "portfolio" : "Portfolio",
         "contact" : "Contact Us",
-        "hiring":"We're Hiring!"
+        "hiring":"We're Hiring!",
+        "blogs":"Blogs"
     } ,
     "Header" : {
         "headword1": "AI and Software",
@@ -239,8 +240,12 @@
   "extramssg": "“We built an advanced AI assistant that communicates naturally, answers questions, and supports businesses through smart automation”",
   "visitpr": "Visit the project",
   "bottomtext": "Our service stands out for its quality, speed, and reliability. We focus on making everything simple for you while delivering results that feel genuinely impressive"
+  },
+  "Blogs":{
+    "blogs":"Blogs",
+    "notfound":"Bloglar topilmadi",
+    "view":"View more"
   }
-
  
 
   }

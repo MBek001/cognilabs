@@ -5,7 +5,8 @@
     "services": "Xizmatlar",
     "portfolio": "Portfolio",
     "contact": "Bog'lanish",
-    "hiring":"Biz ishga olamiz! "
+    "hiring":"Biz ishga olamiz! ",
+    "blogs":"Bloglar"
   },
   "Header": {
    "headword1": "AI va Dasturiy ta'minot",
@@ -252,15 +253,12 @@
 
   "visitpr": "Loyihaga o‘tish",
   "bottomtext": "Xizmatimiz sifati, tezligi va ishonchliligi bilan ajralib turadi. Biz sizga hamma narsani soddalashtirib, haqiqiy taassurot qoldiradigan natijalarni yetkazishga e’tibor qaratamiz."
-}
-
-
-
-
-
-
-
-
+},
+"Blogs":{
+    "blogs":"Bloglar",
+    "notfound":"Bloglar topilmadi",
+    "view":"Ko'proq ko'rish"
+  }
 
 
 }

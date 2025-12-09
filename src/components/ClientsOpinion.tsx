@@ -67,7 +67,7 @@ export default function ClientsOpinion() {
       id: 7,
       name: "Baza Barbers",
       position: "",
-      img: "/clients/baza.png",
+      img: "/clients/bazanew.png",
       stars: 5,
       comment: "Cognilabs kompaniyasi biz uchun qulay vebsayt va mijozlarimiz onlayn tarzda vaqt belgilay oladigan appointment tizimini ishlab chiqishdi. Bu tizim mijozlarimiz uchun katta qulaylik yaratdi va ish jarayonlarimizni optimallashtirdi.Har bir xohishimizga e'tibor bilan qarashdi, kerakli o'zgarishlar qilishdi.Ularning xizmatidan toliq mamnunmiz va albatta, yana hamkorlik qilishni istaymiz",
     },
@@ -84,7 +84,7 @@ export default function ClientsOpinion() {
       id: 9,
       name: "Bunyodkor",
       position: "",
-      img: "/clients/bunyodkor.png",
+      img: "/clients/bunyodkornew.png",
       stars: 5,
       comment:
         "Sport jamoasi sifatida bizga rasmiy veb-sayt, yangiliklar blogi va muxlislar bilan tezkor muloqot qilish imkoni kerak edi. Cognilabs bu vazifani yuqori darajada bajardi: jamoamiz tarkibi, statistikalar, match jadvali va onlayn-maxsus xabar xizmati bir tizimda jamlandi. AI-bazirlangan avtomat xabarlar tarqatish funksiyasi muxlislar bilan ishlashni yengillashtirdi. Jamoa ishiga professional yondashishi va har bir detalni inobatga olishi biz uchun katta qulaylik yaratdi.",

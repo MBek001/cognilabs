@@ -1,9 +1,20 @@
-const withNextintl = require('next-intl/plugin')
+const withNextIntl = require("next-intl/plugin")();
 
-module.exports = withNextintl({
-    images: {
-        remotePatterns: [
-      { protocol: "https", hostname: "picsum.photos" },
+module.exports = withNextIntl({
+  images: {
+    remotePatterns: [
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "8000",
+        pathname: "/uploads/**",
+      },
+      {
+        protocol: "http",
+        hostname: "127.0.0.1",
+        port: "8000",
+        pathname: "/uploads/**",
+      },
     ],
-    }
-})  
+  },
+});

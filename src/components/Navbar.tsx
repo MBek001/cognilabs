@@ -1,5 +1,4 @@
 "use client";
-
 import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
@@ -57,21 +56,19 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 font-poppins bg-linear-to-r from-black via-black to-[#001a3a] pt-8 pb-2 shadow-lg backdrop-blur-sm">
-      <div className="container mx-auto flex items-center justify-around px-6">
+      <div className="container mx-auto flex items-center justify-between lg:justify-around px-4 sm:px-6">
         {/* Logo */}
-
-        <div className="relative flex items-center  justify-center">
+        <div className="relative flex items-center justify-center">
           <div
-  className="absolute -top-[28px] left-42 -translate-x-1/2"
-  style={{
-    animation: "pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite"
-  }}
->
-  <p className="text-[12px] font-bold tracking-wide text-white p-1 px-2 bg-blue-900 rounded-3xl whitespace-nowrap">
-    <Link href="/careers">{t("hiring")}</Link>
-  </p>
-</div>
-
+            className="absolute -top-[28px] left-34   -translate-x-1/2"
+            style={{
+              animation: "pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite"
+            }}
+          >
+            <p className="text-[10px] sm:text-[12px] font-bold tracking-wide text-white p-1 px-2 bg-blue-900 rounded-3xl whitespace-nowrap">
+              <Link href="/careers">{t("hiring")}</Link>
+            </p>
+          </div>
 
           <Link href="/">
             <Image
@@ -79,13 +76,13 @@ export default function Navbar() {
               alt="Cognilabs"
               width={130}
               height={40}
-              className="cursor-pointer"
+              className="cursor-pointer w-[100px] sm:w-[130px]"
             />
           </Link>
         </div>
 
-        {/* Desktop Nav */}
-        <ul className="hidden md:flex items-center space-x-15 text-white text-lg font-medium">
+        {/* Desktop Nav - shown on large screens only */}
+        <ul className="hidden lg:flex items-center space-x-8 xl:space-x-15 text-white text-base xl:text-lg font-medium">
           <Link href={`/${locale}/about-us`}>
             <li
               className={`cursor-pointer transition ${
@@ -126,6 +123,16 @@ export default function Navbar() {
             </li>
           </Link>
 
+          <Link href={`/${locale}/blogs`}>
+            <li
+              className={`cursor-pointer transition ${
+                isActive(`/${locale}/blogs`) ? "text-blue-500 font-bold" : "hover:text-blue-500"
+              }`}
+            >
+             {t("blogs")}
+            </li>
+          </Link>
+
           <button
             onClick={handleContactClick}
             className={`cursor-pointer transition ${
@@ -148,9 +155,9 @@ export default function Navbar() {
           </li>
         </ul>
 
-        {/* Contact + socials (desktop) */}
-        <div className="hidden md:flex flex-col items-center space-x-6">
-          <div className="text-[#0066FF] font-semibold text-lg">
+        {/* Contact + socials (desktop only) */}
+        <div className="hidden lg:flex flex-col items-center space-x-6">
+          <div className="text-[#0066FF] font-semibold text-base xl:text-lg">
             {locale === "en" ? "(513) 808-88-13" : "+998 (87) 337-75-77"}
           </div>
 
@@ -165,16 +172,15 @@ export default function Navbar() {
               />
             </Link>
             <Link href="https://t.me/cognilabs_software" target="_blank">
-            <div className="w-[37px] h-[37px] bg-[#0066FF] rounded-full flex items-center justify-center">
-  <Image
-    src="/tg.svg"
-    alt="telegram"
-    width={24}
-    height={24}
-    className="cursor-pointer"
-  />
-</div>
-
+              <div className="w-[37px] h-[37px] bg-[#0066FF] rounded-full flex items-center justify-center">
+                <Image
+                  src="/tg.svg"
+                  alt="telegram"
+                  width={24}
+                  height={24}
+                  className="cursor-pointer"
+                />
+              </div>
             </Link>
             <Link href="https://www.instagram.com/cognilabs/" target="_blank">
               <Image
@@ -188,15 +194,15 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Hamburger */}
-        <button className="md:hidden ml-40 text-white" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X size={32} /> : <Menu size={32} />}
+        {/* Mobile/Tablet Hamburger - shown below large screens */}
+        <button className="lg:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile/Tablet Menu */}
       {isOpen && (
-        <div className="md:hidden bg-black/90 backdrop-blur-md absolute top-15 left-0 w-full text-white flex flex-col items-center space-y-6 py-8 transition-all duration-300">
+        <div className="lg:hidden bg-black/90 backdrop-blur-md absolute top-full left-0 w-full text-white flex flex-col items-center space-y-6 py-8 transition-all duration-300">
           <Link href={`/${locale}/about-us`} onClick={() => setIsOpen(false)}>
             <p
               className={`cursor-pointer transition ${
@@ -237,6 +243,16 @@ export default function Navbar() {
             </p>
           </Link>
 
+          <Link href={`/${locale}/blogs`} onClick={() => setIsOpen(false)}>
+            <p
+              className={`cursor-pointer transition ${
+                isActive(`/${locale}/blogs`) ? "text-blue-500 font-bold" : "hover:text-blue-500"
+              }`}
+            >
+              {t("blogs")}
+            </p>
+          </Link>
+
           <button
             onClick={handleContactClick}
             className={`cursor-pointer transition ${
@@ -271,13 +287,15 @@ export default function Navbar() {
               />
             </Link>
             <Link href="https://t.me/cognilabs_software" target="_blank">
-              <Image
-                src="/tg.png"
-                alt="telegram"
-                width={35}
-                height={35}
-                className="bg-[#0066FF] p-2 rounded-full cursor-pointer"
-              />
+              <div className="w-[37px] h-[37px] bg-[#0066FF] rounded-full flex items-center justify-center">
+                <Image
+                  src="/tg.svg"
+                  alt="telegram"
+                  width={24}
+                  height={24}
+                  className="cursor-pointer"
+                />
+              </div>
             </Link>
             <Link href="https://www.instagram.com/cognilabs/" target="_blank">
               <Image
