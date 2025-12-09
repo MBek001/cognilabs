@@ -17,4 +17,18 @@ module.exports = withNextIntl({
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/:locale(en|ru|uz)/contact',
+        destination: '/:locale#contact',
+        permanent: false,
+      },
+      {
+        source: '/contact',
+        destination: '/#contact',
+        permanent: false,
+      },
+    ];
+  },
 });
