@@ -98,7 +98,7 @@ export default function Page() {
       logo: "/projectslogo/extragpt1.png",
       desc: t("extratext"),
       prtype: t("extratype"),
-      typeicon: "/projectslogo/icons/ai.png",
+      typeicon: "/projectslogo/icons/robot.png",
       showenimg: "/projectslogo/shows/robot.png",
       bout: t("extrapr"),
       mssg: t("extramssg"),
@@ -176,6 +176,66 @@ export default function Page() {
       mssg: "Cognilabs jamoasi bizga AI-chatbot o‘rnatib berdi va bu haqiqatan ham ishimizga katta yordam berdi.",
       link: ""
     },
+    {
+      id:13,
+      title: "Bunyodkor Academy",
+      logo: "/clients/bunyodkornew.png",
+      desc: "Bunyodkor Academy prepares the next generation of football players with expert coaching, modern training methods, and a focus on long-term growth.",
+      prtype: "Football",
+      typeicon: "/projectslogo/icons/football.png",
+      showenimg: "/projectslogo/shows/football.png",
+      bout: "Football",
+      mssg: "Sport jamoasi sifatida bizga rasmiy veb-sayt, yangiliklar blogi va muxlislar bilan tezkor muloqot qilish imkoni kerak edi. Cognilabs bu vazifani yuqori darajada bajardi.",
+      link: ""
+    },
+    {
+      id:14,
+      title: "Hoshang Restaurant",
+      logo: "/clients/hoshang.png",
+      desc: "Hoshang Restaurant brings the taste of the East to your table, providing delicious and traditional meals in a welcoming atmosphere.",
+      prtype: "Restaurant",
+      typeicon: "/projectslogo/icons/restaurant.png",
+      showenimg: "/projectslogo/shows/restaurant.png",
+      bout: "Restaurant",
+      mssg: "Restoranimiz uchun Cognilabs tomonidan yaratilgan veb-sayt va avtomatlashtirilgan bron tizimi biz kutganimizning o‘zi bo‘ldi.",
+      link: ""
+    },
+    {
+      id:15,
+      title: "Best solar",
+      logo: "/clients/client13.png",
+      desc: "Best Solar offers reliable solar solutions, delivering durable panels and professional installation for sustainable power.",
+      prtype: "Solar Panels",
+      typeicon: "/projectslogo/icons/panel.png",
+      showenimg: "/projectslogo/shows/panel.png",
+      bout: "Solar Panels",
+      mssg: "The Cognilabs team provided us with AI-powered sales agents. They respond to customers automatically and quickly provide the necessary information.",
+      link: ""
+    },
+    {
+      id:16,
+      title: "Surxon bozor",
+      logo: "/clients/surxon.png",
+      desc: "SurxonBozor brings together a variety of products, from homes and cars to furniture and more, all in one convenient place.",
+      prtype: "MarketPlace",
+      typeicon: "/projectslogo/icons/market.png",
+      showenimg: "/projectslogo/shows/market.png",
+      bout: "MarketPlace",
+      mssg: "Assalomu alaykum, Cognilabs jamoasi! Sizlarga kattakon rahmat — men so'ragan loyiha, ya'ni Surxonbozori.uz mahalliy e'lonlar vebsaytini ko'nglimdagidek qilib yaratib berdingiz.",
+      link: ""
+    },
+    {
+      id:17,
+      title: "Denov bozor",
+      logo: "/clients/denov.png",
+      desc: "DenovBozor provides homes, vehicles, furniture, and much more, connecting buyers with quality products quickly and reliably.",
+      prtype: "MarketPlace",
+      typeicon: "/projectslogo/icons/market.png",
+      showenimg: "/projectslogo/shows/market.png",
+      bout: "MarketPlace",
+      mssg: "Bizning maqsad — Denov uchun ishonchli va qulay onlayn bozor yaratish edi. Cognilabs bizning g‘oyani to‘liq tushunib, zamonaviy, tezkor va barqaror platforma yaratib berdi.",
+      link: ""
+    }
   ];
 
   return (
@@ -237,7 +297,7 @@ export default function Page() {
 <motion.img
   src={item.showenimg}
   alt=""
-  className={`absolute lg:top-35 lg:w-60 group-hover:scale-115 transform transition-all duration-300 ease-in-out lg:left-4/5 top-20 left-4/5 -translate-x-1/2 -translate-y-1/2 
+  className={`absolute lg:top-35 lg:w-56 group-hover:scale-115 transform transition-all duration-300 ease-in-out lg:left-4/5 top-20 left-4/5 -translate-x-1/2 -translate-y-1/2 
               w-32 sm:w-44 h-auto object-contain pointer-events-none
               ${item.id === 5 || item.id === 6 ? "w-48 sm:w-64 lg:w-80" : ""}`}
   initial={{ opacity: 0, scale: 0.9 }}
