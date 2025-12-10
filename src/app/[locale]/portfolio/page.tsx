@@ -104,6 +104,78 @@ export default function Page() {
       mssg: t("extramssg"),
       link: "https://www.extra-gpt.com",
     },
+    {
+      id:7,
+      title: "Zippy Taxi",
+      logo: "/clients/zippy.png",
+      desc: "Zippy Taxi provides quick and dependable transportation services, ensuring smooth and comfortable rides whenever you need them.",
+      prtype: "Taxi",
+      typeicon: "/projectslogo/icons/taxi.png",
+      showenimg: "/projectslogo/shows/taxi.png",
+      bout: "Taxi",
+      mssg: "Cognilabs tomonidan bizga yaratilgan zamonaviy taksi platformasi xizmat sifatimizni tubdan yaxshiladi. AI asosidagi avtomat order taqsimoti va operatorlar uchun qulay CRM tizimi hech qanday kechikishlarsiz ishlaydi.",
+      link: ""
+    },
+     {
+      id:8,
+      title: "Davr Taxi",
+      logo: "/clients/davr.png",
+      desc: "Davr Taxi delivers safe, convenient, and timely taxi services, making every trip smooth and hassle-free.",
+      prtype: "Taxi",
+      typeicon: "/projectslogo/icons/taxi.png",
+      showenimg: "/projectslogo/shows/taxi.png",
+      bout: "Taxi",
+      mssg: "DavrTaxi uchun Cognilabs tomonidan yaratilgan kompleks platforma — biz izlagan yechim edi. Shofyorlar monitoringi, onlayn-nazorat paneli, tezkor buyurtma taqsimoti va AI-chatbot orqali mijozlar bilan avtomatlashtirilgan muloqot — barchasi ish jarayonini optimizatsiya qildi.",
+      link: ""
+    },
+     {
+      id:9,
+      title: "Bro Taxi",
+      logo: "/clients/bro.png",
+      desc: "Bro Taxi provides fast, reliable, and comfortable rides, getting you to your destination with ease.",
+      prtype: "Taxi",
+      typeicon: "/projectslogo/icons/taxi.png",
+      showenimg: "/projectslogo/shows/taxi.png",
+      bout: "Taxi",
+      mssg: "Cognilabs biz uchun taksi xizmatini to‘liq raqamlashtirib berdi: shofyor va mijozlar uchun qulay interfeys, avtomat order taqsimoti, real-time monitoring va CRM orqali operatorlar ishini yengillashtirish — bularning barchasi bizning xizmat sifatimizni oshirdi.",
+      link: ""
+    },
+    {
+      id:10,
+      title: "Erix Consulting",
+      logo: "/clients/client11.png",
+      desc: "ErixConsulting provides reliable support for Uzbeks in America, guiding them through visa applications, documentation, and key legal processes.",
+      prtype: "Consulting",
+      typeicon: "/projectslogo/icons/consulting.png",
+      showenimg: "/projectslogo/shows/erix.png",
+      bout: "Consulting",
+      mssg: "В короткие сроки команда Cognilabs предоставила качественные и профессиональные услуги. Для нас было особенно важно — точность и своевременное выполнение задач, — и они ответственно выполнили эти требования.",
+      link: ""
+    },
+    {
+      id:11,
+      title: "Aroma lab",
+      logo: "/clients/aroma.png",
+      desc: "Aroma Lab provides luxury perfumes made from refined ingredients, giving you elegant and memorable scents for daily use or special moments.",
+      prtype: "Perfumes",
+      typeicon: "/projectslogo/icons/perfume.png",
+      showenimg: "/projectslogo/shows/aroma.png",
+      bout: "Perfumes",
+      mssg: "Cognilabs jamoasi biz uchun sun'iy intellektga asoslangan savdo agentlari taqdim etishdi va bu mijozlar bilan aloqamizni avtomatlashtirdi.",
+      link: ""
+    },
+    {
+      id:12,
+      title: "Taad",
+      logo: "/clients/taad.png",
+      desc: "Taad provides high-quality stretch ceilings, offering modern designs and professional installation to enhance any home or business.",
+      prtype: "Ceiling",
+      typeicon: "/projectslogo/icons/ceiling.png",
+      showenimg: "/projectslogo/shows/taad.png",
+      bout: "Ceiling",
+      mssg: "Cognilabs jamoasi bizga AI-chatbot o‘rnatib berdi va bu haqiqatan ham ishimizga katta yordam berdi.",
+      link: ""
+    },
   ];
 
   return (
