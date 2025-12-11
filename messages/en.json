@@ -60,7 +60,22 @@
     "ClientsOpinion" : {
         "maintext" : "What Our Clients Opinion About Cognilabs Service",
         "text": "Our clients praise us for delivering high-quality, innovative  solutions and exceptional service that drives real business results.",
-        "viewindetail":"View in detail"
+        "viewindetail":"Visit the project",
+        "client1": "In a short time, the Cognilabs team provided high-quality and professional services. What was especially important for us was the accuracy and timely completion of tasks, and they responsibly met these requirements. I definitely recommend them to other business representatives as well.",
+        "client2": "We are pleased to have worked with the Cognilabs team! The mobile app, online store, and website turned out even better than we expected. The team's attentive and professional approach made us very happy. In the future, we plan to continue working with this team on an ongoing basis.",
+        "client3": "The Cognilabs team provided us with AI-powered sales agents. They respond to customers automatically and quickly provide the necessary information. This has significantly eased our work and allowed us to redirect our time to more important tasks. Many thanks to the Cognilabs team.",
+        "client4": "Hello, Cognilabs team! A huge thank you to you — the project I requested, namely the Surxonbozori.uz local classifieds website, was created just as I envisioned. I am very pleased with the work you have done! I pray to Allah for the Cognilabs team to achieve even greater heights. Thank you once again.",
+        "client5": "The company's service exceeded my expectations. From the first service, I trusted them with the entire project without having to repeatedly explain what needed to be done. They approached the work quickly and accurately, completing the project efficiently.",
+        "client6": "The Cognilabs team provided us with AI-powered sales agents, which automated our client interactions. They approached their work professionally, paid attention to every detail, and considered all our needs. We plan to continue collaborating with them in the future.",
+        "client7": "Cognilabs developed a convenient website for us along with an appointment system where our clients can book online. This system greatly improved convenience for our clients and optimized our workflow. They paid attention to every request and made the necessary adjustments. We are fully satisfied with their service and definitely plan to work with them again.",
+        "client8": "The modern taxi platform created by Cognilabs significantly improved our service quality. The AI-based automatic order distribution and a CRM system for operators work without delays. The interface for customers is simple and fast. The team understands our needs immediately and provides solutions quickly. Zippy Taxi is very satisfied with Cognilabs.",
+        "client9": "As a sports team, we needed an official website, a news blog, and a way to communicate quickly with fans. Cognilabs successfully handled this task: our team roster, statistics, match schedule, and online messaging system were integrated into one platform. The AI-based automated messaging feature simplified interactions with fans. The professional approach and attention to detail made our work much easier.",
+        "client10": "For DavrTaxi, the comprehensive platform created by Cognilabs was the solution we were looking for. Driver monitoring, online control panel, fast order distribution, and AI chatbot for automated customer communication—all optimized our workflow. The team works quickly, studies every requirement thoroughly, and proposes effective solutions. Collaborating with them is reliable.",
+        "client11": "The Cognilabs team installed an AI chatbot for us, which greatly helped our work. Customer inquiries, price requests, and appointment bookings are all handled automatically. The operator workload decreased significantly, and responses to clients became faster. The team completed the work quickly and efficiently.",
+        "client12": "Our goal was to create a reliable and convenient online marketplace for Denov. Cognilabs fully understood our vision and built a modern, fast, and stable platform. Our favorite features were the ad filtering system, automated verification functions, and simplified moderation through CRM. The AI bot provides 24/7 support for users, reducing workload significantly. The team approaches work professionally—we highly recommend them!",
+        "client13": "Cognilabs fully digitized our taxi service: a convenient interface for drivers and customers, automatic order distribution, real-time monitoring, and CRM to facilitate operator work—all improved our service quality. Most importantly, the AI chatbot automatically handles customer reception, location identification, and order processing. The team is fast, attentive, and creative. Their service took our business to the next level.",
+        "client14": "For our restaurant, the website and automated booking system created by Cognilabs exceeded our expectations. The AI bot automatically responds to each client, reducing staff workload significantly. Product menus, online orders, and booking for special events—all function beautifully and conveniently. The team approached every detail seriously and offered customized solutions. Working with them is a pleasure.",
+        "client15": "Collaborating with the Cognilabs team opened a new stage for us in the agro sector. They implemented a modern web platform and automated sales processes. The AI chatbot that optimized communication between farmers and buyers was very convenient. All our requirements were taken into account, and each function was designed to fit our market operations. We plan to implement new projects with Cognilabs in the future."
     },
     "Locations": {
         "headword": "Locations of our offices"
@@ -211,41 +226,177 @@
   } ,
   "Porfolio": {
     "text" :"Our customers are thrilled to work with us, praising our smooth collaboration, quality results, and reliable support",
-     "billurtype": "Cleaning",
-     "billurtext": "Billur is the trusted brand for powerful and safe cleaning products. Billur makes maintaining a fresh and healthy environment easier than ever.",
-     "billurpr": "Cleaning Products",
-     "billurmssg": "“Great service! They created a clean, professional website that showcases our cleaning products perfectly. Easy communication and excellent results.”",
-     "bazatype":"Hairstyle",
-     "bazatext": "Bazabarbershop is your go-to place for professional cuts and grooming. Billur Barbershop makes looking fresh and polished easier than ever.",
-     "bazapr": "Clean Hairstyle",
-     "bazamssg":"“Our barbershop team is genuinely happy with Cognilabs! Booking became easier, customers wait less, and even our busiest days feel organized.”",
-      "djafariytype": "Clothing",
-  "djafariytext": "Djafariy is the trusted brand for quality clothing and contemporary looks. Djafariy makes upgrading your wardrobe easier than ever",
-  "djafariypr": "Stylish Clothes",
-  "djafariymssg": "“Cognilabs made managing our clothing store so much easier! From product updates to customer messages—everything feels fast and organized now.”",
+    
+    "billurtype": "Cleaning",
+    "billurtext": "Billur is the trusted brand for powerful and safe cleaning products. Billur makes maintaining a fresh and healthy environment easier than ever.",
+    "billurpr": "Cleaning Products",
+    "billurmssg": "“Great service! They created a clean, professional website that showcases our cleaning products perfectly. Easy communication and excellent results.”",
+    
+    "bazatype":"Hairstyle",
+    "bazatext": "Bazabarbershop is your go-to place for professional cuts and grooming. Billur Barbershop makes looking fresh and polished easier than ever.",
+    "bazapr": "Clean Hairstyle",
+    "bazamssg":"“Our barbershop team is genuinely happy with Cognilabs! Booking became easier, customers wait less, and even our busiest days feel organized.”",
+    
+    "djafariytype": "Clothing",
+    "djafariytext": "Djafariy is the trusted brand for quality clothing and contemporary looks. Djafariy makes upgrading your wardrobe easier than ever",
+    "djafariypr": "Stylish Clothes",
+    "djafariymssg": "“Cognilabs made managing our clothing store so much easier! From product updates to customer messages—everything feels fast and organized now.”",
 
-  "oloutype": "Hoodies",
-  "oloutext": "OLOU is a minimalist hoodie brand focused on quality, comfort, and design. OLOU makes dressing with simplicity easier than ever.",
-  "oloupr": "Stylish Clothes",
-  "oloumssg": "“As a hoodie brand, speed and style matter. Cognilabs gave us a system that matches our energy—fast, clean, and super reliable. We’re fully satisfied and excited to continue working with them.”",
+    "oloutype": "Hoodies",
+    "oloutext": "OLOU is a minimalist hoodie brand focused on quality, comfort, and design. OLOU makes dressing with simplicity easier than ever.",
+    "oloupr": "Stylish Clothes",
+    "oloumssg": "“As a hoodie brand, speed and style matter. Cognilabs gave us a system that matches our energy—fast, clean, and super reliable. We’re fully satisfied and excited to continue working with them.”",
 
-  "saaftype": "Agro",
-  "saaftext": "Saaf Green Agro is the reliable provider of eco-friendly and sustainable agro products. Saaf Green Agro makes choosing healthy food easier than ever.",
-  "saafpr": "Agro and Nature",
-  "saafmssg": "“We’re really happy with this service! It helped our agro business stay organized and work more efficiently. It’s exactly what we needed”",
+    "saaftype": "Agro",
+    "saaftext": "Saaf Green Agro is the reliable provider of eco-friendly and sustainable agro products. Saaf Green Agro makes choosing healthy food easier than ever.",
+    "saafpr": "Agro and Nature",
+    "saafmssg": "“We’re really happy with this service! It helped our agro business stay organized and work more efficiently. It’s exactly what we needed”",
 
-  "extratype": "AI",
-  "extratext": "ExtraGpt is the intelligent platform designed to help you get answers, ideas, and solutions instantly. ExtraGpt makes finding the information you need easier than ever.",
-  "extrapr": "Future Technology",
-  "extramssg": "“We built an advanced AI assistant that communicates naturally, answers questions, and supports businesses through smart automation”",
-  "visitpr": "Visit the project",
-  "bottomtext": "Our service stands out for its quality, speed, and reliability. We focus on making everything simple for you while delivering results that feel genuinely impressive"
+    "extratype": "AI",
+    "extratext": "ExtraGpt is the intelligent platform designed to help you get answers, ideas, and solutions instantly. ExtraGpt makes finding the information you need easier than ever.",
+    "extrapr": "Future Technology",
+    "extramssg": "“We built an advanced AI assistant that communicates naturally, answers questions, and supports businesses through smart automation”",
+
+    "zippytext": "Zippy Taxi provides quick and dependable transportation services, ensuring smooth and comfortable rides whenever you need them.",
+  "zippymssg": "The modern taxi platform created by Cognilabs significantly improved our service quality. The AI-based automatic order distribution and a CRM system for operators work without any delays.",
+
+  "davrtext": "Davr Taxi delivers safe, convenient, and timely taxi services, making every trip smooth and hassle-free.",
+  "davrmssg": "For DavrTaxi, the comprehensive platform created by Cognilabs was the solution we were looking for. Driver monitoring, online control panel, fast order distribution, and AI chatbot for automated customer communication—all optimized our workflow.",
+
+  "brotext": "Bro Taxi provides fast, reliable, and comfortable rides, getting you to your destination with ease.",
+  "bromssg": "Cognilabs fully digitized our taxi service: a convenient interface for drivers and customers, automatic order distribution, real-time monitoring, and CRM to facilitate operator work—all improved our service quality.",
+
+  "erixtext": "ErixConsulting provides reliable support for Uzbeks in America, guiding them through visa applications, documentation, and key legal processes.",
+  "erixmssg": "In a short time, the Cognilabs team provided high-quality and professional services. What was especially important for us was the accuracy and timely completion of tasks, and they responsibly met these requirements.",
+
+  "aromatext": "Aroma Lab provides luxury perfumes made from refined ingredients, giving you elegant and memorable scents for daily use or special moments.",
+  "aromamssg": "The Cognilabs team provided us with AI-powered sales agents, which automated our client interactions.",
+
+  "taadtext": "Taad provides high-quality stretch ceilings, offering modern designs and professional installation to enhance any home or business.",
+  "taadmssg": "The Cognilabs team installed an AI chatbot for us, which greatly helped our work.",
+
+  "bunyodkortext": "Bunyodkor Academy prepares the next generation of football players with expert coaching, modern training methods, and a focus on long-term growth.",
+  "bunyodkormssg": "As a sports team, we needed an official website, a news blog, and a way to communicate quickly with fans. Cognilabs successfully handled this task.",
+
+  "hoshangtext": "Hoshang Restaurant brings the taste of the East to your table, providing delicious and traditional meals in a welcoming atmosphere.",
+  "hoshangmssg": "For our restaurant, the website and automated booking system created by Cognilabs exceeded our expectations.",
+
+  "bestsolartext": "Best Solar offers reliable solar solutions, delivering durable panels and professional installation for sustainable power.",
+  "bestsolarmssg": "The Cognilabs team provided us with AI-powered sales agents. They respond to customers automatically and quickly provide the necessary information.",
+
+  "surxontext": "SurxonBozor brings together a variety of products, from homes and cars to furniture and more, all in one convenient place.",
+  "surxonmssg": "Hello, Cognilabs team! A huge thank you to you — the project I requested, namely the Surxonbozori.uz local classifieds website, was created just as I envisioned.",
+
+  "denovtext": "DenovBozor provides homes, vehicles, furniture, and much more, connecting buyers with quality products quickly and reliably.",
+  "denovmssg": "Our goal was to create a reliable and convenient online marketplace for Denov. Cognilabs fully understood our vision and built a modern, fast, and stable platform.",
+    "visitpr": "Visit the project",
+    "bottomtext": "Our service stands out for its quality, speed, and reliability. We focus on making everything simple for you while delivering results that feel genuinely impressive"
   },
   "Blogs":{
     "blogs":"Blogs",
     "notfound":"Bloglar topilmadi",
     "view":"View more"
-  }
+  },
+  "Privacy":{
+      
+  "title": "Cognilabs.org – Privacy Policy",
+  "lastUpdated": "Last updated: December 11, 2025",
+  "intro": "At Cognilabs.org, we are committed to protecting your personal information and respecting your privacy. This Privacy Policy explains how we collect, use, store, and protect your data when you visit our website, use our services, or communicate with us.",
+  
+  "section1_title": "1. Information We Collect",
+    "section1_desc":"To serve you better, Cognilabs gathers only essential information: what you share with us, how you use our platforms, and basic technical data from your device. We use this data strictly to enhance functionality and support.",
+  "section1_1_title": "1.1 Information You Provide",
+  "section1_1_description": "We may collect personal information when you:",
+  "section1_1_list": [
+    "Fill out contact forms",
+    "Request a consultation",
+    "Subscribe to newsletters",
+    "Communicate with us by email or phone"
+  ],
+  "section1_1_extra_title": "This may include:",
+  "section1_1_extra_list": [
+    "Name",
+    "Email address",
+    "Phone number",
+    "Company name",
+    "Project details or messages you send us"
+  ],
+
+  "section1_2_title": "1.2 Automatically Collected Information",
+  "section1_2_description": "When you use our website, we may automatically collect:",
+  "section1_2_list": [
+    "IP address",
+    "Device information",
+    "Browser type",
+    "Pages visited",
+    "Time spent on the website",
+    "Cookies and tracking data"
+  ],
+
+  "section2_title": "2. How We Use Your Information",
+  "section2_list": [
+    "Provide and improve our services",
+    "Respond to your inquiries",
+    "Process consultation requests",
+    "Customize user experience",
+    "Analyze website performance",
+    "Send updates or marketing emails (with consent)",
+    "Enhance security and prevent fraud"
+  ],
+
+  "section3_title": "3. Sharing Your Information",
+  "section3_description": "We do not sell your personal information. We may share data only with:",
+  "section3_list": [
+    "Trusted third-party service providers (analytics, email tools, hosting providers)",
+    "Legal authorities, if required by law",
+    "Business partners when working on your project (with your consent)"
+  ],
+
+  "section4_title": "4. Cookies and Tracking",
+  "section4_description": "We use cookies to:",
+  "section4_list": [
+    "Improve website performance",
+    "Understand how visitors use our site",
+    "Remember your preferences"
+  ],
+  "section4_note": "You can disable cookies through your browser settings.",
+
+  "section5_title": "5. Data Security",
+  "section5_list": [
+    "Secure servers",
+    "Encryption where applicable",
+    "Limited access to personal data"
+  ],
+  "section5_note": "However, no method of transmission over the internet is 100% secure.",
+
+  "section6_title": "6. Your Rights",
+  "section6_description": "Depending on your country, you may have the right to:",
+  "section6_list": [
+    "Access your personal data",
+    "Request correction or deletion",
+    "Withdraw consent",
+    "Opt out of marketing emails",
+    "Request a copy of your data"
+  ],
+  "section6_note": "To exercise your rights, contact us at the email below.",
+
+  "section7_title": "7. Third-Party Links",
+  "section7_description": "Our website may contain links to third-party websites. We are not responsible for their privacy practices.",
+
+  "section8_title": "8. Children’s Privacy",
+  "section8_description": "Our services are not intended for children under 13. We do not knowingly collect data from children.",
+
+  "section9_title": "9. Changes to This Policy",
+  "section9_description": "We may update this Privacy Policy occasionally. The updated version will be posted on this page with a new “Last Updated” date.",
+
+  "section10_title": "10. Contact Us",
+  "section10_description": "If you have questions about this Privacy Policy or your data, contact us at:",
+  "contact_email": "info@cognilabs.org",
+  "contact_website": "Cognilabs.org"
+
+
+}
+
  
 
   }

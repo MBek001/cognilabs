@@ -85,7 +85,7 @@ export default function Navbar() {
         {/* Logo */}
         <div className="relative flex items-center justify-center">
           <div
-            className="absolute -top-5 sm:-top-6 md:-top-7 left-6 sm:left-10 md:left-20"
+            className="absolute -top-5 sm:-top-6 md:-top-7 left-10 sm:left-10 md:left-20"
             style={{
               animation: "pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite"
             }}
@@ -97,16 +97,17 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <Link href="/" onClick={() => setIsOpen(false)}>
-            <Image
-              src="/logomini.png"
-              alt="Cognilabs"
-              width={130}
-              height={40}
-              className="cursor-pointer w-[80px] sm:w-[100px] md:w-[120px] lg:w-[130px] h-auto"
-              priority
-            />
-          </Link>
+          <a href="/" onClick={() => setIsOpen(false)}>
+  <Image
+    src="/logomini.png"
+    alt="Cognilabs"
+    width={130}
+    height={40}
+    className="cursor-pointer w-[90px] sm:w-[100px] md:w-[120px] lg:w-[130px] h-auto"
+    priority
+  />
+</a>
+
         </div>
 
         {/* Desktop Nav - shown on large screens only */}

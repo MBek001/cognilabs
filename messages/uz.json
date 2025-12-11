@@ -62,7 +62,22 @@
   "ClientsOpinion": {
   "maintext": "Mijozlarimizning Cognilabs xizmati haqidagi fikrlari",
   "text": "Mijozlarimiz bizni yuqori sifatli, innovatsion yechimlar va haqiqiy biznes natijalarini olib keluvchi ajoyib xizmat uchun maqtashadi.",
-  "viewindetail": "Batafsil ko'rish"
+  "viewindetail": "Batafsil ko'rish",
+  "client1": "Qisqa vaqt ichida Cognilabs jamoasi yuqori sifatli va professional xizmatlarni taqdim etdi. Biz uchun ayniqsa muhim bo‘lgan — vazifalarni aniqlik va o‘z vaqtida bajarilishi bo‘ldi, va ular bu talablarni mas’uliyat bilan bajardilar. Men ularni boshqa biznes vakillariga ham tavsiya qilaman.",
+    "client2": "Cognilabs jamoasi bilan ishlashdan mamnunmiz! Mobil ilova, onlayn do‘kon va veb-sayt kutganimizdan ham yaxshi chiqdi. Jamoaning e’tiborli va professional yondashuvi bizni juda xursand qildi. Kelajakda ular bilan doimiy ishlashni rejalashtirmoqdamiz.",
+    "client3": "Cognilabs jamoasi bizga sun’iy intellektga asoslangan savdo agentlarini taqdim etdi. Ular mijozlarga avtomatik javob berib, kerakli ma’lumotni tez taqdim etadi. Bu ishimizni sezilarli darajada osonlashtirdi va vaqtimizni muhim vazifalarga yo‘naltirish imkonini berdi. Cognilabs jamoasiga katta rahmat.",
+    "client4": "Assalomu alaykum, Cognilabs jamoasi! Sizlarga kattakon rahmat — men so‘ragan loyiha, ya’ni Surxonbozori.uz mahalliy e’lonlar veb-sayti ko‘nglimdagidek yaratildi. Qilgan ishingizdan juda mamnunman! Cognilabs jamoasiga katta marralarni zabt etishni Allohdan tilayman. Yana bir bor rahmat.",
+    "client5": "Kompaniya xizmati kutganimdandanoq yuqori bo‘ldi. Birinchi xizmatdan so‘ng butun loyihani ularga ishonib topshirdim, nima qilish kerakligini takror-takror tushuntirishimga hojat qolmadi. Ular ishga tez va aniqlik bilan yondashib, loyihani samarali yakunlashdi.",
+    "client6": "Cognilabs jamoasi biz uchun sun’iy intellektga asoslangan savdo agentlarini taqdim etdi, bu mijozlar bilan aloqani avtomatlashtirdi. Ular ishga professional yondashdi, har bir detalga e’tibor qaratdi va barcha ehtiyojlarimizni inobatga oldi. Kelajakda ular bilan hamkorlikni davom ettirishni rejalashtirmoqdamiz.",
+    "client7": "Cognilabs biz uchun qulay veb-sayt va mijozlarimiz onlayn vaqt belgilay oladigan appointment tizimini yaratdi. Bu tizim mijozlarimiz uchun katta qulaylik berdi va ish jarayonini optimallashtirdi. Har bir so‘rovimizga e’tibor qaratildi va kerakli o‘zgarishlar qilindi. Xizmatdan to‘liq mamnunmiz va albatta yana hamkorlik qilamiz.",
+    "client8": "Cognilabs tomonidan yaratilgan zamonaviy taksi platformasi xizmat sifatimizni tubdan yaxshiladi. AI asosidagi avtomat order taqsimoti va operatorlar uchun CRM tizimi kechikishlarsiz ishlaydi. Mijozlar interfeysi sodda va tezkor. Jamoa darhol fikrimizni tushunadi va yechimlarni taklif qiladi. Zippy Taxi Cognilabs xizmatidan juda mamnun.",
+    "client9": "Sport jamoasi sifatida bizga rasmiy veb-sayt, yangiliklar blogi va muxlislar bilan tezkor muloqot zarur edi. Cognilabs bu vazifani yuqori darajada bajardi: jamoa tarkibi, statistikalar, match jadvali va onlayn xabar xizmati bir tizimda jamlandi. AI avtomat xabarlar funksiyasi muxlislar bilan ishlashni osonlashtirdi. Jamoaning professional yondashuvi ishimizni sezilarli darajada yengillashtirdi.",
+    "client10": "DavrTaxi uchun Cognilabs tomonidan yaratilgan kompleks platforma biz izlagan yechim edi. Haydovchilar monitoringi, onlayn nazorat paneli, tezkor buyurtma taqsimoti va AI-chatbot orqali mijozlar bilan avtomatlashtirilgan aloqa—barchasi ish jarayonini optimallashtirdi. Jamoa tezkor ishlaydi, har bir talabni chuqur o‘rganib, samarali yechim taklif qiladi. Ular bilan hamkorlik ishonchli.",
+    "client11": "Cognilabs jamoasi bizga AI-chatbot o‘rnatib berdi, bu ishimizga katta yordam berdi. Mijozlarning so‘rovlari, narx so‘rovlari va o‘lchovga yozilish avtomatik qabul qilinadi. Operator yuklamasi kamaydi, mijozlarga javob tezlashdi. Jamoa ishni tez va sifatli bajardi.",
+    "client12": "Bizning maqsad Denov uchun ishonchli va qulay onlayn bozor yaratish edi. Cognilabs bizning g‘oyani to‘liq tushundi va zamonaviy, tezkor va barqaror platforma yaratdi. Eng yoqqan joyimiz—e’lonlarni filtrlash tizimi, avtomat tekshiruv funksiyalari va CRM orqali moderatsiya yengillashgani. AI-bot foydalanuvchilarga 24/7 yordam beradi, yuklamani kamaytirdi. Jamoa professional yondashadi—tavsiya qilamiz!",
+    "client13": "Cognilabs biz uchun taksi xizmatini to‘liq raqamlashtirdi: haydovchilar va mijozlar uchun qulay interfeys, avtomat order taqsimoti, real-time monitoring va CRM operator ishini yengillashtirdi—bularning barchasi xizmat sifatimizni oshirdi. Eng muhimi, AI-chatbot mijozlarni qabul qilish, manzil aniqlash va buyurtmani avtomatik bajaradi. Jamoa tezkor, e’tiborli va ijodkor. Ularning xizmati biznesimizni yangi bosqichga ko‘taradi.",
+    "client14": "Restoranimiz uchun Cognilabs tomonidan yaratilgan veb-sayt va avtomatlashtirilgan bron tizimi kutganimizdan ham yaxshi bo‘ldi. Har bir mijozga AI-bot avtomatik javob beradi, ishchi yuklamasini sezilarli kamaytiradi. Mahsulot menyusi, onlayn zakaz va maxsus tadbirlar uchun bron funksiyalari chiroyli va qulay ishlaydi. Jamoa har bir detalga jiddiy yondashdi va mos individual yechim taklif qildi. Ular bilan ishlash mamnuniyat.",
+    "client15": "Cognilabs jamoasi bilan hamkorlik agro sohada yangi bosqichni ochdi. Ular zamonaviy veb-platforma va avtomatlashtirilgan savdo jarayonlarini joriy qildi. Fermerlar va xaridorlar o‘rtasidagi aloqani optimallashtirgan AI-chatbot juda qulay bo‘ldi. Barcha talablar inobatga olindi, har bir funksiya bozor mexanikamizga mos ishlanadi. Kelajakda yangi loyihalarni amalga oshirishni rejalashtirmoqdamiz."
 },
   "Locations": {
   "headword": "Ofislarimiz joylashuvi"
@@ -251,6 +266,39 @@
   "extrapr": "Kelajak Texnologiyasi",
   "extramssg": "“Biz tabiiy muloqot qiladigan, savollarga javob beradigan va biznes jarayonlarini avtomatlashtiradigan ilg‘or AI yordamchini yaratdik.”",
 
+  "zippytext": "Zippy Taxi tez va ishonchli transport xizmatlarini taqdim etadi, kerak bo‘lganda qulay va muammosiz sayohatlar ta’minlaydi.",
+  "zippymssg": "Cognilabs tomonidan bizga yaratilgan zamonaviy taksi platformasi xizmat sifatimizni tubdan yaxshiladi. AI asosidagi avtomat order taqsimoti va operatorlar uchun qulay CRM tizimi hech qanday kechikishlarsiz ishlaydi.",
+
+  "davrtext": "Davr Taxi xavfsiz, qulay va o‘z vaqtida taksi xizmatlarini taqdim etadi, har bir safarni silliq va muammosiz qiladi.",
+  "davrmssg": "DavrTaxi uchun Cognilabs tomonidan yaratilgan kompleks platforma — biz izlagan yechim edi. Shofyorlar monitoringi, onlayn-nazorat paneli, tezkor buyurtma taqsimoti va AI-chatbot orqali mijozlar bilan avtomatlashtirilgan muloqot — barchasi ish jarayonini optimizatsiya qildi.",
+
+  "brotext": "Bro Taxi tez, ishonchli va qulay sayohatlar taqdim etadi, sizni osonlik bilan manzilingizga yetkazadi.",
+  "bromssg": "Cognilabs biz uchun taksi xizmatini to‘liq raqamlashtirib berdi: shofyor va mijozlar uchun qulay interfeys, avtomat order taqsimoti, real-time monitoring va CRM orqali operatorlar ishini yengillashtirish — bularning barchasi bizning xizmat sifatimizni oshirdi.",
+
+  "erixtext": "ErixConsulting Amerikadagi o‘zbeklarga ishonchli yordam beradi, vizalar, hujjatlar va muhim huquqiy jarayonlarda yo‘l-yo‘riq ko‘rsatadi.",
+  "erixmssg": "Qisqa muddat ichida Cognilabs jamoasi yuqori sifatli va professional xizmatlarni taqdim etdi. Biz uchun ayniqsa muhim bo‘lgan — vazifalarni aniqlik bilan va o‘z vaqtida bajarish, va ular bu talablarni mas’uliyat bilan bajardi.",
+
+  "aromatext": "Aroma Lab nozik ingredientlardan tayyorlangan hashamatli atirlar taqdim etadi, sizga kundalik yoki maxsus lahzalarda elegan va esda qolarli hidlar beradi.",
+  "aromamssg": "Cognilabs jamoasi biz uchun sun'iy intellektga asoslangan savdo agentlari taqdim etishdi va bu mijozlar bilan aloqamizni avtomatlashtirdi.",
+
+  "taadtext": "Taad yuqori sifatli cho‘ziladigan shiftlarni taqdim etadi, zamonaviy dizayn va professional o‘rnatish bilan har qanday uy yoki biznesni yaxshilaydi.",
+  "taadmssg": "Cognilabs jamoasi bizga AI-chatbot o‘rnatib berdi va bu haqiqatan ham ishimizga katta yordam berdi.",
+
+  "bunyodkortext": "Bunyodkor Academy kelajak futbolchilarini mutaxassis murabbiylik, zamonaviy mashg‘ulot usullari va uzoq muddatli rivojlanishga e’tibor bilan tayyorlaydi.",
+  "bunyodkormssg": "Sport jamoasi sifatida bizga rasmiy veb-sayt, yangiliklar blogi va muxlislar bilan tezkor muloqot qilish imkoni kerak edi. Cognilabs bu vazifani yuqori darajada bajardi.",
+
+  "hoshangtext": "Hoshang Restaurant sharq taomlarini taqdim etadi, mazali va an’anaviy taomlarni iliq muhitda xizmat qiladi.",
+  "hoshangmssg": "Restoranimiz uchun Cognilabs tomonidan yaratilgan veb-sayt va avtomatlashtirilgan bron tizimi biz kutganimizning o‘zi bo‘ldi.",
+
+  "bestsolartext": "Best Solar ishonchli quyosh energiyasi yechimlarini taqdim etadi, mustahkam panellar va professional o‘rnatish bilan barqaror energiya beradi.",
+  "bestsolarmssg": "Cognilabs jamoasi bizga AI-ga asoslangan savdo agentlarini taqdim etdi. Ular mijozlarga avtomatik javob berib, kerakli ma’lumotni tez yetkazishdi.",
+
+  "surxontext": "SurxonBozor turli mahsulotlarni — uy, mashina, mebel va boshqalarni bir joyda qulay tarzda taqdim etadi.",
+  "surxonmssg": "Assalomu alaykum, Cognilabs jamoasi! Sizlarga kattakon rahmat — men so'ragan loyiha, ya'ni Surxonbozori.uz mahalliy e'lonlar vebsaytini ko'nglimdagidek qilib yaratib berdingiz.",
+
+  "denovtext": "DenovBozor uylar, transport vositalari, mebel va boshqa mahsulotlarni tez va ishonchli tarzda xaridorlarga ulashadi.",
+  "denovmssg": "Bizning maqsad — Denov uchun ishonchli va qulay onlayn bozor yaratish edi. Cognilabs bizning g‘oyani to‘liq tushunib, zamonaviy, tezkor va barqaror platforma yaratib berdi.",
+
   "visitpr": "Loyihaga o‘tish",
   "bottomtext": "Xizmatimiz sifati, tezligi va ishonchliligi bilan ajralib turadi. Biz sizga hamma narsani soddalashtirib, haqiqiy taassurot qoldiradigan natijalarni yetkazishga e’tibor qaratamiz."
 },
@@ -258,7 +306,105 @@
     "blogs":"Bloglar",
     "notfound":"Bloglar topilmadi",
     "view":"Ko'proq ko'rish"
-  }
+  },
+  "Privacy":{
+  "title": "Cognilabs.org – Maxfiylik Siyosati",
+  "lastUpdated": "Oxirgi yangilanish: 11 dekabr 2025",
+  "intro": "Cognilabs.org’da biz sizning shaxsiy ma’lumotlaringizni himoya qilish va maxfiyligingizni hurmat qilishga intilamiz. Ushbu Maxfiylik Siyosatida biz saytimizdan foydalanganingizda yoki biz bilan bog‘langaningizda ma’lumotlaringiz qanday yig‘ilishi, ishlatilishi, saqlanishi va himoyalanishi tushuntiriladi.",
+
+  "section1_title": "1. Biz yig‘adigan ma’lumotlar",
+    "section1_desc":"Sizga yaxshiroq xizmat ko‘rsatish uchun, Cognilabs faqat zarur ma’lumotlarni yig‘adi: siz biz bilan nima ulashasiz, platformamizdan qanday foydalanasiz, va qurilmangizdan olingan asosiy texnik ma’lumotlar. Biz ushbu ma’lumotlarni faqat funksionallikni yaxshilash va yordam ko‘rsatish uchun ishlatamiz.",
+  "section1_1_title": "1.1 Siz taqdim etgan ma’lumotlar",
+  "section1_1_description": "Quyidagi holatlarda sizning shaxsiy ma’lumotlaringizni yig‘ishimiz mumkin:",
+  "section1_1_list": [
+    "Aloqa formalarini to‘ldirganda",
+    "Konsultatsiya so‘raganda",
+    "Yangiliklarga obuna bo‘lganda",
+    "Telefon yoki email orqali bog‘langanda"
+  ],
+  "section1_1_extra_title": "Bu quyidagilarni o‘z ichiga olishi mumkin:",
+  "section1_1_extra_list": [
+    "Ism",
+    "Email manzil",
+    "Telefon raqami",
+    "Kompaniya nomi",
+    "Loyiha tafsilotlari yoki yuborgan xabarlaringiz"
+  ],
+
+  "section1_2_title": "1.2 Avtomatik tarzda yig‘iladigan ma’lumotlar",
+  "section1_2_description": "Saytdan foydalanganda avtomatik tarzda yig‘ilishi mumkin bo‘lgan ma’lumotlar:",
+  "section1_2_list": [
+    "IP manzil",
+    "Qurilma haqida ma’lumot",
+    "Brauzer turi",
+    "Ko‘rilgan sahifalar",
+    "Saytda sarflangan vaqt",
+    "Cookies va kuzatuv ma’lumotlari"
+  ],
+
+  "section2_title": "2. Ma’lumotlaringizdan qanday foydalanamiz",
+  "section2_list": [
+    "Xizmatlarimizni taqdim etish va yaxshilash",
+    "Savollaringizga javob berish",
+    "Konsultatsiya so‘rovlarini ko‘rib chiqish",
+    "Foydalanuvchi tajribasini yaxshilash",
+    "Saytning ishlashini tahlil qilish",
+    "Yangilanishlar yoki marketing xabarlarini yuborish (rozilik bilan)",
+    "Xavfsizlikni oshirish va firibgarlikning oldini olish"
+  ],
+
+  "section3_title": "3. Ma’lumotlaringizni ulashish",
+  "section3_description": "Biz sizning shaxsiy ma’lumotlaringizni sotmaymiz. Ma’lumotlar faqat quyidagi holatlarda ulanishi mumkin:",
+  "section3_list": [
+    "Ishonchli uchinchi tomon xizmatlari (analitika, email, hosting)",
+    "Qonun talab qilsa davlat organlari",
+    "Loyihangizda ishtirok etuvchi biznes hamkorlar (rozilik bilan)"
+  ],
+
+  "section4_title": "4. Cookies va kuzatuv",
+  "section4_description": "Biz cookies’lardan quyidagilar uchun foydalanamiz:",
+  "section4_list": [
+    "Sayt ishlashini yaxshilash",
+    "Foydalanuvchilarning saytni qanday ishlatayotganini tushunish",
+    "Sizning sozlamalaringizni eslab qolish"
+  ],
+  "section4_note": "Cookies’larni brauzer sozlamalarida o‘chirishingiz mumkin.",
+
+  "section5_title": "5. Ma’lumotlar xavfsizligi",
+  "section5_list": [
+    "Xavfsiz serverlar",
+    "Kerakli joylarda shifrlash",
+    "Shaxsiy ma’lumotlarga cheklangan kirish"
+  ],
+  "section5_note": "Ammo internet orqali uzatiladigan ma’lumotlar 100% xavfsiz bo‘la olmaydi.",
+
+  "section6_title": "6. Sizning huquqlaringiz",
+  "section6_description": "Mamlakatingizga qarab siz quyidagi huquqlarga ega bo‘lishingiz mumkin:",
+  "section6_list": [
+    "Shaxsiy ma’lumotlaringizga kirish",
+    "Ularni tahrirlash yoki o‘chirishni so‘rash",
+    "Rozilikni bekor qilish",
+    "Marketing xabarlaridan voz kechish",
+    "Ma’lumotlaringiz nusxasini so‘rash"
+  ],
+  "section6_note": "Huquqlardan foydalanish uchun pastdagi email orqali bog‘laning.",
+
+  "section7_title": "7. Uchinchi tomon havolalari",
+  "section7_description": "Saytimizda uchinchi tomon saytlariga havolalar bo‘lishi mumkin. Ular bizning maxfiylik siyosatiga bo‘ysunmaydi.",
+
+  "section8_title": "8. Bolalar maxfiyligi",
+  "section8_description": "Bizning xizmatlarimiz 13 yoshdan kichik bolalar uchun mo‘ljallanmagan. Biz bolalarning ma’lumotlarini ataylab yig‘maymiz.",
+
+  "section9_title": "9. Siyosatdagi o‘zgarishlar",
+  "section9_description": "Biz maxfiylik siyosatini vaqti-vaqti bilan yangilashimiz mumkin. Yangilangan versiya ushbu sahifada e’lon qilinadi.",
+
+  "section10_title": "10. Biz bilan bog‘laning",
+  "section10_description": "Agar sizda maxfiylik siyosati bo‘yicha savollar bo‘lsa, biz bilan quyidagi manzil orqali bog‘laning:",
+  "contact_email": "info@cognilabs.org",
+  "contact_website": "Cognilabs.org"
+}
+
+
 
 
 }
