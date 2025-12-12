@@ -221,13 +221,13 @@ export default function ClientsOpinion() {
                     </div>
 
                     {/* Body */}
-                    <div className="bg-white px-5 pt-4 pb-8 rounded-b-3xl flex flex-col items-start flex-1 overflow-y-auto">
+                    <div className="bg-white  px-5 pt-4 pb-8 rounded-b-3xl flex flex-col items-center  flex-1 overflow-y-auto">
                       <p className="text-gray-800 pb-2 text-[15px] leading-relaxed ">
                         {client.comment}
                       </p>
-                      <button className="mt-auto px-4 text-[11px] flex p-[5px] border rounded-2xl gap-1 justify-center group items-center cursor-pointer  text-blue-600 font-semibold hover:underline">
-                        {t("viewindetail")} <ArrowRight className="group-hover:ml-1 w-4 ease-in-out transform transition-all duration-200 "/>
-                      </button>
+                      <button className="mt-auto bg-[#1a1a1a] text-white px-4 text-[11px] flex p-[5px] border rounded-2xl gap-1 justify-center group items-center cursor-pointer hover:bg-white  hover:text-blue-600 font-semibold hover:underline">
+                        {t("viewindetail")}  <ArrowRight className="group-hover:ml-1 w-4 ease-in-out transform transition-all duration-200 "/>
+                      </button> 
                     </div>
                   </div>
                   
