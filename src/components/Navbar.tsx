@@ -98,15 +98,15 @@ export default function Navbar() {
           </div>
 
           <a href="/" onClick={() => setIsOpen(false)}>
-  <Image
-    src="/logomini.png"
-    alt="Cognilabs"
-    width={130}
-    height={40}
-    className="cursor-pointer w-[90px] sm:w-[100px] md:w-[120px] lg:w-[130px] h-auto"
-    priority
-  />
-</a>
+              <Image
+                src="/logomini.png"
+                alt="Cognilabs"
+                width={130}
+                height={40}
+                className="cursor-pointer w-[90px] sm:w-[100px] md:w-[120px] lg:w-[130px] h-auto"
+                priority
+              />
+            </a>
 
         </div>
 
@@ -152,7 +152,7 @@ export default function Navbar() {
             </li>
           </Link>
 
-          <Link href={`/${locale}/blogs`}>
+          <Link href={`/${locale}/insights`}>
             <li
               className={`cursor-pointer transition-colors ${
                 isActive(`/${locale}/blogs`) ? "text-blue-500 font-bold" : "hover:text-blue-400"
@@ -185,7 +185,7 @@ export default function Navbar() {
         {/* Contact + socials (desktop only) */}
         <div className="hidden lg:flex flex-col items-center space-y-2">
           <div className="text-[#0066FF] font-semibold text-xs xl:text-sm 2xl:text-base whitespace-nowrap">
-            {locale === "en" ? "(513) 808-88-13" : "+998 (87) 337-75-77"}
+            {locale === "en" ? "+1 (513) 808-88-13" : "+998 (87) 337-75-77"}
           </div>
 
           <div className="flex items-center space-x-2">
@@ -314,7 +314,7 @@ export default function Navbar() {
               href={`tel:${locale === "en" ? "5138088813" : "+998873377577"}`}
               className="text-[#0066FF] font-semibold text-base sm:text-lg block text-center hover:text-blue-400 transition-colors"
             >
-              {locale === "en" ? "(513) 808-88-13" : "+998 (87) 337-75-77"}
+              {locale === "en" ? "+1 (513) 808-88-13" : "+998 (87) 337-75-77"}
             </a>
           </div>
 

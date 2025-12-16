@@ -85,7 +85,8 @@
   
   "ContactForm": {
     "title": "Xizmatlarimizga qiziqyapsizmi? Formani to‘ldiring va yechim toping!",
-    "call": "Yoki bizga qo‘ng‘iroq qiling: 513-384-8324",
+    "call": "Yoki bizga qo‘ng‘iroq qiling:",
+    "phonenumber":"+998 (87) 337-75-77",
     "whatHappens": "Keyin nima bo‘ladi?",
     "step1": "Qo‘ng‘iroq vaqtini belgilaymiz",
     "step2": "Tahlil va maslahat uchrashuvini o‘tkazamiz",

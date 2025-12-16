@@ -85,6 +85,7 @@ export default function RequestForm() {
             <p className="mt-4 text-lg text-gray-300">
               {t("call").split(":")[0]}:
               <span className="font-semibold">{t("call").split(":")[1]}</span>
+              <span >{t("phonenumber")}</span>
             </p>
           </div>
 
@@ -104,11 +105,11 @@ export default function RequestForm() {
           {/* Rating - Desktop */}
           <div className="hidden md:flex w-[270px] h-[60px] items-center bg-white text-black rounded-bl-3xl rounded-tr-3xl">
             <Image
-              src="/cognilabs.png"
+              src="/clutch.png"
               width={60}
               height={60}
               alt="cognilabs"
-              className="rounded-bl-3xl p-0.5 rounded-tr-3xl"
+              className="rounded-bl-3xl border p-0.5 rounded-tr-3xl"
             />
             <div className="flex flex-col">
               <div className="flex items-center gap-2">

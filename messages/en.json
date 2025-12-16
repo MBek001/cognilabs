@@ -6,7 +6,7 @@
         "portfolio" : "Portfolio",
         "contact" : "Contact Us",
         "hiring":"We're Hiring!",
-        "blogs":"Blogs"
+        "blogs":"Insights"
     } ,
     "Header" : {
         "headword1": "AI and Software",
@@ -83,7 +83,8 @@
     
   "ContactForm": {
     "title": "Interested In Our Services? Fill The Form And Find Solutions!",
-    "call": "Or Give us a call: 513-384-8324",
+    "call": "Or Give us a call:",
+    "phonenumber":"+1 (513) 808-88-13",
     "whatHappens": "What Happens Next?",
     "step1": "Schedule a call",
     "step2": "We do a discovery and consultation meeting",

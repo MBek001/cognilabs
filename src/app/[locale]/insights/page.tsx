@@ -6,6 +6,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import {  ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
 import Footer from '~/components/Footer';
+import { div } from 'framer-motion/client';
 
 interface Blog {
   id: number;
@@ -85,8 +86,11 @@ export default function BlogPage() {
 
   if (blogs.length === 0) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div>
+        <div className="min-h-screen bg-black flex items-center justify-center">
         <p className="text-2xl text-gray-400">{b("notfound")}</p>
+      </div>
+      <Footer/>
       </div>
     );
   }
@@ -108,6 +112,7 @@ export default function BlogPage() {
                  transition-all duration-500 flex flex-col"
     >
       {/* IMAGE TOP */}
+     <Link href={`/${locale}/insights/${blog.id}`}>
      <div className={`relative w-full h-64 `} >
         <Image
           src={`${process.env.NEXT_PUBLIC_API_URL}/uploads/${blog.image_url}`}
@@ -118,6 +123,7 @@ export default function BlogPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
       </div>
+     </Link>
 
       {/* CONTENT */}
       <div className="p-6 flex flex-col flex-grow space-y-4">
@@ -139,7 +145,7 @@ export default function BlogPage() {
         </p>
 
         {/* VIEW MORE BUTTON */}
-        <Link  href={`/blogs/${blog.id}`} className="mt-4 flex gap-2 scale-95  border-[1px] border-blue-600 rounded-2xl  hover:scale-100 text-white 
+        <Link  href={`/${locale}/insights/${blog.id}`} className="mt-4 flex gap-2 scale-95  border-[1px] border-blue-600 rounded-2xl  hover:scale-100 text-white 
                            py-1 mr-2  px-3 text-[14px]   transition-all  w-fit">
           {b("view")} <ArrowUpRight className='w-4'/>
         </Link>

@@ -7,17 +7,28 @@ import { useEffect, useRef } from "react";
 export default function TrustCases() {
   const t = useTranslations("TrustCases");
   const trackRef = useRef<HTMLDivElement>(null);
-  const trackRef2 = useRef<HTMLDivElement>(null); // ⭐ 2-Row uchun ref
+  const trackRef2 = useRef<HTMLDivElement>(null); 
 
   const trustImages = [
-    "/trustcases/ellipse1.png",
-    "/trustcases/ellipse7.png",
-    "/trustcases/ellipse2.png",
-    "/trustcases/ellipse3.png",
-    "/trustcases/ellipse6.png",
-    "/trustcases/ellipse5.png",
-    "/trustcases/ellipse4.png",
+    "/clients/agro.png",
+    "/clients/aroma.png",
+    "/clients/bazanew.png",
+    "/clients/billur.png",
+    "/clients/bro.png",
+    "/clients/bunyodkornew.png",
+    "/clients/client11.png"
   ];
+
+  const trustImages2 = [
+     "/clients/client12.png",
+    "/clients/client13.png",
+    "/clients/davr.png",
+    "/clients/denov.png" ,
+    "/clients/hoshang.png",
+    "/clients/surxon.png",
+    "/clients/taad.png",
+    "/clients/zippy.png"
+  ]
 
   // ⭐ 1-qator hover pause
   useEffect(() => {
@@ -108,7 +119,7 @@ export default function TrustCases() {
             {[...trustImages, ...trustImages].map((image, index) => (
               <div
                 key={index}
-                className="w-[110px] sm:w-[130px] md:w-[140px] lg:w-[151px] aspect-square rounded-full flex items-center justify-center overflow-hidden shrink-0 transition-transform duration-300 hover:scale-110 hover:rotate-3"
+                className="w-[110px] sm:w-[130px] md:w-[140px] lg:w-[135px] aspect-square rounded-full flex items-center justify-center overflow-hidden shrink-0 transition-transform duration-300 hover:scale-105 hover:rotate-3"
               >
                 <Image
                   src={image}
@@ -132,10 +143,10 @@ export default function TrustCases() {
               animationPlayState: "running",
             }}
           >
-            {[...trustImages, ...trustImages].map((image, index) => (
+            {[...trustImages2, ...trustImages2].map((image, index) => (
               <div
                 key={index}
-                className="w-[110px] sm:w-[130px] md:w-[140px] lg:w-[151px] aspect-square rounded-full flex items-center justify-center overflow-hidden shrink-0 transition-transform duration-300 hover:scale-110 hover:-rotate-3"
+                className="w-[110px] sm:w-[130px] md:w-[140px] lg:w-[135px] aspect-square rounded-full flex items-center justify-center overflow-hidden shrink-0 transition-transform duration-300 hover:scale-105 hover:-rotate-3"
               >
                 <Image
                   src={image}
