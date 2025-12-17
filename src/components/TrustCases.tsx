@@ -16,7 +16,7 @@ export default function TrustCases() {
     "/clients/billur.png",
     "/clients/bro.png",
     "/clients/bunyodkornew.png",
-    "/clients/client11.png"
+    "/clients/erix.png"
   ];
 
   const trustImages2 = [

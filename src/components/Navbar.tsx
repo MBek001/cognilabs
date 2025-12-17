@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 
 export default function Navbar() {
   const t = useTranslations("Navbar");
@@ -80,8 +80,8 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 font-poppins bg-gradient-to-r from-black via-black to-[#001a3a] shadow-lg backdrop-blur-sm">
-      <div className="container mx-auto flex items-center justify-between lg:justify-around px-3 sm:px-4 md:px-6 py-3 sm:py-4 lg:py-6">
+    <nav className="fixed top-0 left-0 w-full z-50 font-poppins bg-[#0a1628]/20 backdrop-blur-md border-b border-cyan-500/15">
+      <div className="container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4 lg:py-5">
         {/* Logo */}
         <div className="relative flex items-center justify-center">
           <div
@@ -91,139 +91,155 @@ export default function Navbar() {
             }}
           >
             <Link href="/careers" onClick={() => setIsOpen(false)}>
-              <p className="text-[8px] sm:text-[9px] md:text-[11px] font-bold tracking-wide text-white px-1.5 sm:px-2 py-0.5 sm:py-1 bg-blue-900 rounded-3xl whitespace-nowrap hover:bg-blue-800 transition-colors">
+              <p className="text-[8px] sm:text-[9px] md:text-[11px] font-bold tracking-wide text-white px-1.5 sm:px-2 py-0.5 sm:py-1 bg-cyan-600 rounded-3xl whitespace-nowrap hover:bg-cyan-500 transition-colors">
                 {t("hiring")}
               </p>
             </Link>
           </div>
 
           <a href="/" onClick={() => setIsOpen(false)}>
-              <Image
-                src="/logomini.png"
-                alt="Cognilabs"
-                width={130}
-                height={40}
-                className="cursor-pointer w-[90px] sm:w-[100px] md:w-[120px] lg:w-[130px] h-auto"
-                priority
-              />
-            </a>
-
+            <Image
+              src="/logomini.png"
+              alt="Cognilabs"
+              width={130}
+              height={40}
+              className="cursor-pointer w-[90px] sm:w-[100px] md:w-[120px] lg:w-[130px] h-auto"
+              priority
+            />
+          </a>
         </div>
 
-        {/* Desktop Nav - shown on large screens only */}
-        <ul className="hidden lg:flex items-center space-x-4 xl:space-x-8 2xl:space-x-10 text-white text-sm xl:text-base 2xl:text-lg font-medium">
-          <Link href={`/${locale}/about-us`}>
-            <li
-              className={`cursor-pointer transition-colors ${
-                isActive(`/${locale}/about-us`) ? "text-blue-500 font-bold" : "hover:text-blue-400"
-              }`}
+        {/* Desktop Nav - centered navigation */}
+        <div className="hidden lg:flex items-center justify-center flex-1 mx-8">
+          <div className="flex items-center space-x-1 bg-[#0d1f38]/80 backdrop-blur-sm rounded-full px-2 py-2 border border-cyan-500/30">
+            <Link href={`/${locale}/about-us`}>
+              <div
+                className={`px-6 py-2 rounded-full transition-all cursor-pointer ${
+                  isActive(`/${locale}/about-us`) 
+                    ? "bg-cyan-500/20 text-cyan-400 font-semibold" 
+                    : "text-gray-300 hover:text-white hover:bg-white/5"
+                }`}
+              >
+                {t("home")}
+              </div>
+            </Link>
+
+            <Link href={`/${locale}/careers`}>
+              <div
+                className={`px-6 py-2 rounded-full transition-all cursor-pointer ${
+                  isActive(`/${locale}/careers`) 
+                    ? "bg-cyan-500/20 text-cyan-400 font-semibold" 
+                    : "text-gray-300 hover:text-white hover:bg-white/5"
+                }`}
+              >
+                {t("careers")}
+              </div>
+            </Link>
+
+            <Link href={`/${locale}/services`}>
+              <div
+                className={`px-6 py-2 rounded-full transition-all cursor-pointer ${
+                  isActive(`/${locale}/services`) 
+                    ? "bg-cyan-500/20 text-cyan-400 font-semibold" 
+                    : "text-gray-300 hover:text-white hover:bg-white/5"
+                }`}
+              >
+                {t("services")}
+              </div>
+            </Link>
+
+            <Link href={`/${locale}/portfolio`}>
+              <div
+                className={`px-6 py-2 rounded-full transition-all cursor-pointer ${
+                  isActive(`/${locale}/portfolio`) 
+                    ? "bg-cyan-500/20 text-cyan-400 font-semibold" 
+                    : "text-gray-300 hover:text-white hover:bg-white/5"
+                }`}
+              >
+                {t("portfolio")}
+              </div>
+            </Link>
+
+            <Link href={`/${locale}/insights`}>
+              <div
+                className={`px-6 py-2 rounded-full transition-all cursor-pointer ${
+                  isActive(`/${locale}/blogs`) 
+                    ? "bg-cyan-500/20 text-cyan-400 font-semibold" 
+                    : "text-gray-300 hover:text-white hover:bg-white/5"
+                }`}
+              >
+                {t("blogs")}
+              </div>
+            </Link>
+
+            <button
+              onClick={handleContactClick}
+              className="px-6 py-2 rounded-full transition-all cursor-pointer text-gray-300 hover:text-white hover:bg-white/5"
             >
-              {t("home")}
-            </li>
-          </Link>
+              {t("contact")}
+            </button>
+          </div>
+        </div>
 
-          <Link href={`/${locale}/careers`}>
-            <li
-              className={`cursor-pointer transition-colors ${
-                isActive(`/${locale}/careers`) ? "text-blue-500 font-bold" : "hover:text-blue-400"
-              }`}
-            >
-              {t("careers")}
-            </li>
-          </Link>
-
-          <Link href={`/${locale}/services`}>
-            <li
-              className={`cursor-pointer transition-colors ${
-                isActive(`/${locale}/services`) ? "text-blue-500 font-bold" : "hover:text-blue-400"
-              }`}
-            >
-              {t("services")}
-            </li>
-          </Link>
-
-          <Link href={`/${locale}/portfolio`}>
-            <li
-              className={`cursor-pointer transition-colors ${
-                isActive(`/${locale}/portfolio`) ? "text-blue-500 font-bold" : "hover:text-blue-400"
-              }`}
-            >
-              {t("portfolio")}
-            </li>
-          </Link>
-
-          <Link href={`/${locale}/insights`}>
-            <li
-              className={`cursor-pointer transition-colors ${
-                isActive(`/${locale}/blogs`) ? "text-blue-500 font-bold" : "hover:text-blue-400"
-              }`}
-            >
-             {t("blogs")}
-            </li>
-          </Link>
-
-          <button
-            onClick={handleContactClick}
-            className="cursor-pointer transition-colors hover:text-blue-400"
-          >
-            {t("contact")}
-          </button>
-
-          <li>
+        {/* Right side - Language and Social */}
+        <div className="hidden lg:flex items-center space-x-4">
+          {/* Language selector with globe icon */}
+          <div className="relative">
             <select
               value={locale}
               onChange={(e) => changeLocale(e.target.value)}
-              className="bg-[#1b1b1b] text-white rounded-md px-2 xl:px-3 py-1.5 xl:py-2 text-sm xl:text-base focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+              className="appearance-none bg-[#0d1f38]/80 text-cyan-400 rounded-full pl-10 pr-4 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-cyan-500/50 cursor-pointer border border-cyan-500/30 hover:bg-[#0d1f38] transition-all"
             >
-              <option value="en">Eng</option>
-              <option value="ru">Ru</option>
-              <option value="uz">Uz</option>
+              <option value="en">EN</option>
+              <option value="ru">RU</option>
+              <option value="uz">UZ</option>
             </select>
-          </li>
-        </ul>
-
-        {/* Contact + socials (desktop only) */}
-        <div className="hidden lg:flex flex-col items-center space-y-2">
-          <div className="text-[#0066FF] font-semibold text-xs xl:text-sm 2xl:text-base whitespace-nowrap">
-            {locale === "en" ? "+1 (513) 808-88-13" : "+998 (87) 337-75-77"}
+            <Globe className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-cyan-400 pointer-events-none" />
           </div>
 
-          <div className="flex items-center space-x-2">
-            <Link href="https://www.facebook.com/profile.php?id=61577158531453" target="_blank" rel="noopener noreferrer">
-              <Image
-                src="/facebook.png"
-                alt="facebook"
-                width={28}
-                height={28}
-                className="xl:w-[32px] xl:h-[32px] bg-[#0066FF] p-1 rounded-full cursor-pointer hover:bg-[#0052cc] transition-colors"
-              />
-            </Link>
-            <Link href="https://t.me/cognilabs_software" target="_blank" rel="noopener noreferrer">
-              <div className="w-[30px] h-[30px] xl:w-[34px] xl:h-[34px] bg-[#0066FF] rounded-full flex items-center justify-center hover:bg-[#0052cc] transition-colors cursor-pointer">
-                <Image
-                  src="/tg.svg"
-                  alt="telegram"
-                  width={18}
-                  height={18}
-                  className="xl:w-[20px] xl:h-[20px]"
-                />
-              </div>
-            </Link>
-            <Link href="https://www.instagram.com/cognilabs/" target="_blank" rel="noopener noreferrer">
-              <Image
-                src="/ig.png"
-                alt="instagram"
-                width={28}
-                height={28}
-                className="xl:w-[32px] xl:h-[32px] bg-[#0066FF] p-1 rounded-full cursor-pointer hover:bg-[#0052cc] transition-colors"
-              />
-            </Link>
+          {/* Contact info */}
+          <div className="flex flex-col items-end">
+            <div className="text-cyan-400 font-semibold text-sm whitespace-nowrap">
+              {locale === "en" ? "+1 (513) 808-88-13" : "+998 (87) 337-75-77"}
+            </div>
+            <div className="flex items-center space-x-2 mt-1">
+              <Link href="https://www.facebook.com/profile.php?id=61577158531453" target="_blank" rel="noopener noreferrer">
+                <div className="w-7 h-7 bg-cyan-500/20 hover:bg-cyan-500/30 rounded-full flex items-center justify-center transition-all border border-cyan-500/30">
+                  <Image
+                    src="/facebook.png"
+                    alt="facebook"
+                    width={14}
+                    height={14}
+                  />
+                </div>
+              </Link>
+              <Link href="https://t.me/cognilabs_software" target="_blank" rel="noopener noreferrer">
+                <div className="w-7 h-7 bg-cyan-500/20 hover:bg-cyan-500/30 rounded-full flex items-center justify-center transition-all border border-cyan-500/30">
+                  <Image
+                    src="/tg.svg"
+                    alt="telegram"
+                    width={14}
+                    height={14}
+                  />
+                </div>
+              </Link>
+              <Link href="https://www.instagram.com/cognilabs/" target="_blank" rel="noopener noreferrer">
+                <div className="w-7 h-7 bg-cyan-500/20 hover:bg-cyan-500/30 rounded-full flex items-center justify-center transition-all border border-cyan-500/30">
+                  <Image
+                    src="/ig.png"
+                    alt="instagram"
+                    width={14}
+                    height={14}
+                  />
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
 
-        {/* Mobile/Tablet Hamburger - shown below large screens */}
+        {/* Mobile/Tablet Hamburger */}
         <button 
-          className="lg:hidden text-white z-50 p-1.5 sm:p-2 -mr-1.5 sm:-mr-2 hover:bg-white/10 rounded-md transition-colors" 
+          className="lg:hidden text-cyan-400 z-50 p-2 hover:bg-cyan-500/10 rounded-md transition-colors border border-cyan-500/30" 
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
@@ -231,17 +247,19 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile/Tablet Menu - Improved with smooth animation */}
+      {/* Mobile/Tablet Menu */}
       <div
-        className={`lg:hidden fixed top-0 left-0 w-full h-screen bg-black/95 backdrop-blur-md transition-all duration-300 ease-in-out ${
+        className={`lg:hidden fixed top-0 left-0 w-full h-screen bg-[#0a1628]/98 backdrop-blur-lg transition-all duration-300 ease-in-out ${
           isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
-        <div className="flex flex-col items-center justify-center h-full space-y-4 sm:space-y-6 px-4 sm:px-6 pt-16 sm:pt-20 pb-6 sm:pb-8 overflow-y-auto">
+        <div className="flex flex-col items-center justify-center h-full space-y-6 px-6 pt-20 pb-8 overflow-y-auto">
           <Link href={`/${locale}/about-us`} onClick={() => setIsOpen(false)}>
             <p
-              className={`text-lg sm:text-xl cursor-pointer transition-colors ${
-                isActive(`/${locale}/about-us`) ? "text-blue-500 font-bold" : "text-white hover:text-blue-400"
+              className={`text-xl cursor-pointer transition-all px-8 py-3 rounded-full ${
+                isActive(`/${locale}/about-us`) 
+                  ? "bg-cyan-500/20 text-cyan-400 font-bold border border-cyan-500/50" 
+                  : "text-gray-300 hover:text-white hover:bg-white/5"
               }`}
             >
               {t("home")}
@@ -250,8 +268,10 @@ export default function Navbar() {
 
           <Link href={`/${locale}/careers`} onClick={() => setIsOpen(false)}>
             <p
-              className={`text-lg sm:text-xl cursor-pointer transition-colors ${
-                isActive(`/${locale}/careers`) ? "text-blue-500 font-bold" : "text-white hover:text-blue-400"
+              className={`text-xl cursor-pointer transition-all px-8 py-3 rounded-full ${
+                isActive(`/${locale}/careers`) 
+                  ? "bg-cyan-500/20 text-cyan-400 font-bold border border-cyan-500/50" 
+                  : "text-gray-300 hover:text-white hover:bg-white/5"
               }`}
             >
               {t("careers")}
@@ -260,8 +280,10 @@ export default function Navbar() {
 
           <Link href={`/${locale}/services`} onClick={() => setIsOpen(false)}>
             <p
-              className={`text-lg sm:text-xl cursor-pointer transition-colors ${
-                isActive(`/${locale}/services`) ? "text-blue-500 font-bold" : "text-white hover:text-blue-400"
+              className={`text-xl cursor-pointer transition-all px-8 py-3 rounded-full ${
+                isActive(`/${locale}/services`) 
+                  ? "bg-cyan-500/20 text-cyan-400 font-bold border border-cyan-500/50" 
+                  : "text-gray-300 hover:text-white hover:bg-white/5"
               }`}
             >
               {t("services")}
@@ -270,8 +292,10 @@ export default function Navbar() {
 
           <Link href={`/${locale}/portfolio`} onClick={() => setIsOpen(false)}>
             <p
-              className={`text-lg sm:text-xl cursor-pointer transition-colors ${
-                isActive(`/${locale}/portfolio`) ? "text-blue-500 font-bold" : "text-white hover:text-blue-400"
+              className={`text-xl cursor-pointer transition-all px-8 py-3 rounded-full ${
+                isActive(`/${locale}/portfolio`) 
+                  ? "bg-cyan-500/20 text-cyan-400 font-bold border border-cyan-500/50" 
+                  : "text-gray-300 hover:text-white hover:bg-white/5"
               }`}
             >
               {t("portfolio")}
@@ -280,8 +304,10 @@ export default function Navbar() {
 
           <Link href={`/${locale}/blogs`} onClick={() => setIsOpen(false)}>
             <p
-              className={`text-lg sm:text-xl cursor-pointer transition-colors ${
-                isActive(`/${locale}/blogs`) ? "text-blue-500 font-bold" : "text-white hover:text-blue-400"
+              className={`text-xl cursor-pointer transition-all px-8 py-3 rounded-full ${
+                isActive(`/${locale}/blogs`) 
+                  ? "bg-cyan-500/20 text-cyan-400 font-bold border border-cyan-500/50" 
+                  : "text-gray-300 hover:text-white hover:bg-white/5"
               }`}
             >
               {t("blogs")}
@@ -290,64 +316,66 @@ export default function Navbar() {
 
           <button
             onClick={handleContactClick}
-            className="text-lg sm:text-xl cursor-pointer transition-colors text-white hover:text-blue-400"
+            className="text-xl cursor-pointer transition-all text-gray-300 hover:text-white hover:bg-white/5 px-8 py-3 rounded-full"
           >
             {t("contact")}
           </button>
 
-          {/* Language selector with better mobile styling */}
-          <div className="pt-2 sm:pt-4">
+          {/* Language selector */}
+          <div className="pt-4 relative">
             <select
               value={locale}
               onChange={(e) => changeLocale(e.target.value)}
-              className="bg-[#1b1b1b] text-white rounded-lg px-4 sm:px-6 py-2 sm:py-3 text-base sm:text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer min-w-[140px]"
+              className="appearance-none bg-[#0d1f38]/80 text-cyan-400 rounded-full pl-12 pr-8 py-3 text-lg font-medium focus:outline-none focus:ring-2 focus:ring-cyan-500/50 cursor-pointer border border-cyan-500/30 min-w-[160px]"
             >
               <option value="en">English</option>
               <option value="ru">Русский</option>
               <option value="uz">O'zbek</option>
             </select>
+            <Globe className="absolute left-5 top-3/5 -translate-y-1/2 w-5 h-5 text-cyan-400 pointer-events-none" />
           </div>
 
           {/* Contact info */}
-          <div className="pt-4 sm:pt-6 border-t border-gray-700 w-full max-w-[280px] sm:max-w-xs">
+          <div className="pt-6 border-t border-cyan-500/20 w-full max-w-xs">
             <a 
               href={`tel:${locale === "en" ? "5138088813" : "+998873377577"}`}
-              className="text-[#0066FF] font-semibold text-base sm:text-lg block text-center hover:text-blue-400 transition-colors"
+              className="text-cyan-400 font-semibold text-lg block text-center hover:text-cyan-300 transition-colors"
             >
               {locale === "en" ? "+1 (513) 808-88-13" : "+998 (87) 337-75-77"}
             </a>
           </div>
 
           {/* Social media icons */}
-          <div className="flex items-center justify-center space-x-3 sm:space-x-4 pt-3 sm:pt-4">
+          <div className="flex items-center justify-center space-x-4 pt-4">
             <Link href="https://www.facebook.com/profile.php?id=61577158531453" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
-              <Image
-                src="/facebook.png"
-                alt="facebook"
-                width={36}
-                height={36}
-                className="sm:w-[40px] sm:h-[40px] bg-[#0066FF] p-1.5 sm:p-2 rounded-full cursor-pointer hover:bg-[#0052cc] transition-all active:scale-95"
-              />
+              <div className="w-10 h-10 bg-cyan-500/20 hover:bg-cyan-500/30 rounded-full flex items-center justify-center transition-all border border-cyan-500/30 active:scale-95">
+                <Image
+                  src="/facebook.png"
+                  alt="facebook"
+                  width={20}
+                  height={20}
+                />
+              </div>
             </Link>
             <Link href="https://t.me/cognilabs_software" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
-              <div className="w-[40px] h-[40px] sm:w-[44px] sm:h-[44px] bg-[#0066FF] rounded-full flex items-center justify-center hover:bg-[#0052cc] transition-all cursor-pointer active:scale-95">
+              <div className="w-10 h-10 bg-cyan-500/20 hover:bg-cyan-500/30 rounded-full flex items-center justify-center transition-all border border-cyan-500/30 active:scale-95">
                 <Image
                   src="/tg.svg"
                   alt="telegram"
-                  width={22}
-                  height={22}
-                  className="sm:w-[26px] sm:h-[26px]"
+                  width={20}
+                  height={20}
                 />
               </div>
             </Link>
             <Link href="https://www.instagram.com/cognilabs/" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
-              <Image
-                src="/ig.png"
-                alt="instagram"
-                width={36}
-                height={36}
-                className="sm:w-[40px] sm:h-[40px] bg-[#0066FF] p-1.5 sm:p-2 rounded-full cursor-pointer hover:bg-[#0052cc] transition-all active:scale-95"
-              />
+              <div className="w-10 h-10 bg-cyan-500/20 hover:bg-cyan-500/30 rounded-full flex items-center justify-center transition-all border border-cyan-500/30 active:scale-95">
+                <Image
+                  src="/ig.png"
+                  alt="instagram"
+                  width={20}
+                  height={20}
+                />
+              </div>
             </Link>
           </div>
         </div>
