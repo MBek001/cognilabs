@@ -7,6 +7,7 @@ import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
+import DOMPurify from "dompurify";
 
 interface Blog {
   id: number;
@@ -142,7 +143,12 @@ export default function Insights() {
                         </h3>
 
                         <p className="text-gray-300 text-sm leading-relaxed line-clamp-4 flex-grow">
-                          {blog.content}
+                          <div
+    className="text-gray-300 leading-relaxed"
+    dangerouslySetInnerHTML={{
+      __html: DOMPurify.sanitize(blog.content),
+    }}
+  />
                         </p>
 
                         <span className="text-[#0066FF] flex gap-1 items-center text-sm mt-6 hover:underline hover:translate-x-1 transition-all">

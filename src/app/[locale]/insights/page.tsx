@@ -6,8 +6,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import {  ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
 import Footer from '~/components/Footer';
-import { div } from 'framer-motion/client';
-
+import DOMPurify from "dompurify";
 interface Blog {
   id: number;
   title: string;
@@ -141,8 +140,23 @@ export default function BlogPage() {
 
         {/* Content */}
         <p className="text-gray-300 text-base leading-relaxed line-clamp-4 flex-grow">
-          {blog.content}
+          <div
+    className="text-gray-300 leading-relaxed"
+    dangerouslySetInnerHTML={{
+      __html: DOMPurify.sanitize(blog.content),
+    }}
+  />
         </p>
+
+        {/* <div className="prose prose-lg prose-invert max-w-none">
+  <div
+    className="text-gray-300 leading-relaxed"
+    dangerouslySetInnerHTML={{
+      __html: DOMPurify.sanitize(blog.content),
+    }}
+  />
+</div> */}
+
 
         {/* VIEW MORE BUTTON */}
         <Link  href={`/${locale}/insights/${blog.id}`} className="mt-4 flex gap-2 scale-95  border-[1px] border-blue-600 rounded-2xl  hover:scale-100 text-white 

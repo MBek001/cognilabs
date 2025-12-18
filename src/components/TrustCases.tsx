@@ -20,17 +20,17 @@ export default function TrustCases() {
   ];
 
   const trustImages2 = [
-     "/clients/client12.png",
+    "/clients/client12.png",
     "/clients/client13.png",
     "/clients/davr.png",
-    "/clients/denov.png" ,
+    "/clients/denov.png",
     "/clients/hoshang.png",
     "/clients/surxon.png",
     "/clients/taad.png",
     "/clients/zippy.png"
-  ]
+  ];
 
-  // ⭐ 1-qator hover pause
+  // Hover pause for first row
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
@@ -47,7 +47,7 @@ export default function TrustCases() {
     };
   }, []);
 
-  // ⭐ 2-qator hover pause (YANGI)
+  // Hover pause for second row
   useEffect(() => {
     const track = trackRef2.current;
     if (!track) return;
@@ -106,85 +106,90 @@ export default function TrustCases() {
           </motion.div>
         </div>
 
-        {/* ⭐ 1-qatordagi marquee */}
+        {/* First row marquee */}
         <div className="relative w-full overflow-hidden">
           <div
             ref={trackRef}
-            className="flex gap-10 animate-marquee"
-            style={{
-              animation: "marquee 15s linear infinite",
-              animationPlayState: "running",
-            }}
+            className="flex gap-10 marquee-track"
           >
-            {[...trustImages, ...trustImages].map((image, index) => (
+            {/* Triple the images for seamless loop */}
+            {[...trustImages, ...trustImages, ...trustImages].map((image, index) => (
               <div
                 key={index}
-                className="w-[110px] sm:w-[130px] md:w-[140px] lg:w-[135px] aspect-square rounded-full flex items-center justify-center overflow-hidden shrink-0 transition-transform duration-300 hover:scale-105 hover:rotate-3"
+                className="w-[110px] sm:w-[130px] md:w-[140px] lg:w-[135px] shrink-0"
               >
-                <Image
-                  src={image}
-                  alt={`Company-${index}`}
-                  width={151}
-                  height={151}
-                  className="w-full h-full object-contain"
-                />
+                <div className="aspect-square rounded-full flex items-center justify-center overflow-hidden transition-transform duration-300 hover:scale-105 hover:rotate-3">
+                  <Image
+                    src={image}
+                    alt={`Company-${index}`}
+                    width={151}
+                    height={151}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* ⭐ 2-QATOR — hover pause qo‘shilgan */}
+        {/* Second row marquee */}
         <div className="relative w-full overflow-hidden mt-10">
           <div
             ref={trackRef2}
-            className="flex gap-10 animate-marquee-right"
-            style={{
-              animation: "marqueeRight 18s linear infinite",
-              animationPlayState: "running",
-            }}
+            className="flex gap-10 marquee-track-reverse"
           >
-            {[...trustImages2, ...trustImages2].map((image, index) => (
+            {/* Triple the images for seamless loop */}
+            {[...trustImages2, ...trustImages2, ...trustImages2].map((image, index) => (
               <div
                 key={index}
-                className="w-[110px] sm:w-[130px] md:w-[140px] lg:w-[135px] aspect-square rounded-full flex items-center justify-center overflow-hidden shrink-0 transition-transform duration-300 hover:scale-105 hover:-rotate-3"
+                className="w-[110px] sm:w-[130px] md:w-[140px] lg:w-[135px] shrink-0"
               >
-                <Image
-                  src={image}
-                  alt={`Company-r-${index}`}
-                  width={151}
-                  height={151}
-                  className="w-full h-full object-contain"
-                />
+                <div className="aspect-square rounded-full flex items-center justify-center overflow-hidden transition-transform duration-300 hover:scale-105 hover:-rotate-3">
+                  <Image
+                    src={image}
+                    alt={`Company-r-${index}`}
+                    width={151}
+                    height={151}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
               </div>
             ))}
           </div>
         </div>
+
       </div>
 
       {/* CSS */}
       <style jsx global>{`
         @keyframes marquee {
           0% {
-            transform: translateX(0%);
+            transform: translateX(0);
           }
           100% {
-            transform: translateX(-50%);
+            transform: translateX(calc(-100% / 3));
           }
         }
 
-        @keyframes marqueeRight {
+        @keyframes marqueeReverse {
           0% {
-            transform: translateX(-50%);
+            transform: translateX(calc(-100% / 3));
           }
           100% {
-            transform: translateX(0%);
+            transform: translateX(0);
           }
         }
 
-        .animate-marquee,
-        .animate-marquee-right {
-          display: flex;
+        .marquee-track {
           width: max-content;
+          animation: marquee 30s linear infinite;
+          will-change: transform;
+        }
+
+        .marquee-track-reverse {
+          width: max-content;
+          animation: marqueeReverse 30s linear infinite;
+          will-change: transform;
         }
       `}</style>
     </div>

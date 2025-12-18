@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { ArrowLeft, Calendar } from "lucide-react";
 import Insights from "~/components/Insights";
 import Footer from "~/components/Footer";
+import DOMPurify from "dompurify";
 
 interface Blog {
   id: number;
@@ -107,7 +108,7 @@ export default function BlogDetailClient() {
       {/* Title */}
       <div className="absolute inset-0 flex items-end">
         <h1
-          className="p-8 md:p-12 text-4xl md:text-6xl font-bold leading-tight
+          className="p-8 md:p-12 text-xl md:text-6xl font-bold leading-tight
                      bg-gradient-to-r from-white to-gray-300
                      bg-clip-text text-transparent"
         >
@@ -119,14 +120,14 @@ export default function BlogDetailClient() {
 
         {/* Description/Content */}
         <div className="prose prose-lg prose-invert max-w-none">
-          <div className="text-gray-300 text-lg leading-relaxed space-y-6">
-            {blog.content.split('\n\n').map((paragraph, index) => (
-              <p key={index} className="text-justify">
-                {paragraph}
-              </p>
-            ))}
-          </div>
-        </div>
+  <div
+    className="text-gray-300 leading-relaxed"
+    dangerouslySetInnerHTML={{
+      __html: DOMPurify.sanitize(blog.content),
+    }}
+  />
+</div>
+
 
         {/* Decorative Bottom Line */}
         <div className="mt-16 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>

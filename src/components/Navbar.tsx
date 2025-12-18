@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Menu, X, Globe } from "lucide-react";
+import { Menu, X, Globe, Check } from "lucide-react";
 
 export default function Navbar() {
   const t = useTranslations("Navbar");
@@ -12,6 +12,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const [showLanguageMenu, setShowLanguageMenu] = useState(false);
 
   // Check if we're on the home page
   const isHomePage = pathname === `/${locale}` || pathname === "/";
@@ -77,10 +78,20 @@ export default function Navbar() {
     const newPath = segments.join("/");
     router.push(newPath);
     setIsOpen(false);
+    setShowLanguageMenu(false);
+  };
+
+  const getLanguageName = (code: string) => {
+    const languages: { [key: string]: string } = {
+      en: "English",
+      ru: "Русский",
+      uz: "O'zbek"
+    };
+    return languages[code] || code.toUpperCase();
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 font-poppins bg-[#0a1628]/20 backdrop-blur-md border-b border-cyan-500/15">
+    <nav className="fixed top-4 left-0 w-full z-50 font-poppins  ">
       <div className="container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4 lg:py-5">
         {/* Logo */}
         <div className="relative flex items-center justify-center">
@@ -91,7 +102,7 @@ export default function Navbar() {
             }}
           >
             <Link href="/careers" onClick={() => setIsOpen(false)}>
-              <p className="text-[8px] sm:text-[9px] md:text-[11px] font-bold tracking-wide text-white px-1.5 sm:px-2 py-0.5 sm:py-1 bg-cyan-600 rounded-3xl whitespace-nowrap hover:bg-cyan-500 transition-colors">
+              <p className="text-[8px] sm:text-[9px] md:text-[11px] font-bold tracking-wide text-white px-1.5 sm:px-2 py-0.5 sm:py-1 bg-blue-700 rounded-3xl whitespace-nowrap hover:bg-cyan-500 transition-colors">
                 {t("hiring")}
               </p>
             </Link>
@@ -111,7 +122,7 @@ export default function Navbar() {
 
         {/* Desktop Nav - centered navigation */}
         <div className="hidden lg:flex items-center justify-center flex-1 mx-8">
-          <div className="flex items-center space-x-1 bg-[#0d1f38]/80 backdrop-blur-sm rounded-full px-2 py-2 border border-cyan-500/30">
+          <div className="flex items-center space-x-1 bg-[#0d1f38]/30 backdrop-blur-sm rounded-full px-2 py-2 border border-cyan-500/30">
             <Link href={`/${locale}/about-us`}>
               <div
                 className={`px-6 py-2 rounded-full transition-all cursor-pointer ${
@@ -178,58 +189,91 @@ export default function Navbar() {
             >
               {t("contact")}
             </button>
+            <div className="relative">
+            <button
+              onClick={() => setShowLanguageMenu(!showLanguageMenu)}
+              className="flex items-center bg-[#0d1f38]/80 text-white rounded-full pl-3 pr-4 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-cyan-500/50 cursor-pointer border border-cyan-500/30 hover:bg-[#0d1f38] transition-all"
+            >
+              <Globe className="w-4 h-4 mr-2 text-white" />
+              <span className="uppercase">{locale}</span>
+            </button>
+
+            {/* iPhone-style dropdown menu */}
+            {showLanguageMenu && (
+              <>
+                {/* Backdrop */}
+                <div 
+                  className="fixed inset-0 z-40"
+                  onClick={() => setShowLanguageMenu(false)}
+                />
+                
+                {/* Menu */}
+                <div className="absolute right-0 mt-2 w-30 rounded-2xl bg-[#1c2938]/95 backdrop-blur-xl border border-cyan-500/20 shadow-2xl overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div className="py-2">
+                    {['en', 'ru', 'uz'].map((lang, index) => (
+                      <button
+                        key={lang}
+                        onClick={() => changeLocale(lang)}
+                        className={`w-full px-4 py-3 flex items-center justify-between hover:bg-cyan-500/10 transition-all ${
+                          index !== 0 ? 'border-t border-cyan-500/10' : ''
+                        }`}
+                      >
+                        <span className={`text-sm font-medium ${
+                          locale === lang ? 'text-cyan-400' : 'text-gray-200'
+                        }`}>
+                          {getLanguageName(lang)}
+                        </span>
+                        {locale === lang && (
+                          <Check className="w-5 h-5 text-cyan-400" />
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
           </div>
         </div>
 
         {/* Right side - Language and Social */}
         <div className="hidden lg:flex items-center space-x-4">
-          {/* Language selector with globe icon */}
-          <div className="relative">
-            <select
-              value={locale}
-              onChange={(e) => changeLocale(e.target.value)}
-              className="appearance-none bg-[#0d1f38]/80 text-cyan-400 rounded-full pl-10 pr-4 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-cyan-500/50 cursor-pointer border border-cyan-500/30 hover:bg-[#0d1f38] transition-all"
-            >
-              <option value="en">EN</option>
-              <option value="ru">RU</option>
-              <option value="uz">UZ</option>
-            </select>
-            <Globe className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-cyan-400 pointer-events-none" />
-          </div>
+          {/* Language selector with iPhone-style dropdown */}
+          
 
           {/* Contact info */}
-          <div className="flex flex-col items-end">
-            <div className="text-cyan-400 font-semibold text-sm whitespace-nowrap">
+          <div className="flex flex-col items-end" >
+            <div className="text-white  font-semibold text-md whitespace-nowrap">
               {locale === "en" ? "+1 (513) 808-88-13" : "+998 (87) 337-75-77"}
             </div>
             <div className="flex items-center space-x-2 mt-1">
               <Link href="https://www.facebook.com/profile.php?id=61577158531453" target="_blank" rel="noopener noreferrer">
-                <div className="w-7 h-7 bg-cyan-500/20 hover:bg-cyan-500/30 rounded-full flex items-center justify-center transition-all border border-cyan-500/30">
+                <div className="w-8 h-8 bg-cyan-500/20 hover:bg-cyan-500/30 rounded-full flex items-center justify-center transition-all border border-cyan-500/30">
                   <Image
                     src="/facebook.png"
                     alt="facebook"
-                    width={14}
-                    height={14}
+                    width={22}
+                    height={22}
                   />
                 </div>
               </Link>
               <Link href="https://t.me/cognilabs_software" target="_blank" rel="noopener noreferrer">
-                <div className="w-7 h-7 bg-cyan-500/20 hover:bg-cyan-500/30 rounded-full flex items-center justify-center transition-all border border-cyan-500/30">
+                <div className="w-8 h-8 bg-cyan-500/20 hover:bg-cyan-500/30 rounded-full flex items-center justify-center transition-all border border-cyan-500/30">
                   <Image
                     src="/tg.svg"
                     alt="telegram"
-                    width={14}
-                    height={14}
+                    width={17}
+                    height={17}
                   />
                 </div>
               </Link>
               <Link href="https://www.instagram.com/cognilabs/" target="_blank" rel="noopener noreferrer">
-                <div className="w-7 h-7 bg-cyan-500/20 hover:bg-cyan-500/30 rounded-full flex items-center justify-center transition-all border border-cyan-500/30">
+                <div className="w-8 h-8 bg-cyan-500/20 hover:bg-cyan-500/30 rounded-full pl-0.5 flex items-center justify-center transition-all border border-cyan-500/30">
                   <Image
                     src="/ig.png"
                     alt="instagram"
-                    width={14}
-                    height={14}
+                    width={21}
+                    height={21}
                   />
                 </div>
               </Link>
@@ -321,18 +365,34 @@ export default function Navbar() {
             {t("contact")}
           </button>
 
-          {/* Language selector */}
-          <div className="pt-4 relative">
-            <select
-              value={locale}
-              onChange={(e) => changeLocale(e.target.value)}
-              className="appearance-none bg-[#0d1f38]/80 text-cyan-400 rounded-full pl-12 pr-8 py-3 text-lg font-medium focus:outline-none focus:ring-2 focus:ring-cyan-500/50 cursor-pointer border border-cyan-500/30 min-w-[160px]"
-            >
-              <option value="en">English</option>
-              <option value="ru">Русский</option>
-              <option value="uz">O'zbek</option>
-            </select>
-            <Globe className="absolute left-5 top-3/5 -translate-y-1/2 w-5 h-5 text-cyan-400 pointer-events-none" />
+          {/* iPhone-style language selector for mobile */}
+          <div className="pt-4 w-full max-w-xs">
+            <div className="rounded-2xl bg-[#1c2938]/80 backdrop-blur-xl border border-cyan-500/20 overflow-hidden">
+              <div className="px-4 py-3 border-b border-cyan-500/10">
+                <div className="flex items-center justify-center space-x-2 text-cyan-400">
+                  <Globe className="w-5 h-5" />
+                  <span className="text-sm font-semibold">Language</span>
+                </div>
+              </div>
+              {['en', 'ru', 'uz'].map((lang, index) => (
+                <button
+                  key={lang}
+                  onClick={() => changeLocale(lang)}
+                  className={`w-full px-6 py-4 flex items-center justify-between hover:bg-cyan-500/10 active:bg-cyan-500/20 transition-all ${
+                    index !== 0 ? 'border-t border-cyan-500/10' : ''
+                  }`}
+                >
+                  <span className={`text-base font-medium ${
+                    locale === lang ? 'text-cyan-400' : 'text-gray-200'
+                  }`}>
+                    {getLanguageName(lang)}
+                  </span>
+                  {locale === lang && (
+                    <Check className="w-6 h-6 text-cyan-400" />
+                  )}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Contact info */}
