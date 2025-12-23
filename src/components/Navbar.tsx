@@ -297,6 +297,15 @@ export default function Navbar() {
           isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
+        {/* Close button */}
+<button
+  onClick={() => setIsOpen(false)}
+  className="absolute top-4 right-4 z-50 p-2 rounded-full bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-500/40 text-cyan-400 transition-all"
+  aria-label="Close menu"
+>
+  <X size={24} />
+</button>
+
         <div className="flex flex-col items-center justify-center h-full space-y-4 sm:space-y-5 px-4 sm:px-6 pt-20 pb-8 overflow-y-auto">
           <Link href={`/${locale}/about-us`} onClick={() => setIsOpen(false)}>
             <p
