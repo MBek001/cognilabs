@@ -88,7 +88,7 @@ export default function Services() {
 
       {/* Services Grid with animation */}
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 mt-16 max-w-6xl mx-auto relative"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 mt-16 max-w-5xl mx-auto relative"
         initial="hidden"
         whileInView="visible"
         variants={{
