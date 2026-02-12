@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 "use client";
 import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
@@ -116,7 +117,7 @@ export default function Navbar() {
                 alt="Cognilabs"
                 width={130}
                 height={40}
-                className="cursor-pointer w-[80px] sm:w-[90px] md:w-[110px] lg:w-[130px] h-auto"
+                className="cursor-pointer w-20 sm:w-[90px] md:w-[110px] lg:w-[130px] h-auto"
                 priority
               />
             </a>

@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable @next/next/no-html-link-for-pages */
 "use client"
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
@@ -120,7 +122,7 @@ export default function Projects() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto space-y-16 md:space-y-32">
+        <div className="max-w-7xl mx-auto space-y-16 md:space-y-32 overflow-x-clip">
           {projects.map((project, index) => (
             <ProjectCard 
               key={project.id}

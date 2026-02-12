@@ -20,7 +20,7 @@ export default function page() {
   return (
     <div>
       <Header/>
-      <Projects/>
+      <Projects/> 
       <Services/>
       <TrustCases/>
       

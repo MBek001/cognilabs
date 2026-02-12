@@ -165,7 +165,7 @@ export default function Header() {
       >
         <Stat number="100+" label={t("successproject")} />
         <Stat number="5/5" label={t("happyclients")} />
-        <Stat number="4/10" label={t("hoursspent")} />
+        <Stat number="2/4" label={t("hoursspent")} />
       </motion.div>
 
       {/* === Animated Line === */}
