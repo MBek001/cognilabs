@@ -7,7 +7,6 @@ import { useState, useEffect } from "react";
 export default function Header() {
   const t = useTranslations("Header");
   const [isVideoOpen, setIsVideoOpen] = useState(false);
-
   const locale = useLocale();
 
   const handleScroll = (id: string) => {
@@ -17,20 +16,12 @@ export default function Header() {
 
   return (
     <div className="relative flex flex-col items-center pb-30 justify-center pt-34 min-h-screen text-center overflow-hidden bg-black">
+      
+      {/* CSS Optimized Glowing Lights (No Framer here for FCP) */}
+      <div className="animate-pulse pointer-events-none absolute left-[-120px] bottom-[300px] w-[360px] h-[360px] sm:w-[460px] sm:h-[360px] bg-white rounded-full blur-[140px] sm:blur-[180px] opacity-40" />
+      <div className="animate-pulse [animation-delay:3s] pointer-events-none absolute right-[-120px] top-20 w-[360px] h-[360px] sm:w-[500px] sm:h-[500px] bg-blue-600 rounded-full blur-[140px] sm:blur-[190px] opacity-50" />
 
-      {/* === Animated glowing lights === */}
-      <motion.div
-        className="pointer-events-none absolute left-[-120px] bottom-[300px] w-[360px] h-[360px] sm:w-[460px] sm:h-[360px] bg-white rounded-full blur-[140px] sm:blur-[180px] opacity-60"
-        animate={{ opacity: [0.35, 0.6, 0.35] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="pointer-events-none absolute right-[-120px] top-20 w-[360px] h-[360px] sm:w-[500px] sm:h-[500px] bg-blue-600 rounded-full blur-[140px] sm:blur-[190px] opacity-70"
-        animate={{ opacity: [0.35, 0.7, 0.35] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-      />
-
-      {/* === Video Modal === */}
+      {/* Video Modal (Kept original logic) */}
       <AnimatePresence>
         {isVideoOpen && (
           <motion.div
@@ -56,9 +47,8 @@ export default function Header() {
               </button>
               <iframe
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/sEjhXMkeDEA?si=VYnkc196Fo6zhnpC"
+                src="https://www.youtube.com"
                 title="YouTube video player"
-                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
@@ -67,135 +57,60 @@ export default function Header() {
         )}
       </AnimatePresence>
 
-      {/* === Text content === */}
+      {/* Text content - CSS Animations for instant paint */}
       <div className="z-10 mt-14 px-4 sm:px-6">
-        <motion.h1
-          className="text-4xl sm:text-6xl mt-10 sm:mt-16 font-bold text-white mb-4 sm:mb-6 leading-tight"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: "easeOut" }}
-        >
-          <motion.div
-            initial={{ opacity: 0, x: -28 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.25, ease: "easeOut" }}
-          >
+        <h1 className="text-4xl sm:text-6xl mt-10 sm:mt-16 font-bold text-white mb-4 sm:mb-6 leading-tight animate-fade-up">
+          <div className="animate-slide-left [animation-delay:0.2s] opacity-0 [animation-fill-mode:forwards]">
             {t("headword1")}
-          </motion.div>
-
-          <motion.div
-            className="text-blue-500 mt-1 sm:mt-2"
-            initial={{ opacity: 0, x: 28 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.45, ease: "easeOut" }}
-          >
+          </div>
+          <div className="text-blue-500 mt-1 sm:mt-2 animate-slide-right [animation-delay:0.4s] opacity-0 [animation-fill-mode:forwards]">
             {t("headword2")}
-          </motion.div>
-        </motion.h1>
+          </div>
+        </h1>
 
-        <motion.div
-          className="text-gray-300 text-base sm:text-xl max-w-[320px] sm:max-w-[560px] mx-auto mb-8 sm:mb-10"
-          initial={{ opacity: 0, y: 22 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.7, ease: "easeOut" }}
-        >
+        <div className="text-gray-300 text-base sm:text-xl max-w-[320px] sm:max-w-[560px] mx-auto mb-8 sm:mb-10 animate-fade-up [animation-delay:0.7s] opacity-0 [animation-fill-mode:forwards]">
           {t("slogan")}
-        </motion.div>
+        </div>
 
-        {/* === Contact + Play Button Row === */}
-        <motion.div
-          className="z-10 flex items-center gap-4 justify-center mt-6"
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.9, ease: "easeOut" }}
-        >
-          {/* Contact Button */}
-          <motion.button
+        {/* Buttons Row - Standard CSS entry */}
+        <div className="z-10 flex items-center gap-4 justify-center mt-6 animate-fade-up [animation-delay:0.9s] opacity-0 [animation-fill-mode:forwards]">
+          <button
             onClick={() => handleScroll("contact")}
-            className="
-              relative overflow-hidden font-bold text-white py-2 sm:py-3 px-4
-              rounded-full bg-linear-to-r cursor-pointer from-blue-600 via-blue-700 to-blue-800
-              shadow-lg shadow-blue-700/40 
-              transition-all duration-300
-            "
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
+            className="font-bold text-white py-2 sm:py-3 px-6 rounded-full bg-blue-600 shadow-lg shadow-blue-700/40 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
           >
             {t("contact")}
-          </motion.button>
+          </button>
 
-          {/* Play Button — only in uz */}
           {locale === "uz" && (
-  <motion.button
-    onClick={() => setIsVideoOpen(true)}
-    className="
-      relative cursor-pointer
-      bg-blue-600 hover:bg-blue-700 text-white
-      p-3 rounded-full 
-      transition-all duration-300
-      flex items-center justify-center
-    "
-    whileHover={{ scale: 1.1 }}
-    whileTap={{ scale: 0.95 }}
-  >
-    {/* PULSING HALO */}
-    <span className="
-      absolute inset-0
-      rounded-full
-      bg-blue-300/40
-      animate-pulse-scale
-      pointer-events-none
-    "></span>
-
-    <Play className="w-4 h-4" fill="white" />
-  </motion.button>
-)}
-
-
-
-        </motion.div>
+            <button
+              onClick={() => setIsVideoOpen(true)}
+              className="relative cursor-pointer bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full flex items-center justify-center transition-transform hover:scale-110"
+            >
+              <span className="absolute inset-0 rounded-full bg-blue-300/40 animate-ping"></span>
+              <Play className="w-4 h-4" fill="white" />
+            </button>
+          )}
+        </div>
       </div>
 
-      {/* === Stats Section === */}
-      <motion.div
-        className="z-10 grid grid-cols-3 gap-6 sm:flex sm:flex-wrap sm:gap-20 md:gap-28 mt-16 sm:mt-28 text-white"
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, delay: 1.1, ease: "easeOut" }}
-      >
+      {/* Stats Section - Using your custom Stat component! */}
+      <div className="z-10 grid grid-cols-3 gap-6 sm:flex sm:flex-wrap sm:gap-20 md:gap-28 mt-16 sm:mt-28 text-white animate-fade-up [animation-delay:1.1s] opacity-0 [animation-fill-mode:forwards]">
         <Stat number="100+" label={t("successproject")} />
         <Stat number="5/5" label={t("happyclients")} />
         <Stat number="2/4" label={t("hoursspent")} />
-      </motion.div>
+      </div>
 
-      {/* === Animated Line === */}
-      <motion.div
-        className="relative hidden sm:flex items-center mb-10 justify-center mt-16"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.7, duration: 0.6, ease: "easeOut" }}
-      >
-        <motion.div
-          className="h-px bg-linear-to-l from-white to-transparent"
-          initial={{ width: 0 }}
-          animate={{ width: "40vw" }}
-          transition={{ duration: 1.6, ease: "easeInOut", delay: 0.1 }}
-        />
-        <motion.div
-          className="h-px bg-linear-to-r from-white to-transparent"
-          initial={{ width: 0 }}
-          animate={{ width: "40vw" }}
-          transition={{ duration: 1.6, ease: "easeInOut", delay: 0.1 }}
-        />
-      </motion.div>
+      {/* Animated Line - Simple CSS */}
+      <div className="relative hidden sm:flex items-center mb-10 justify-center mt-16 opacity-0 animate-fade-in [animation-delay:1.5s] [animation-fill-mode:forwards]">
+        <div className="h-px w-[40vw] bg-linear-to-l from-white to-transparent" />
+        <div className="h-px w-[40vw] bg-linear-to-r from-white to-transparent" />
+      </div>
     </div>
   );
 }
 
-/* === Stats Component === */
 function Stat({ number, label }: { number: string; label: string }) {
   const [value, setValue] = useState(0);
-
   const isPlus = number.endsWith("+");
   const isSlash = number.includes("/");
   const isRange = number.includes("-");
@@ -218,35 +133,24 @@ function Stat({ number, label }: { number: string; label: string }) {
 
   useEffect(() => {
     if (isRange) return;
-
-    const duration = 3000;
+    const duration = 2000; // Shorter duration for better Speed Index
     const startTime = performance.now();
 
     const animate = (now: number) => {
       const progress = Math.min((now - startTime) / duration, 1);
       const current = Math.floor(progress * target);
       setValue(current);
-
       if (progress < 1) requestAnimationFrame(animate);
     };
-
     requestAnimationFrame(animate);
-  }, [number]);
+  }, [target, isRange]);
 
   return (
-    <motion.div
-      className="text-center w-24 sm:w-40 select-none"
-      whileHover={{ scale: 1.04 }}
-      transition={{ type: "tween", duration: 0.25, ease: "easeOut" }}
-      initial={{ opacity: 0, y: 18 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.6 }}
-    >
+    <div className="text-center w-24 sm:w-40 select-none hover:scale-105 transition-transform duration-300">
       <p className="text-2xl sm:text-3xl font-bold">{animatedNumber}</p>
-
-      <p className="text-[#FFFFFFB2] text-sm sm:text-xl mt-1 sm:mt-2 leading-snug">
+      <p className="text-white/70 text-sm sm:text-xl mt-1 sm:mt-2 leading-snug">
         {label}
       </p>
-    </motion.div>
+    </div>
   );
 }

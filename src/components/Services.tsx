@@ -3,6 +3,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { Code, Bot, Globe, Layout, Smartphone, Database, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Services() {
   const t = useTranslations("Services");
@@ -48,7 +49,7 @@ export default function Services() {
     },
   ];
 
-  const handleScroll = (id:any) => {
+  const handleScroll = (id: any) => {
     const section = document.getElementById(id);
     // console.log(id);
     
@@ -132,8 +133,8 @@ export default function Services() {
               className="bg-white text-black rounded-2xl  p-8 m-4 flex flex-col justify-between hover:shadow-[0_0_25px_#2563eb] transition-smooth  h-80"
             >
               <div>
-                <img
-                  className="w-10 h-10 mb-2"
+                <Image width={40} height={40}
+                  className="mb-2"
                   src={item.img}
                   alt={item.title}
                 />

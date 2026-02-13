@@ -1,30 +1,25 @@
 /* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
-import { notFound } from 'next/navigation';
-import './globals.css';
-import { Geist, Montserrat, Poppins } from 'next/font/google'
-import { NextIntlClientProvider } from 'next-intl';
+import { notFound } from "next/navigation";
+import "./globals.css";
+import { Geist, Poppins } from "next/font/google";
+import { NextIntlClientProvider } from "next-intl";
 import { routing } from "~/i18n/routing";
 import Navbar from "~/components/Navbar";
+import Script from "next/script"; // 👉 Buni qo‘shdik
 import { ToastContainer } from "react-toastify";
-import Script from "next/script";      // 👉 Buni qo‘shdik
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["300","400","500","600","700"],
-  display: "swap"
-})
-
-const montserrat = Montserrat({
-  subsets: ["latin","cyrillic","cyrillic-ext"],
-  weight: ["300","400","500","600","700"],
-})
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
 
 const geist = Geist({
   subsets: ["latin"],
-  weight: ["300","400","500","600","700"],
-  display: "swap"
-})
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Cognilabs Sofware Solutions",
@@ -42,19 +37,25 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  if (!routing.locales.includes(locale as 'uz' | 'ru' | 'en')) {
+  if (!routing.locales.includes(locale as "uz" | "ru" | "en")) {
     notFound();
   }
 
-  const fontClass = locale === 'ru' ? geist.className : poppins.className;
+  const fontClass = locale === "ru" ? geist.className : poppins.className;
 
   return (
     <html lang={locale} suppressHydrationWarning className={fontClass}>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         {/* LINKEDIN INSIGHT TAG */}
         <Script
           id="linkedin-insight-tag"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               _linkedin_partner_id = "9096145";
@@ -66,7 +67,7 @@ export default async function LocaleLayout({
 
         <Script
           id="linkedin-insight-loader"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               (function(l) {

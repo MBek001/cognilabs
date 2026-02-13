@@ -29,14 +29,14 @@ export default function Insights() {
   // ---------------- FETCH BLOGS ----------------
   useEffect(() => {
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/all-blogs`)
-      .then(res => res.json())
+      .then((res) => res.json())
       .then((data: Blog[]) => {
         const filtered = data.filter(
-          blog => blog.is_active && blog.language === locale
+          (blog) => blog.is_active && blog.language === locale,
         );
         setBlogs(filtered);
       })
-      .catch(err => console.error("Insights fetch error:", err))
+      .catch((err) => console.error("Insights fetch error:", err))
       .finally(() => setLoading(false));
   }, [locale]);
 
@@ -45,8 +45,18 @@ export default function Insights() {
     const date = new Date(dateString);
 
     const uzMonths = [
-      "yanvar", "fevral", "mart", "aprel", "may", "iyun",
-      "iyul", "avgust", "sentyabr", "oktyabr", "noyabr", "dekabr"
+      "yanvar",
+      "fevral",
+      "mart",
+      "aprel",
+      "may",
+      "iyun",
+      "iyul",
+      "avgust",
+      "sentyabr",
+      "oktyabr",
+      "noyabr",
+      "dekabr",
     ];
 
     if (locale === "uz") {
@@ -75,9 +85,8 @@ export default function Insights() {
   const loopBlogs = buildLoopData(
     [...blogs].sort(
       (a, b) =>
-        new Date(b.date_posted).getTime() -
-        new Date(a.date_posted).getTime()
-    )
+        new Date(b.date_posted).getTime() - new Date(a.date_posted).getTime(),
+    ),
   );
 
   return (
@@ -110,7 +119,10 @@ export default function Insights() {
           }}
         >
           {loopBlogs.map((blog, idx) => (
-            <SwiperSlide key={`${blog.id}-${idx}`} className="overflow-visible!">
+            <SwiperSlide
+              key={`${blog.id}-${idx}`}
+              className="overflow-visible!"
+            >
               {({ isActive }) => (
                 <Link href={`/${locale}/insights/${blog.id}`}>
                   <div
@@ -121,7 +133,6 @@ export default function Insights() {
                     }`}
                   >
                     <div className="bg-[#2A2A2A] rounded-3xl overflow-hidden h-[530px] flex flex-col group">
-
                       {/* IMAGE */}
                       <div className="relative h-60">
                         <img
@@ -144,15 +155,15 @@ export default function Insights() {
 
                         <p className="text-gray-300 text-sm leading-relaxed line-clamp-4 flex-grow">
                           <div
-    className="text-gray-300 leading-relaxed"
-    dangerouslySetInnerHTML={{
-      __html: DOMPurify.sanitize(blog.content),
-    }}
-  />
+                            className="text-gray-300 leading-relaxed"
+                            dangerouslySetInnerHTML={{
+                              __html: DOMPurify.sanitize(blog.content),
+                            }}
+                          />
                         </p>
 
                         <span className="text-[#0066FF] flex gap-1 items-center text-sm mt-6 hover:underline hover:translate-x-1 transition-all">
-                          See more <ArrowRight className="w-5"/>
+                          See more <ArrowRight className="w-5" />
                         </span>
                       </div>
                     </div>

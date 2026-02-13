@@ -1,5 +1,4 @@
 "use client"
-import { useLocale } from 'next-intl'
 import ClientsOpinion from '~/components/ClientsOpinion'
 import Faq from '~/components/Faq'
 import Footer from '~/components/Footer'
