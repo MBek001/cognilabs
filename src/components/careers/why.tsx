@@ -1,6 +1,5 @@
 "use client"; // <-- Add this at the very top
 import { useTranslations } from 'next-intl';
-import React from 'react';
 import { motion } from 'framer-motion';
 
 export default function WhyUs() {
@@ -51,7 +50,7 @@ export default function WhyUs() {
     ))}
 </h2>
 
-          <p className="max-w-[850px] text-base sm:text-lg lg:text-xl pt-6 sm:pt-8 font-inter text-gray-300 leading-[26px] sm:leading-[30px] lg:leading-[32px]">
+          <p className="max-w-[850px] text-base sm:text-lg lg:text-xl pt-6 sm:pt-8 font-inter text-gray-300 leading-[26px] sm:leading-[30px] lg:leading-8">
             {t("reason")}
           </p>
         </motion.div>
@@ -69,7 +68,7 @@ export default function WhyUs() {
               variants={reasonVariants as any}
             >
               <motion.div
-                className="flex-shrink-0"
+                className="shrink-0"
                 variants={numberVariants}
                 whileHover="hover"
               >

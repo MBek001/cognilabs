@@ -218,6 +218,7 @@
       "now":"NOW!",
       "fullname":"Full Name*",
       "phonenumber":"Phone Number*",
+      "username": "Email*",
       "whyus":"Why you chose us!(Optional)",
       "position":"Position*",
       "age":"Age*",

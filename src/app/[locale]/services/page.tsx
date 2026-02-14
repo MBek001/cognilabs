@@ -1,21 +1,25 @@
-'use client';
+"use client";
 
-import {  useTranslations } from 'next-intl';
-import { ArrowRight } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
-import RequestForm from '~/components/RequestForm';
-import Footer from '~/components/Footer';
+import { useTranslations } from "next-intl";
+import { ArrowRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import RequestForm from "~/components/RequestForm";
+import Footer from "~/components/Footer";
 
 export default function ServicesPage() {
-  const t = useTranslations('Services');  
+  const t = useTranslations("Services");
 
   const services = [
-    { title: t('ai'), desc: t('ai-text2') ,id: "ai"},
-    { title: t('tg-bot'), desc: t('tg-bot-text2') ,id: "tg-bot"},
-    { title: t('web-dev'), desc: t('web-dev-text2'), id: "web-dev" ,},
-    { title: t('web-app-dev'), desc: t('web-app-dev-text2'), id: "web-app-dev" },
-    { title: t('mobile-dev'), desc: t('mobile-dev-text2'), id: "mobile-dev" },
-    { title: t('crm'), desc: t('crm-text2'), id: "crm" },
+    { title: t("ai"), desc: t("ai-text2"), id: "ai" },
+    { title: t("tg-bot"), desc: t("tg-bot-text2"), id: "tg-bot" },
+    { title: t("web-dev"), desc: t("web-dev-text2"), id: "web-dev" },
+    {
+      title: t("web-app-dev"),
+      desc: t("web-app-dev-text2"),
+      id: "web-app-dev",
+    },
+    { title: t("mobile-dev"), desc: t("mobile-dev-text2"), id: "mobile-dev" },
+    { title: t("crm"), desc: t("crm-text2"), id: "crm" },
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
@@ -38,9 +42,9 @@ export default function ServicesPage() {
       });
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -55,8 +59,10 @@ export default function ServicesPage() {
           <div className="absolute inset-0.5 bg-black rounded-[38px]" />
 
           <h2 className="relative text-3xl sm:text-4xl md:text-5xl font-bold z-10 leading-tight">
-            <span className="text-blue-500">{t('service').split(' ')[0]} </span>
-            <span className="text-white">{t('service').split(' ').slice(1).join(' ')}</span>
+            <span className="text-blue-500">{t("service").split(" ")[0]} </span>
+            <span className="text-white">
+              {t("service").split(" ").slice(1).join(" ")}
+            </span>
           </h2>
         </div>
 
@@ -85,7 +91,7 @@ export default function ServicesPage() {
               {/* Circle (hidden on mobile) */}
               <div
                 className={`hidden md:block absolute -translate-x-1/2 w-8 h-8 rounded-full border-4 border-black transition-all duration-300 ${
-                  activeIndex >= index ? 'bg-white' : 'bg-gray-700'
+                  activeIndex >= index ? "bg-white" : "bg-gray-700"
                 }`}
               />
 
@@ -100,12 +106,12 @@ export default function ServicesPage() {
                 <button
                   onClick={() =>
                     document
-                      .getElementById('contact')
-                      ?.scrollIntoView({ behavior: 'smooth' })
+                      .getElementById("contact")
+                      ?.scrollIntoView({ behavior: "smooth" })
                   }
                   className="inline-flex items-center gap-2 text-blue-500 hover:text-blue-300 font-semibold text-sm md:text-base transition-all"
                 >
-                  {t('use-service')}
+                  {t("use-service")}
                   <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                 </button>
               </div>
@@ -115,29 +121,30 @@ export default function ServicesPage() {
       </div>
 
       {/* Service Summary */}
-    
 
       {/* Request form */}
       <div id="contact" className="pt-16 sm:pt-24">
         <RequestForm />
       </div>
-            <section className="bg-black text-white py-20 md:py-32">
+      <section className="bg-black text-white py-20 md:py-32">
         <div className="px-6 sm:px-10 lg:px-16 max-w-7xl mx-auto text-center">
           <h1 className="text-xl sm:text-2xl md:text-4xl font-bold leading-tight">
-        {(() => {
-  const words = t('to-offer').split(' ');
-  const blueIndices = [3, 4, 5, 7, 9, 10];
-  const lastFourStart = words.length - 4;
-  
-  return words.map((word, index) => {
-    const isBlue = blueIndices.includes(index) || index >= lastFourStart;
-    return (
-      <span key={index} className={isBlue ? 'text-blue-500' : ''}>
-        {word}{index < words.length - 1 ? ' ' : ''}
-      </span>
-    );
-  });
-})()}
+            {(() => {
+              const words = t("to-offer").split(" ");
+              const blueIndices = [3, 4, 5, 7, 9, 10];
+              const lastFourStart = words.length - 4;
+
+              return words.map((word, index) => {
+                const isBlue =
+                  blueIndices.includes(index) || index >= lastFourStart;
+                return (
+                  <span key={index} className={isBlue ? "text-blue-500" : ""}>
+                    {word}
+                    {index < words.length - 1 ? " " : ""}
+                  </span>
+                );
+              });
+            })()}
           </h1>
         </div>
       </section>

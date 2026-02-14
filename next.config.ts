@@ -2,6 +2,7 @@ const withNextIntl = require("next-intl/plugin")();
 
 module.exports = withNextIntl({
   images: {
+    domains: [],
     remotePatterns: [
       {
         protocol: "http",

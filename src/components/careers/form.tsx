@@ -11,6 +11,7 @@ interface CareerFormData {
   position: string;
   phone: string;
   message: string;
+  username: string;
   file: File | null;
 }
 
@@ -31,6 +32,7 @@ async function sendCareerFormToAdmin(data: CareerFormData) {
 👤 Ism: ${escapeMarkdown(data.fullName)}
 🔟 Yosh: ${escapeMarkdown(data.age.toString())}
 💼 Lavozim: ${escapeMarkdown(data.position)}
+👤 Telegram Username: ${escapeMarkdown(data.username)}
 📞 Telefon: ${escapeMarkdown(data.phone)}
 💬 Xabar: ${escapeMarkdown(data.message)} 
 `.trim();
@@ -63,12 +65,13 @@ export default function JoinTeamForm() {
     position: '',
     phone: '',
     message: '',
+    username: '',
     file: null
   });
   const [agree, setAgree] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const positions = ['Programmer', 'AI Researcher', 'Designer', 'Marketolog'];
+  const positions = ['Backend Developer', 'Frontend Developer', 'Mobile Developer', 'Sales Manager', 'AI Researcher', 'Graphical & UI/UX Designer'];
   const t = useTranslations("Careers");
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -77,7 +80,7 @@ export default function JoinTeamForm() {
   };
 
   const handleSubmit = async () => {
-    if (!formData.fullName || !formData.phone || !formData.position || formData.age <= 0 || !agree) {
+    if (!formData.fullName || !formData.phone || !formData.position || formData.username || formData.age <= 0 || !agree) {
       errorToast();
       return;
     }
@@ -88,7 +91,7 @@ export default function JoinTeamForm() {
       // Explicitly include age to satisfy TypeScript
       await sendCareerFormToAdmin({ ...formData, age: formData.age });
       successToast();
-      setFormData({ fullName: '', age: 18, position: '', phone: '', message: '', file: null });
+      setFormData({ fullName: '', age: 18, position: '', phone: '', message: '', file: null, username: '' });
       setAgree(false);
     } catch {
       errorToast();
@@ -141,6 +144,15 @@ export default function JoinTeamForm() {
               placeholder={t("phonenumber")}
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+              className="w-full bg-transparent border-b border-gray-400 py-3 px-1 sm:px-2 text-gray-700 text-base sm:text-lg placeholder-gray-500 focus:border-blue-600 focus:outline-none transition"
+              variants={itemVariants}
+            />
+
+            <motion.input
+              type="text"
+              placeholder={t("username")}
+              value={formData.username}
+              onChange={(e) => setFormData({ ...formData, username: e.target.value })}
               className="w-full bg-transparent border-b border-gray-400 py-3 px-1 sm:px-2 text-gray-700 text-base sm:text-lg placeholder-gray-500 focus:border-blue-600 focus:outline-none transition"
               variants={itemVariants}
             />

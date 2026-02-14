@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 "use client";
 import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
@@ -23,12 +24,12 @@ export default function Navbar() {
   // Prevent body scroll when menu is open
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, [isOpen]);
 
@@ -85,7 +86,7 @@ export default function Navbar() {
     const languages: { [key: string]: string } = {
       en: "English",
       ru: "Русский",
-      uz: "O'zbek"
+      uz: "O'zbek",
     };
     return languages[code] || code.toUpperCase();
   };
@@ -100,7 +101,7 @@ export default function Navbar() {
             <div
               className="absolute -top-4 sm:-top-5 md:-top-6 lg:-top-7 left-8 sm:left-10 md:left-12 lg:left-20"
               style={{
-                animation: "pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite"
+                animation: "pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite",
               }}
             >
               <Link href="/careers" onClick={() => setIsOpen(false)}>
@@ -116,8 +117,9 @@ export default function Navbar() {
                 alt="Cognilabs"
                 width={130}
                 height={40}
-                className="cursor-pointer w-[80px] sm:w-[90px] md:w-[110px] lg:w-[130px] h-auto"
+                className="cursor-pointer w-20 sm:w-[90px] md:w-[110px] lg:w-[130px] h-auto"
                 priority
+                fetchPriority="high"
               />
             </a>
           </div>
@@ -128,8 +130,8 @@ export default function Navbar() {
               <Link href={`/${locale}/about-us`}>
                 <div
                   className={`px-6 py-2 rounded-full transition-all cursor-pointer ${
-                    isActive(`/${locale}/about-us`) 
-                      ? "bg-cyan-500/20 text-cyan-400 font-semibold" 
+                    isActive(`/${locale}/about-us`)
+                      ? "bg-cyan-500/20 text-cyan-400 font-semibold"
                       : "text-gray-300 hover:text-white hover:bg-white/5"
                   }`}
                 >
@@ -140,8 +142,8 @@ export default function Navbar() {
               <Link href={`/${locale}/careers`}>
                 <div
                   className={`px-6 py-2 rounded-full transition-all cursor-pointer ${
-                    isActive(`/${locale}/careers`) 
-                      ? "bg-cyan-500/20 text-cyan-400 font-semibold" 
+                    isActive(`/${locale}/careers`)
+                      ? "bg-cyan-500/20 text-cyan-400 font-semibold"
                       : "text-gray-300 hover:text-white hover:bg-white/5"
                   }`}
                 >
@@ -152,8 +154,8 @@ export default function Navbar() {
               <Link href={`/${locale}/services`}>
                 <div
                   className={`px-6 py-2 rounded-full transition-all cursor-pointer ${
-                    isActive(`/${locale}/services`) 
-                      ? "bg-cyan-500/20 text-cyan-400 font-semibold" 
+                    isActive(`/${locale}/services`)
+                      ? "bg-cyan-500/20 text-cyan-400 font-semibold"
                       : "text-gray-300 hover:text-white hover:bg-white/5"
                   }`}
                 >
@@ -164,8 +166,8 @@ export default function Navbar() {
               <Link href={`/${locale}/portfolio`}>
                 <div
                   className={`px-6 py-2 rounded-full transition-all cursor-pointer ${
-                    isActive(`/${locale}/portfolio`) 
-                      ? "bg-cyan-500/20 text-cyan-400 font-semibold" 
+                    isActive(`/${locale}/portfolio`)
+                      ? "bg-cyan-500/20 text-cyan-400 font-semibold"
                       : "text-gray-300 hover:text-white hover:bg-white/5"
                   }`}
                 >
@@ -176,8 +178,8 @@ export default function Navbar() {
               <Link href={`/${locale}/insights`}>
                 <div
                   className={`px-6 py-2 rounded-full transition-all cursor-pointer ${
-                    isActive(`/${locale}/blogs`) 
-                      ? "bg-cyan-500/20 text-cyan-400 font-semibold" 
+                    isActive(`/${locale}/insights`)
+                      ? "bg-cyan-500/20 text-cyan-400 font-semibold"
                       : "text-gray-300 hover:text-white hover:bg-white/5"
                   }`}
                 >
@@ -204,25 +206,29 @@ export default function Navbar() {
                 {showLanguageMenu && (
                   <>
                     {/* Backdrop */}
-                    <div 
+                    <div
                       className="fixed inset-0 z-40"
                       onClick={() => setShowLanguageMenu(false)}
                     />
-                    
+
                     {/* Menu */}
                     <div className="absolute right-0 mt-2 w-30 rounded-2xl bg-[#1c2938]/95 backdrop-blur-xl border border-cyan-500/20 shadow-2xl overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
                       <div className="py-2">
-                        {['en', 'ru', 'uz'].map((lang, index) => (
+                        {["en", "ru", "uz"].map((lang, index) => (
                           <button
                             key={lang}
                             onClick={() => changeLocale(lang)}
                             className={`w-full px-4 py-3 flex items-center justify-between hover:bg-cyan-500/10 transition-all ${
-                              index !== 0 ? 'border-t border-cyan-500/10' : ''
+                              index !== 0 ? "border-t border-cyan-500/10" : ""
                             }`}
                           >
-                            <span className={`text-sm font-medium ${
-                              locale === lang ? 'text-cyan-400' : 'text-gray-200'
-                            }`}>
+                            <span
+                              className={`text-sm font-medium ${
+                                locale === lang
+                                  ? "text-cyan-400"
+                                  : "text-gray-200"
+                              }`}
+                            >
                               {getLanguageName(lang)}
                             </span>
                             {locale === lang && (
@@ -246,7 +252,11 @@ export default function Navbar() {
                 {locale === "en" ? "+1 (513) 808-88-13" : "+998 (87) 337-75-77"}
               </div>
               <div className="flex items-center space-x-2 mt-1">
-                <Link href="https://www.facebook.com/profile.php?id=61577158531453" target="_blank" rel="noopener noreferrer">
+                <Link
+                  href="https://www.facebook.com/profile.php?id=61577158531453"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <div className="w-8 h-8 bg-cyan-500/20 hover:bg-cyan-500/30 rounded-full flex items-center justify-center transition-all border border-cyan-500/30">
                     <Image
                       src="/facebook.png"
@@ -256,7 +266,11 @@ export default function Navbar() {
                     />
                   </div>
                 </Link>
-                <Link href="https://t.me/cognilabs_software" target="_blank" rel="noopener noreferrer">
+                <Link
+                  href="https://t.me/cognilabs_software"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <div className="w-8 h-8 bg-cyan-500/20 hover:bg-cyan-500/30 rounded-full flex items-center justify-center transition-all border border-cyan-500/30">
                     <Image
                       src="/tg.svg"
@@ -266,7 +280,11 @@ export default function Navbar() {
                     />
                   </div>
                 </Link>
-                <Link href="https://www.instagram.com/cognilabs/" target="_blank" rel="noopener noreferrer">
+                <Link
+                  href="https://www.instagram.com/cognilabs/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <div className="w-8 h-8 bg-cyan-500/20 hover:bg-cyan-500/30 rounded-full pl-0.5 flex items-center justify-center transition-all border border-cyan-500/30">
                     <Image
                       src="/ig.png"
@@ -281,12 +299,16 @@ export default function Navbar() {
           </div>
 
           {/* Mobile/Tablet Hamburger with higher z-index */}
-          <button 
-            className="lg:hidden text-cyan-400 z-50 p-2 hover:bg-cyan-500/10 rounded-md transition-colors border border-cyan-500/30 shadow-lg bg-[#0d1f38]/50 backdrop-blur-sm" 
+          <button
+            className="lg:hidden text-cyan-400 z-50 p-2 hover:bg-cyan-500/10 rounded-md transition-colors border border-cyan-500/30 shadow-lg bg-[#0d1f38]/50 backdrop-blur-sm"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
-            {isOpen ? <X size={22} className="sm:w-6 sm:h-6" /> : <Menu size={22} className="sm:w-6 sm:h-6" />}
+            {isOpen ? (
+              <X size={22} className="sm:w-6 sm:h-6" />
+            ) : (
+              <Menu size={22} className="sm:w-6 sm:h-6" />
+            )}
           </button>
         </div>
       </div>
@@ -294,24 +316,26 @@ export default function Navbar() {
       {/* Mobile/Tablet Menu with improved blur */}
       <div
         className={`lg:hidden fixed top-0 left-0 w-full h-screen bg-[#0a1628]/98 backdrop-blur-xl transition-all duration-300 ease-in-out ${
-          isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          isOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
         }`}
       >
         {/* Close button */}
-<button
-  onClick={() => setIsOpen(false)}
-  className="absolute top-4 right-4 z-50 p-2 rounded-full bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-500/40 text-cyan-400 transition-all"
-  aria-label="Close menu"
->
-  <X size={24} />
-</button>
+        <button
+          onClick={() => setIsOpen(false)}
+          className="absolute top-4 right-4 z-50 p-2 rounded-full bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-500/40 text-cyan-400 transition-all"
+          aria-label="Close menu"
+        >
+          <X size={24} />
+        </button>
 
         <div className="flex flex-col items-center justify-center h-full space-y-4 sm:space-y-5 px-4 sm:px-6 pt-20 pb-8 overflow-y-auto">
           <Link href={`/${locale}/about-us`} onClick={() => setIsOpen(false)}>
             <p
               className={`text-lg sm:text-xl cursor-pointer transition-all px-6 sm:px-8 py-2.5 sm:py-3 rounded-full ${
-                isActive(`/${locale}/about-us`) 
-                  ? "bg-cyan-500/20 text-cyan-400 font-bold border border-cyan-500/50" 
+                isActive(`/${locale}/about-us`)
+                  ? "bg-cyan-500/20 text-cyan-400 font-bold border border-cyan-500/50"
                   : "text-gray-300 hover:text-white hover:bg-white/5"
               }`}
             >
@@ -322,8 +346,8 @@ export default function Navbar() {
           <Link href={`/${locale}/careers`} onClick={() => setIsOpen(false)}>
             <p
               className={`text-lg sm:text-xl cursor-pointer transition-all px-6 sm:px-8 py-2.5 sm:py-3 rounded-full ${
-                isActive(`/${locale}/careers`) 
-                  ? "bg-cyan-500/20 text-cyan-400 font-bold border border-cyan-500/50" 
+                isActive(`/${locale}/careers`)
+                  ? "bg-cyan-500/20 text-cyan-400 font-bold border border-cyan-500/50"
                   : "text-gray-300 hover:text-white hover:bg-white/5"
               }`}
             >
@@ -334,8 +358,8 @@ export default function Navbar() {
           <Link href={`/${locale}/services`} onClick={() => setIsOpen(false)}>
             <p
               className={`text-lg sm:text-xl cursor-pointer transition-all px-6 sm:px-8 py-2.5 sm:py-3 rounded-full ${
-                isActive(`/${locale}/services`) 
-                  ? "bg-cyan-500/20 text-cyan-400 font-bold border border-cyan-500/50" 
+                isActive(`/${locale}/services`)
+                  ? "bg-cyan-500/20 text-cyan-400 font-bold border border-cyan-500/50"
                   : "text-gray-300 hover:text-white hover:bg-white/5"
               }`}
             >
@@ -346,8 +370,8 @@ export default function Navbar() {
           <Link href={`/${locale}/portfolio`} onClick={() => setIsOpen(false)}>
             <p
               className={`text-lg sm:text-xl cursor-pointer transition-all px-6 sm:px-8 py-2.5 sm:py-3 rounded-full ${
-                isActive(`/${locale}/portfolio`) 
-                  ? "bg-cyan-500/20 text-cyan-400 font-bold border border-cyan-500/50" 
+                isActive(`/${locale}/portfolio`)
+                  ? "bg-cyan-500/20 text-cyan-400 font-bold border border-cyan-500/50"
                   : "text-gray-300 hover:text-white hover:bg-white/5"
               }`}
             >
@@ -355,11 +379,11 @@ export default function Navbar() {
             </p>
           </Link>
 
-          <Link href={`/${locale}/blogs`} onClick={() => setIsOpen(false)}>
+          <Link href={`/${locale}/insights`} prefetch={false} onClick={() => setIsOpen(false)}>
             <p
               className={`text-lg sm:text-xl cursor-pointer transition-all px-6 sm:px-8 py-2.5 sm:py-3 rounded-full ${
-                isActive(`/${locale}/blogs`) 
-                  ? "bg-cyan-500/20 text-cyan-400 font-bold border border-cyan-500/50" 
+                isActive(`/${locale}/insights`)
+                  ? "bg-cyan-500/20 text-cyan-400 font-bold border border-cyan-500/50"
                   : "text-gray-300 hover:text-white hover:bg-white/5"
               }`}
             >
@@ -380,20 +404,24 @@ export default function Navbar() {
               <div className="px-4 py-2.5 sm:py-3 border-b border-cyan-500/10">
                 <div className="flex items-center justify-center space-x-2 text-cyan-400">
                   <Globe className="w-4 h-4 sm:w-5 sm:h-5" />
-                  <span className="text-xs sm:text-sm font-semibold">Language</span>
+                  <span className="text-xs sm:text-sm font-semibold">
+                    Language
+                  </span>
                 </div>
               </div>
-              {['en', 'ru', 'uz'].map((lang, index) => (
+              {["en", "ru", "uz"].map((lang, index) => (
                 <button
                   key={lang}
                   onClick={() => changeLocale(lang)}
                   className={`w-full px-5 sm:px-6 py-3 sm:py-4 flex items-center justify-between hover:bg-cyan-500/10 active:bg-cyan-500/20 transition-all ${
-                    index !== 0 ? 'border-t border-cyan-500/10' : ''
+                    index !== 0 ? "border-t border-cyan-500/10" : ""
                   }`}
                 >
-                  <span className={`text-sm sm:text-base font-medium ${
-                    locale === lang ? 'text-cyan-400' : 'text-gray-200'
-                  }`}>
+                  <span
+                    className={`text-sm sm:text-base font-medium ${
+                      locale === lang ? "text-cyan-400" : "text-gray-200"
+                    }`}
+                  >
                     {getLanguageName(lang)}
                   </span>
                   {locale === lang && (
@@ -406,7 +434,7 @@ export default function Navbar() {
 
           {/* Contact info */}
           <div className="pt-4 sm:pt-6 border-t border-cyan-500/20 w-full max-w-[280px] sm:max-w-xs">
-            <a 
+            <a
               href={`tel:${locale === "en" ? "5138088813" : "+998873377577"}`}
               className="text-cyan-400 font-semibold text-base sm:text-lg block text-center hover:text-cyan-300 transition-colors"
             >
@@ -416,7 +444,12 @@ export default function Navbar() {
 
           {/* Social media icons */}
           <div className="flex items-center justify-center space-x-3 sm:space-x-4 pt-3 sm:pt-4">
-            <Link href="https://www.facebook.com/profile.php?id=61577158531453" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
+            <Link
+              href="https://www.facebook.com/profile.php?id=61577158531453"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsOpen(false)}
+            >
               <div className="w-10 h-10 sm:w-11 sm:h-11 bg-cyan-500/20 hover:bg-cyan-500/30 rounded-full flex items-center justify-center transition-all border border-cyan-500/30 active:scale-95 shadow-lg">
                 <Image
                   src="/facebook.png"
@@ -427,7 +460,12 @@ export default function Navbar() {
                 />
               </div>
             </Link>
-            <Link href="https://t.me/cognilabs_software" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
+            <Link
+              href="https://t.me/cognilabs_software"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsOpen(false)}
+            >
               <div className="w-10 h-10 sm:w-11 sm:h-11 bg-cyan-500/20 hover:bg-cyan-500/30 rounded-full flex items-center justify-center transition-all border border-cyan-500/30 active:scale-95 shadow-lg">
                 <Image
                   src="/tg.svg"
@@ -438,7 +476,12 @@ export default function Navbar() {
                 />
               </div>
             </Link>
-            <Link href="https://www.instagram.com/cognilabs/" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
+            <Link
+              href="https://www.instagram.com/cognilabs/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsOpen(false)}
+            >
               <div className="w-10 h-10 sm:w-11 sm:h-11 bg-cyan-500/20 hover:bg-cyan-500/30 rounded-full flex items-center justify-center transition-all border border-cyan-500/30 active:scale-95 shadow-lg">
                 <Image
                   src="/ig.png"

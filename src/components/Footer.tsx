@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 "use client"
 import { useLocale, useTranslations } from "next-intl";
 import { Phone, Globe, MapPin, Facebook, Send, Instagram, Mail } from "lucide-react";
@@ -87,6 +88,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-4">
             {/* Logo & Copyright */}
             <div className="flex flex-col items-center md:items-start gap-3 md:gap-2 text-center md:text-left">
+              <a href="/">
               <Image
                 src="/logomini.png"
                 alt="Cognilabs"
@@ -94,8 +96,9 @@ export default function Footer() {
                 height={40}
                 className="cursor-pointer"
               />
+              </a>
               <span className="text-gray-400 text-xs md:text-sm">
-                © 2025 Cognilabs. All rights reserved.
+                © {new Date().getFullYear()} Cognilabs. All rights reserved.
               </span>
             </div>
 

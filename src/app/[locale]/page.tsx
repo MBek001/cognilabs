@@ -1,5 +1,4 @@
-"use client"
-import { useLocale } from 'next-intl'
+
 import ClientsOpinion from '~/components/ClientsOpinion'
 import Faq from '~/components/Faq'
 import Footer from '~/components/Footer'
@@ -10,17 +9,16 @@ import Projects from '~/components/Projects'
 import RequestForm from '~/components/RequestForm'
 import Services from '~/components/Services'
 import TrustCases from '~/components/TrustCases'
+import { setRequestLocale } from 'next-intl/server'
 
-export default function page() {
+export default async function page({params}: {params: {locale: string}}) {
+const {locale} = await params
 
-
-
-  // const locale = useLocale()
-  // console.log(locale)
+setRequestLocale(locale)
   return (
     <div>
       <Header/>
-      <Projects/>
+      <Projects/> 
       <Services/>
       <TrustCases/>
       
