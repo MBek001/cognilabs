@@ -140,7 +140,7 @@ export default function Insights() {
                           alt={blog.title}
                           className="absolute inset-0 w-full h-full object-cover"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                        <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent" />
                       </div>
 
                       {/* BODY */}
@@ -153,7 +153,7 @@ export default function Insights() {
                           {blog.title}
                         </h3>
 
-                        <p className="text-gray-300 text-sm leading-relaxed line-clamp-4 flex-grow">
+                        <p className="text-gray-300 text-sm leading-relaxed line-clamp-4 grow">
                           <div
                             className="text-gray-300 leading-relaxed"
                             dangerouslySetInnerHTML={{

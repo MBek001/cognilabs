@@ -94,7 +94,7 @@ export default function Vacancies() {
             <motion.div
               key={vac.id}
               onClick={() => scrollToForm("form")}
-              className="group rounded-3xl overflow-hidden bg-gradient-to-b from-[#0066FF] to-[#0041A8] shadow-lg cursor-pointer flex flex-col relative"
+              className="group rounded-3xl overflow-hidden bg-linear-to-b from-[#0066FF] to-[#0041A8] shadow-lg cursor-pointer flex flex-col relative"
               initial={{ opacity: 0, y: 60 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{
