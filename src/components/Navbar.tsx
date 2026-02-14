@@ -119,6 +119,7 @@ export default function Navbar() {
                 height={40}
                 className="cursor-pointer w-20 sm:w-[90px] md:w-[110px] lg:w-[130px] h-auto"
                 priority
+                fetchPriority="high"
               />
             </a>
           </div>
@@ -378,7 +379,7 @@ export default function Navbar() {
             </p>
           </Link>
 
-          <Link href={`/${locale}/insights`} onClick={() => setIsOpen(false)}>
+          <Link href={`/${locale}/insights`} prefetch={false} onClick={() => setIsOpen(false)}>
             <p
               className={`text-lg sm:text-xl cursor-pointer transition-all px-6 sm:px-8 py-2.5 sm:py-3 rounded-full ${
                 isActive(`/${locale}/insights`)

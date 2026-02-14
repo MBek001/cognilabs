@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import React, { useRef } from "react";
+import  { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
 export default function Vacancies() {

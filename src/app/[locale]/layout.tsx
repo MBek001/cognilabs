@@ -8,6 +8,7 @@ import { routing } from "~/i18n/routing";
 import Navbar from "~/components/Navbar";
 import Script from "next/script"; // 👉 Buni qo‘shdik
 import { ToastContainer } from "react-toastify";
+import { setRequestLocale } from "next-intl/server";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -29,6 +30,10 @@ export const metadata: Metadata = {
   },
 };
 
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
 export default async function LocaleLayout({
   children,
   params,
@@ -37,6 +42,8 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  setRequestLocale(locale);
+
   if (!routing.locales.includes(locale as "uz" | "ru" | "en")) {
     notFound();
   }
@@ -45,13 +52,13 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning className={fontClass}>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
+      <body className="flex flex-col min-h-screen justify-between relative z-0 bg-[#0b0b0d] text-white">
+        <NextIntlClientProvider locale={locale}>
+          <Navbar />
+          {children}
+          <ToastContainer />
+        </NextIntlClientProvider>
+
         {/* LINKEDIN INSIGHT TAG */}
         <Script
           id="linkedin-insight-tag"
@@ -82,25 +89,17 @@ export default async function LocaleLayout({
             `,
           }}
         />
-      </head>
 
-      <body className="flex flex-col min-h-screen justify-between relative z-0 bg-[#0b0b0d] text-white">
-        <NextIntlClientProvider locale={locale}>
-          <Navbar />
-          {children}
-          <ToastContainer />
-
-          {/* NOSCRIPT fallback */}
-          <noscript>
-            <img
-              height="1"
-              width="1"
-              style={{ display: "none" }}
-              alt=""
-              src="https://px.ads.linkedin.com/collect/?pid=9096145&fmt=gif"
-            />
-          </noscript>
-        </NextIntlClientProvider>
+        {/* NOSCRIPT fallback */}
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            alt=""
+            src="https://px.ads.linkedin.com/collect/?pid=9096145&fmt=gif"
+          />
+        </noscript>
       </body>
     </html>
   );

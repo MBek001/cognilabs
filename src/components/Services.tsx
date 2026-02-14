@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { useLocale, useTranslations } from "next-intl";
 import { motion } from "framer-motion";
