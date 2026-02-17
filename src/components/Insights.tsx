@@ -29,7 +29,7 @@ export default function Insights() {
 
   // ---------------- FETCH BLOGS ----------------
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/all-blogs`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/all-blogs/`)
       .then((res) => res.json())
       .then((data: Blog[]) => {
         const filtered = data.filter(
