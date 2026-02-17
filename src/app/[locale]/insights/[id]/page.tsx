@@ -24,7 +24,7 @@ export default function BlogDetailClient() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/get-blog/${id}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/get-blog/${id}/`)
       .then((res) => res.json())
       .then((data: Blog) => {
         if (data.is_active && data.language === locale) {
