@@ -13,7 +13,7 @@ export default async function BlogList() {
   // Fetching data on the server
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/admin/all-blogs`,
+      `${process.env.NEXT_PUBLIC_API_URL}/admin/all-blogs/`,
       {
         next: { revalidate: 60 },
       },
