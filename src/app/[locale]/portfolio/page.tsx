@@ -257,7 +257,7 @@ export default function Page() {
         </div>
 
         {/* PROJECTS GRID */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto capitalize">
           {projects.map((item) => (
             <div
               key={item.id}
