@@ -25,9 +25,11 @@ const ClientsOpinionSwiper = ({ clientOpinions }) => {
         nextEl: ".next-btn",
       }}
       breakpoints={{
-        320: { slidesPerView: 1, spaceBetween: 20 },
-        768: { slidesPerView: 3, spaceBetween: 30 },
-        1024: { slidesPerView: 3, spaceBetween: 40 },
+        0: { slidesPerView: 1, spaceBetween: 20 },
+        640: { slidesPerView: 1.5, spaceBetween: 24 },
+        768: { slidesPerView: 2, spaceBetween: 28 },
+        1024: { slidesPerView: 2, spaceBetween: 36 },
+        1110: { slidesPerView: 3, spaceBetween: 40 },
       }}
     >
       {[...clientOpinions, ...clientOpinions].map((client, idx) => (

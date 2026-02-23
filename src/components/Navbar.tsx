@@ -94,18 +94,18 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 font-poppins">
       {/* Background blur container for mobile/tablet */}
-      <div className="w-full bg-[#0a1628]/95 backdrop-blur-md lg:bg-transparent lg:backdrop-blur-none border-b border-cyan-500/10 lg:border-0">
+      <div className="w-full bg-[#0d1f38]/30 backdrop-blur-sm lg:bg-transparent lg:backdrop-blur-none border-b border-cyan-500/10 lg:border-0">
         <div className="container mx-auto flex items-center justify-between px-3 sm:px-4 lg:px-8 py-3 sm:py-3.5 lg:py-5">
           {/* Logo with higher z-index */}
           <div className="relative flex items-center justify-center z-50">
             <div
-              className="absolute -top-4 sm:-top-5 md:-top-6 lg:-top-7 left-8 sm:left-10 md:left-12 lg:left-20"
+              className="absolute -top-4 sm:-top-4 md:-top-5 lg:-top-7 left-8 sm:left-10 md:left-12 lg:left-20"
               style={{
                 animation: "pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite",
               }}
             >
               <Link href="/careers" onClick={() => setIsOpen(false)}>
-                <p className="text-[7px] sm:text-[8px] md:text-[9px] lg:text-[11px] font-bold tracking-wide text-white px-1.5 sm:px-2 py-0.5 sm:py-1 bg-blue-700 rounded-3xl whitespace-nowrap hover:bg-cyan-500 transition-colors shadow-lg">
+                <p className="text-[7px] sm:text-[8px] md:text-[9px] lg:text-[11px] font-bold tracking-wide text-white px-1.5 sm:px-2 py-0.5 sm:py-1 bg-blue-700 rounded-3xl whitespace-nowrap hover:bg-blue-500 transition-colors shadow-lg">
                   {t("hiring")}
                 </p>
               </Link>
@@ -131,7 +131,7 @@ export default function Navbar() {
                 <div
                   className={`px-6 py-2 rounded-full transition-all cursor-pointer ${
                     isActive(`/${locale}/about-us`)
-                      ? "bg-cyan-500/20 text-cyan-400 font-semibold"
+                      ? "bg-blue-700 text-white font-semibold"
                       : "text-gray-300 hover:text-white hover:bg-white/5"
                   }`}
                 >
@@ -143,7 +143,7 @@ export default function Navbar() {
                 <div
                   className={`px-6 py-2 rounded-full transition-all cursor-pointer ${
                     isActive(`/${locale}/careers`)
-                      ? "bg-cyan-500/20 text-cyan-400 font-semibold"
+                      ? "bg-blue-700 text-white font-semibold"
                       : "text-gray-300 hover:text-white hover:bg-white/5"
                   }`}
                 >
@@ -155,7 +155,7 @@ export default function Navbar() {
                 <div
                   className={`px-6 py-2 rounded-full transition-all cursor-pointer ${
                     isActive(`/${locale}/services`)
-                      ? "bg-cyan-500/20 text-cyan-400 font-semibold"
+                      ? "bg-blue-700 text-white font-semibold"
                       : "text-gray-300 hover:text-white hover:bg-white/5"
                   }`}
                 >
@@ -167,7 +167,7 @@ export default function Navbar() {
                 <div
                   className={`px-6 py-2 rounded-full transition-all cursor-pointer ${
                     isActive(`/${locale}/portfolio`)
-                      ? "bg-cyan-500/20 text-cyan-400 font-semibold"
+                      ? "bg-blue-700 text-white font-semibold"
                       : "text-gray-300 hover:text-white hover:bg-white/5"
                   }`}
                 >
@@ -179,7 +179,7 @@ export default function Navbar() {
                 <div
                   className={`px-6 py-2 rounded-full transition-all cursor-pointer ${
                     isActive(`/${locale}/insights`)
-                      ? "bg-cyan-500/20 text-cyan-400 font-semibold"
+                      ? "bg-blue-700 text-white font-semibold"
                       : "text-gray-300 hover:text-white hover:bg-white/5"
                   }`}
                 >
@@ -212,27 +212,27 @@ export default function Navbar() {
                     />
 
                     {/* Menu */}
-                    <div className="absolute right-0 mt-2 w-30 rounded-2xl bg-[#1c2938]/95 backdrop-blur-xl border border-cyan-500/20 shadow-2xl overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                    <div className="absolute right-0 mt-2 w-30 rounded-2xl bg-[#1c2938]/95 backdrop-blur-xl border border-blue-500/20 shadow-2xl overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
                       <div className="py-2">
                         {["en", "ru", "uz"].map((lang, index) => (
                           <button
                             key={lang}
                             onClick={() => changeLocale(lang)}
-                            className={`w-full px-4 py-3 flex items-center justify-between hover:bg-cyan-500/10 transition-all ${
-                              index !== 0 ? "border-t border-cyan-500/10" : ""
+                            className={`w-full px-4 py-3 flex items-center justify-between hover:bg-blue-600/20 transition-all ${
+                              index !== 0 ? "border-t border-blue-500/10" : ""
                             }`}
                           >
                             <span
                               className={`text-sm font-medium ${
                                 locale === lang
-                                  ? "text-cyan-400"
+                                  ? "text-blue-400"
                                   : "text-gray-200"
                               }`}
                             >
                               {getLanguageName(lang)}
                             </span>
                             {locale === lang && (
-                              <Check className="w-5 h-5 text-cyan-400" />
+                              <Check className="w-5 h-5 text-blue-400" />
                             )}
                           </button>
                         ))}
@@ -300,7 +300,7 @@ export default function Navbar() {
 
           {/* Mobile/Tablet Hamburger with higher z-index */}
           <button
-            className="lg:hidden text-cyan-400 z-50 p-2 hover:bg-cyan-500/10 rounded-md transition-colors border border-cyan-500/30 shadow-lg bg-[#0d1f38]/50 backdrop-blur-sm"
+            className="lg:hidden text-white z-50 p-2 hover:bg-blue-600 rounded-md transition-colors border border-cyan-500/30 shadow-lg bg-[#0d1f38]/50 backdrop-blur-sm"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
@@ -324,7 +324,7 @@ export default function Navbar() {
         {/* Close button */}
         <button
           onClick={() => setIsOpen(false)}
-          className="absolute top-4 right-4 z-50 p-2 rounded-full bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-500/40 text-cyan-400 transition-all"
+          className="absolute top-4 right-4 z-50 p-2 rounded-full bg-blue-700 hover:bg-blue-600 border border-cyan-500/40 text-white transition-all"
           aria-label="Close menu"
         >
           <X size={24} />
@@ -335,7 +335,7 @@ export default function Navbar() {
             <p
               className={`text-lg sm:text-xl cursor-pointer transition-all px-6 sm:px-8 py-2.5 sm:py-3 rounded-full ${
                 isActive(`/${locale}/about-us`)
-                  ? "bg-cyan-500/20 text-cyan-400 font-bold border border-cyan-500/50"
+                  ? "bg-blue-700 text-white font-bold border border-cyan-500/50"
                   : "text-gray-300 hover:text-white hover:bg-white/5"
               }`}
             >
@@ -347,7 +347,7 @@ export default function Navbar() {
             <p
               className={`text-lg sm:text-xl cursor-pointer transition-all px-6 sm:px-8 py-2.5 sm:py-3 rounded-full ${
                 isActive(`/${locale}/careers`)
-                  ? "bg-cyan-500/20 text-cyan-400 font-bold border border-cyan-500/50"
+                  ? "bg-blue-700 text-white font-bold border border-cyan-500/50"
                   : "text-gray-300 hover:text-white hover:bg-white/5"
               }`}
             >
@@ -359,7 +359,7 @@ export default function Navbar() {
             <p
               className={`text-lg sm:text-xl cursor-pointer transition-all px-6 sm:px-8 py-2.5 sm:py-3 rounded-full ${
                 isActive(`/${locale}/services`)
-                  ? "bg-cyan-500/20 text-cyan-400 font-bold border border-cyan-500/50"
+                  ? "bg-blue-700 text-white font-bold border border-cyan-500/50"
                   : "text-gray-300 hover:text-white hover:bg-white/5"
               }`}
             >
@@ -371,7 +371,7 @@ export default function Navbar() {
             <p
               className={`text-lg sm:text-xl cursor-pointer transition-all px-6 sm:px-8 py-2.5 sm:py-3 rounded-full ${
                 isActive(`/${locale}/portfolio`)
-                  ? "bg-cyan-500/20 text-cyan-400 font-bold border border-cyan-500/50"
+                  ? "bg-blue-700 text-white font-bold border border-cyan-500/50"
                   : "text-gray-300 hover:text-white hover:bg-white/5"
               }`}
             >
@@ -383,7 +383,7 @@ export default function Navbar() {
             <p
               className={`text-lg sm:text-xl cursor-pointer transition-all px-6 sm:px-8 py-2.5 sm:py-3 rounded-full ${
                 isActive(`/${locale}/insights`)
-                  ? "bg-cyan-500/20 text-cyan-400 font-bold border border-cyan-500/50"
+                  ? "bg-blue-700 text-white font-bold border border-cyan-500/50"
                   : "text-gray-300 hover:text-white hover:bg-white/5"
               }`}
             >
@@ -400,9 +400,9 @@ export default function Navbar() {
 
           {/* iPhone-style language selector for mobile */}
           <div className="pt-3 sm:pt-4 w-full max-w-[280px] sm:max-w-xs">
-            <div className="rounded-2xl bg-[#1c2938]/80 backdrop-blur-xl border border-cyan-500/20 overflow-hidden shadow-2xl">
-              <div className="px-4 py-2.5 sm:py-3 border-b border-cyan-500/10">
-                <div className="flex items-center justify-center space-x-2 text-cyan-400">
+            <div className="rounded-2xl bg-[#1c2938]/80 backdrop-blur-xl border border-blue-500/20 overflow-hidden shadow-2xl">
+              <div className="px-4 py-2.5 sm:py-3 border-b border-blue-500/20">
+                <div className="flex items-center justify-center space-x-2 text-blue-400">
                   <Globe className="w-4 h-4 sm:w-5 sm:h-5" />
                   <span className="text-xs sm:text-sm font-semibold">
                     Language
@@ -413,19 +413,19 @@ export default function Navbar() {
                 <button
                   key={lang}
                   onClick={() => changeLocale(lang)}
-                  className={`w-full px-5 sm:px-6 py-3 sm:py-4 flex items-center justify-between hover:bg-cyan-500/10 active:bg-cyan-500/20 transition-all ${
-                    index !== 0 ? "border-t border-cyan-500/10" : ""
+                  className={`w-full px-5 sm:px-6 py-3 sm:py-4 flex items-center justify-between hover:bg-blue-600/20 active:bg-blue-700 transition-all ${
+                    index !== 0 ? "border-t border-blue-500/20" : ""
                   }`}
                 >
                   <span
                     className={`text-sm sm:text-base font-medium ${
-                      locale === lang ? "text-cyan-400" : "text-gray-200"
+                      locale === lang ? "text-blue-400" : "text-gray-200"
                     }`}
                   >
                     {getLanguageName(lang)}
                   </span>
                   {locale === lang && (
-                    <Check className="w-5 h-5 sm:w-6 sm:h-6 text-cyan-400" />
+                    <Check className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400" />
                   )}
                 </button>
               ))}
@@ -436,7 +436,7 @@ export default function Navbar() {
           <div className="pt-4 sm:pt-6 border-t border-cyan-500/20 w-full max-w-[280px] sm:max-w-xs">
             <a
               href={`tel:${locale === "en" ? "5138088813" : "+998873377577"}`}
-              className="text-cyan-400 font-semibold text-base sm:text-lg block text-center hover:text-cyan-300 transition-colors"
+              className="text-blue-400 font-semibold text-base sm:text-lg block text-center hover:text-blue-400/70 transition-colors"
             >
               {locale === "en" ? "+1 (513) 808-88-13" : "+998 (87) 337-75-77"}
             </a>

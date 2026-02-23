@@ -174,7 +174,7 @@
     "item3": "Veb-sayt yaratish",
     "item4": "Veb-ilovalar ishlab chiqish",
     "item5": "Mobil ilovalar ishlab chiqish",
-    "item6": "CRM va APO tizimlariga mo‘ljallangan maxsus dasturlar",
+    "item6": "CRM va ERP tizimlariga mo‘ljallangan maxsus dasturlar",
     "item7": "Chat-botlar — istalgan platforma uchun"
   },
   "expertise": {
@@ -197,7 +197,25 @@
   "text2": "Uning iqtidorli dasturchilar, dizaynerlar va muhandislardan iborat jamoasi mijozlar ehtiyojlariga to‘liq mos keladigan maxsus veb-saytlar, chatbotlar va ilovalarni yaratish uchun birgalikda ishlaydi. Kompaniya uzoq muddatli hamkorlikni qadrlaydi va har bir loyihada silliq muloqotni ta’minlaydi. Yillar davomida Cognilabs startaplar va taniqli kompaniyalar uchun ishonchli texnologik hamkor sifatida o‘sib bordi va har doim haqiqiy natijalarga erishadigan innovatsiyalarni yetkazib berishga intiladi.",
   "ourgoal": "Bizning maqsadimiz",
   "text3": "Maqsadimiz — texnologiya kelajagini qayta shakllantirish orqali rivojlanish va samaradorlikni ta’minlaydigan aqlli yechimlarni yaratishdir. Biz innovatsiya, aniqlik va strategik fikrlashni birlashtirib, bizneslarni o‘z faoliyatini o‘zgartirish va yangi imkoniyatlarni ochishda yordam beramiz.",
-  "text4": "Biz ishlab chiqadigan har bir mahsulot mukammallik, barqarorlik va kelajakka yo‘naltirilgan dizayn bo‘yicha majburiyatimizni aks ettiradi. Inson ijodkorligi va ilg‘or texnologiyani bog‘lab, g‘oyalar haqiqiy ta’sirga aylanadigan yanada aqlli va bog‘langan dunyoni shakllantirishga intilamiz."
+  "text4": "Biz ishlab chiqadigan har bir mahsulot mukammallik, barqarorlik va kelajakka yo‘naltirilgan dizayn bo‘yicha majburiyatimizni aks ettiradi. Inson ijodkorligi va ilg‘or texnologiyani bog‘lab, g‘oyalar haqiqiy ta’sirga aylanadigan yanada aqlli va bog‘langan dunyoni shakllantirishga intilamiz.",
+  "contact": "Bog'lanish",
+  "years": "3+ yillik tajriba",
+  "yearsInNumber":"3+",
+  "values": "Bizning qadriyatlarimiz",
+  "value1": "Sifat",
+  "value2": "Shaffoflik",
+  "value3": "Hamkorlik",
+  "clients": "120+",
+  "clientsLabel": "Mamnun mijozlar",
+  "projects": "240+",
+  "projectsLabel": "Bajarilgan loyihalar",
+  "experience": "Yillik tajriba"
+  ,"goal1Title":"Bizning missiyamiz"
+  ,"goal1Text":"Aqlli dasturiy ta'minot va AI yordamida bizneslarni kengaytirishga yordam beradigan yuqori sifatli mahsulotlarni yetkazib berish."
+  ,"goal2Title":"Bizning yondashuvimiz"
+  ,"goal2Text":"Dizayn-fikrlash, moslashuvchan ishlab chiqish va AI-first strategiyalarini birlashtirib real muammolarni hal qilamiz."
+  ,"goal3Title":"Bizning ta'sirimiz"
+  ,"goal3Text":"O'lchanadigan natijalar yaratish — bozorga chiqish tezligi oshishi, samaradorlik va mijozlar qoniqishi."
 },
 "Careers": {
   "unlock": "Cognilabs’da o‘z salohiyatingizni oching",

@@ -45,7 +45,7 @@
         "mobile-dev":"Mobile Application Development",
         "mobile-dev-text":"We create intuitive mobile apps that enhance user engagement and drive business growth.",
         "mobile-dev-text2":"We create intuitive mobile apps that enhance user engagement and drive business growth. With a focus on performance, usability, and innovation, our apps deliver smooth experiences across all devices — helping your brand stay connected with customers anytime, anywhere.",
-        "crm":"CRM, APO Systems Custom Software",
+        "crm":"CRM, ERP Systems Custom Software",
         "crm-text":"We develop custom CRM and ERP systems tailored to optimize business processes and improve efficiency.",
         "crm-text2" :"We develop custom CRM and ERP systems tailored to optimize business processes and improve efficiency. Our solutions centralize data, automate workflows, and provide actionable insights that empower teams to make smarter, faster decisions and scale with confidence.",
         "more-services": "More Services",
@@ -164,7 +164,7 @@
     "item3": "Website Development",
     "item4": "Web Application Development",
     "item5": "Mobile App Development",
-    "item6": "CRM, APO Systems Custom Software",
+    "item6": "CRM, ERP Systems Custom Software",
     "item7": "Chat-bots, Bots for any platform"
   },
   "expertise": {
@@ -188,6 +188,24 @@
     "ourgoal":"Our Goal",
     "text3": "Our goal is to redefine the future of technology by creating intelligent solutions that drive progress and efficiency. We combine innovation, precision, and strategic thinking to help businesses transform their operations and unlock new possibilities.",
     "text4": "Every product we develop reflects our commitment to excellence, sustainability, and forward-thinking design. By bridging human creativity with advanced technology, we aim to shape a smarter, more connected world where ideas turn into meaningful impact. "
+    ,"contact":"Get in touch"
+    ,"years":"3+ years of experience"
+    ,"yearsInNumber":"3+"
+    ,"values":"Our values"
+    ,"value1":"Quality"
+    ,"value2":"Transparency"
+    ,"value3":"Collaboration"
+    ,"clients":"120+"
+    ,"clientsLabel":"Happy clients"
+    ,"projects":"240+"
+    ,"projectsLabel":"Projects delivered"
+    ,"experience":"Years experience"
+    ,"goal1Title":"Our mission"
+    ,"goal1Text":"Deliver high-quality products that help businesses scale through intelligent software and AI."
+    ,"goal2Title":"Our approach"
+    ,"goal2Text":"Combine design thinking, agile development, and AI-first strategies to solve real problems."
+    ,"goal3Title":"Our impact"
+    ,"goal3Text":"Create measurable results — faster time-to-market, increased efficiency, and happier customers."
   } ,
 
   "Careers" :{
