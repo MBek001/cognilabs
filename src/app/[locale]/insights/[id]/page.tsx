@@ -7,6 +7,7 @@ import { ArrowLeft, Calendar } from 'lucide-react'
 import Insights from '~/components/Insights'
 import Footer from '~/components/Footer'
 import DOMPurify from 'dompurify'
+import { useLocale } from 'next-intl'
 
 interface Blog {
 	id: number
@@ -19,7 +20,8 @@ interface Blog {
 }
 
 export default function BlogDetailClient() {
-	const { locale, id } = useParams()
+	const { id } = useParams()
+	const locale = useLocale()
 	const [blog, setBlog] = useState<Blog | null>(null)
 	const [loading, setLoading] = useState(true)
 
