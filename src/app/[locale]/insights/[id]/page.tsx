@@ -23,10 +23,30 @@ export default function BlogDetailClient() {
 	const [blog, setBlog] = useState<Blog | null>(null)
 	const [loading, setLoading] = useState(true)
 
-	const localeMap: Record<string, string> = {
-		ru: 'ru-RU',
-		en: 'en-US',
-		uz: 'uz-UZ',
+	const formatDate = (dateString: string) => {
+		const date = new Date(dateString)
+		if (locale === 'uz') {
+			const uzMonths = [
+				'yanvar',
+				'fevral',
+				'mart',
+				'aprel',
+				'may',
+				'iyun',
+				'iyul',
+				'avgust',
+				'sentyabr',
+				'oktyabr',
+				'noyabr',
+				'dekabr',
+			]
+			return `${date.getDate()} ${uzMonths[date.getMonth()]} ${date.getFullYear()}`
+		}
+		return date.toLocaleDateString(locale, {
+			year: 'numeric',
+			month: 'long',
+			day: 'numeric',
+		})
 	}
 
 	useEffect(() => {
@@ -86,12 +106,7 @@ export default function BlogDetailClient() {
 						<Calendar size={18} />
 						<span className='text-sm font-medium'>
 							{new Date(blog.date_posted).toLocaleDateString(
-								localeMap[locale as string] || 'en-US',
-								{
-									year: 'numeric',
-									month: 'long',
-									day: 'numeric',
-								},
+								formatDate(locale as string),
 							)}
 						</span>
 					</div>
