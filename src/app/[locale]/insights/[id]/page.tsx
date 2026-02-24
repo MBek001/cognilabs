@@ -23,6 +23,12 @@ export default function BlogDetailClient() {
 	const [blog, setBlog] = useState<Blog | null>(null)
 	const [loading, setLoading] = useState(true)
 
+	const localeMap: Record<string, string> = {
+		ru: 'ru-RU',
+		en: 'en-US',
+		uz: 'uz-UZ',
+	}
+
 	useEffect(() => {
 		fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/get-blog/${id}/`)
 			.then(res => res.json())
@@ -79,11 +85,14 @@ export default function BlogDetailClient() {
 					<div className='flex items-center gap-2 text-blue-400 mb-8'>
 						<Calendar size={18} />
 						<span className='text-sm font-medium'>
-							{new Date(blog.date_posted).toLocaleDateString(locale, {
-								year: 'numeric',
-								month: 'long',
-								day: 'numeric',
-							})}
+							{new Date(blog.date_posted).toLocaleDateString(
+								localeMap[locale as string] || 'en-US',
+								{
+									year: 'numeric',
+									month: 'long',
+									day: 'numeric',
+								},
+							)}
 						</span>
 					</div>
 
