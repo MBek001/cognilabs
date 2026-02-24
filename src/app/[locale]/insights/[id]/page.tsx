@@ -107,9 +107,7 @@ export default function BlogDetailClient() {
 					<div className='flex items-center gap-2 text-blue-400 mb-8'>
 						<Calendar size={18} />
 						<span className='text-sm font-medium'>
-							{new Date(blog.date_posted).toLocaleDateString(
-								formatDate(locale as string),
-							)}
+							{formatDate(blog.date_posted)}
 						</span>
 					</div>
 
