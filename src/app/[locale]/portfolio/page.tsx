@@ -3,9 +3,7 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import Link from 'next/link'
 import Footer from '~/components/Footer'
-import { ArrowRight } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
 export default function Page() {
@@ -362,14 +360,6 @@ export default function Page() {
 											</p>
 										</div>
 									</div>
-
-									<Link
-										href={item.link}
-										target='_blank'
-										className='bg-blue-600 flex gap-2 hover:bg-blue-700 text-white px-6 py-3 rounded-xl text-sm font-semibold transition whitespace-nowrap'
-									>
-										{t('visitpr')} <ArrowRight className='w-5 h-5' />
-									</Link>
 								</div>
 							</motion.div>
 						</div>
