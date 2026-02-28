@@ -5,7 +5,6 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Footer from '~/components/Footer'
 import { useTranslations } from 'next-intl'
-import SignupButton from '~/app/components/SignupButton'
 
 export default function Page() {
 	const [hovered, setHovered] = useState<number | null>(null)
@@ -253,9 +252,6 @@ export default function Page() {
 								</span>
 							))}
 					</h2>
-				</div>
-				<div className='mb-12 flex justify-center'>
-					<SignupButton />
 				</div>
 
 				{/* PROJECTS GRID */}
