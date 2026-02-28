@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Suspense } from "react";
 import { Geist, Poppins } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
@@ -79,7 +80,9 @@ export default async function LocaleLayout({
         ) : null}
 
         <NextIntlClientProvider locale={locale}>
-          <GoogleAnalytics />
+          <Suspense fallback={null}>
+            <GoogleAnalytics />
+          </Suspense>
           <Navbar />
           {children}
           <ToastContainer />
@@ -128,4 +131,3 @@ export default async function LocaleLayout({
     </html>
   );
 }
-
