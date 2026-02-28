@@ -9,6 +9,7 @@ import { notFound } from "next/navigation";
 import { ToastContainer } from "react-toastify";
 import Navbar from "~/components/Navbar";
 import GoogleAnalytics from "~/app/components/GoogleAnalytics";
+import AutoAnalyticsTracker from "~/app/components/AutoAnalyticsTracker";
 import { routing } from "~/i18n/routing";
 import { GA_ID } from "~/lib/gtag";
 import "./globals.css";
@@ -83,6 +84,7 @@ export default async function LocaleLayout({
           <Suspense fallback={null}>
             <GoogleAnalytics />
           </Suspense>
+          <AutoAnalyticsTracker />
           <Navbar />
           {children}
           <ToastContainer />
