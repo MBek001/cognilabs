@@ -1,14 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import "./globals.css";
+import Script from "next/script";
 import { Geist, Poppins } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
-import { routing } from "~/i18n/routing";
-import Navbar from "~/components/Navbar";
-import Script from "next/script"; // 👉 Buni qo‘shdik
-import { ToastContainer } from "react-toastify";
 import { setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { ToastContainer } from "react-toastify";
+import Navbar from "~/components/Navbar";
+import GoogleAnalytics from "~/app/components/GoogleAnalytics";
+import { routing } from "~/i18n/routing";
+import { GA_ID } from "~/lib/gtag";
+import "./globals.css";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -53,13 +55,36 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} suppressHydrationWarning className={fontClass}>
       <body className="flex flex-col min-h-screen justify-between relative z-0 bg-[#0b0b0d] text-white">
+        {GA_ID ? (
+          <>
+            <Script
+              id="ga4-src"
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script
+              id="ga4-init"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  window.gtag = gtag;
+                  gtag('js', new Date());
+                  gtag('config', '${GA_ID}', { send_page_view: false });
+                `,
+              }}
+            />
+          </>
+        ) : null}
+
         <NextIntlClientProvider locale={locale}>
+          <GoogleAnalytics />
           <Navbar />
           {children}
           <ToastContainer />
         </NextIntlClientProvider>
 
-        {/* LINKEDIN INSIGHT TAG */}
         <Script
           id="linkedin-insight-tag"
           strategy="lazyOnload"
@@ -90,7 +115,6 @@ export default async function LocaleLayout({
           }}
         />
 
-        {/* NOSCRIPT fallback */}
         <noscript>
           <img
             height="1"
@@ -104,3 +128,4 @@ export default async function LocaleLayout({
     </html>
   );
 }
+
