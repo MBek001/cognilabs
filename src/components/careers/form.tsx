@@ -4,6 +4,7 @@ import { ChevronDown, Upload, UploadIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { errorToast, successToast } from '~/Contact/response-toasts';
+import { trackEvent } from '~/lib/gtag';
 
 interface CareerFormData {
   fullName: string;
@@ -85,6 +86,7 @@ export default function JoinTeamForm() {
       return;
     }
 
+    trackEvent("careers_form_submit");
     setIsSubmitting(true);
 
     try {

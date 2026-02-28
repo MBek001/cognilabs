@@ -141,7 +141,7 @@ export default async function AboutPage({
       </div>
       <AnimatedSection>
         <div id="contact" className="pt-12">
-          <RequestForm />
+          <RequestForm submitEventName="about_form_submit" />
         </div>
       </AnimatedSection>
 

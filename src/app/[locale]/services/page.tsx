@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import RequestForm from "~/components/RequestForm";
 import Footer from "~/components/Footer";
+import { trackEvent } from "~/lib/gtag";
 
 export default function ServicesPage() {
   const t = useTranslations("Services");
@@ -104,11 +105,12 @@ export default function ServicesPage() {
                   {service.desc}
                 </p>
                 <button
-                  onClick={() =>
+                  onClick={() => {
+                    trackEvent("contact_now_click");
                     document
                       .getElementById("contact")
-                      ?.scrollIntoView({ behavior: "smooth" })
-                  }
+                      ?.scrollIntoView({ behavior: "smooth" });
+                  }}
                   className="inline-flex items-center gap-2 text-blue-500 hover:text-blue-300 font-semibold text-sm md:text-base transition-all"
                 >
                   {t("use-service")}
@@ -124,7 +126,7 @@ export default function ServicesPage() {
 
       {/* Request form */}
       <div id="contact" className="pt-16 sm:pt-24">
-        <RequestForm />
+        <RequestForm submitEventName="services_form_submit" />
       </div>
       <section className="bg-black text-white py-20 md:py-32">
         <div className="px-6 sm:px-10 lg:px-16 max-w-7xl mx-auto text-center">

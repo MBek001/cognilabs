@@ -6,6 +6,7 @@ import Link from "next/link";
 import React, { useState, FormEvent } from "react";
 import { sendLeadToChannel } from "~/Contact/bot";
 import { motion } from "framer-motion";
+import { trackEvent } from "~/lib/gtag";
 
 interface FormData {
   name: string;
@@ -16,7 +17,11 @@ interface FormData {
   budget: string;
 }
 
-export default function RequestForm() {
+interface RequestFormProps {
+  submitEventName?: string;
+}
+
+export default function RequestForm({ submitEventName }: RequestFormProps) {
   const t = useTranslations("ContactForm");
   const locale = useLocale();
 
@@ -33,6 +38,9 @@ export default function RequestForm() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    if (submitEventName) {
+      trackEvent(submitEventName);
+    }
     setLoading(true);
     await sendLeadToChannel(formData);
     setLoading(false);
