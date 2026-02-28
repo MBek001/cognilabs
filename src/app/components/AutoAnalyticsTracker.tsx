@@ -40,14 +40,14 @@ const getButtonName = (element: Element): string => {
   return sanitizeToken(raw) || "unknown";
 };
 
-const getFormName = (form: HTMLFormElement): string => {
+const getFormName = (form: HTMLFormElement, pageName: string): string => {
   const raw =
     form.getAttribute("name") ||
     form.getAttribute("id") ||
     form.getAttribute("aria-label") ||
-    "unknown";
+    pageName;
 
-  return sanitizeToken(raw) || "unknown";
+  return sanitizeToken(raw) || pageName;
 };
 
 /**
@@ -59,9 +59,9 @@ const getFormName = (form: HTMLFormElement): string => {
  * - Re-runs on route changes so SPA navigation keeps page context correct.
  *
  * Event examples in GA4:
- * - button_click_home_apply
- * - button_click_careers_submit_application
- * - form_submit_careers_application
+ * - button_click__home_apply
+ * - button_click__careers_submit_application
+ * - form_submit__careers_application
  */
 export default function AutoAnalyticsTracker() {
   const pathname = usePathname();
@@ -78,7 +78,7 @@ export default function AutoAnalyticsTracker() {
       if (!button) return;
 
       const buttonName = getButtonName(button);
-      const eventName = `button_click_${pageName}_${buttonName}`;
+      const eventName = `button_click__${pageName}_${buttonName}`;
 
       trackEvent(eventName, {
         page: pageName,
@@ -93,8 +93,8 @@ export default function AutoAnalyticsTracker() {
       const target = event.target as HTMLFormElement | null;
       if (!target || target.tagName.toLowerCase() !== "form") return;
 
-      const formName = getFormName(target);
-      const eventName = `form_submit_${pageName}_${formName}`;
+      const formName = getFormName(target, pageName);
+      const eventName = `form_submit__${pageName}_${formName}`;
 
       trackEvent(eventName, {
         page: pageName,
@@ -115,4 +115,3 @@ export default function AutoAnalyticsTracker() {
 
   return null;
 }
-
