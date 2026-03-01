@@ -86,7 +86,7 @@ export default function JoinTeamForm() {
       return;
     }
 
-    trackEvent("form_submit", { form_id: "form_careers" });
+    trackEvent("form_submit", { form_id: "careers-form-section" });
     setIsSubmitting(true);
 
     try {

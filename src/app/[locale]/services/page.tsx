@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import RequestForm from "~/components/RequestForm";
 import Footer from "~/components/Footer";
-import { trackEvent } from "~/lib/gtag";
+import { trackEvent } from "~/lib/analytics";
 
 export default function ServicesPage() {
   const t = useTranslations("Services");
@@ -106,7 +106,9 @@ export default function ServicesPage() {
                 </p>
                 <button
                   onClick={() => {
-                    trackEvent("contact_now_click");
+                    trackEvent("button_click", {
+                      element_id: "btn_services_contact_now",
+                    });
                     document
                       .getElementById("contact")
                       ?.scrollIntoView({ behavior: "smooth" });

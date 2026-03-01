@@ -1,6 +1,7 @@
 "use client";
 
 type EventData = Record<string, unknown>;
+const SUPPORTED_LOCALES = new Set(["en", "ru", "uz"]);
 
 const getTrackingContext = () => {
   if (typeof window === "undefined") {
@@ -8,7 +9,8 @@ const getTrackingContext = () => {
   }
 
   const pagePath = window.location.pathname;
-  const locale = pagePath.split("/")[1] || "default";
+  const firstSegment = pagePath.split("/")[1] || "";
+  const locale = SUPPORTED_LOCALES.has(firstSegment) ? firstSegment : "default";
 
   return { pagePath, locale };
 };
