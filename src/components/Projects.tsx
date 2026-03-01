@@ -226,7 +226,7 @@ function ProjectCard({
 
 				<div
 					className={`
-            h-[1px] mb-3 md:mb-4 w-full md:max-w-[540px] bg-white
+            h-px mb-3 md:mb-4 w-full md:max-w-[540px] bg-white
             transition-all duration-700 ease-out delay-400
             ${project.position === 'left' ? 'md:ml-auto origin-left' : 'origin-right'}
             ${isInView ? 'scale-x-100' : 'scale-x-0'}

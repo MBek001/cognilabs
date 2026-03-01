@@ -126,7 +126,7 @@ export default function ServicesPage() {
 
       {/* Request form */}
       <div id="contact" className="pt-16 sm:pt-24">
-        <RequestForm submitEventName="services_form_submit" />
+        <RequestForm formId="form_services" />
       </div>
       <section className="bg-black text-white py-20 md:py-32">
         <div className="px-6 sm:px-10 lg:px-16 max-w-7xl mx-auto text-center">

@@ -6,7 +6,7 @@ import Link from "next/link";
 import React, { useState, FormEvent } from "react";
 import { sendLeadToChannel } from "~/Contact/bot";
 import { motion } from "framer-motion";
-import { trackEvent } from "~/lib/gtag";
+import { trackEvent } from "~/lib/analytics";
 
 interface FormData {
   name: string;
@@ -18,10 +18,10 @@ interface FormData {
 }
 
 interface RequestFormProps {
-  submitEventName?: string;
+  formId: string;
 }
 
-export default function RequestForm({ submitEventName }: RequestFormProps) {
+export default function RequestForm({ formId }: RequestFormProps) {
   const t = useTranslations("ContactForm");
   const locale = useLocale();
 
@@ -38,9 +38,7 @@ export default function RequestForm({ submitEventName }: RequestFormProps) {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (submitEventName) {
-      trackEvent(submitEventName);
-    }
+    trackEvent("form_submit", { form_id: formId });
     setLoading(true);
     await sendLeadToChannel(formData);
     setLoading(false);
@@ -145,6 +143,7 @@ export default function RequestForm({ submitEventName }: RequestFormProps) {
         {/* RIGHT SECTION — FORM */}
         <div>
           <form
+            id={formId}
             onSubmit={handleSubmit}
             className="bg-white text-gray-500 max-w-[510px] hover:scale-101 duration-300 transform transition-transform rounded-[50px] shadow-lg p-10 space-y-8"
           >

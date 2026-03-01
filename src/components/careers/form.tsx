@@ -4,7 +4,7 @@ import { ChevronDown, Upload, UploadIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { errorToast, successToast } from '~/Contact/response-toasts';
-import { trackEvent } from '~/lib/gtag';
+import { trackEvent } from '~/lib/analytics';
 
 interface CareerFormData {
   fullName: string;
@@ -86,7 +86,7 @@ export default function JoinTeamForm() {
       return;
     }
 
-    trackEvent("careers_form_submit");
+    trackEvent("form_submit", { form_id: "form_careers" });
     setIsSubmitting(true);
 
     try {
@@ -114,7 +114,7 @@ export default function JoinTeamForm() {
 
   return (
     <motion.div
-      id="form"
+      id="careers-form-section"
       className="min-h-screen bg-black flex items-center justify-center px-4 py-16 sm:py-20"
       initial="hidden"
       animate="visible"
@@ -130,7 +130,17 @@ export default function JoinTeamForm() {
 
         {/* FORM */}
         <motion.div className="bg-gray-100 rounded-[30px] sm:rounded-[40px] p-6 sm:p-10 shadow-2xl" variants={itemVariants}>
-          <motion.div className="space-y-6" initial="hidden" animate="visible" variants={containerVariants}>
+          <motion.form
+            id="form_careers"
+            className="space-y-6"
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+            onSubmit={(e) => {
+              e.preventDefault();
+              void handleSubmit();
+            }}
+          >
 
             <motion.input
               type="text"
@@ -211,7 +221,7 @@ export default function JoinTeamForm() {
 
             <div className='flex  justify-center'>
               <motion.button
-              onClick={handleSubmit}
+              type="submit"
               disabled={isSubmitting}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -222,7 +232,7 @@ export default function JoinTeamForm() {
             </motion.button>
             </div>
 
-          </motion.div>
+          </motion.form>
         </motion.div>
 
       </div>

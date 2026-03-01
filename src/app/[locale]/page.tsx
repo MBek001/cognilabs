@@ -24,7 +24,7 @@ setRequestLocale(locale)
       
       <ClientsOpinion/>
       <Locations/>
-      <RequestForm submitEventName="main_form_submit" />
+      <RequestForm formId="form_home_main" />
       <Faq/>
       <Insights/> 
       <Footer/> 

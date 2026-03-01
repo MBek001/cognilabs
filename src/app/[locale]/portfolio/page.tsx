@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Footer from '~/components/Footer'
 import { useTranslations } from 'next-intl'
+import RequestForm from '~/components/RequestForm'
 
 export default function Page() {
 	const [hovered, setHovered] = useState<number | null>(null)
@@ -367,11 +368,14 @@ export default function Page() {
 				</div>
 
 				{/* Final Text */}
-				<div className='mx-auto text-center pt-20 max-w-[900px] px-4 pb-20'>
+			<div className='mx-auto text-center pt-20 max-w-[900px] px-4 pb-20'>
 					<p className='text-lg md:text-2xl text-gray-300 leading-relaxed'>
 						{t('bottomtext')}
 					</p>
 				</div>
+			</div>
+			<div id='contact' className='pt-12 sm:pt-20'>
+				<RequestForm formId='form_portfolio' />
 			</div>
 
 			<Footer />
