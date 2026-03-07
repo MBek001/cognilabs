@@ -9,9 +9,6 @@ type ReverseGeocodeResponse = {
   countryName?: string;
 };
 
-const DEBUG_ENABLED = process.env.NEXT_PUBLIC_GEO_DEBUG_PERMISSION === "true";
-const PROMPT_ONCE_KEY = "geo-locale-debug-prompted-v1";
-const ONE_YEAR_IN_SECONDS = 60 * 60 * 24 * 365;
 const SUPPORTED_LOCALES = new Set<Locale>(["en", "uz", "ru"]);
 
 function getLocaleFromCountry(countryCode?: string): Locale {
@@ -33,32 +30,41 @@ function getLocaleFromPath(pathname: string): Locale | null {
   return null;
 }
 
-function buildPathWithLocale(pathname: string, locale: Locale): string {
-  const withoutLocalePrefix = pathname.replace(/^\/(en|uz|ru)(?=\/|$)/, "");
-  return withoutLocalePrefix ? `/${locale}${withoutLocalePrefix}` : `/${locale}`;
-}
+function getCookieLocale(): Locale | null {
+  const localeCookie = document.cookie
+    .split("; ")
+    .find((item) => item.startsWith("NEXT_LOCALE="))
+    ?.split("=")[1];
 
-function setLocaleCookie(locale: Locale) {
-  document.cookie = `NEXT_LOCALE=${locale}; Path=/; Max-Age=${ONE_YEAR_IN_SECONDS}; SameSite=Lax`;
+  if (localeCookie && SUPPORTED_LOCALES.has(localeCookie as Locale)) {
+    return localeCookie as Locale;
+  }
+
+  return null;
 }
 
 export default function GeoLocalePermissionDebug() {
   useEffect(() => {
-    if (!DEBUG_ENABLED || typeof window === "undefined") {
+    if (typeof window === "undefined") {
       return;
     }
 
-    if (window.localStorage.getItem(PROMPT_ONCE_KEY) === "1") {
-      return;
-    }
-    window.localStorage.setItem(PROMPT_ONCE_KEY, "1");
+    const localeInPath = getLocaleFromPath(window.location.pathname);
+    const localeInCookie = getCookieLocale();
+    console.log("[geo-debug] Locale context", {
+      pathname: window.location.pathname,
+      localeInPath: localeInPath ?? "unknown",
+      localeInCookie: localeInCookie ?? "none",
+      browserLanguage: navigator.language,
+      secureContext: window.isSecureContext,
+    });
 
     if (!("geolocation" in navigator)) {
       console.log("[geo-debug] Geolocation API is not available in this browser.");
       return;
     }
 
-    const resolveCountryAndLocale = async (latitude: number, longitude: number) => {
+    const resolveCountryAndLocale = async (latitude: number, longitude: number, accuracy: number) => {
       let countryCode: string | undefined;
       let countryName: string | undefined;
 
@@ -80,22 +86,17 @@ export default function GeoLocalePermissionDebug() {
       }
 
       const selectedLocale = getLocaleFromCountry(countryCode);
-      const currentLocale = getLocaleFromPath(window.location.pathname);
 
-      console.log("[geo-debug] Browser geolocation locale resolution", {
+      console.log("[geo-debug] Location and locale", {
+        latitude,
+        longitude,
+        accuracy,
         countryCode: countryCode ?? "unknown",
         countryName: countryName ?? "unknown",
-        selectedLocale,
-        currentLocale: currentLocale ?? "unknown",
+        geoSuggestedLocale: selectedLocale,
+        localeInPath: localeInPath ?? "unknown",
+        localeInCookie: localeInCookie ?? "none",
       });
-
-      setLocaleCookie(selectedLocale);
-
-      if (currentLocale && currentLocale !== selectedLocale) {
-        const nextPathname = buildPathWithLocale(window.location.pathname, selectedLocale);
-        const nextUrl = `${nextPathname}${window.location.search}${window.location.hash}`;
-        window.location.replace(nextUrl);
-      }
     };
 
     const requestLocation = async () => {
@@ -113,12 +114,8 @@ export default function GeoLocalePermissionDebug() {
       navigator.geolocation.getCurrentPosition(
         async (position) => {
           const { latitude, longitude, accuracy } = position.coords;
-          console.log("[geo-debug] Geolocation permission granted", {
-            latitude,
-            longitude,
-            accuracy,
-          });
-          await resolveCountryAndLocale(latitude, longitude);
+          console.log("[geo-debug] Geolocation permission granted");
+          await resolveCountryAndLocale(latitude, longitude, accuracy);
         },
         (error) => {
           console.log("[geo-debug] Geolocation permission denied or failed", {
