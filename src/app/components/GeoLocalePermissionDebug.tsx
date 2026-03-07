@@ -11,6 +11,7 @@ type ReverseGeocodeResponse = {
 
 const SUPPORTED_LOCALES = new Set<Locale>(["en", "uz", "ru"]);
 const ONE_YEAR_IN_SECONDS = 60 * 60 * 24 * 365;
+const INITIAL_GEO_LOCALE_DONE_KEY = "geo-locale-initialized-v1";
 
 function getLocaleFromCountry(countryCode?: string): Locale {
   switch (countryCode?.toUpperCase()) {
@@ -61,16 +62,30 @@ export default function GeoLocalePermissionDebug() {
 
     const localeInPath = getLocaleFromPath(window.location.pathname);
     const localeInCookie = getCookieLocale();
+    const isGeoLocaleInitialized = window.localStorage.getItem(INITIAL_GEO_LOCALE_DONE_KEY) === "1";
+
     console.log("[geo-debug] Locale context", {
       pathname: window.location.pathname,
       localeInPath: localeInPath ?? "unknown",
       localeInCookie: localeInCookie ?? "none",
       browserLanguage: navigator.language,
       secureContext: window.isSecureContext,
+      isGeoLocaleInitialized,
     });
+
+    if (localeInCookie) {
+      console.log("[geo-debug] Saved locale exists, skipping geolocation auto-switch.");
+      return;
+    }
+
+    if (isGeoLocaleInitialized) {
+      console.log("[geo-debug] Initial geolocation flow already completed, skipping.");
+      return;
+    }
 
     if (!("geolocation" in navigator)) {
       console.log("[geo-debug] Geolocation API is not available in this browser.");
+      window.localStorage.setItem(INITIAL_GEO_LOCALE_DONE_KEY, "1");
       return;
     }
 
@@ -110,6 +125,7 @@ export default function GeoLocalePermissionDebug() {
 
       setLocaleCookie(selectedLocale);
       console.log("[geo-debug] NEXT_LOCALE cookie updated", { selectedLocale });
+      window.localStorage.setItem(INITIAL_GEO_LOCALE_DONE_KEY, "1");
 
       if (localeInPath && localeInPath !== selectedLocale) {
         const nextPathname = buildPathWithLocale(window.location.pathname, selectedLocale);
@@ -146,6 +162,7 @@ export default function GeoLocalePermissionDebug() {
             code: error.code,
             message: error.message,
           });
+          window.localStorage.setItem(INITIAL_GEO_LOCALE_DONE_KEY, "1");
         },
         {
           enableHighAccuracy: false,

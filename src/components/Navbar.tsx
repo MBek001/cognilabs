@@ -7,6 +7,14 @@ import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Menu, X, Globe, Check } from "lucide-react";
 
+const ONE_YEAR_IN_SECONDS = 60 * 60 * 24 * 365;
+
+function persistLocaleCookie(locale: string) {
+  if (typeof document !== "undefined") {
+    document.cookie = `NEXT_LOCALE=${locale}; Path=/; Max-Age=${ONE_YEAR_IN_SECONDS}; SameSite=Lax`;
+  }
+}
+
 export default function Navbar() {
   const t = useTranslations("Navbar");
   const locale = useLocale();
@@ -74,6 +82,7 @@ export default function Navbar() {
   }, [pathname, locale, router]);
 
   const changeLocale = (newLocale: string) => {
+    persistLocaleCookie(newLocale);
     const segments = pathname.split("/");
     segments[1] = newLocale;
     const newPath = segments.join("/");
