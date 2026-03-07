@@ -10,6 +10,7 @@ type ReverseGeocodeResponse = {
 };
 
 const SUPPORTED_LOCALES = new Set<Locale>(["en", "uz", "ru"]);
+const ONE_YEAR_IN_SECONDS = 60 * 60 * 24 * 365;
 
 function getLocaleFromCountry(countryCode?: string): Locale {
   switch (countryCode?.toUpperCase()) {
@@ -41,6 +42,15 @@ function getCookieLocale(): Locale | null {
   }
 
   return null;
+}
+
+function buildPathWithLocale(pathname: string, locale: Locale): string {
+  const withoutLocalePrefix = pathname.replace(/^\/(en|uz|ru)(?=\/|$)/, "");
+  return withoutLocalePrefix ? `/${locale}${withoutLocalePrefix}` : `/${locale}`;
+}
+
+function setLocaleCookie(locale: Locale) {
+  document.cookie = `NEXT_LOCALE=${locale}; Path=/; Max-Age=${ONE_YEAR_IN_SECONDS}; SameSite=Lax`;
 }
 
 export default function GeoLocalePermissionDebug() {
@@ -97,6 +107,20 @@ export default function GeoLocalePermissionDebug() {
         localeInPath: localeInPath ?? "unknown",
         localeInCookie: localeInCookie ?? "none",
       });
+
+      setLocaleCookie(selectedLocale);
+      console.log("[geo-debug] NEXT_LOCALE cookie updated", { selectedLocale });
+
+      if (localeInPath && localeInPath !== selectedLocale) {
+        const nextPathname = buildPathWithLocale(window.location.pathname, selectedLocale);
+        const nextUrl = `${nextPathname}${window.location.search}${window.location.hash}`;
+        console.log("[geo-debug] Redirecting to locale from geolocation", {
+          from: localeInPath,
+          to: selectedLocale,
+          nextUrl,
+        });
+        window.location.replace(nextUrl);
+      }
     };
 
     const requestLocation = async () => {
