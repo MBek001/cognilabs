@@ -10,6 +10,7 @@ import { ToastContainer } from "react-toastify";
 import Navbar from "~/components/Navbar";
 import GoogleAnalytics from "~/app/components/GoogleAnalytics";
 import AutoAnalyticsTracker from "~/app/components/AutoAnalyticsTracker";
+import GeoLocalePermissionDebug from "~/app/components/GeoLocalePermissionDebug";
 import { routing } from "~/i18n/routing";
 import { GA_ID } from "~/lib/gtag";
 import "./globals.css";
@@ -85,6 +86,7 @@ export default async function LocaleLayout({
             <GoogleAnalytics />
           </Suspense>
           <AutoAnalyticsTracker />
+          <GeoLocalePermissionDebug />
           <Navbar />
           {children}
           <ToastContainer />

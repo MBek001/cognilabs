@@ -57,9 +57,18 @@ export function proxy(request: NextRequest) {
   }
 
   const cookieLocale = request.cookies.get("NEXT_LOCALE")?.value;
-  const selectedLocale = isValidLocale(cookieLocale)
-    ? cookieLocale
-    : getLocaleFromCountry(getCountryFromHeaders(request));
+  const hasValidCookieLocale = isValidLocale(cookieLocale);
+  const country = getCountryFromHeaders(request);
+  const geoLocale = getLocaleFromCountry(country);
+  const selectedLocale = hasValidCookieLocale ? cookieLocale : geoLocale;
+
+  console.log("[proxy] locale resolution", {
+    country: country ?? "unknown",
+    geoLocale,
+    cookieLocale: hasValidCookieLocale ? cookieLocale : null,
+    selectedLocale,
+    source: hasValidCookieLocale ? "cookie" : "geolocation",
+  });
 
   const url = request.nextUrl.clone();
   url.pathname = pathname === "/" ? `/${selectedLocale}` : `/${selectedLocale}${pathname}`;
