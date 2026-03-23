@@ -40,7 +40,7 @@ export default function RequestForm({ formId }: RequestFormProps) {
     e.preventDefault();
     trackEvent("form_submit", { form_id: formId });
     setLoading(true);
-    await sendLeadToChannel(formData);
+    await sendLeadToChannel(formData, locale);
     setLoading(false);
 
     setFormData({
