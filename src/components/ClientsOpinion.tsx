@@ -39,7 +39,8 @@ export default function ClientsOpinion() {
       position: "",
       img: "/clients/client13.png",
       stars: 5,
-      comment:t("client3")    },
+      comment:t("client3")    
+    },
     {
       id: 4,
       name: "Surxonbozor",

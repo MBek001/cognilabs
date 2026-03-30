@@ -57,8 +57,20 @@ export default function Page() {
 		},
 		{
 			id: 3,
+			title: 'Zomin',
+			logo: '/clients/zomin.png',
+			desc: t('zomintext'),
+			prtype: 'Water',
+			typeicon: '/projectslogo/icons/restaurant.png',
+			showenimg: '/projectslogo/shows/water.png',
+			bout: t('zominpr'),
+			mssg: t('zominmssg'),
+			link: '',
+		},
+		{
+			id: 4,
 			title: 'Erix Consulting',
-			logo: '/clients/client11.png',
+			logo: '/clients/erix.jpg',
 			desc: t('erixtext'),
 			prtype: 'Consulting',
 			typeicon: '/projectslogo/icons/consulting.png',
@@ -68,7 +80,7 @@ export default function Page() {
 			link: '',
 		},
 		{
-			id: 4,
+			id: 5,
 			title: 'OLOU',
 			logo: '/projectslogo/olou3.png',
 			desc: t('oloutext'),
@@ -80,7 +92,7 @@ export default function Page() {
 			link: 'https://olou.uz',
 		},
 		{
-			id: 5,
+			id: 6,
 			title: 'Saaf Green Agro',
 			logo: '/projectslogo/saaf.png',
 			desc: t('saaftext'),
@@ -92,7 +104,7 @@ export default function Page() {
 			link: 'https://saafagro.com',
 		},
 		{
-			id: 6,
+			id: 7,
 			title: 'ExtraGpt',
 			logo: '/projectslogo/extragpt1.png',
 			desc: t('extratext'),
@@ -104,7 +116,7 @@ export default function Page() {
 			link: 'https://www.extra-gpt.com',
 		},
 		{
-			id: 7,
+			id: 8,
 			title: 'Best solar',
 			logo: '/clients/client13.png',
 			desc: t('bestsolartext'),
@@ -116,7 +128,7 @@ export default function Page() {
 			link: '',
 		},
 		{
-			id: 8,
+			id: 9,
 			title: 'Surxon bozor',
 			logo: '/clients/surxon.png',
 			desc: t('surxontext'),
@@ -128,7 +140,7 @@ export default function Page() {
 			link: '',
 		},
 		{
-			id: 9,
+			id: 10,
 			title: 'Denov bozor',
 			logo: '/clients/denov.png',
 			desc: t('denovtext'),
@@ -140,7 +152,7 @@ export default function Page() {
 			link: '',
 		},
 		{
-			id: 10,
+			id: 11,
 			title: 'Djafariy',
 			logo: '/projectslogo/djafariy1.png',
 			desc: t('djafariytext'),
@@ -152,7 +164,7 @@ export default function Page() {
 			link: 'https://djafariy.org',
 		},
 		{
-			id: 11,
+			id: 12,
 			title: 'Aroma lab',
 			logo: '/clients/aroma.png',
 			desc: t('erixtext'),
@@ -164,7 +176,7 @@ export default function Page() {
 			link: '',
 		},
 		{
-			id: 12,
+			id: 13,
 			title: 'Taad',
 			logo: '/clients/taad.png',
 			desc: t('taadtext'),
@@ -176,7 +188,7 @@ export default function Page() {
 			link: '',
 		},
 		{
-			id: 13,
+			id: 14,
 			title: 'Billur',
 			logo: '/projectslogo/billur.png',
 			desc: t('billurtext'),
@@ -188,7 +200,7 @@ export default function Page() {
 			link: 'https://billur-market.com',
 		},
 		{
-			id: 14,
+			id: 15,
 			title: 'Bazabarbershop',
 			logo: '/projectslogo/baza.png',
 			desc: t('bazatext'),
@@ -200,7 +212,7 @@ export default function Page() {
 			link: 'https://www.bazabarbershop.com',
 		},
 		{
-			id: 15,
+			id: 16,
 			title: 'Zippy Taxi',
 			logo: '/clients/zippy.png',
 			desc: t('zippytext'),
@@ -212,7 +224,7 @@ export default function Page() {
 			link: '',
 		},
 		{
-			id: 16,
+			id: 17,
 			title: 'Davr Taxi',
 			logo: '/clients/davr.png',
 			desc: t('davrtext'),
@@ -224,7 +236,7 @@ export default function Page() {
 			link: '',
 		},
 		{
-			id: 17,
+			id: 18,
 			title: 'Bro Taxi',
 			logo: '/clients/bro.png',
 			desc: t('brotext'),
