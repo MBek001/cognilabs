@@ -52,7 +52,7 @@ export default function Header() {
 							</button>
 							<iframe
 								className='w-full h-full'
-								src='https://youtu.be/sEjhXMkeDEA?si=QKcg2xabiRBy3Jlb'
+								src='https://www.youtube.com/embed/sEjhXMkeDEA'
 								title='YouTube video player'
 								allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
 								allowFullScreen
