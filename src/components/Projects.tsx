@@ -9,6 +9,7 @@ interface Project {
 	id: number
 	title: string
 	phone: string
+	phoneSize: { width: number; height: number }
 	desktop: string
 	link: string
 	text: string
@@ -27,26 +28,29 @@ export default function Projects() {
 	const projects: Project[] = [
 		{
 			id: 1,
-			title: 'Djafariy',
-			phone: '/mainprojects/phonedjaffariy.png',
-			desktop: '/mainprojects/djafariylaptop.png',
-			link: 'https://djafariy.org/',
-			text: t('djafariytext'),
+			title: 'Bunyodkor',
+			phone: '/mainprojects/phonebunyodkor.png',
+			phoneSize: { width: 3391, height: 5603 },
+			desktop: '/mainprojects/bunyodkorlaptop.png',
+			link: '',
+			text: t('bunyodkortext'),
 			position: 'right',
 		},
 		{
 			id: 2,
-			title: 'Billur',
-			phone: '/mainprojects/billurphone.png',
-			desktop: '/mainprojects/billurlaptop.png',
-			link: 'https://billur-market.com',
-			text: t('billurtext'),
+			title: 'MrDom',
+			phone: '/mainprojects/phonemrdom.png',
+			phoneSize: { width: 3391, height: 5603 },
+			desktop: '/mainprojects/mrdomlaptop.png',
+			link: '',
+			text: t('mrdomtext'),
 			position: 'left',
 		},
 		{
 			id: 3,
 			title: 'Bazabarbershop',
 			phone: '/mainprojects/phonebaza.png',
+			phoneSize: { width: 6400, height: 4800 },
 			desktop: '/mainprojects/desktopbaza.png',
 			link: 'https://www.bazabarbershop.com/',
 			text: t('bazatext'),
@@ -172,6 +176,19 @@ function ProjectCard({
 }) {
 	const [isInView, setIsInView] = useState(false)
 	const cardRef = useRef<HTMLDivElement>(null)
+	const isPhonePortrait = project.phoneSize.height > project.phoneSize.width
+	const phoneImageClassName =
+		'h-[min(22vh,160px)] sm:h-[min(24vh,180px)] md:h-[min(28vh,220px)] lg:h-[min(32vh,240px)] xl:h-[min(34vh,320px)] w-auto max-w-[65vw] md:max-w-none shadow-2xl object-contain'
+	const phoneImageSizes =
+		'(max-width: 640px) 65vw, (max-width: 1024px) 280px, 360px'
+	const phoneWrapperBottomClassName = isPhonePortrait
+		? '-bottom-2 md:-bottom-4'
+		: 'bottom-0'
+	const phoneWrapperSideClassName = isPhonePortrait
+		? 'left-4 sm:left-8 md:left-1/2 md:-translate-x-[145%] lg:-translate-x-[160%] xl:-translate-x-[180%]'
+		: project.position === 'left'
+			? 'right-4 sm:right-8 md:-right-8 lg:-right-10 xl:-right-16'
+			: 'left-4 sm:left-8 md:-left-8 lg:-left-10 xl:-left-16'
 
 	useEffect(() => {
 		const observer = new IntersectionObserver(
@@ -296,35 +313,31 @@ function ProjectCard({
 							alt={`${project.title} Desktop`}
 							quality={75}
 							sizes='(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 600px'
-							className='w-full h-auto rounded-lg shadow-2xl'
+							className='w-full h-auto max-h-[min(52vh,360px)] object-contain rounded-lg shadow-2xl'
 						/>
 					</div>
 
 					{/* Mobile Phone Image */}
 					<div
 						className={`
-              absolute bottom-0 z-20 
+              absolute z-20 ${phoneWrapperBottomClassName}
               transition-all duration-700 ease-out delay-500
               group-hover:-translate-y-2 md:group-hover:-translate-y-4 
               group-hover:scale-[1.02] md:group-hover:scale-[1.03]
-              ${
-								project.position === 'left'
-									? 'right-60 md:-right-8 lg:-left-18'
-									: 'left-60 md:-left-8 lg:-left-18'
-							}
+              ${phoneWrapperSideClassName}
               ${isInView ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'}
             `}
 					>
 						<Image
 							priority={index === 0}
 							loading={index === 0 ? undefined : 'lazy'}
-							width={320}
-							height={256}
+							width={project.phoneSize.width}
+							height={project.phoneSize.height}
 							src={project.phone}
 							alt={`${project.title} Mobile`}
 							quality={75}
-							sizes='(max-width: 768px) 240px, (max-width: 1024px) 320px, 400px'
-							className='w-60 h-40 md:w-100 md:h-80 shadow-2xl'
+							sizes={phoneImageSizes}
+							className={phoneImageClassName}
 						/>
 					</div>
 				</div>

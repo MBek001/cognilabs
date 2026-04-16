@@ -169,7 +169,13 @@ export default function RequestForm({ formId }: RequestFormProps) {
                     type="text"
                     placeholder={
                       field === "budget"
-                        ? "Masalan: $5000 - $10000"
+                        ? `${
+                            locale === "ru"
+                              ? "Например"
+                              : locale === "en"
+                                ? "Example"
+                                : "Masalan"
+                          }: $5000 - $10000`
                         : `${t(field)}`
                     }
                     className="border-b text-black py-3 border-gray-300 outline-none"
