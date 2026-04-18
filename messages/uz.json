@@ -120,6 +120,7 @@
 },
 "Insights": {
     "title": "Tahlillar va Yangiliklar",
+    "seeMore": "Ko'proq ko'rish",
    "ai-revolution": {
     "topic1": "Biznes Ilovalarida AI Inqilobi",
     "text":"Sun’iy intellekt biznes jarayonlarini avtomatlashtirib, ma’lumotlarga asoslangan qarorlarni tezlashtirmoqda...",

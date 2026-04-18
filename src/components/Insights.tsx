@@ -154,17 +154,15 @@ export default function Insights() {
                           {blog.title}
                         </h3>
 
-                        <p className="text-gray-300 text-sm leading-relaxed line-clamp-4 grow">
-                          <div
-                            className="text-gray-300 leading-relaxed"
-                            dangerouslySetInnerHTML={{
-                              __html: DOMPurify.sanitize(blog.content),
-                            }}
-                          />
-                        </p>
+                        <div
+                          className="text-gray-300 text-sm leading-relaxed line-clamp-4 grow"
+                          dangerouslySetInnerHTML={{
+                            __html: DOMPurify.sanitize(blog.content),
+                          }}
+                        />
 
                         <span className="text-[#0066FF] flex gap-1 items-center text-sm mt-6 hover:underline hover:translate-x-1 transition-all">
-                          See more <ArrowRight className="w-5" />
+                          {t("seeMore")} <ArrowRight className="w-5" />
                         </span>
                       </div>
                     </div>
