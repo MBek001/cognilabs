@@ -65,8 +65,8 @@ export async function POST(request: Request) {
     username: body.telegram,
   };
 
-  const botToken = process.env.LEAD_BOT_TOKEN ?? process.env.NEXT_PUBLIC_LEAD_BOT_TOKEN;
-  const channelId = process.env.LEAD_CHANNEL_ID ?? process.env.NEXT_PUBLIC_LEAD_CHANNEL_ID;
+  const botToken = process.env.LEAD_BOT_TOKEN;
+  const channelId = process.env.LEAD_CHANNEL_ID;
 
   try {
     const [crmResponse, telegramResponse] = await Promise.all([

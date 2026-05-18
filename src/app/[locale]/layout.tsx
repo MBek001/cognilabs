@@ -8,6 +8,7 @@ import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { ToastContainer } from "react-toastify";
 import Navbar from "~/components/Navbar";
+import SalesChatWidget from "~/components/SalesChatWidget";
 import GoogleAnalytics from "~/app/components/GoogleAnalytics";
 import AutoAnalyticsTracker from "~/app/components/AutoAnalyticsTracker";
 import GeoLocalePermissionDebug from "~/app/components/GeoLocalePermissionDebug";
@@ -89,6 +90,7 @@ export default async function LocaleLayout({
           <GeoLocalePermissionDebug />
           <Navbar />
           {children}
+          <SalesChatWidget />
           <ToastContainer />
         </NextIntlClientProvider>
 

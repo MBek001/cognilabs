@@ -16,6 +16,11 @@ module.exports = withNextIntl({
         port: "8000",
         pathname: "/uploads/**",
       },
+      {
+        protocol: "https",
+        hostname: "images.pexels.com",
+        pathname: "/photos/**",
+      },
     ],
   },
   async redirects() {

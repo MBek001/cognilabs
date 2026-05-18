@@ -181,6 +181,18 @@
     "offices":"Offices"
   }
 },
+  "SalesChatWidget": {
+    "agentName": "Alisher",
+    "agentRole": "Sales Manager",
+    "discountLabel": "Get 10% discount here",
+    "fixedGreeting": "What can we help you with?",
+    "autoReply": "Thanks for your message. Alisher will contact you shortly.",
+    "inputPlaceholder": "Type your message...",
+    "onlineLabel": "We're online",
+    "openAria": "Open sales chat",
+    "closeAria": "Close sales chat",
+    "sendAria": "Send message"
+  },
   "About" :{
     "title": "AI and Software Development company!",
     "about":"About Cognilabs",

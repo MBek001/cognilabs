@@ -192,6 +192,18 @@
      "offices": "Ofislar"
   } 
 },
+ "SalesChatWidget": {
+  "agentName": "Alisher",
+  "agentRole": "Savdo menejeri",
+  "discountLabel": "10% chegirmaga ega bo'ling",
+  "fixedGreeting": "Sizga qanday yordam bera olamiz?",
+  "autoReply": "Xabaringiz uchun rahmat. Alisher tez orada siz bilan bog'lanadi.",
+  "inputPlaceholder": "Xabaringizni yozing...",
+  "onlineLabel": "Biz onlaynmiz",
+  "openAria": "Savdo chatini ochish",
+  "closeAria": "Savdo chatini yopish",
+  "sendAria": "Xabar yuborish"
+},
   "About": {
   "title": "AI va Dasturiy ta'minot Yaratuvchi kompaniya!",
   "about": "Cognilabs haqida",

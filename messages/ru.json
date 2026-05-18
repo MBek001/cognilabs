@@ -188,6 +188,18 @@
   }
 
 },
+"SalesChatWidget": {
+  "agentName": "Alisher",
+  "agentRole": "Менеджер по продажам",
+  "discountLabel": "Получите скидку 10% здесь",
+  "fixedGreeting": "Чем мы можем вам помочь?",
+  "autoReply": "Спасибо за сообщение. Alisher скоро с вами свяжется.",
+  "inputPlaceholder": "Введите ваше сообщение...",
+  "onlineLabel": "Мы онлайн",
+  "openAria": "Открыть чат продаж",
+  "closeAria": "Закрыть чат продаж",
+  "sendAria": "Отправить сообщение"
+},
 "About": {
   "title": "Мы создаём цифровые инновации",
   "about": "О Cognilabs",
