@@ -11,7 +11,7 @@ interface CareerPayload {
 }
 
 function escapeMarkdown(text: string) {
-  if (!text) return "-";
+  if (!text) return "\\-";
   return text.replace(/([_*[\]()~`>#+\-=|{}.!])/g, "\\$1");
 }
 
@@ -105,11 +105,17 @@ async function sendFileToChat(botToken: string, chatId: string, file: File, capt
 }
 
 export async function POST(request: Request) {
-  const botToken = process.env.COGNILABS_CAREERS_BOTID;
-  const chatId1 = process.env.ADMIN_ID1;
-  const chatId2 = process.env.ADMIN_ID2;
+  const botToken =
+    process.env.COGNILABS_CAREERS_BOTID ||
+    process.env.CAREERS_BOT_TOKEN ||
+    process.env.LEAD_BOT_TOKEN ||
+    process.env.NEXT_PUBLIC_LEAD_BOT_TOKEN;
+  const chatId =
+    process.env.NEXT_PUBLIC_CAREERS_CHAT_ID ||
+    process.env.CAREERS_CHAT_ID ||
+    process.env.ADMIN_ID1;
 
-  if (!botToken || !chatId1 || !chatId2) {
+  if (!botToken || !chatId) {
     return NextResponse.json({ error: "Server telegram configuration is missing" }, { status: 500 });
   }
 
@@ -127,16 +133,13 @@ export async function POST(request: Request) {
     );
   }
 
-  const chatIds = [chatId1, chatId2];
   const text = buildTelegramText(payload);
   const caption = `CV: ${payload.fullName} (${payload.position})`;
 
   try {
-    for (const chatId of chatIds) {
-      await sendMessageToChat(botToken, chatId, text);
-      if (payload.file) {
-        await sendFileToChat(botToken, chatId, payload.file, caption);
-      }
+    await sendMessageToChat(botToken, chatId, text);
+    if (payload.file) {
+      await sendFileToChat(botToken, chatId, payload.file, caption);
     }
 
     return NextResponse.json({ ok: true });

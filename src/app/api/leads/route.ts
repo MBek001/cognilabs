@@ -24,6 +24,7 @@ interface CrmCustomerPayload {
 }
 
 const CRM_CUSTOMERS_API_URL = "https://api.project.cims.cognilabs.org/crm/api/customers";
+const CRM_CUSTOMER_API_KEY = process.env.CRM_CUSTOMER_API_KEY || "salomat";
 
 function normalizeConversationLanguage(locale: string): ConversationLanguage {
   if (locale === "uz" || locale === "ru") {
@@ -45,6 +46,19 @@ Xabar: ${data.message}
 `.trim();
 }
 
+function resolveCrmUsername(data: LeadRequestBody): string {
+  const telegram = data.telegram?.trim();
+  if (telegram) return telegram;
+
+  const email = data.email?.trim();
+  if (email) return email;
+
+  const phone = data.phone?.trim();
+  if (phone) return phone;
+
+  return data.name.trim();
+}
+
 export async function POST(request: Request) {
   let body: LeadRequestBody;
 
@@ -62,17 +76,20 @@ export async function POST(request: Request) {
     phone_number: body.phone,
     platform: "Website",
     status: "need_to_call",
-    username: body.telegram,
+    username: resolveCrmUsername(body),
   };
 
-  const botToken = process.env.LEAD_BOT_TOKEN;
-  const channelId = process.env.LEAD_CHANNEL_ID;
+  const botToken = process.env.LEAD_BOT_TOKEN || process.env.NEXT_PUBLIC_LEAD_BOT_TOKEN;
+  const channelId = process.env.LEAD_CHANNEL_ID || process.env.NEXT_PUBLIC_LEAD_CHANNEL_ID;
 
   try {
     const [crmResponse, telegramResponse] = await Promise.all([
       fetch(CRM_CUSTOMERS_API_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "X-Key": CRM_CUSTOMER_API_KEY,
+        },
         body: JSON.stringify(crmPayload),
       }),
       botToken && channelId

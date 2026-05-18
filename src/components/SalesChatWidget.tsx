@@ -115,16 +115,39 @@ function DotsChatIcon() {
   );
 }
 
+function TypingIndicator() {
+  return (
+    <div className="flex max-w-[90%] items-end gap-2">
+      <ManAvatar className="h-8 w-8" />
+      <div className="max-w-[82%] rounded-2xl rounded-bl-md bg-white px-4 py-3 text-[#1b2640]">
+        <div className="flex items-center gap-1.5">
+          {[0, 1, 2].map((index) => (
+            <motion.span
+              key={index}
+              className="h-2 w-2 rounded-full bg-[#6a789b]"
+              animate={{ y: [0, -4, 0], opacity: [0.45, 1, 0.45] }}
+              transition={{
+                duration: 0.8,
+                ease: "easeInOut",
+                repeat: Infinity,
+                delay: index * 0.12,
+              }}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function WaveHeader({
   title,
   subtitle,
   onClose,
-  onlineLabel,
 }: {
   title: string;
   subtitle: string;
   onClose: () => void;
-  onlineLabel: string;
 }) {
   return (
     <div className="overflow-hidden text-white">
@@ -149,8 +172,11 @@ function WaveHeader({
 
         <div className="mt-1 px-4 pb-2 text-xs text-blue-100">
           <span className="inline-flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-white" />
-            {onlineLabel}
+            <span className="relative flex h-2.5 w-2.5 items-center justify-center">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-300 opacity-75" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
+            </span>
+            online
           </span>
         </div>
       </div>
@@ -172,16 +198,19 @@ function WaveHeader({
 
 export default function SalesChatWidget() {
   const POLL_INTERVAL_MS = 3000;
+  const TYPING_SIMULATION_MS = 1200;
 
   const t = useTranslations("SalesChatWidget");
 
   const [isOpen, setIsOpen] = useState(false);
   const [hasOpenedOnce, setHasOpenedOnce] = useState(false);
+  const [isLauncherVisible, setIsLauncherVisible] = useState(false);
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [transportState, setTransportState] = useState<TransportState>("idle");
   const [transportError, setTransportError] = useState<string>("");
   const [draft, setDraft] = useState("");
   const [isSending, setIsSending] = useState(false);
+  const [isBotTyping, setIsBotTyping] = useState(false);
   const [messages, setMessages] = useState<WebsiteChatMessage[]>([]);
   const [fixedGreetingTime] = useState(() => currentTimeLabel());
 
@@ -189,6 +218,7 @@ export default function SalesChatWidget() {
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
   const panelRef = useRef<HTMLDivElement | null>(null);
   const launcherRef = useRef<HTMLButtonElement | null>(null);
+  const isStagingReplyRef = useRef(false);
 
   const unreadCount = useMemo(() => (isOpen || hasOpenedOnce ? 0 : 1), [hasOpenedOnce, isOpen]);
 
@@ -210,6 +240,7 @@ export default function SalesChatWidget() {
 
   const syncHistory = useCallback(
     async (activeSessionId: string) => {
+      if (isStagingReplyRef.current) return;
       try {
         const response = await getWebsiteMessages(activeSessionId);
         applyPayload(response);
@@ -282,6 +313,23 @@ export default function SalesChatWidget() {
     };
   }, [clearPolling, initializeChat]);
 
+  useEffect(() => {
+    const SCROLL_THRESHOLD_PX = 220;
+
+    const onScroll = () => {
+      if (window.scrollY > SCROLL_THRESHOLD_PX) {
+        setIsLauncherVisible(true);
+      }
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
   const toggleChat = () => {
     if (isOpen) {
       setIsOpen(false);
@@ -296,21 +344,55 @@ export default function SalesChatWidget() {
     const text = draft.trim();
     if (!text || !sessionId || isSending) return;
 
+    setDraft("");
     setIsSending(true);
+
     try {
       const response = await sendWebsiteMessage(sessionId, text);
+      isStagingReplyRef.current = true;
+      setTransportState("connected");
+      setTransportError("");
+
+      const previousMessages = messages;
+      const previousIds = new Set(previousMessages.map((message) => message.id));
+      const mergedMessages = mergeMessages(previousMessages, response.messages);
+      const stagedClientMessages = mergedMessages.filter(
+        (message) => !previousIds.has(message.id) && message.sender_type === "client"
+      );
+      const hasNewBotMessage = mergedMessages.some(
+        (message) => !previousIds.has(message.id) && message.sender_type !== "client"
+      );
+
+      if (stagedClientMessages.length > 0) {
+        setSessionId(response.session_id);
+        setMessages(mergeMessages(previousMessages, stagedClientMessages));
+        if (typeof window !== "undefined") {
+          localStorage.setItem(WEBSITE_CHAT_STORAGE_KEY, response.session_id);
+        }
+      }
+
+      if (hasNewBotMessage) {
+        setIsBotTyping(true);
+        await new Promise((resolve) => {
+          window.setTimeout(resolve, TYPING_SIMULATION_MS);
+        });
+      }
+
       applyPayload(response);
       setTransportState("connected");
       setTransportError("");
-      setDraft("");
     } catch (error) {
       setTransportState("error");
+      setIsBotTyping(false);
+      setDraft(text);
       if (error instanceof Error) {
         setTransportError(summarizeError(error.message));
       } else {
         setTransportError("Message failed. Try again.");
       }
     } finally {
+      isStagingReplyRef.current = false;
+      setIsBotTyping(false);
       setIsSending(false);
     }
   };
@@ -363,7 +445,7 @@ export default function SalesChatWidget() {
   useEffect(() => {
     if (!isOpen) return;
     scrollToBottom("smooth");
-  }, [allMessages.length, isOpen, scrollToBottom]);
+  }, [allMessages.length, isBotTyping, isOpen, scrollToBottom]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -387,7 +469,7 @@ export default function SalesChatWidget() {
 
   return (
     <div className="fixed bottom-5 right-4 z-[70] flex flex-col items-end gap-3 sm:right-6">
-      {!isOpen && !hasOpenedOnce && (
+      {isLauncherVisible && !isOpen && !hasOpenedOnce && (
         <div className="text-left">
           <div className="flex flex-col items-start gap-2">
             <div className="ml-12 rotate-[-3deg] rounded-xl border border-cyan-500/20 bg-[#f7f9ff] px-4 py-2.5 shadow-lg">
@@ -418,7 +500,6 @@ export default function SalesChatWidget() {
             <WaveHeader
               title={t("agentName")}
               subtitle={t("agentRole")}
-              onlineLabel={t("onlineLabel")}
               onClose={() => setIsOpen(false)}
             />
 
@@ -444,6 +525,11 @@ export default function SalesChatWidget() {
                   )}
                 </div>
               ))}
+              {isBotTyping && (
+                <div className="flex justify-start">
+                  <TypingIndicator />
+                </div>
+              )}
             </div>
 
             <div className="border-t border-cyan-500/20 bg-white/80 p-3">
@@ -478,20 +564,35 @@ export default function SalesChatWidget() {
         )}
       </AnimatePresence>
 
-      <button
-        ref={launcherRef}
-        type="button"
-        onClick={toggleChat}
-        aria-label={isOpen ? t("closeAria") : t("openAria")}
-        className="relative flex h-16 w-16 cursor-pointer items-center justify-center rounded-2xl bg-[#1d4ed8] text-white shadow-xl ring-1 ring-blue-300/40 transition-transform hover:scale-105"
-      >
-        <DotsChatIcon />
-        {unreadCount > 0 && (
-          <span className="absolute -right-1 -top-1 flex h-6 w-6 items-center justify-center rounded-full bg-pink-500 text-xs font-semibold text-white">
-            {unreadCount}
-          </span>
-        )}
-      </button>
+      {isLauncherVisible && (
+        <button
+          ref={launcherRef}
+          type="button"
+          onClick={toggleChat}
+          aria-label={isOpen ? t("closeAria") : t("openAria")}
+          className="relative flex h-12 w-12 cursor-pointer items-center justify-center rounded-xl bg-[#1d4ed8] text-white shadow-xl ring-1 ring-blue-300/40 transition-transform hover:scale-105 sm:h-14 sm:w-14 sm:rounded-2xl md:h-16 md:w-16"
+        >
+          {!isOpen && (
+            <motion.span
+              className="pointer-events-none absolute inset-0 rounded-[inherit] border border-blue-200/70"
+              animate={{ scale: [1, 1.25, 1], opacity: [0.55, 0, 0.55] }}
+              transition={{ duration: 1.7, repeat: Infinity, ease: "easeInOut" }}
+            />
+          )}
+          <motion.div
+            className="scale-75 sm:scale-90 md:scale-100"
+            animate={isOpen ? { scale: 1 } : { scale: [1, 1.06, 1], opacity: [1, 0.88, 1] }}
+            transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <DotsChatIcon />
+          </motion.div>
+          {unreadCount > 0 && (
+            <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-pink-500 text-[10px] font-semibold text-white sm:h-6 sm:w-6 sm:text-xs">
+              {unreadCount}
+            </span>
+          )}
+        </button>
+      )}
     </div>
   );
 }
