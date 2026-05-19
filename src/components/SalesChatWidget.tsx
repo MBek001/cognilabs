@@ -118,8 +118,8 @@ function DotsChatIcon() {
 function TypingIndicator() {
   return (
     <div className="flex max-w-[90%] items-end gap-2">
-      <ManAvatar className="h-8 w-8" />
-      <div className="max-w-[82%] rounded-2xl rounded-bl-md bg-white px-4 py-3 text-[#1b2640]">
+      <ManAvatar className="h-7 w-7 ring-blue-200/70 shadow-sm sm:h-8 sm:w-8" />
+      <div className="max-w-[84%] rounded-2xl rounded-bl-md bg-white px-3 py-2.5 text-[#1b2640] sm:px-4 sm:py-3">
         <div className="flex items-center gap-1.5">
           {[0, 1, 2].map((index) => (
             <motion.span
@@ -314,10 +314,10 @@ export default function SalesChatWidget() {
   }, [clearPolling, initializeChat]);
 
   useEffect(() => {
-    const SCROLL_THRESHOLD_PX = 220;
-
     const onScroll = () => {
-      if (window.scrollY > SCROLL_THRESHOLD_PX) {
+      const isSmallScreen = window.innerWidth < 640;
+      const scrollThresholdPx = isSmallScreen ? 120 : 220;
+      if (window.scrollY > scrollThresholdPx) {
         setIsLauncherVisible(true);
       }
     };
@@ -398,18 +398,14 @@ export default function SalesChatWidget() {
   };
 
   const allMessages: RenderMessage[] = useMemo(() => {
-    if (messages.length === 0) {
-      return [
-        {
-          id: "fixed-greeting",
-          role: "bot",
-          text: t("fixedGreeting"),
-          time: fixedGreetingTime,
-        },
-      ];
-    }
+    const greetingMessage: RenderMessage = {
+      id: "fixed-greeting",
+      role: "bot",
+      text: t("fixedGreeting"),
+      time: fixedGreetingTime,
+    };
 
-    return messages.map((message) => {
+    const conversationMessages = messages.map((message) => {
       const role: ChatRole = message.sender_type === "client" ? "user" : "bot";
       return {
         id: `message-${message.id}`,
@@ -418,6 +414,8 @@ export default function SalesChatWidget() {
         time: formatTime(message.created_at),
       };
     });
+
+    return [greetingMessage, ...conversationMessages];
   }, [fixedGreetingTime, messages, t]);
 
   const canSend = !!sessionId && draft.trim().length > 0 && !isSending;
@@ -471,15 +469,15 @@ export default function SalesChatWidget() {
     <div className="fixed bottom-5 right-4 z-[70] flex flex-col items-end gap-3 sm:right-6">
       {isLauncherVisible && !isOpen && !hasOpenedOnce && (
         <div className="text-left">
-          <div className="flex flex-col items-start gap-2">
-            <div className="ml-12 rotate-[-3deg] rounded-xl border border-cyan-500/20 bg-[#f7f9ff] px-4 py-2.5 shadow-lg">
-              <p className="font-semibold text-[#0d1f38]">{t("discountLabel")}</p>
-              <div className="ml-10 mt-1 h-0 w-0 border-l-[7px] border-r-[7px] border-t-[10px] border-l-transparent border-r-transparent border-t-[#f7f9ff]" />
+          <div className="flex flex-col items-start gap-1.5 sm:gap-2">
+            <div className="ml-8 rotate-[-3deg] rounded-xl border border-cyan-500/20 bg-[#f7f9ff] px-3 py-2 shadow-lg sm:ml-12 sm:px-4 sm:py-2.5">
+              <p className="text-sm font-semibold text-[#0d1f38] sm:text-base">{t("discountLabel")}</p>
+              <div className="ml-8 mt-1 h-0 w-0 border-l-[6px] border-r-[6px] border-t-[8px] border-l-transparent border-r-transparent border-t-[#f7f9ff] sm:ml-10 sm:border-l-[7px] sm:border-r-[7px] sm:border-t-[10px]" />
             </div>
-            <div className="flex items-end gap-2">
-              <ManAvatar className="h-10 w-10" />
-              <div className="max-w-[290px] rounded-2xl rounded-bl-md border border-white/20 bg-[#f5f7ff] px-4 py-3 text-[#1b2640] shadow-xl">
-                <p>{t("fixedGreeting")}</p>
+            <div className="flex items-end gap-1.5 sm:gap-2">
+              <ManAvatar className="h-8 w-8 sm:h-10 sm:w-10" />
+              <div className="max-w-[240px] rounded-xl rounded-bl-md border border-white/20 bg-[#f5f7ff] px-3 py-2.5 text-[#1b2640] shadow-xl sm:max-w-[290px] sm:rounded-2xl sm:px-4 sm:py-3">
+                <p className="text-sm leading-5 sm:text-base">{t("fixedGreeting")}</p>
               </div>
             </div>
           </div>
@@ -510,17 +508,17 @@ export default function SalesChatWidget() {
               {allMessages.map((message) => (
                 <div key={message.id} className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}>
                   {message.role === "bot" ? (
-                    <div className="flex max-w-[90%] items-end gap-2">
-                      <ManAvatar className="h-8 w-8" />
-                      <div className="max-w-[82%] rounded-2xl rounded-bl-md bg-white px-4 py-3 text-[#1b2640]">
-                        <p>{message.text}</p>
-                        <p className="mt-1 text-right text-xs text-[#6a789b]">{message.time}</p>
+                    <div className="flex max-w-[92%] items-end gap-2 sm:max-w-[90%]">
+                      <ManAvatar className="h-7 w-7 ring-blue-200/70 shadow-sm sm:h-8 sm:w-8 md:h-9 md:w-9" />
+                      <div className="max-w-[84%] rounded-2xl rounded-bl-md bg-white px-3 py-2.5 text-[#1b2640] sm:px-4 sm:py-3">
+                        <p className="text-[13px] leading-5 sm:text-sm md:text-[15px]">{message.text}</p>
+                        <p className="mt-1 text-right text-[10px] text-[#6a789b] sm:text-xs">{message.time}</p>
                       </div>
                     </div>
                   ) : (
-                    <div className="max-w-[82%] rounded-2xl rounded-br-md bg-[#c9d4ff] px-4 py-3 text-[#1b2640]">
-                      <p>{message.text}</p>
-                      <p className="mt-1 text-right text-xs text-[#6a789b]">{message.time}</p>
+                    <div className="max-w-[84%] rounded-2xl rounded-br-md bg-[#c9d4ff] px-3 py-2.5 text-[#1b2640] sm:px-4 sm:py-3">
+                      <p className="text-[13px] leading-5 sm:text-sm md:text-[15px]">{message.text}</p>
+                      <p className="mt-1 text-right text-[10px] text-[#6a789b] sm:text-xs">{message.time}</p>
                     </div>
                   )}
                 </div>
