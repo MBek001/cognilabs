@@ -213,6 +213,7 @@ export default function SalesChatWidget() {
   const [isBotTyping, setIsBotTyping] = useState(false);
   const [messages, setMessages] = useState<WebsiteChatMessage[]>([]);
   const [fixedGreetingTime] = useState(() => currentTimeLabel());
+  const [teaserStep, setTeaserStep] = useState(0);
 
   const pollTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
@@ -329,6 +330,28 @@ export default function SalesChatWidget() {
       window.removeEventListener("scroll", onScroll);
     };
   }, []);
+
+  const isTeaserVisible = isLauncherVisible && !isOpen && !hasOpenedOnce;
+
+  useEffect(() => {
+    if (!isTeaserVisible) {
+      setTeaserStep(0);
+      return;
+    }
+
+    setTeaserStep(0);
+    const firstTimer = window.setTimeout(() => setTeaserStep(1), 160);
+    const secondTypingTimer = window.setTimeout(() => setTeaserStep(2), 760);
+    const typingHideTimer = window.setTimeout(() => setTeaserStep(3), 1100);
+    const secondMessageTimer = window.setTimeout(() => setTeaserStep(4), 1320);
+
+    return () => {
+      window.clearTimeout(firstTimer);
+      window.clearTimeout(secondTypingTimer);
+      window.clearTimeout(typingHideTimer);
+      window.clearTimeout(secondMessageTimer);
+    };
+  }, [isTeaserVisible]);
 
   const toggleChat = () => {
     if (isOpen) {
@@ -467,22 +490,105 @@ export default function SalesChatWidget() {
 
   return (
     <div className="fixed bottom-5 right-4 z-[70] flex flex-col items-end gap-3 sm:right-6">
-      {isLauncherVisible && !isOpen && !hasOpenedOnce && (
-        <div className="text-left">
-          <div className="flex flex-col items-start gap-1.5 sm:gap-2">
-            <div className="ml-8 rotate-[-3deg] rounded-xl border border-cyan-500/20 bg-[#f7f9ff] px-3 py-2 shadow-lg sm:ml-12 sm:px-4 sm:py-2.5">
-              <p className="text-sm font-semibold text-[#0d1f38] sm:text-base">{t("discountLabel")}</p>
-              <div className="ml-8 mt-1 h-0 w-0 border-l-[6px] border-r-[6px] border-t-[8px] border-l-transparent border-r-transparent border-t-[#f7f9ff] sm:ml-10 sm:border-l-[7px] sm:border-r-[7px] sm:border-t-[10px]" />
-            </div>
+      <AnimatePresence>
+        {isTeaserVisible && (
+          <motion.div
+            className="text-left"
+            initial={{ opacity: 0, y: 20, x: 8, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, x: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 12, x: 6, scale: 0.98 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          >
             <div className="flex items-end gap-1.5 sm:gap-2">
-              <ManAvatar className="h-8 w-8 sm:h-10 sm:w-10" />
-              <div className="max-w-[240px] rounded-xl rounded-bl-md border border-white/20 bg-[#f5f7ff] px-3 py-2.5 text-[#1b2640] shadow-xl sm:max-w-[290px] sm:rounded-2xl sm:px-4 sm:py-3">
-                <p className="text-sm leading-5 sm:text-base">{t("fixedGreeting")}</p>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.92, y: 6 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 0.22, delay: 0.05 }}
+              >
+                <ManAvatar className="h-8 w-8 sm:h-10 sm:w-10" />
+              </motion.div>
+
+              <div className="flex flex-col items-start gap-1.5 sm:gap-2">
+                <AnimatePresence mode="wait">
+                  {teaserStep === 0 && (
+                    <motion.div
+                      key="teaser-typing-initial"
+                      initial={{ opacity: 0, x: 10, y: 4 }}
+                      animate={{ opacity: 1, x: 0, y: 0 }}
+                      exit={{ opacity: 0, x: -6 }}
+                      transition={{ duration: 0.18 }}
+                      className="rounded-xl rounded-bl-md border border-white/20 bg-[#f5f7ff] px-3 py-2 shadow-lg"
+                    >
+                      <div className="flex items-center gap-1.5">
+                        {[0, 1, 2].map((index) => (
+                          <motion.span
+                            key={`teaser-dot-${index}`}
+                            className="h-1.5 w-1.5 rounded-full bg-[#6a789b]"
+                            animate={{ y: [0, -2, 0], opacity: [0.45, 1, 0.45] }}
+                            transition={{ duration: 0.65, repeat: Infinity, delay: index * 0.1 }}
+                          />
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                <AnimatePresence>
+                  {teaserStep >= 1 && (
+                    <motion.div
+                      key="teaser-discount"
+                      initial={{ opacity: 0, x: 12, y: 6 }}
+                      animate={{ opacity: 1, x: 0, y: 0 }}
+                      transition={{ duration: 0.22 }}
+                      className="ml-4 rotate-[-2deg] rounded-xl border border-cyan-500/20 bg-[#f7f9ff] px-3 py-2 text-[#0d1f38] shadow-lg sm:ml-6 sm:px-4 sm:py-2.5"
+                    >
+                      <p className="text-sm font-semibold sm:text-base">{t("discountLabel")}</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                <AnimatePresence>
+                  {teaserStep === 2 && (
+                    <motion.div
+                      key="teaser-typing-second"
+                      initial={{ opacity: 0, x: 10, y: 4 }}
+                      animate={{ opacity: 1, x: 0, y: 0 }}
+                      exit={{ opacity: 0, x: -6 }}
+                      transition={{ duration: 0.18 }}
+                      className="rounded-xl rounded-bl-md border border-white/20 bg-[#f5f7ff] px-3 py-2 shadow-lg"
+                    >
+                      <div className="flex items-center gap-1.5">
+                        {[0, 1, 2].map((index) => (
+                          <motion.span
+                            key={`teaser-dot-second-${index}`}
+                            className="h-1.5 w-1.5 rounded-full bg-[#6a789b]"
+                            animate={{ y: [0, -2, 0], opacity: [0.45, 1, 0.45] }}
+                            transition={{ duration: 0.65, repeat: Infinity, delay: index * 0.1 }}
+                          />
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                <AnimatePresence>
+                  {teaserStep >= 4 && (
+                    <motion.div
+                      key="teaser-greeting"
+                      initial={{ opacity: 0, x: 12, y: 6 }}
+                      animate={{ opacity: 1, x: 0, y: 0 }}
+                      transition={{ duration: 0.22 }}
+                      className="max-w-[240px] rounded-xl rounded-bl-md border border-white/20 bg-[#f5f7ff] px-3 py-2.5 text-[#1b2640] shadow-xl sm:max-w-[290px] sm:rounded-2xl sm:px-4 sm:py-3"
+                    >
+                      <p className="text-sm leading-5 sm:text-base">{t("fixedGreeting")}</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             </div>
-          </div>
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <AnimatePresence>
         {isOpen && (
