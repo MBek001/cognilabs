@@ -140,7 +140,7 @@ export default async function AboutPage({
         {/* Contact form */}
       </div>
       <AnimatedSection>
-        <div id="contact" className="pt-12">
+        <div id="contact" className="pt-12 scroll-mt-40 md:scroll-mt-24">
           <RequestForm formId="form_about_us" />
         </div>
       </AnimatedSection>

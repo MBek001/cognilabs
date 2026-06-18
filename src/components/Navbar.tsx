@@ -1,10 +1,9 @@
-/* eslint-disable @next/next/no-html-link-for-pages */
 "use client";
 import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { Menu, X, Globe, Check } from "lucide-react";
 
 const ONE_YEAR_IN_SECONDS = 60 * 60 * 24 * 365;
@@ -22,12 +21,44 @@ export default function Navbar() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [showLanguageMenu, setShowLanguageMenu] = useState(false);
+  const shouldScrollToContactRef = useRef(false);
 
   // Check if we're on the home page
   const isHomePage = pathname === `/${locale}` || pathname === "/";
 
   // Function to check if a link is active
-  const isActive = (href: string) => pathname === href;
+  const isActive = (href: string) =>
+    pathname === href || pathname.startsWith(`${href}/`);
+
+  const navItems = [
+    { href: `/${locale}/about-us`, label: t("home") },
+    { href: `/${locale}/careers`, label: t("careers") },
+    { href: `/${locale}/services`, label: t("services") },
+    { href: `/${locale}/portfolio`, label: t("portfolio") },
+    { href: `/${locale}/insights`, label: t("blogs"), prefetch: false },
+  ];
+
+  const scrollToContact = useCallback(() => {
+    const isPhone = window.innerWidth < 768;
+    const formTarget = document.querySelector<HTMLElement>(
+      "form[data-contact-target='true']"
+    );
+    const section = document.getElementById("contact");
+    const target = isPhone ? formTarget || section : section || formTarget;
+
+    if (target) {
+      const targetTop =
+        target.getBoundingClientRect().top + window.scrollY;
+      const top =
+        targetTop -
+        (isPhone ? 88 : 0);
+
+      window.scrollTo({
+        top: Math.max(0, top),
+        behavior: "smooth",
+      });
+    }
+  }, []);
 
   // Prevent body scroll when menu is open
   useEffect(() => {
@@ -42,32 +73,42 @@ export default function Navbar() {
   }, [isOpen]);
 
   const handleContactClick = () => {
-    setIsOpen(false);
-
     if (isHomePage) {
-      // If on home page, scroll to contact
-      const section = document.getElementById("contact");
-      if (section) {
-        section.scrollIntoView({ behavior: "smooth" });
+      if (isOpen) {
+        shouldScrollToContactRef.current = true;
+        setIsOpen(false);
+        return;
       }
-    } else {
-      // If on another page, navigate to home with hash
-      router.push(`/${locale}#contact`);
+
+      scrollToContact();
+      return;
     }
+
+    setIsOpen(false);
+    router.push(`/${locale}#contact`);
   };
+
+  useEffect(() => {
+    if (!isOpen && shouldScrollToContactRef.current) {
+      shouldScrollToContactRef.current = false;
+
+      window.setTimeout(() => {
+        requestAnimationFrame(() => {
+          scrollToContact();
+        });
+      }, 320);
+    }
+  }, [isOpen, scrollToContact]);
 
   // Handle scroll to contact after navigation
   useEffect(() => {
     if (window.location.hash === "#contact") {
       setTimeout(() => {
-        const section = document.getElementById("contact");
-        if (section) {
-          section.scrollIntoView({ behavior: "smooth" });
-        }
+        scrollToContact();
         window.history.replaceState(null, "", pathname);
       }, 100);
     }
-  }, [pathname]);
+  }, [pathname, scrollToContact]);
 
   // Handle direct contact link access
   useEffect(() => {
@@ -113,14 +154,14 @@ export default function Navbar() {
                 animation: "pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite",
               }}
             >
-              <Link href="/careers" onClick={() => setIsOpen(false)}>
+              <Link href={`/${locale}/careers`} onClick={() => setIsOpen(false)}>
                 <p className="text-[7px] sm:text-[8px] md:text-[9px] lg:text-[11px] font-bold tracking-wide text-white px-1.5 sm:px-2 py-0.5 sm:py-1 bg-blue-700 rounded-3xl whitespace-nowrap hover:bg-blue-500 transition-colors shadow-lg">
                   {t("hiring")}
                 </p>
               </Link>
             </div>
 
-            <a href="/" onClick={() => setIsOpen(false)}>
+            <Link href={`/${locale}`} onClick={() => setIsOpen(false)}>
               <Image
                 src="/logomini.png"
                 alt="Cognilabs"
@@ -130,71 +171,25 @@ export default function Navbar() {
                 priority
                 fetchPriority="high"
               />
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Nav - centered navigation */}
           <div className="hidden lg:flex items-center justify-center flex-1 mx-8">
             <div className="flex items-center space-x-0.5 bg-[#0d1f38]/30 backdrop-blur-sm rounded-full px-2 py-2 border border-cyan-500/30">
-              <Link href={`/${locale}/about-us`}>
-                <div
-                  className={`px-6 py-2 rounded-full transition-all cursor-pointer ${
-                    isActive(`/${locale}/about-us`)
-                      ? "bg-blue-700 text-white font-semibold"
-                      : "text-gray-300 hover:text-white hover:bg-white/5"
-                  }`}
-                >
-                  {t("home")}
-                </div>
-              </Link>
-
-              <Link href={`/${locale}/careers`}>
-                <div
-                  className={`px-6 py-2 rounded-full transition-all cursor-pointer ${
-                    isActive(`/${locale}/careers`)
-                      ? "bg-blue-700 text-white font-semibold"
-                      : "text-gray-300 hover:text-white hover:bg-white/5"
-                  }`}
-                >
-                  {t("careers")}
-                </div>
-              </Link>
-
-              <Link href={`/${locale}/services`}>
-                <div
-                  className={`px-6 py-2 rounded-full transition-all cursor-pointer ${
-                    isActive(`/${locale}/services`)
-                      ? "bg-blue-700 text-white font-semibold"
-                      : "text-gray-300 hover:text-white hover:bg-white/5"
-                  }`}
-                >
-                  {t("services")}
-                </div>
-              </Link>
-
-              <Link href={`/${locale}/portfolio`}>
-                <div
-                  className={`px-6 py-2 rounded-full transition-all cursor-pointer ${
-                    isActive(`/${locale}/portfolio`)
-                      ? "bg-blue-700 text-white font-semibold"
-                      : "text-gray-300 hover:text-white hover:bg-white/5"
-                  }`}
-                >
-                  {t("portfolio")}
-                </div>
-              </Link>
-
-              <Link href={`/${locale}/insights`}>
-                <div
-                  className={`px-6 py-2 rounded-full transition-all cursor-pointer ${
-                    isActive(`/${locale}/insights`)
-                      ? "bg-blue-700 text-white font-semibold"
-                      : "text-gray-300 hover:text-white hover:bg-white/5"
-                  }`}
-                >
-                  {t("blogs")}
-                </div>
-              </Link>
+              {navItems.map((item) => (
+                <Link key={item.href} href={item.href} prefetch={item.prefetch}>
+                  <div
+                    className={`px-6 py-2 rounded-full transition-all cursor-pointer ${
+                      isActive(item.href)
+                        ? "bg-blue-700 text-white font-semibold"
+                        : "text-gray-300 hover:text-white hover:bg-white/5"
+                    }`}
+                  >
+                    {item.label}
+                  </div>
+                </Link>
+              ))}
 
               <button
                 onClick={handleContactClick}
@@ -324,10 +319,10 @@ export default function Navbar() {
 
       {/* Mobile/Tablet Menu with improved blur */}
       <div
-        className={`lg:hidden fixed top-0 left-0 w-full h-screen bg-[#0a1628]/98 backdrop-blur-xl transition-all duration-300 ease-in-out ${
+        className={`lg:hidden fixed inset-0 z-40 h-dvh bg-[#0a1628]/98 backdrop-blur-xl transition-all duration-300 ease-in-out overflow-y-auto overscroll-contain ${
           isOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
+            ? "opacity-100 translate-y-0 pointer-events-auto"
+            : "opacity-0 -translate-y-2 pointer-events-none"
         }`}
       >
         {/* Close button */}
@@ -339,81 +334,39 @@ export default function Navbar() {
           <X size={24} />
         </button>
 
-        <div className="flex flex-col items-center justify-center h-full space-y-4 sm:space-y-5 px-4 sm:px-6 pt-20 pb-8 overflow-y-auto">
-          <Link href={`/${locale}/about-us`} onClick={() => setIsOpen(false)}>
-            <p
-              className={`text-lg sm:text-xl cursor-pointer transition-all px-6 sm:px-8 py-2.5 sm:py-3 rounded-full ${
-                isActive(`/${locale}/about-us`)
-                  ? "bg-blue-700 text-white font-bold border border-cyan-500/50"
-                  : "text-gray-300 hover:text-white hover:bg-white/5"
-              }`}
-            >
-              {t("home")}
-            </p>
-          </Link>
+        <div className="flex min-h-full flex-col items-stretch px-4 pt-[calc(5.5rem+env(safe-area-inset-top))] pb-[calc(1.5rem+env(safe-area-inset-bottom))] sm:px-6">
+          <div className="mx-auto flex w-full max-w-[360px] flex-col gap-2.5">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                prefetch={item.prefetch}
+                onClick={() => setIsOpen(false)}
+                className={`block w-full rounded-2xl border px-5 py-3.5 text-center text-base font-semibold transition-all active:scale-[0.98] ${
+                  isActive(item.href)
+                    ? "border-cyan-500/50 bg-blue-700 text-white"
+                    : "border-cyan-500/15 bg-white/[0.03] text-gray-200 hover:bg-white/10 hover:text-white"
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
 
-          <Link href={`/${locale}/careers`} onClick={() => setIsOpen(false)}>
-            <p
-              className={`text-lg sm:text-xl cursor-pointer transition-all px-6 sm:px-8 py-2.5 sm:py-3 rounded-full ${
-                isActive(`/${locale}/careers`)
-                  ? "bg-blue-700 text-white font-bold border border-cyan-500/50"
-                  : "text-gray-300 hover:text-white hover:bg-white/5"
-              }`}
+            <button
+              onClick={handleContactClick}
+              className="w-full cursor-pointer rounded-2xl border border-cyan-500/15 bg-white/[0.03] px-5 py-3.5 text-center text-base font-semibold text-gray-200 transition-all hover:bg-white/10 hover:text-white active:scale-[0.98]"
             >
-              {t("careers")}
-            </p>
-          </Link>
-
-          <Link href={`/${locale}/services`} onClick={() => setIsOpen(false)}>
-            <p
-              className={`text-lg sm:text-xl cursor-pointer transition-all px-6 sm:px-8 py-2.5 sm:py-3 rounded-full ${
-                isActive(`/${locale}/services`)
-                  ? "bg-blue-700 text-white font-bold border border-cyan-500/50"
-                  : "text-gray-300 hover:text-white hover:bg-white/5"
-              }`}
-            >
-              {t("services")}
-            </p>
-          </Link>
-
-          <Link href={`/${locale}/portfolio`} onClick={() => setIsOpen(false)}>
-            <p
-              className={`text-lg sm:text-xl cursor-pointer transition-all px-6 sm:px-8 py-2.5 sm:py-3 rounded-full ${
-                isActive(`/${locale}/portfolio`)
-                  ? "bg-blue-700 text-white font-bold border border-cyan-500/50"
-                  : "text-gray-300 hover:text-white hover:bg-white/5"
-              }`}
-            >
-              {t("portfolio")}
-            </p>
-          </Link>
-
-          <Link href={`/${locale}/insights`} prefetch={false} onClick={() => setIsOpen(false)}>
-            <p
-              className={`text-lg sm:text-xl cursor-pointer transition-all px-6 sm:px-8 py-2.5 sm:py-3 rounded-full ${
-                isActive(`/${locale}/insights`)
-                  ? "bg-blue-700 text-white font-bold border border-cyan-500/50"
-                  : "text-gray-300 hover:text-white hover:bg-white/5"
-              }`}
-            >
-              {t("blogs")}
-            </p>
-          </Link>
-
-          <button
-            onClick={handleContactClick}
-            className="text-lg sm:text-xl cursor-pointer transition-all text-gray-300 hover:text-white hover:bg-white/5 px-6 sm:px-8 py-2.5 sm:py-3 rounded-full"
-          >
-            {t("contact")}
-          </button>
+              {t("contact")}
+            </button>
+          </div>
 
           {/* iPhone-style language selector for mobile */}
-          <div className="pt-3 sm:pt-4 w-full max-w-[280px] sm:max-w-xs">
+          <div className="mx-auto w-full max-w-[360px] pt-4">
             <div className="rounded-2xl bg-[#1c2938]/80 backdrop-blur-xl border border-blue-500/20 overflow-hidden shadow-2xl">
-              <div className="px-4 py-2.5 sm:py-3 border-b border-blue-500/20">
+              <div className="px-4 py-2.5 border-b border-blue-500/20">
                 <div className="flex items-center justify-center space-x-2 text-blue-400">
-                  <Globe className="w-4 h-4 sm:w-5 sm:h-5" />
-                  <span className="text-xs sm:text-sm font-semibold">
+                  <Globe className="w-4 h-4" />
+                  <span className="text-xs font-semibold">
                     Language
                   </span>
                 </div>
@@ -422,19 +375,19 @@ export default function Navbar() {
                 <button
                   key={lang}
                   onClick={() => changeLocale(lang)}
-                  className={`w-full px-5 sm:px-6 py-3 sm:py-4 flex items-center justify-between hover:bg-blue-600/20 active:bg-blue-700 transition-all ${
+                  className={`w-full px-5 py-3 flex items-center justify-between hover:bg-blue-600/20 active:bg-blue-700 transition-all ${
                     index !== 0 ? "border-t border-blue-500/20" : ""
                   }`}
                 >
                   <span
-                    className={`text-sm sm:text-base font-medium ${
+                    className={`text-sm font-medium ${
                       locale === lang ? "text-blue-400" : "text-gray-200"
                     }`}
                   >
                     {getLanguageName(lang)}
                   </span>
                   {locale === lang && (
-                    <Check className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400" />
+                    <Check className="w-5 h-5 text-blue-400" />
                   )}
                 </button>
               ))}
@@ -442,24 +395,24 @@ export default function Navbar() {
           </div>
 
           {/* Contact info */}
-          <div className="pt-4 sm:pt-6 border-t border-cyan-500/20 w-full max-w-[280px] sm:max-w-xs">
+          <div className="mx-auto mt-4 w-full max-w-[360px] border-t border-cyan-500/20 pt-4">
             <a
               href={`tel:${locale === "en" ? "5138088813" : "+998873377577"}`}
-              className="text-blue-400 font-semibold text-base sm:text-lg block text-center hover:text-blue-400/70 transition-colors"
+              className="text-blue-400 font-semibold text-base block text-center hover:text-blue-400/70 transition-colors"
             >
               {locale === "en" ? "+1 (513) 808-88-13" : "+998 (87) 337-75-77"}
             </a>
           </div>
 
           {/* Social media icons */}
-          <div className="flex items-center justify-center space-x-3 sm:space-x-4 pt-3 sm:pt-4">
+          <div className="flex items-center justify-center space-x-3 pt-4">
             <Link
               href="https://www.facebook.com/profile.php?id=61577158531453"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
             >
-              <div className="w-10 h-10 sm:w-11 sm:h-11 bg-cyan-500/20 hover:bg-cyan-500/30 rounded-full flex items-center justify-center transition-all border border-cyan-500/30 active:scale-95 shadow-lg">
+              <div className="w-10 h-10 bg-cyan-500/20 hover:bg-cyan-500/30 rounded-full flex items-center justify-center transition-all border border-cyan-500/30 active:scale-95 shadow-lg">
                 <Image
                   src="/facebook.png"
                   alt="facebook"
@@ -475,7 +428,7 @@ export default function Navbar() {
               rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
             >
-              <div className="w-10 h-10 sm:w-11 sm:h-11 bg-cyan-500/20 hover:bg-cyan-500/30 rounded-full flex items-center justify-center transition-all border border-cyan-500/30 active:scale-95 shadow-lg">
+              <div className="w-10 h-10 bg-cyan-500/20 hover:bg-cyan-500/30 rounded-full flex items-center justify-center transition-all border border-cyan-500/30 active:scale-95 shadow-lg">
                 <Image
                   src="/tg.svg"
                   alt="telegram"
@@ -491,7 +444,7 @@ export default function Navbar() {
               rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
             >
-              <div className="w-10 h-10 sm:w-11 sm:h-11 bg-cyan-500/20 hover:bg-cyan-500/30 rounded-full flex items-center justify-center transition-all border border-cyan-500/30 active:scale-95 shadow-lg">
+              <div className="w-10 h-10 bg-cyan-500/20 hover:bg-cyan-500/30 rounded-full flex items-center justify-center transition-all border border-cyan-500/30 active:scale-95 shadow-lg">
                 <Image
                   src="/ig.png"
                   alt="instagram"

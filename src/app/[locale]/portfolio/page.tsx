@@ -386,7 +386,7 @@ export default function Page() {
 					</p>
 				</div>
 			</div>
-			<div id='contact' className='pt-12 sm:pt-20'>
+			<div id='contact' className='pt-12 sm:pt-20 scroll-mt-40 md:scroll-mt-24'>
 				<RequestForm formId='form_portfolio' />
 			</div>
 

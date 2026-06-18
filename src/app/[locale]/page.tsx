@@ -24,7 +24,9 @@ setRequestLocale(locale)
       
       <ClientsOpinion/>
       <Locations/>
-      <RequestForm formId="form_home_main" />
+      <div id="contact" className="scroll-mt-40 md:scroll-mt-24">
+        <RequestForm formId="form_home_main" />
+      </div>
       <Faq/>
       <Insights/> 
       <Footer/> 

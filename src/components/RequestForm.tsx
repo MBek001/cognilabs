@@ -54,7 +54,7 @@ export default function RequestForm({ formId }: RequestFormProps) {
   };
 
   return (
-    <div id="contact" className="bg-[#001A3A] py-20 text-white font-poppins">
+    <div className="bg-[#001A3A] py-20 text-white font-poppins">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 px-6 md:px-10">
         {/* LEFT SECTION */}
         <div className="flex flex-col justify-between space-y-10">
@@ -141,9 +141,10 @@ export default function RequestForm({ formId }: RequestFormProps) {
         </div>
 
         {/* RIGHT SECTION — FORM */}
-        <div>
+        <div id="contact-form" className="scroll-mt-40 md:scroll-mt-0">
           <form
             id={formId}
+            data-contact-target="true"
             onSubmit={handleSubmit}
             className="bg-white text-gray-500 max-w-[510px] hover:scale-101 duration-300 transform transition-transform rounded-[50px] shadow-lg p-10 space-y-8"
           >

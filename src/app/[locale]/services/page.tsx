@@ -27,6 +27,23 @@ export default function ServicesPage() {
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
   const lineRef = useRef<HTMLDivElement | null>(null);
 
+  const scrollToContact = () => {
+    const isPhone = window.innerWidth < 768;
+    const formTarget = document.querySelector<HTMLElement>(
+      "form[data-contact-target='true']"
+    );
+    const section = document.getElementById("contact");
+    const target = isPhone ? formTarget || section : section || formTarget;
+
+    if (target) {
+      const targetTop = target.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: Math.max(0, targetTop - (isPhone ? 88 : 0)),
+        behavior: "smooth",
+      });
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight / 2;
@@ -109,9 +126,7 @@ export default function ServicesPage() {
                     trackEvent("button_click", {
                       element_id: "btn_services_contact_now",
                     });
-                    document
-                      .getElementById("contact")
-                      ?.scrollIntoView({ behavior: "smooth" });
+                    scrollToContact();
                   }}
                   className="inline-flex items-center gap-2 text-blue-500 hover:text-blue-300 font-semibold text-sm md:text-base transition-all"
                 >
@@ -127,7 +142,7 @@ export default function ServicesPage() {
       {/* Service Summary */}
 
       {/* Request form */}
-      <div id="contact" className="pt-16 sm:pt-24">
+      <div id="contact" className="pt-16 sm:pt-24 scroll-mt-40 md:scroll-mt-24">
         <RequestForm formId="form_services" />
       </div>
       <section className="bg-black text-white py-20 md:py-32">

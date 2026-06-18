@@ -11,8 +11,20 @@ export default function Header() {
 	const locale = useLocale()
 
 	const handleScroll = (id: string) => {
+		const isPhone = window.innerWidth < 768
+		const formTarget = document.querySelector<HTMLElement>(
+			"form[data-contact-target='true']"
+		)
 		const section = document.getElementById(id)
-		if (section) section.scrollIntoView({ behavior: 'smooth' })
+		const target = id === 'contact' && isPhone ? formTarget || section : section
+
+		if (target) {
+			const targetTop = target.getBoundingClientRect().top + window.scrollY
+			window.scrollTo({
+				top: Math.max(0, targetTop - (isPhone ? 88 : 0)),
+				behavior: 'smooth',
+			})
+		}
 	}
 
 	const handleContactNowClick = () => {
