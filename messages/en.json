@@ -21,9 +21,11 @@
     "Projects" :{
         "ourprojects": "Our Projects",
         "text" : "Our projects deliver innovative digital solutions that empower businesses.",
+        "kastext":"KAS is a trusted supplier of quality pipes and piping solutions. KAS provides durable products and reliable service for construction and infrastructure projects.",
         "bunyodkortext":"Bunyodkor Academy develops future football players through professional coaching, modern training methods, and consistent long-term growth.",
         "mrdomtext": "MrDom is the trusted store for quality and practical kitchen essentials. MrDom makes cooking and organizing your kitchen easier than ever.",
         "bazatext": "Bazabarbershop is your go-to place for professional cuts and grooming. Billur Barbershop makes looking fresh and polished easier than ever.",
+        "renaissancetext": "At Renessans Clinic, world-class doctors combines advanced medical expertise with cutting-edge technology to deliver premier healthcare",
         "visitProject":"Visit the Page",
         "viewMore":"View More Projects" 
     },
@@ -313,6 +315,24 @@
 
   "hoshangtext": "Hoshang Restaurant brings the taste of the East to your table, providing delicious and traditional meals in a welcoming atmosphere.",
   "hoshangmssg": "For our restaurant, the website and automated booking system created by Cognilabs exceeded our expectations.",
+
+  "kastext":"KAS brings quality piping solutions to your projects, providing reliable and durable pipes for construction, infrastructure, and industrial needs in a professional and trusted environment.",
+  "kasmssg": "For our pipe business, the AI-powered CRM system created by Cognilabs exceeded our expectations.",
+
+  "renessanstext":"Renessans Clinic provides comprehensive medical services with a focus on patient care and modern healthcare solutions.",
+  "renessansmssg": "The Cognilabs team provided us with AI-powered sales agents, which automated our client interactions.",
+
+  "articletext": "Articles 365 is an online book store that provides a wide range of literature and educational resources for readers of all ages.",
+  "articlemssg": "The Cognilabs team provided us with a custom CRM system, web application, and AI integration. They helped us automate processes and manage our business more efficiently.",
+
+  "solartext":"Green NRG offers reliable solar solutions, delivering durable panels and professional installation for sustainable power.",
+  "solarmssg": "The Cognilabs team provided us with AI-powered sales agents. They respond to customers automatically and quickly provide the necessary information.",
+
+  "texnograndtext":"Texnogrand is a trusted provider of high-quality air conditioning solutions, offering reliable and energy-efficient systems for homes, offices, and commercial spaces.",
+  "texnograndmssg": "The Cognilabs team provided us with a custom CRM system and AI-powered analytics. It automatically analyzes our sales operators and helps improve their performance.",
+
+  "bogottext":"Bogot Armada offers reliable solar solutions, delivering durable panels and professional installation for sustainable power.",
+  "bogotmssg":"The Cognilabs team provided us with AI-powered sales agents. They respond to customers automatically and quickly provide the necessary information.",
 
   "zomintext": "Zomin is a premium water brand committed to delivering pure, naturally balanced hydration sourced from pristine springs. Through advanced purification and strict quality control.",
   "zominmssg": "We're extremely satisfied with the results. The ERP system and AI solutions have streamlined our operations and significantly improved efficiency.",

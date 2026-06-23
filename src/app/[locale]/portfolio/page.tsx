@@ -29,6 +29,16 @@ export default function Page() {
 	// Force show bottom card on mobile OR when hovered on desktop
 	const shouldShowBottomCard = (id: number) => isMobile || hovered === id
 	const t = useTranslations('Porfolio')
+	const projectContentClassNameById: Record<number, string> = {
+		3: 'pr-24 sm:pr-32 lg:pr-44',
+		5: 'pr-24 sm:pr-32 lg:pr-48',
+		6: 'pr-24 sm:pr-32 lg:pr-44',
+	}
+	const projectImageClassNameById: Record<number, string> = {
+		3: 'top-22 left-[82%] w-24 sm:w-36 lg:top-32 lg:left-[84%] lg:w-52',
+		5: 'top-22 left-[82%] w-28 sm:w-40 lg:top-32 lg:left-[84%] lg:w-60',
+		6: 'top-22 left-[82%] w-24 sm:w-36 lg:top-32 lg:left-[84%] lg:w-56',
+	}
 	const projects = [
 		// ... your projects array stays exactly the same
 		{
@@ -45,6 +55,78 @@ export default function Page() {
 		},
 		{
 			id: 2,
+			title: 'KAS',
+			logo: '/clients/kas.png',
+			desc: t('kastext'),
+			prtype: 'Pipe store',
+			typeicon: '/projectslogo/icons/pipe.png',
+			showenimg: '/projectslogo/shows/pipe.png',
+			bout: 'Pipe store',
+			mssg: t('kasmssg'),
+			link: '',
+		},
+		{
+			id: 3,
+			title: 'Renessans Clinic',
+			logo: '/clients/renessans.png',
+			desc: t('renessanstext'),
+			prtype: 'Clinic',
+			typeicon: '/projectslogo/icons/doctor.png',
+			showenimg: '/projectslogo/shows/doctor.png',
+			bout: 'Clinic',
+			mssg: t('renessansmssg'),
+			link: '',
+		},
+		{
+			id: 4,
+			title: 'Articles 365',
+			logo: '/clients/article.png',
+			desc: t('articletext'),
+			prtype: 'Articles',
+			typeicon: '/projectslogo/icons/article.png',
+			showenimg: '/projectslogo/shows/article.png',
+			bout: 'Articles',
+			mssg: t('articlemssg'),
+			link: '',
+		},
+		{
+			id: 5,
+			title: 'Green NRG',
+			logo: '/clients/solar.jpg',
+			desc: t('solartext'),
+			prtype: 'Solar Panels',
+			typeicon: '/projectslogo/icons/solar.png',
+			showenimg: '/projectslogo/shows/solar.png',
+			bout: 'Solar Panels',
+			mssg: t('solarmssg'),
+			link: '',
+		},
+		{
+			id: 6,
+			title: 'Texnogrand',
+			logo: '/clients/texnogrand.png',
+			desc: t('texnograndtext'),
+			prtype: 'Air condition',
+			typeicon: '/projectslogo/icons/texnogrand.png',
+			showenimg: '/projectslogo/shows/texnogrand.png',
+			bout: 'Air condition',
+			mssg: t('texnograndmssg'),
+			link: '',
+		},
+		{
+			id: 7,
+			title: 'Bogot Armada',
+			logo: '/clients/solar.jpg',
+			desc: t('bogottext'),
+			prtype: 'Solar Panels',
+			typeicon: '/projectslogo/icons/solar.png',
+			showenimg: '/projectslogo/shows/solar.png',
+			bout: 'Solar Panels',
+			mssg: t('bogotmssg'),
+			link: '',
+		},
+		{
+			id: 8,
 			title: 'Hoshang Restaurant',
 			logo: '/clients/hoshang.png',
 			desc: t('hoshangtext'),
@@ -56,7 +138,7 @@ export default function Page() {
 			link: '',
 		},
 		{
-			id: 3,
+			id: 9,
 			title: 'Zomin',
 			logo: '/clients/zomin.png',
 			desc: t('zomintext'),
@@ -68,7 +150,7 @@ export default function Page() {
 			link: '',
 		},
 		{
-			id: 4,
+			id: 10,
 			title: 'Erix Consulting',
 			logo: '/clients/erix.jpg',
 			desc: t('erixtext'),
@@ -80,7 +162,7 @@ export default function Page() {
 			link: '',
 		},
 		{
-			id: 5,
+			id: 11,
 			title: 'OLOU',
 			logo: '/projectslogo/olou3.png',
 			desc: t('oloutext'),
@@ -92,7 +174,7 @@ export default function Page() {
 			link: 'https://olou.uz',
 		},
 		{
-			id: 6,
+			id: 12,
 			title: 'Saaf Green Agro',
 			logo: '/projectslogo/saaf.png',
 			desc: t('saaftext'),
@@ -104,7 +186,7 @@ export default function Page() {
 			link: 'https://saafagro.com',
 		},
 		{
-			id: 7,
+			id: 13,
 			title: 'ExtraGpt',
 			logo: '/projectslogo/extragpt1.png',
 			desc: t('extratext'),
@@ -116,7 +198,7 @@ export default function Page() {
 			link: 'https://www.extra-gpt.com',
 		},
 		{
-			id: 8,
+			id: 14,
 			title: 'Best solar',
 			logo: '/clients/client13.png',
 			desc: t('bestsolartext'),
@@ -128,7 +210,7 @@ export default function Page() {
 			link: '',
 		},
 		{
-			id: 9,
+			id: 15,
 			title: 'Surxon bozor',
 			logo: '/clients/surxon.png',
 			desc: t('surxontext'),
@@ -140,7 +222,7 @@ export default function Page() {
 			link: '',
 		},
 		{
-			id: 10,
+			id: 16,
 			title: 'Denov bozor',
 			logo: '/clients/denov.png',
 			desc: t('denovtext'),
@@ -152,7 +234,7 @@ export default function Page() {
 			link: '',
 		},
 		{
-			id: 11,
+			id: 17,
 			title: 'Djafariy',
 			logo: '/projectslogo/djafariy1.png',
 			desc: t('djafariytext'),
@@ -164,7 +246,7 @@ export default function Page() {
 			link: 'https://djafariy.org',
 		},
 		{
-			id: 12,
+			id: 18,
 			title: 'Aroma lab',
 			logo: '/clients/aroma.png',
 			desc: t('erixtext'),
@@ -176,7 +258,7 @@ export default function Page() {
 			link: '',
 		},
 		{
-			id: 13,
+			id: 19,
 			title: 'Taad',
 			logo: '/clients/taad.png',
 			desc: t('taadtext'),
@@ -188,7 +270,7 @@ export default function Page() {
 			link: '',
 		},
 		{
-			id: 14,
+			id: 20,
 			title: 'Billur',
 			logo: '/projectslogo/billur.png',
 			desc: t('billurtext'),
@@ -200,7 +282,7 @@ export default function Page() {
 			link: 'https://billur-market.com',
 		},
 		{
-			id: 15,
+			id: 21,
 			title: 'Bazabarbershop',
 			logo: '/projectslogo/baza.png',
 			desc: t('bazatext'),
@@ -212,7 +294,7 @@ export default function Page() {
 			link: 'https://www.bazabarbershop.com',
 		},
 		{
-			id: 16,
+			id: 22,
 			title: 'Zippy Taxi',
 			logo: '/clients/zippy.png',
 			desc: t('zippytext'),
@@ -224,7 +306,7 @@ export default function Page() {
 			link: '',
 		},
 		{
-			id: 17,
+			id: 23,
 			title: 'Davr Taxi',
 			logo: '/clients/davr.png',
 			desc: t('davrtext'),
@@ -236,7 +318,7 @@ export default function Page() {
 			link: '',
 		},
 		{
-			id: 18,
+			id: 24,
 			title: 'Bro Taxi',
 			logo: '/clients/bro.png',
 			desc: t('brotext'),
@@ -278,7 +360,9 @@ export default function Page() {
 						>
 							{/* MAIN CARD */}
 							<motion.div className='bg-[#111] group relative rounded-3xl  border border-gray-800 hover:border-blue-500 transition-all duration-300 cursor-pointer'>
-								<div className='p-6 lg:pr-32'>
+								<div
+									className={`p-6 ${projectContentClassNameById[item.id] ?? 'lg:pr-32'}`}
+								>
 									<div className='flex items-center mb-6 gap-2 bg-[#003D99] w-fit px-4 py-1 rounded-lg'>
 										<Image
 											src={item.typeicon}
@@ -322,9 +406,9 @@ export default function Page() {
 								{/* HOVER IMAGE - Hidden on mobile */}
 								{/* MOBILE VERSION IMAGE */}
 								<motion.div
-									className={`absolute lg:top-35 lg:w-56 group-hover:scale-115 transform transition-all duration-300 ease-in-out lg:left-4/5 top-20 left-4/5 -translate-x-1/2 -translate-y-1/2 
-              w-32 sm:w-44 h-auto pointer-events-none
-              ${item.id === 5 || item.id === 6 ? 'w-48 sm:w-64 lg:w-80' : ''}`}
+									className={`absolute group-hover:scale-115 transform transition-all duration-300 ease-in-out -translate-x-1/2 -translate-y-1/2 h-auto pointer-events-none top-20 left-4/5 w-32 sm:w-44 lg:top-35 lg:left-4/5 lg:w-56 ${
+										projectImageClassNameById[item.id] ?? ''
+									}`}
 									initial={{ opacity: 0, scale: 0.9 }}
 									animate={{ opacity: 1, scale: 1 }}
 									transition={{ duration: 0.4 }}

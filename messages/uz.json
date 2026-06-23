@@ -21,6 +21,7 @@
 "Projects": {
     "ourprojects": "Bizning Loyihalarimiz",
     "text": "Bizning loyihalarimiz bizneslarni quvvatlaydigan innovatsion raqamli yechimlarni taqdim etadi.",
+    "kas":"KAS sifatli quvurlar va quvur tizimlari yechimlarining ishonchli yetkazib beruvchisidir. Kompaniya qurilish va infratuzilma loyihalari uchun mustahkam mahsulotlar hamda ishonchli xizmatlarni taqdim etadi.",
     "bunyodkortext": "Bunyodkor Academy kelajak futbolchilarini professional murabbiylik, zamonaviy mashg‘ulot usullari va izchil rivojlanish orqali tayyorlaydi.",
     "mrdomtext": "MrDom - sifatli va amaliy oshxona jihozlari uchun ishonchli do'kon. MrDom taom tayyorlash va oshxonangizni tashkil qilishni har qachongidan ham osonlashtiradi.",
     "billurtext": "Billur kuchli va xavfsiz tozalash mahsulotlari uchun ishonchli brend. Billur sog‘lom va toza muhitni saqlashni osonlashtiradi.",
@@ -323,6 +324,24 @@
 
   "hoshangtext": "Hoshang Restaurant sharq taomlarini taqdim etadi, mazali va an’anaviy taomlarni iliq muhitda xizmat qiladi.",
   "hoshangmssg": "Restoranimiz uchun Cognilabs tomonidan yaratilgan veb-sayt va avtomatlashtirilgan bron tizimi biz kutganimizning o‘zi bo‘ldi.",
+
+  "kastext":"KAS loyihalaringiz uchun sifatli quvur yechimlarini taqdim etadi, qurilish, infratuzilma va sanoat ehtiyojlari uchun ishonchli hamda mustahkam quvurlarni professional va ishonchli xizmat bilan yetkazib beradi.",
+  "kasmssg": "Quvur biznesimiz uchun Cognilabs tomonidan yaratilgan AI-integratsiyalashgan CRM tizimi kutganimizdan ham yuqori natija berdi.",
+
+  "renessanstext":"Renessans Clinic keng ko‘lamli tibbiy xizmatlarni taqdim etadi, bemorlarga va zamonaviy sog‘lomlik yechimlariga e'tibor qaratadi.",
+  "renessansmssg": "Cognilabs jamoasi biz uchun sun'iy intellektga asoslangan savdo agentlari taqdim etishdi va bu mijozlar bilan aloqamizni avtomatlashtirdi.",
+
+  "articletext": "Articles 365 — bu onlayn kitob do'konidir, barcha yoshlarda o'qishga mo'ljallangan keng kitob va ta'lim resurslarini taqdim etadi.",
+  "articlemssg": "Cognilabs jamoasi bizga maxsus CRM tizimi, veb-ilova va AI integratsiyasini taqdim etdi. Ular jarayonlarni avtomatlashtirish va biznesimizni samaraliroq boshqarishga yordam berdi.",
+
+  "solartext": "Green NRG barqaror energiya manbai uchun sifatli quyosh panellari va professional o‘rnatish xizmatlarini taqdim etuvchi ishonchli quyosh energiyasi yechimlarini taklif etadi.",
+  "solarmssg": "Cognilabs jamoasi bizga AI savdo agentlarini taqdim etdi. Ular mijozlarga avtomatik javob beradi va kerakli ma’lumotlarni tezkor yetkazadi.",
+
+  "texnograndtext":"Texnogrand uylar, ofislar va tijorat obyektlari uchun ishonchli hamda energiya tejamkor konditsioner yechimlarini taklif etuvchi yuqori sifatli iqlim texnikalari yetkazib beruvchisidir.",
+  "texnograndmssg":"Cognilabs jamoasi bizga maxsus CRM tizimi va AI tahlil yechimini taqdim etdi. U savdo operatorlarimiz faoliyatini avtomatik tahlil qilib, ularning samaradorligini oshirishga yordam beradi.",
+
+  "bogottext":"Bogot Armada barqaror energiya manbai uchun sifatli quyosh panellari va professional o‘rnatish xizmatlarini taqdim etuvchi ishonchli quyosh energiyasi yechimlarini taklif etadi.",
+  "bogotmssg":"Cognilabs jamoasi bizga AI savdo agentlarini taqdim etdi. Ular mijozlarga avtomatik javob beradi va kerakli ma’lumotlarni tezkor yetkazadi.",
 
   "zomintext": "Zomin - bu toza buloqlardan olingan sof, tabiiy muvozanatli hidratsiyani yetkazib berishga intilgan yuqori sifatli suv brendidir. Kengaytirilgan tozalash va qat'iy sifat nazorati orqali.",
   "zominmssg": "Biz natijalardan juda mamnunmiz. ERP tizimi va AI yechimlari operatsiyalarimizni soddalashtirdi va samaradorlikni sezilarli darajada oshirdi.",
