@@ -33,11 +33,26 @@ export default function Page() {
 		3: 'pr-24 sm:pr-32 lg:pr-44',
 		5: 'pr-24 sm:pr-32 lg:pr-48',
 		6: 'pr-24 sm:pr-32 lg:pr-44',
+		11: 'pr-28 sm:pr-36 lg:pr-52',
 	}
 	const projectImageClassNameById: Record<number, string> = {
-		3: 'top-22 left-[82%] w-24 sm:w-36 lg:top-32 lg:left-[84%] lg:w-52',
-		5: 'top-22 left-[82%] w-28 sm:w-40 lg:top-32 lg:left-[84%] lg:w-60',
+		3: 'top-22 left-[82%] w-16 sm:w-24 lg:top-32 lg:left-[84%] lg:w-32',
+		5: 'top-22 left-[79%] w-24 sm:w-32 lg:top-32 lg:left-[81%] lg:w-48',
 		6: 'top-22 left-[82%] w-24 sm:w-36 lg:top-32 lg:left-[84%] lg:w-56',
+		7: 'top-22 left-[83%] w-24 sm:w-32 lg:top-32 lg:left-[85%] lg:w-48',
+		11: 'top-22 left-[84%] w-28 sm:w-40 lg:top-32 lg:left-[86%] lg:w-52',
+		15: 'top-22 left-[82%] w-28 sm:w-36 lg:top-32 lg:left-[84%] lg:w-48',
+		16: 'top-22 left-[82%] w-28 sm:w-36 lg:top-32 lg:left-[84%] lg:w-48',
+		18: 'top-22 left-[82%] w-24 sm:w-32 lg:top-32 lg:left-[84%] lg:w-44',
+		20: 'top-22 left-[82%] w-24 sm:w-32 lg:top-32 lg:left-[84%] lg:w-44',
+		22: 'top-22 left-[82%] w-20 sm:w-28 lg:top-32 lg:left-[84%] lg:w-36',
+		23: 'top-22 left-[82%] w-20 sm:w-28 lg:top-32 lg:left-[84%] lg:w-36',
+		24: 'top-22 left-[82%] w-20 sm:w-28 lg:top-32 lg:left-[84%] lg:w-36',
+	}
+	const logoSizeById: Record<number, number> = {
+		9: 64,
+		14: 72,
+		19: 64,
 	}
 	const projects = [
 		// ... your projects array stays exactly the same
@@ -116,7 +131,7 @@ export default function Page() {
 		{
 			id: 7,
 			title: 'Bogot Armada',
-			logo: '/clients/solar.jpg',
+			logo: '/clients/bogot.jpg',
 			desc: t('bogottext'),
 			prtype: 'Solar Panels',
 			typeicon: '/projectslogo/icons/solar.png',
@@ -381,8 +396,8 @@ export default function Page() {
 										<Image
 											className='rounded-full border-2 border-gray-700'
 											src={item.logo}
-											width={56}
-											height={56}
+											width={logoSizeById[item.id] ?? 56}
+											height={logoSizeById[item.id] ?? 56}
 											alt={item.title}
 											quality={80}
 											loading='lazy'
@@ -406,8 +421,8 @@ export default function Page() {
 								{/* HOVER IMAGE - Hidden on mobile */}
 								{/* MOBILE VERSION IMAGE */}
 								<motion.div
-									className={`absolute group-hover:scale-115 transform transition-all duration-300 ease-in-out -translate-x-1/2 -translate-y-1/2 h-auto pointer-events-none top-20 left-4/5 w-32 sm:w-44 lg:top-35 lg:left-4/5 lg:w-56 ${
-										projectImageClassNameById[item.id] ?? ''
+									className={`absolute group-hover:scale-115 transform transition-all duration-300 ease-in-out -translate-x-1/2 -translate-y-1/2 h-auto pointer-events-none ${
+										projectImageClassNameById[item.id] ?? 'top-20 left-4/5 w-32 sm:w-44 lg:top-35 lg:left-4/5 lg:w-56'
 									}`}
 									initial={{ opacity: 0, scale: 0.9 }}
 									animate={{ opacity: 1, scale: 1 }}
@@ -442,8 +457,8 @@ export default function Page() {
 										<Image
 											className='rounded-full'
 											src={item.logo}
-											width={50}
-											height={50}
+											width={logoSizeById[item.id] ? logoSizeById[item.id] - 6 : 50}
+											height={logoSizeById[item.id] ? logoSizeById[item.id] - 6 : 50}
 											alt={item.bout}
 											quality={80}
 											loading='lazy'
