@@ -83,7 +83,7 @@ export default function Page() {
 		{
 			id: 3,
 			title: 'Renessans Clinic',
-			logo: '/clients/renessans.png',
+			logo: '/clients/renessans.jpg',
 			desc: t('renessanstext'),
 			prtype: 'Clinic',
 			typeicon: '/projectslogo/icons/doctor.png',
