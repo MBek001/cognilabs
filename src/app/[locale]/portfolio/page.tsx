@@ -36,18 +36,32 @@ export default function Page() {
 		11: 'pr-28 sm:pr-36 lg:pr-52',
 	}
 	const projectImageClassNameById: Record<number, string> = {
-		3: 'top-22 left-[82%] w-16 sm:w-24 lg:top-32 lg:left-[84%] lg:w-32',
-		5: 'top-22 left-[79%] w-24 sm:w-32 lg:top-32 lg:left-[81%] lg:w-48',
-		6: 'top-22 left-[82%] w-24 sm:w-36 lg:top-32 lg:left-[84%] lg:w-56',
-		7: 'top-22 left-[83%] w-24 sm:w-32 lg:top-32 lg:left-[85%] lg:w-48',
-		11: 'top-22 left-[84%] w-28 sm:w-40 lg:top-32 lg:left-[86%] lg:w-52',
-		15: 'top-22 left-[82%] w-28 sm:w-36 lg:top-32 lg:left-[84%] lg:w-48',
-		16: 'top-22 left-[82%] w-28 sm:w-36 lg:top-32 lg:left-[84%] lg:w-48',
-		18: 'top-22 left-[82%] w-24 sm:w-32 lg:top-32 lg:left-[84%] lg:w-44',
-		20: 'top-22 left-[82%] w-24 sm:w-32 lg:top-32 lg:left-[84%] lg:w-44',
-		22: 'top-22 left-[82%] w-20 sm:w-28 lg:top-32 lg:left-[84%] lg:w-36',
-		23: 'top-22 left-[82%] w-20 sm:w-28 lg:top-32 lg:left-[84%] lg:w-36',
-		24: 'top-22 left-[82%] w-20 sm:w-28 lg:top-32 lg:left-[84%] lg:w-36',
+		3:  'w-20 sm:w-28 lg:w-36',
+		5:  'w-24 sm:w-32 lg:w-48',
+		6:  'w-24 sm:w-36 lg:w-56',
+		7:  'w-24 sm:w-32 lg:w-48',
+		11: 'w-28 sm:w-40 lg:w-52',
+		15: 'w-28 sm:w-36 lg:w-48',
+		16: 'w-28 sm:w-36 lg:w-48',
+		18: 'w-24 sm:w-32 lg:w-44',
+		20: 'w-24 sm:w-32 lg:w-44',
+		22: 'w-20 sm:w-28 lg:w-36',
+		23: 'w-20 sm:w-28 lg:w-36',
+		24: 'w-20 sm:w-28 lg:w-36',
+	}
+	const projectImageStyleById: Record<number, { top: string; left: string }> = {
+		3:  { top: '2rem',   left: '95%' },
+		5:  { top: '5.5rem', left: '79%' },
+		6:  { top: '5.5rem', left: '82%' },
+		7:  { top: '5.5rem', left: '83%' },
+		11: { top: '5.5rem', left: '84%' },
+		15: { top: '5.5rem', left: '82%' },
+		16: { top: '5.5rem', left: '82%' },
+		18: { top: '5.5rem', left: '82%' },
+		20: { top: '5.5rem', left: '82%' },
+		22: { top: '5.5rem', left: '82%' },
+		23: { top: '5.5rem', left: '82%' },
+		24: { top: '5.5rem', left: '82%' },
 	}
 	const logoSizeById: Record<number, number> = {
 		9: 64,
@@ -418,27 +432,31 @@ export default function Page() {
 									</div>
 								</div>
 
-								{/* HOVER IMAGE - Hidden on mobile */}
-								{/* MOBILE VERSION IMAGE */}
-								<motion.div
-									className={`absolute group-hover:scale-115 transform transition-all duration-300 ease-in-out -translate-x-1/2 -translate-y-1/2 h-auto pointer-events-none ${
-										projectImageClassNameById[item.id] ?? 'top-20 left-4/5 w-32 sm:w-44 lg:top-35 lg:left-4/5 lg:w-56'
+								{/* HOVER IMAGE */}
+								<div
+									className={`absolute -translate-x-1/2 -translate-y-1/2 pointer-events-none ${
+										projectImageClassNameById[item.id] ?? 'w-32 sm:w-44 lg:w-56'
 									}`}
-									initial={{ opacity: 0, scale: 0.9 }}
-									animate={{ opacity: 1, scale: 1 }}
-									transition={{ duration: 0.4 }}
+									style={projectImageStyleById[item.id] ?? { top: '5rem', left: '80%' }}
 								>
-									<Image
-										src={item.showenimg}
-										alt={item.title}
-										width={320}
-										height={320}
-										quality={75}
-										loading='lazy'
-										className='object-contain w-full h-auto'
-										sizes='(max-width: 640px) 128px, (max-width: 1024px) 176px, 320px'
-									/>
-								</motion.div>
+									<motion.div
+										className='group-hover:scale-115 transform transition-all duration-300 ease-in-out w-full h-auto'
+										initial={{ opacity: 0, scale: 0.9 }}
+										animate={{ opacity: 1, scale: 1 }}
+										transition={{ duration: 0.4 }}
+									>
+										<Image
+											src={item.showenimg}
+											alt={item.title}
+											width={320}
+											height={320}
+											quality={75}
+											loading='lazy'
+											className='object-contain w-full h-auto'
+											sizes='(max-width: 640px) 128px, (max-width: 1024px) 176px, 320px'
+										/>
+									</motion.div>
+								</div>
 							</motion.div>
 
 							{/* BOTTOM CARD - Always visible on mobile/tablet */}
