@@ -1,8 +1,15 @@
 import type { Metadata } from 'next'
+import { SITE_URL, OG_IMAGE } from '~/lib/seo'
 
-const siteUrl = 'https://cognilabs.uz'
+const siteUrl = SITE_URL
 
-export const metadata: Metadata = {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  return {
   title: 'IT Portfolio & Projects — Case Studies | Cognilabs Uzbekistan',
   description:
     'Explore Cognilabs portfolio of 20+ successful IT projects in Uzbekistan: restaurant systems, taxi apps, solar energy websites, marketplace platforms, clinic portals, barbershop sites and more.',
@@ -89,22 +96,26 @@ export const metadata: Metadata = {
       'Explore our portfolio of 20+ successful IT projects in Uzbekistan including web apps, mobile apps, marketplace platforms and business websites.',
     type: 'website',
     siteName: 'Cognilabs',
-    url: `${siteUrl}/en/portfolio`,
+    url: `${siteUrl}/${locale}/portfolio`,
+    images: [{ url: OG_IMAGE, alt: 'Cognilabs IT Portfolio' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'IT Portfolio | Cognilabs Uzbekistan',
     description: '20+ successful IT projects in Uzbekistan — web, mobile, AI and digital solutions.',
+    images: [OG_IMAGE],
   },
   alternates: {
-    canonical: `${siteUrl}/en/portfolio`,
+    canonical: `${siteUrl}/${locale}/portfolio`,
     languages: {
       en: `${siteUrl}/en/portfolio`,
       uz: `${siteUrl}/uz/portfolio`,
       ru: `${siteUrl}/ru/portfolio`,
+      'x-default': `${siteUrl}/en/portfolio`,
     },
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  }
 }
 
 export default function PortfolioLayout({ children }: { children: React.ReactNode }) {

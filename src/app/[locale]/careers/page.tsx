@@ -1,13 +1,20 @@
 
 import type { Metadata } from 'next'
+import { SITE_URL, OG_IMAGE } from '~/lib/seo'
 import CareerForm from '~/components/careers/form'
 import Part1 from '~/components/careers/part1'
 import WhyUs from '~/components/careers/why'
 import Footer from '~/components/Footer'
 
-const siteUrl = 'https://cognilabs.uz'
+const siteUrl = SITE_URL
 
-export const metadata: Metadata = {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  return {
   title: "IT Jobs & Careers in Tashkent — Join Cognilabs Uzbekistan",
   description: "Join Cognilabs, Uzbekistan's fast-growing IT company. We're hiring developers, designers, project managers and IT specialists in Tashkent. Build your tech career with us.",
   keywords: [
@@ -91,18 +98,26 @@ export const metadata: Metadata = {
     title: "IT Jobs & Careers in Tashkent — Join Cognilabs Uzbekistan",
     description: "Join Cognilabs, Uzbekistan's fast-growing IT company. We're hiring developers, designers and IT specialists in Tashkent.",
     type: 'website', siteName: 'Cognilabs',
-    url: `${siteUrl}/en/careers`,
+    url: `${siteUrl}/${locale}/careers`,
+    images: [{ url: OG_IMAGE, alt: 'Careers at Cognilabs' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: "IT Jobs & Careers — Cognilabs Uzbekistan",
     description: "Join Cognilabs IT team in Tashkent. Hiring developers, designers and IT specialists.",
+    images: [OG_IMAGE],
   },
   alternates: {
-    canonical: `${siteUrl}/en/careers`,
-    languages: { en: `${siteUrl}/en/careers`, uz: `${siteUrl}/uz/careers`, ru: `${siteUrl}/ru/careers` },
+    canonical: `${siteUrl}/${locale}/careers`,
+    languages: {
+      en: `${siteUrl}/en/careers`,
+      uz: `${siteUrl}/uz/careers`,
+      ru: `${siteUrl}/ru/careers`,
+      'x-default': `${siteUrl}/en/careers`,
+    },
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  }
 }
 
 export default function page() {

@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import { setRequestLocale } from "next-intl/server";
+import { SITE_URL, OG_IMAGE } from "~/lib/seo";
 
-const siteUrl = 'https://cognilabs.uz'
+const siteUrl = SITE_URL
 
 export function generateStaticParams() {
   return [{ locale: "en" }, { locale: "uz" }, { locale: "ru" }];
@@ -108,11 +109,17 @@ export async function generateMetadata({
       title, description, type: 'website',
       locale: locale === 'uz' ? 'uz_UZ' : locale === 'ru' ? 'ru_RU' : 'en_US',
       siteName: 'Cognilabs', url: `${siteUrl}/${locale}/about-us`,
+      images: [{ url: OG_IMAGE, alt: title }],
     },
-    twitter: { card: 'summary_large_image', title, description },
+    twitter: { card: 'summary_large_image', title, description, images: [OG_IMAGE] },
     alternates: {
       canonical: `${siteUrl}/${locale}/about-us`,
-      languages: { en: `${siteUrl}/en/about-us`, uz: `${siteUrl}/uz/about-us`, ru: `${siteUrl}/ru/about-us` },
+      languages: {
+        en: `${siteUrl}/en/about-us`,
+        uz: `${siteUrl}/uz/about-us`,
+        ru: `${siteUrl}/ru/about-us`,
+        'x-default': `${siteUrl}/en/about-us`,
+      },
     },
     robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
   }

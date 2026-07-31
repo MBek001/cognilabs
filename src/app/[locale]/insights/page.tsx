@@ -1,11 +1,12 @@
 // app/[locale]/insights/page.tsx
 import type { Metadata } from 'next'
+import { SITE_URL, OG_IMAGE } from '~/lib/seo'
 import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
 import BlogList from "~/components/insights/FetchBlog";
 import Footer from "~/components/Footer";
 
-const siteUrl = 'https://cognilabs.uz'
+const siteUrl = SITE_URL
 
 export async function generateMetadata({
   params,
@@ -19,7 +20,7 @@ export async function generateMetadata({
     ru: 'IT Новости и Технологический Блог — Cognilabs | Узбекистан',
   }
   const descriptions: Record<string, string> = {
-    en: 'Latest IT news, technology trends, software development tutorials, AI insights and digital transformation articles from Uzbekistan's leading tech company Cognilabs.',
+    en: "Latest IT news, technology trends, software development tutorials, AI insights and digital transformation articles from Uzbekistan's leading tech company Cognilabs.",
     uz: "O'zbekistonning yetakchi texnologiya kompaniyasi Cognilabsdan so'nggi IT yangiliklari, texnologiya tendentsiyalari, dasturlash darslari va AI haqida maqolalar.",
     ru: 'Последние IT новости, технологические тренды, туториалы по разработке, AI инсайты и статьи о цифровой трансформации от ведущей IT компании Узбекистана — Cognilabs.',
   }
@@ -110,11 +111,17 @@ export async function generateMetadata({
       title, description, type: 'website',
       locale: locale === 'uz' ? 'uz_UZ' : locale === 'ru' ? 'ru_RU' : 'en_US',
       siteName: 'Cognilabs', url: `${siteUrl}/${locale}/insights`,
+      images: [{ url: OG_IMAGE, alt: title }],
     },
-    twitter: { card: 'summary_large_image', title, description },
+    twitter: { card: 'summary_large_image', title, description, images: [OG_IMAGE] },
     alternates: {
       canonical: `${siteUrl}/${locale}/insights`,
-      languages: { en: `${siteUrl}/en/insights`, uz: `${siteUrl}/uz/insights`, ru: `${siteUrl}/ru/insights` },
+      languages: {
+        en: `${siteUrl}/en/insights`,
+        uz: `${siteUrl}/uz/insights`,
+        ru: `${siteUrl}/ru/insights`,
+        'x-default': `${siteUrl}/en/insights`,
+      },
     },
     robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
   }

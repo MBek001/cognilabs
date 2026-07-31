@@ -1,5 +1,6 @@
 
 import type { Metadata } from 'next'
+import { SITE_URL, OG_IMAGE } from '~/lib/seo'
 import ClientsOpinion from '~/components/ClientsOpinion'
 import Faq from '~/components/Faq'
 import Footer from '~/components/Footer'
@@ -12,7 +13,7 @@ import Services from '~/components/Services'
 import TrustCases from '~/components/TrustCases'
 import { setRequestLocale } from 'next-intl/server'
 
-const siteUrl = 'https://cognilabs.uz'
+const siteUrl = SITE_URL
 
 export async function generateMetadata({
   params,
@@ -116,11 +117,17 @@ export async function generateMetadata({
       locale: locale === 'uz' ? 'uz_UZ' : locale === 'ru' ? 'ru_RU' : 'en_US',
       siteName: 'Cognilabs',
       url: `${siteUrl}/${locale}`,
+      images: [{ url: OG_IMAGE, alt: title }],
     },
-    twitter: { card: 'summary_large_image', title, description },
+    twitter: { card: 'summary_large_image', title, description, images: [OG_IMAGE] },
     alternates: {
       canonical: `${siteUrl}/${locale}`,
-      languages: { en: `${siteUrl}/en`, uz: `${siteUrl}/uz`, ru: `${siteUrl}/ru` },
+      languages: {
+        en: `${siteUrl}/en`,
+        uz: `${siteUrl}/uz`,
+        ru: `${siteUrl}/ru`,
+        'x-default': `${siteUrl}/en`,
+      },
     },
     robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
   }

@@ -1,8 +1,15 @@
 import type { Metadata } from 'next'
+import { SITE_URL, OG_IMAGE } from '~/lib/seo'
 
-const siteUrl = 'https://cognilabs.uz'
+const siteUrl = SITE_URL
 
-export const metadata: Metadata = {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  return {
   title: 'IT Services — Web Development, Mobile Apps, AI & Telegram Bots | Cognilabs Uzbekistan',
   description:
     'Full-stack IT services in Uzbekistan: custom web development, iOS/Android mobile apps, AI integration, Telegram bots, CRM/ERP systems, UI/UX design. Get your free consultation in Tashkent.',
@@ -92,22 +99,26 @@ export const metadata: Metadata = {
       'Full-stack IT services in Uzbekistan: web development, mobile apps, AI integration, Telegram bots, CRM/ERP and more.',
     type: 'website',
     siteName: 'Cognilabs',
-    url: `${siteUrl}/en/services`,
+    url: `${siteUrl}/${locale}/services`,
+    images: [{ url: OG_IMAGE, alt: 'Cognilabs IT Services' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'IT Services | Cognilabs Uzbekistan',
     description: 'Web development, mobile apps, AI, Telegram bots, CRM/ERP in Tashkent, Uzbekistan.',
+    images: [OG_IMAGE],
   },
   alternates: {
-    canonical: `${siteUrl}/en/services`,
+    canonical: `${siteUrl}/${locale}/services`,
     languages: {
       en: `${siteUrl}/en/services`,
       uz: `${siteUrl}/uz/services`,
       ru: `${siteUrl}/ru/services`,
+      'x-default': `${siteUrl}/en/services`,
     },
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  }
 }
 
 export default function ServicesLayout({ children }: { children: React.ReactNode }) {
