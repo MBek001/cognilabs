@@ -20,6 +20,9 @@ export default function TrustCases() {
     "/clients/article.png",
     "/clients/solar.jpg",
     "/clients/texnogrand.png",
+    "/clients/lokomotiv.png",
+    "/clients/euroflowers.png",
+    "/clients/eyeclinic.png",
   ];
 
   const trustImages2 = [
@@ -34,6 +37,8 @@ export default function TrustCases() {
     "/clients/renessans.jpg",
     "/clients/kas.png",
     "/clients/bogot.jpg",
+    "/clients/moydin.png",
+    "/clients/avikontex.png",
   ];
 
   // Hover pause for first row
