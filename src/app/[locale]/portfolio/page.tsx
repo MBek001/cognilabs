@@ -34,6 +34,11 @@ export default function Page() {
 		5: 'pr-24 sm:pr-32 lg:pr-48',
 		6: 'pr-24 sm:pr-32 lg:pr-44',
 		11: 'pr-28 sm:pr-36 lg:pr-52',
+		25: 'pr-24 sm:pr-32 lg:pr-40',
+		26: 'pr-24 sm:pr-32 lg:pr-40',
+		27: 'pr-24 sm:pr-32 lg:pr-40',
+		28: 'pr-28 sm:pr-36 lg:pr-48',
+		29: 'pr-24 sm:pr-32 lg:pr-40',
 	}
 	const projectImageClassNameById: Record<number, string> = {
 		3:  'w-20 sm:w-28 lg:w-36',
@@ -48,9 +53,14 @@ export default function Page() {
 		22: 'w-20 sm:w-28 lg:w-36',
 		23: 'w-20 sm:w-28 lg:w-36',
 		24: 'w-20 sm:w-28 lg:w-36',
+		25: 'w-24 sm:w-32 lg:w-44',
+		26: 'w-24 sm:w-32 lg:w-44',
+		27: 'w-24 sm:w-32 lg:w-44',
+		28: 'w-24 sm:w-32 lg:w-44',
+		29: 'w-24 sm:w-32 lg:w-44',
 	}
 	const projectImageStyleById: Record<number, { top: string; left: string }> = {
-		3:  { top: '2rem',   left: '95%' },
+		3:  { top: '5.5rem', left: '82%' },
 		5:  { top: '5.5rem', left: '79%' },
 		6:  { top: '5.5rem', left: '82%' },
 		7:  { top: '5.5rem', left: '83%' },
@@ -62,11 +72,21 @@ export default function Page() {
 		22: { top: '5.5rem', left: '82%' },
 		23: { top: '5.5rem', left: '82%' },
 		24: { top: '5.5rem', left: '82%' },
+		25: { top: '5.5rem', left: '82%' },
+		26: { top: '5.5rem', left: '82%' },
+		27: { top: '5.5rem', left: '82%' },
+		28: { top: '5.5rem', left: '82%' },
+		29: { top: '5.5rem', left: '82%' },
 	}
 	const logoSizeById: Record<number, number> = {
 		9: 64,
 		14: 72,
 		19: 64,
+		25: 64,
+		26: 64,
+		27: 64,
+		28: 64,
+		29: 72,
 	}
 	const projects = [
 		// ... your projects array stays exactly the same
@@ -164,6 +184,66 @@ export default function Page() {
 			showenimg: '/projectslogo/shows/restaurant.png',
 			bout: 'Restaurant',
 			mssg: t('hoshangmssg'),
+			link: '',
+		},
+		{
+			id: 25,
+			title: 'Lokomotiv',
+			logo: '/clients/lokomotiv.png',
+			desc: t('lokomotivtext'),
+			prtype: t('lokomotivtype'),
+			typeicon: '/projectslogo/icons/lokomotiv.png',
+			showenimg: '/projectslogo/shows/lokomotiv.png',
+			bout: t('lokomotivpr'),
+			mssg: t('lokomotivmssg'),
+			link: '',
+		},
+		{
+			id: 26,
+			title: 'Euroflowers',
+			logo: '/clients/euroflowers.png',
+			desc: t('euroflowerstext'),
+			prtype: t('euroflowerstype'),
+			typeicon: '/projectslogo/icons/euroflowers.png',
+			showenimg: '/projectslogo/shows/euroflowers.png',
+			bout: t('euroflowerspr'),
+			mssg: t('euroflowersmssg'),
+			link: '',
+		},
+		{
+			id: 27,
+			title: "Ko'z nuri",
+			logo: '/clients/eyeclinic.png',
+			desc: t('koznuritext'),
+			prtype: t('koznuritype'),
+			typeicon: '/projectslogo/icons/eyeclinic.png',
+			showenimg: '/projectslogo/shows/eyeclinic.png',
+			bout: t('koznuripr'),
+			mssg: t('koznurimssg'),
+			link: '',
+		},
+		{
+			id: 28,
+			title: 'Moydin Polvon Choyxonasi',
+			logo: '/clients/moydin.png',
+			desc: t('moydintext'),
+			prtype: t('moydintype'),
+			typeicon: '/projectslogo/icons/choyxona.png',
+			showenimg: '/projectslogo/shows/choyxona.png',
+			bout: t('moydinpr'),
+			mssg: t('moydinmssg'),
+			link: '',
+		},
+		{
+			id: 29,
+			title: 'Avikontex',
+			logo: '/clients/avikontex.png',
+			desc: t('avikontextext'),
+			prtype: t('avikontextype'),
+			typeicon: '/projectslogo/icons/avikontex.png',
+			showenimg: '/projectslogo/shows/avikontex.png',
+			bout: t('avikontexpr'),
+			mssg: t('avikontexmssg'),
 			link: '',
 		},
 		{
@@ -388,7 +468,7 @@ export default function Page() {
 							className='group flex flex-col'
 						>
 							{/* MAIN CARD */}
-							<motion.div className='bg-[#111] group relative rounded-3xl  border border-gray-800 hover:border-blue-500 transition-all duration-300 cursor-pointer'>
+							<motion.div className='bg-[#111] group relative h-[300px] overflow-hidden rounded-3xl border border-gray-800 hover:border-blue-500 transition-all duration-300 cursor-pointer'>
 								<div
 									className={`p-6 ${projectContentClassNameById[item.id] ?? 'lg:pr-32'}`}
 								>
@@ -398,6 +478,7 @@ export default function Page() {
 											width={16}
 											height={16}
 											alt={item.prtype}
+											className='rounded-sm object-cover'
 											quality={80}
 											loading='lazy'
 										/>
@@ -408,7 +489,7 @@ export default function Page() {
 
 									<div className='flex gap-4 items-center mb-3'>
 										<Image
-											className='rounded-full border-2 border-gray-700'
+											className='rounded-full object-contain'
 											src={item.logo}
 											width={logoSizeById[item.id] ?? 56}
 											height={logoSizeById[item.id] ?? 56}
@@ -473,7 +554,7 @@ export default function Page() {
 								<div className='bg-[#0f0f0f] rounded-3xl border border-gray-800 p-5 flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between'>
 									<div className='flex gap-4 items-center'>
 										<Image
-											className='rounded-full'
+											className='rounded-full object-contain'
 											src={item.logo}
 											width={logoSizeById[item.id] ? logoSizeById[item.id] - 6 : 50}
 											height={logoSizeById[item.id] ? logoSizeById[item.id] - 6 : 50}

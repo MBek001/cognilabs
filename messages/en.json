@@ -346,6 +346,32 @@
 
   "denovtext": "DenovBozor provides homes, vehicles, furniture, and much more, connecting buyers with quality products quickly and reliably.",
   "denovmssg": "Our goal was to create a reliable and convenient online marketplace for Denov. Cognilabs fully understood our vision and built a modern, fast, and stable platform.",
+
+  "lokomotivtype": "Football",
+  "lokomotivtext": "Lokomotiv is a football organization focused on player development, academy management, training coordination, and creating a stronger digital foundation for coaches, players, parents, and supporters.",
+  "lokomotivpr": "Football Academy",
+  "lokomotivmssg": "We are building a platform similar to the solutions delivered for Alpha and Bunyodkor, bringing academy operations, schedules, communication, registrations, and performance information into one structured system.",
+
+  "euroflowerstype": "Flowers",
+  "euroflowerstext": "Euroflowers is a growing flower business that needs a clear view of products, orders, sales, customer conversations, employee performance, and daily financial activity.",
+  "euroflowerspr": "CRM and AI",
+  "euroflowersmssg": "We built a CRM with an AI assistant that speaks with clients, tracks how much of each flower is sold, and shows which employee earned money for completed work.",
+
+  "koznuritype": "Eye Clinic",
+  "koznuritext": "Ko'z nuri is an eye-care medical center where organized patient flow, reliable records, and quick access to treatment history are essential for doctors and patients.",
+  "koznuripr": "Queue and Patient History",
+  "koznurimssg": "We built an automated queue system and patient history module so the clinic can organize visits, find previous records quickly, and give every patient a smoother experience.",
+
+  "moydintype": "Restaurant",
+  "moydintext": "Moydin Polvon Choyxonasi is a busy traditional restaurant where customers need a simple way to reserve tables and tapchans before arriving and order food without waiting.",
+  "moydinpr": "Booking and Orders",
+  "moydinmssg": "We created an app for table and tapchan bookings, digital food orders, and clearer coordination between guests, staff, and the kitchen during busy service.",
+
+  "avikontextype": "Medical Equipment",
+  "avikontextext": "Avikontex supplies medical laboratory equipment and needs dependable control over products, customers, sales, stock, employees, and the business processes connecting them.",
+  "avikontexpr": "CRM and ERP",
+  "avikontexmssg": "We are developing a full CRM and ERP system that will centralize sales, inventory, customer management, reporting, and internal workflows as Avikontex continues to grow.",
+
     "visitpr": "Visit the project",
     "bottomtext": "Our service stands out for its quality, speed, and reliability. We focus on making everything simple for you while delivering results that feel genuinely impressive"
   },
