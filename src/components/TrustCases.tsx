@@ -129,7 +129,7 @@ export default function TrustCases() {
                 key={index}
                 className="w-[110px] sm:w-[130px] md:w-[140px] lg:w-[135px] shrink-0"
               >
-                <div className="aspect-square rounded-full flex items-center justify-center overflow-hidden transition-transform duration-300 hover:scale-105 hover:rotate-3">
+                <div className="aspect-square rounded-full bg-white flex items-center justify-center overflow-hidden transition-transform duration-300 hover:scale-105 hover:rotate-3">
                   <Image
                     src={image}
                     alt={`Company-${index}`}
@@ -155,7 +155,7 @@ export default function TrustCases() {
                 key={index}
                 className="w-[110px] sm:w-[130px] md:w-[140px] lg:w-[135px] shrink-0"
               >
-                <div className="aspect-square rounded-full flex items-center justify-center overflow-hidden transition-transform duration-300 hover:scale-105 hover:-rotate-3">
+                <div className="aspect-square rounded-full bg-white flex items-center justify-center overflow-hidden transition-transform duration-300 hover:scale-105 hover:-rotate-3">
                   <Image
                     src={image}
                     alt={`Company-r-${index}`}
