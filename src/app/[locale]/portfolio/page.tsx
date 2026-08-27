@@ -440,6 +440,15 @@ export default function Page() {
 		},
 	]
 
+	// Display order for the projects grid. Ids left out here are hidden (KAS 2, Texnogrand 6, Aroma 18, Baza 21).
+	const projectOrder = [
+		1, 25, 3, 27, 26, 4, 5, 7, 8, 28, 29, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19,
+		20, 22, 23, 24,
+	]
+	const orderedProjects = projectOrder
+		.map(id => projects.find(p => p.id === id))
+		.filter((p): p is (typeof projects)[number] => Boolean(p))
+
 	return (
 		<div className='bg-black pt-50 '>
 			<div className='container mx-auto px-4'>
@@ -460,7 +469,7 @@ export default function Page() {
 
 				{/* PROJECTS GRID */}
 				<div className='grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto capitalize'>
-					{projects.map(item => (
+					{orderedProjects.map(item => (
 						<div
 							key={item.id}
 							onMouseEnter={() => onEnter(item.id)}
