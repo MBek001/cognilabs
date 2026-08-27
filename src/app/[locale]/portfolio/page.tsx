@@ -30,6 +30,7 @@ export default function Page() {
 	const shouldShowBottomCard = (id: number) => isMobile || hovered === id
 	const t = useTranslations('Porfolio')
 	const projectContentClassNameById: Record<number, string> = {
+		1: 'pr-24 sm:pr-32 lg:pr-40',
 		3: 'pr-24 sm:pr-32 lg:pr-44',
 		5: 'pr-24 sm:pr-32 lg:pr-48',
 		6: 'pr-24 sm:pr-32 lg:pr-44',
@@ -41,6 +42,7 @@ export default function Page() {
 		29: 'pr-24 sm:pr-32 lg:pr-40',
 	}
 	const projectImageClassNameById: Record<number, string> = {
+		1:  'w-24 sm:w-32 lg:w-44',
 		3:  'w-20 sm:w-28 lg:w-36',
 		5:  'w-24 sm:w-32 lg:w-48',
 		6:  'w-24 sm:w-36 lg:w-56',
@@ -60,6 +62,7 @@ export default function Page() {
 		29: 'w-24 sm:w-32 lg:w-44',
 	}
 	const projectImageStyleById: Record<number, { top: string; left: string }> = {
+		1:  { top: '5.5rem', left: '82%' },
 		3:  { top: '5.5rem', left: '82%' },
 		5:  { top: '5.5rem', left: '79%' },
 		6:  { top: '5.5rem', left: '82%' },
